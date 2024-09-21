@@ -14,7 +14,10 @@ export default function MainPage() {
       <div className='content'>
         <div className='text-section'>
           <div className='big-title'>
-            Plan your courses <br /> to align with your career path
+          <div className='big-title'>
+            Plan your courses to <br /> align with your <span className='highlight'>career path</span>
+          </div>
+
           </div>
           <div className='description'>
           The Yale CourseMap is here to help you easily plan your courses and align them with your career goals. Using smart AI and Yale's course data, the app gives you personalized course recommendations based on what you want to achieve. No more confusion over what classes to take – this tool makes course selection simple and tailored just for you, helping you stay on track for your dream career.
