@@ -1,45 +1,60 @@
 /* AboutUs.css */
 
-.about-us-container {
-    background-color: #f5f8ff; /* Light blue background */
-    min-height: 100vh; /* Ensure full page scroll */
-    padding: 40px 20px;
+/* Apply Poppins font and full-page background */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .about-us-container {
+    background-color: #e3f2fd; /* Light blue background */
+    min-height: 100vh;
+    padding: 50px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
+  /* Center the header and make text large and visually appealing */
   .header {
     text-align: center;
-    color: #001f4d; /* Dark blue for header text */
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   
   .header h1 {
-    font-size: 3rem;
+    font-size: 4rem; /* Larger heading size */
+    font-weight: 700;
+    color: #0D47A1; /* Darker blue */
     margin-bottom: 20px;
   }
   
   .header p {
-    font-size: 1.2rem;
-    max-width: 800px;
+    font-size: 1.5rem; /* Slightly larger paragraph size */
+    font-weight: 400;
+    color: #004D99; /* Blue shade for text */
+    max-width: 900px;
+    line-height: 1.6;
   }
   
+  /* Styling for the team grid */
   .team {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust to fit more items in grid */
     gap: 30px;
     max-width: 1200px;
     width: 100%;
     justify-items: center;
   }
   
+  /* Styling for individual team members */
   .team-member-card {
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
   }
   
@@ -48,20 +63,23 @@
   }
   
   .team-member-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 15px;
+    width: 100%;
+    height: 300px; /* Define a fixed height for consistency */
+    object-fit: cover;
+    border-radius: 10px; /* Keep image square with slightly rounded corners */
+    margin-bottom: 20px;
   }
   
   h3 {
-    color: #001f4d;
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Larger name font */
+    color: #0D47A1;
+    font-weight: 600;
     margin-bottom: 10px;
   }
   
   p {
-    font-size: 1rem;
-    color: #333;
+    font-size: 1.1rem;
+    color: #333; /* Neutral text color */
+    margin-bottom: 10px;
   }
   
