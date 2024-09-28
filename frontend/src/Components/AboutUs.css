@@ -80,4 +80,23 @@
     line-height: 1.5;
     padding: 0 10px;
   }
+
+  .back-arrow-container {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+  }
+  
+  .back-arrow-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .back-arrow-button img {
+    width: 45px;
+    height: 45px;
+  }
+  
   

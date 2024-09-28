@@ -1,0 +1,171 @@
+/* Reset and Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #F7F9FB;
+  }
+  
+  /* Main Container */
+  .course-map-container {
+    padding: 40px 20px;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2f2e41;
+  }
+  
+  .about-button {
+    background-color: #3949ab;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .about-button:hover {
+    background-color: #2f378e;
+  }
+  
+  /* Main Content Layout */
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  /* Panels Styling */
+  .left-panel, .right-panel {
+    width: 48%;
+  }
+
+.image-container {
+    width: 5%; /* Adjust the width to match the panels */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+  
+  /* Form Titles */
+  .left-panel h2, .right-panel h2 {
+    font-size: 24px;
+    color: #1e3a8a; /* New color */
+    margin-bottom: 15px;
+    margin-top:50px;
+    font-weight: bold;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .form-row .form-group {
+    width: 48%; /* Labels and dropdowns take up 48% of the width each */
+  }
+  
+  .form-group label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3a8a;
+  }
+
+  .career-goals {
+    height: 200px; /* Increase the height as desired */
+    width: 100%; /* Keep the width as it is */
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #f7f9fb;
+    font-size: 16px;
+    color: #2f2e41;
+}
+.prior-courses {
+    height: 165px; /* Increase the height as desired */
+    width: 100%; /* Keep the width as it is */
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #f7f9fb;
+    font-size: 16px;
+    color: #2f2e41;
+}
+  .form-group select,
+  .form-group input,
+  .career-goals,
+  .prior-courses {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #f7f9fb;
+    font-size: 16px;
+    color: #2f2e41;
+  }
+  
+  /* Plan Button */
+
+  .plan-button-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+  .plan-button {
+    width: 200px;
+    height: 55px;
+    background-color: #1e3a8a;
+    border-radius: 28px;
+    font-size: 18px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .plan-button:hover {
+    background-color: #3792E6;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .plan-button:active {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Remove Containers (No background colors for panels) */
+  .left-panel, .right-panel {
+    background-color: transparent; /* Remove white background */
+    box-shadow: none; /* Remove shadow */
+    border-radius: 0; /* Remove border radius */
+  }
+  
+  /* Adjustments for inputs and buttons without containers */
+  .form-group select,
+  .form-group input,
+  .career-goals,
+  .prior-courses {
+    background-color: white; /* Keep form inputs with light background */
+    border: 1px solid #d1d5db; /* Light border */
+  }
+  
+  
+  
+  
+  
