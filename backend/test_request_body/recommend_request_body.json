@@ -1,0 +1,18 @@
+{
+  "major": "Computer Science",
+  "semester": "Fall 2024",
+  "schedulePreferences": {
+    "earliestStartTime": "08:00 AM",
+    "latestEndTime": "06:00 PM"
+  },
+  "careerGoals": "I want to be a game developer",
+  "fulfilledRequirements": {
+    "humanities": ["ENGL 114", "ENGL 120"],
+    "sciences": ["CHEM 161", "CHEM 162"],
+    "social": ["KREN L1 to L2"],
+    "qr": ["MATH 120"],
+    "writing": ["KREN L1 to L2"],
+    "language": ["SPAN 110"],
+    "priorCourses": ["MATH 225", "CPSC 201", "CPSC 323"]
+  }
+}
