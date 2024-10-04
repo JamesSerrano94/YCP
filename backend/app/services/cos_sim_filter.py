@@ -21,10 +21,12 @@ except ImportError:
         raise ImportError("Cannot import APIKeysConfig")
 
 class CosSimFilter:
-    def __init__(self):
-        self.api_keys = APIKeysConfig()
-
-        self.openai_client = OpenAI(api_key=self.api_keys.openai_api)
+    def __init__(self, openai_api_key=None):
+        if openai_api_key:
+            self.openai_client = OpenAI(openai_api_key)
+        else:
+            self.api_keys = APIKeysConfig()
+            self.openai_client = OpenAI(api_key=self.api_keys.openai_api)
 
     def get_embedding(self, text):
         response = self.openai_client.embeddings.create(

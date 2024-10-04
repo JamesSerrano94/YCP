@@ -13,5 +13,22 @@ class Course(BaseModel):
     meetingPattern: List[str]
     prerequisites: List[str]
 
+class SchedulePreferences(BaseModel):
+    earliestStartTime: str
+    latestEndTime: str
+
+class FulfilledRequirements(BaseModel):
+    humanities: List[str]
+    sciences: List[str]
+    social: List[str]
+    qr: List[str]
+    writing: List[str]
+    language: List[str]
+    priorCourses: List[str]
+
 class CourseRecommendationRequest(BaseModel):
-    user_input: str
+    major: str
+    semester: str
+    schedulePreferences: SchedulePreferences
+    careerGoals: str
+    fulfilledRequirements: FulfilledRequirements
