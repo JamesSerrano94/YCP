@@ -37,18 +37,22 @@ async def recommend(request: CourseRecommendationRequest):
     """
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
-    use_keyword_filtering = os.getenv('USE_KEYWORD_FILTERING')
+    use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
 
     print("The received request is: ", request)
     print("yale_course_search_api_key: ", yale_course_search_api_key)
     print("openai_api_key: ", openai_api_key)
-    print("use_keyword_filtering: ", use_keyword_filtering)
+    print("use_cos_sim_filtering: ", use_cos_sim_filtering)
 
     # TODO: Step 1: Search based on front-end input, and exclude course that are already taken (Yang)
 
-    # TODO: Step 2: Filter to reduce context length based to relevance of the careerGoals (the option is selected based on use_keyword_filtering(
-    #       TODO: Option 1: Use cosine similarity on text embeddings (Xiatao)
-    #       TODO: Option 2: Use keyword filtering (James)
+    # TODO: Step 2: Filter to reduce context length based to relevance of the careerGoals
+    if use_cos_sim_filtering:
+        # TODO: Option 1: Use cosine similarity on text embeddings (Xiatao)
+        pass
+    else:
+        # TODO: Option 2: Use keyword filtering (James)
+        pass
 
     # TODO: Step 3: Parse into LLM for final output (Yangtian)
 
