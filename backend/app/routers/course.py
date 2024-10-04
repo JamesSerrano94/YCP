@@ -38,24 +38,25 @@ async def recommend(request: CourseRecommendationRequest):
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
+    number_of_courses_to_recommend = os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND')
 
     print("The received request is: ", request)
     print("yale_course_search_api_key: ", yale_course_search_api_key)
     print("openai_api_key: ", openai_api_key)
     print("use_cos_sim_filtering: ", use_cos_sim_filtering)
+    print("number_of_courses_to_recommend: ", number_of_courses_to_recommend)
 
     # TODO: Step 1: Search based on front-end input, and exclude course that are already taken (Yang)
 
     # TODO: Step 2: Filter to reduce context length based to relevance of the careerGoals
-    if use_cos_sim_filtering:
-        # TODO: Option 1: Use cosine similarity on text embeddings (Xiatao)
-        pass
-    else:
-        # TODO: Option 2: Use keyword filtering (James)
-        pass
+
+    # TODO: Step 2.1: Use keyword filtering (James) 
+
+    # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
 
     # TODO: Step 3: Parse into LLM for final output (Yangtian)
 
     # TODO: need to finalize the output for this POST request
+    # TODO: the returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
     return {"llm_generated_text": "this is a placeholder for LLM generated text"}
 
