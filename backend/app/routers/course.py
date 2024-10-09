@@ -72,12 +72,6 @@ async def recommend(request: CourseRecommendationRequest):
     llm_recommended_courses = cos_sim_filtered_courses
 
     # The returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
-    # Check if all courses have distDesg field
-    llm_recommended_courses_with_reduced_fields = []
-    all_have_distDesg = all("distDesg" in course for course in llm_recommended_courses)
-
-    print("all_have_distDesg: ", all_have_distDesg)
-        
     llm_recommended_courses_with_reduced_fields = [
             {
                 "courseTitle": course.get("courseTitle", ""),  
