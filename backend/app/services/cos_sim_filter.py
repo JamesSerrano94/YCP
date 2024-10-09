@@ -23,7 +23,7 @@ except ImportError:
 class CosSimFilter:
     def __init__(self, openai_api_key=None):
         if openai_api_key:
-            self.openai_client = OpenAI(openai_api_key)
+            self.openai_client = OpenAI(api_key=openai_api_key)
         else:
             self.api_keys = APIKeysConfig()
             self.openai_client = OpenAI(api_key=self.api_keys.openai_api)
@@ -65,6 +65,7 @@ class CosSimFilter:
         for course in courses:
             course['cosine_similarity'] = self.cosine_similarity(user_input_embedding, course['embedding'])
 
+        print("courses: ", courses)
         top_n_courses = sorted(courses, key=lambda x: x['cosine_similarity'], reverse=True)[:n]
 
         return top_n_courses

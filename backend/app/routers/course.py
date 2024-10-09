@@ -3,6 +3,7 @@
 from fastapi import APIRouter, HTTPException
 from app.services.cos_sim_filter import CosSimFilter
 from app.models.course import CourseRecommendationRequest
+import json
 import os
 
 router = APIRouter(
@@ -38,7 +39,7 @@ async def recommend(request: CourseRecommendationRequest):
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
-    number_of_courses_to_recommend = os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND')
+    number_of_courses_to_recommend = int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND'))
 
     print("The received request is: ", request)
     print("yale_course_search_api_key: ", yale_course_search_api_key)
@@ -52,11 +53,38 @@ async def recommend(request: CourseRecommendationRequest):
 
     # TODO: Step 2.1: Use keyword filtering (James) 
 
+    # This is a placeholder JSON when the search and keyworld filtering is not implemented
+    # Need to replace this with actual search and keyword filtering
+    with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
+        keyword_filtered_courses = json.load(f)
+
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
+    cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key)
+
+    cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
+                                                                                                       keyword_filtered_courses, 
+                                                                                                       n=number_of_courses_to_recommend)
+
 
     # TODO: Step 3: Parse into LLM for final output (Yangtian)
 
-    # TODO: need to finalize the output for this POST request
-    # TODO: the returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
-    return {"llm_generated_text": "this is a placeholder for LLM generated text"}
+    # This is a placeholder JSON when the LLM querying is not implemented
+    llm_recommended_courses = cos_sim_filtered_courses
+
+    # The returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
+    # Check if all courses have distDesg field
+    llm_recommended_courses_with_reduced_fields = []
+    all_have_distDesg = all("distDesg" in course for course in llm_recommended_courses)
+        
+    llm_recommended_courses_with_reduced_fields = [
+            {
+                "courseTitle": course["courseTitle"],
+                "courseNumber": course["courseNumber"],
+                "time": course["meetingPattern"],
+                "description": course["description"],
+                "distDesg": course["distDesg"]
+            }
+            for course in llm_recommended_courses
+        ]
+    return llm_recommended_courses_with_reduced_fields
 

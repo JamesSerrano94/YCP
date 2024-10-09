@@ -19,3 +19,11 @@
   ```
   conda env create -f environment.yml
   ```
+- Navigate to the backend folder
+  ```
+  cd backend
+  ```
+- Run the application with Uvicorn
+  ```
+  uvicorn app.main:app --reload
+  ```
