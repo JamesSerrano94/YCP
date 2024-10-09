@@ -19,10 +19,13 @@ jobs:
         environment-file: backend/environment.yml  
         auto-activate-base: false
 
-    - name: Activate environment
+    - name: Initialize Conda and activate environment
+      shell: bash -l {0}
       run: |
-        conda activate $(head -n 1 backend/environment.yml | cut -d ' ' -f2)  # Activate environment
-        python -m pip install pylint  # Ensure pylint is installed
+        conda init bash  # Initialize conda for bash shell
+        source ~/.bashrc  # Source the updated bashrc to apply conda init
+        conda activate yccp  # Activate the environment with the name defined in environment.yml
+        python -m pip install pylint  # Install pylint
 
     - name: Analysing the code with pylint
       run: |
