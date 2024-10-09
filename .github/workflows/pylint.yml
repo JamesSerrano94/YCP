@@ -21,6 +21,16 @@ jobs:
         auto-activate-base: false
         shell-setup: true
 
-    - name: Analysing the code with pylint
+    - name: Install pylint
+      shell: bash -l {0}
       run: |
+        source "$(conda info --base)/etc/profile.d/conda.sh"
+        conda activate yccp
+        conda install -y pylint
+
+    - name: Analysing the code with pylint
+      shell: bash -l {0}
+      run: |
+        source "$(conda info --base)/etc/profile.d/conda.sh"
+        conda activate yccp
         pylint $(git ls-files '*.py')
