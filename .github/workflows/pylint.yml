@@ -17,9 +17,10 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         environment-file: backend/environment.yml  
-        activate-environment: true
+        activate-environment: yccp
         auto-activate-base: false
+        shell-setup: true
 
     - name: Analysing the code with pylint
       run: |
-        conda run -n yccp pylint $(git ls-files '*.py')
+        pylint $(git ls-files '*.py')
