@@ -63,7 +63,10 @@ class CosSimFilter:
         b = np.array(b)
         return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
-    def get_top_n_cos_sim_courses_given_user_input_and_json_data(self, user_input, course_data, n=5):
+    def get_top_n_cos_sim_courses_given_user_input_and_json_data(self, 
+                                                                 user_input, 
+                                                                 course_data, 
+                                                                 n=5):
         """Get top N courses similar to user input."""
         user_input_embedding = self.get_embedding(user_input)
 
@@ -98,6 +101,7 @@ def main():
 
     for course in top_n_courses:
         print(course['courseNumber'], course['courseTitle'], course['cosine_similarity'])
+
 
 
 if __name__ == "__main__":

@@ -1,9 +1,10 @@
-# app/main.py
+"""
+This module initializes the FastAPI app and includes the routers.
+"""
 
 from fastapi import FastAPI
-from app.routers import course
 from dotenv import load_dotenv
-import os
+from app.routers import course
 
 load_dotenv()
 

@@ -1,0 +1,12 @@
+[MESSAGES CONTROL]
+disable=
+    C0114,  # Missing module docstring
+    C0115,  # Missing class docstring
+    C0116,  # Missing function or method docstring
+    W0511,  # Fixme/TODO comments
+
+[FORMAT]
+max-line-length=120
+
+[MASTER]
+init-hook='import sys; sys.path.append(".")'
