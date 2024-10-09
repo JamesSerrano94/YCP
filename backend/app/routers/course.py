@@ -75,14 +75,16 @@ async def recommend(request: CourseRecommendationRequest):
     # Check if all courses have distDesg field
     llm_recommended_courses_with_reduced_fields = []
     all_have_distDesg = all("distDesg" in course for course in llm_recommended_courses)
+
+    print("all_have_distDesg: ", all_have_distDesg)
         
     llm_recommended_courses_with_reduced_fields = [
             {
-                "courseTitle": course["courseTitle"],
-                "courseNumber": course["courseNumber"],
-                "time": course["meetingPattern"],
-                "description": course["description"],
-                "distDesg": course["distDesg"]
+                "courseTitle": course.get("courseTitle", ""),  
+                "courseNumber": course.get("courseNumber", ""),  
+                "time": course.get("meetingPattern", []),  
+                "description": course.get("description", ""), 
+                "distDesg": course.get("distDesg", [])  
             }
             for course in llm_recommended_courses
         ]
