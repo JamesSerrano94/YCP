@@ -28,7 +28,7 @@ jobs:
         conda activate yccp
         conda install -y pylint
 
-    - name: Analysing the code with pylint
+    - name: Analyzing the code with pylint
       shell: bash -l {0}
       run: |
         source "$(conda info --base)/etc/profile.d/conda.sh"
