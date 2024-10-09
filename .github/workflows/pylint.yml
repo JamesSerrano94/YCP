@@ -11,23 +11,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    
+
     - name: Set up Conda
       uses: conda-incubator/setup-miniconda@v2
       with:
         python-version: ${{ matrix.python-version }}
         environment-file: backend/environment.yml  
-        auto-activate-base: true
-
-    - name: Create and activate conda environment
-      run: |
-        conda env create -f backend/environment.yml  # Create the environment from environment.yml
-        conda activate yccp  # Activate the environment
-
-    - name: Install pylint
-      run: |
-        conda install pylint  # Install pylint into the environment
+        activate-environment: true
+        auto-activate-base: false
 
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py')
+        conda run -n yccp pylint $(git ls-files '*.py')
