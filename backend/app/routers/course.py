@@ -107,7 +107,7 @@ def filter(df, startTime, endTime, taken_courses):
     # result = df[df['department'] == major]
     result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
     taken_courses_split = [course.split(' ', 1) for course in taken_courses]
-    print(taken_courses_split)
+    # print(taken_courses_split)
     taken_courses_df = pd.DataFrame(taken_courses_split, columns=['department', 'courseNumber'])
     result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
     result.reset_index(drop=True, inplace=True)
