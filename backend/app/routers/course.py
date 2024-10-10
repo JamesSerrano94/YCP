@@ -4,10 +4,12 @@ import json
 import os
 import pandas as pd
 import ast
+import requests
 from fastapi import APIRouter, HTTPException
 from app.services.cos_sim_filter import CosSimFilter
 from app.models.course import CourseRecommendationRequest
 from app.models.course import FulfilledRequirements
+from app.configs.api_keys import APIKeysConfig
 # from app.models.course import SchedulePreferences
 
 router = APIRouter(
@@ -53,20 +55,14 @@ async def recommend(request: CourseRecommendationRequest):
 
 
     # Step 1: Search based on front-end input, and exclude course that are already taken (Yang)
-
-    ###### change later to actual json input ######
-    with open('app/services/example_yale_course_search_api_return.json', 'r') as file:
-        data = json.load(file)
-    ###### change later to actual json input ######
+    data = search_course(request.semester, request.major)
     df = pd.json_normalize(data)
     start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
     end_time = convert_time_format(request.schedulePreferences.latestEndTime)
-    major = convert_major_format(request.major)
     taken_courses = get_taken_courses(request.fulfilledRequirements)
-    df = filter(df, major, start_time, end_time, taken_courses)
-
+    df = filter(df, start_time, end_time, taken_courses)
     output_json = df.to_json(orient="records", lines=False)
-    keyword_filtered_courses = json.loads(output_json)
+    
     ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
 
 
@@ -78,6 +74,7 @@ async def recommend(request: CourseRecommendationRequest):
     # Need to replace this with actual search and keyword filtering
     # with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
     #     keyword_filtered_courses = json.load(f)
+    keyword_filtered_courses = json.loads(output_json)
 
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
     cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key)
@@ -105,8 +102,9 @@ async def recommend(request: CourseRecommendationRequest):
         ]
     return llm_recommended_courses_with_reduced_fields
 
-def filter(df, major, startTime, endTime, taken_courses):
-    result = df[df['department'] == major]
+def filter(df, startTime, endTime, taken_courses):
+    result = df
+    # result = df[df['department'] == major]
     result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
     taken_courses_split = [course.split(' ', 1) for course in taken_courses]
     print(taken_courses_split)
@@ -114,6 +112,28 @@ def filter(df, major, startTime, endTime, taken_courses):
     result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
     result.reset_index(drop=True, inplace=True)
     return result
+
+def search_course(semester, major):
+    search_api = APIKeysConfig.yale_course_search_api
+    headers = {
+        'apikey': search_api,
+        'Accept': 'application/json',
+    }
+    params = {
+                    'termCode': get_term_code(semester),
+                    'subjectCode': convert_major_format(major),
+                }
+    response = requests.get("https://gw.its.yale.edu/soa-gateway/courses/webservice/v3/index", headers=headers, params=params)
+    return response.json()
+
+def get_term_code(term_str):
+    splitted = term_str.split()
+    termcode = '01'
+    if (splitted[0] == "Summer"):
+        termcode = '02'
+    elif(splitted[0] == "Fall"):
+        termcode = '03'
+    return splitted[1] + termcode  
 
 def get_taken_courses(courses: FulfilledRequirements):
     result = []
