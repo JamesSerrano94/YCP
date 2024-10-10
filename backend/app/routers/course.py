@@ -65,6 +65,8 @@ async def recommend(request: CourseRecommendationRequest):
     taken_courses = get_taken_courses(request.fulfilledRequirements)
     df = filter(df, major, start_time, end_time, taken_courses)
 
+    output_json = df.to_json(orient="records", lines=False)
+    keyword_filtered_courses = json.loads(output_json)
     ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
 
 
@@ -74,8 +76,8 @@ async def recommend(request: CourseRecommendationRequest):
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
     # Need to replace this with actual search and keyword filtering
-    with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
-        keyword_filtered_courses = json.load(f)
+    # with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
+    #     keyword_filtered_courses = json.load(f)
 
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
     cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key)
@@ -106,7 +108,8 @@ async def recommend(request: CourseRecommendationRequest):
 def filter(df, major, startTime, endTime, taken_courses):
     result = df[df['department'] == major]
     result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
-    taken_courses_split = [course.split() for course in taken_courses]
+    taken_courses_split = [course.split(' ', 1) for course in taken_courses]
+    print(taken_courses_split)
     taken_courses_df = pd.DataFrame(taken_courses_split, columns=['department', 'courseNumber'])
     result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
     result.reset_index(drop=True, inplace=True)
@@ -121,6 +124,7 @@ def get_taken_courses(courses: FulfilledRequirements):
     result.extend(courses.writing)
     result.extend(courses.language)
     result.extend(courses.priorCourses)
+    # print(result)
     return result
    
 
