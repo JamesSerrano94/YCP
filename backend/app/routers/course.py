@@ -10,6 +10,7 @@ from app.services.cos_sim_filter import CosSimFilter
 from app.models.course import CourseRecommendationRequest
 from app.models.course import FulfilledRequirements
 from app.configs.api_keys import APIKeysConfig
+from app.services.llm_recommender import LLMRecommender
 # from app.models.course import SchedulePreferences
 
 router = APIRouter(
@@ -85,9 +86,22 @@ async def recommend(request: CourseRecommendationRequest):
 
 
     # TODO: Step 3: Parse into LLM for final output (Yangtian)
+    # Transform cos_sim_filtered_courses into a JSON string
 
-    # This is a placeholder JSON when the LLM querying is not implemented
-    llm_recommended_courses = cos_sim_filtered_courses
+    # Initialize the LLM for final output
+    llm = LLMRecommender(openai_api_key=openai_api_key)
+
+    # Get LLM recommendations based on the filtered courses and user request
+    try:
+        llm_recommended_courses = llm.get_course_recommendations(
+            cos_sim_filtered_courses,
+            request.major,
+            request.careerGoals,
+            request.fulfilledRequirements
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
+
 
     # The returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
     llm_recommended_courses_with_reduced_fields = [
@@ -96,7 +110,8 @@ async def recommend(request: CourseRecommendationRequest):
                 "courseNumber": course.get("courseNumber", ""),  
                 "time": course.get("meetingPattern", []),  
                 "description": course.get("description", ""), 
-                "distDesg": course.get("distDesg", [])  
+                "distDesg": course.get("distDesg", []),
+                "explanation": course.get("explanation", "")
             }
             for course in llm_recommended_courses
         ]
