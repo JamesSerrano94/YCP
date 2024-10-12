@@ -43,7 +43,7 @@ def keywordSearch(prompt):
                 for userKey in keywordRequestArr:
                     ratio = Levenshtein.distance(userKey, keyDB)
                     if ratio >= threshold: 
-                        recommendedCourses.append(entry['courseTitle'])
+                        recommendedCourses.append(entry)
                         numCourses += 1
                         flag = True
                         break

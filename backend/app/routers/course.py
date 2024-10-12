@@ -9,9 +9,10 @@ from fastapi import APIRouter, HTTPException
 from app.services.cos_sim_filter import CosSimFilter
 from app.models.course import CourseRecommendationRequest
 from app.models.course import FulfilledRequirements
+from app.models.course import SchedulePreferences
 from app.configs.api_keys import APIKeysConfig
 from app.services.llm_recommender import LLMRecommender
-# from app.models.course import SchedulePreferences
+from . import YaleCoursePlannerKeyWordSearch
 
 router = APIRouter(
     prefix="/course",
@@ -46,7 +47,8 @@ async def recommend(request: CourseRecommendationRequest):
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
-    number_of_courses_to_recommend = int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND'))
+    #5 IS A PLACEHOLDER!!!!
+    number_of_courses_to_recommend = 5 #int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND'))
 
     print("The received request is: ", request)
     print("yale_course_search_api_key: ", yale_course_search_api_key)
@@ -67,9 +69,19 @@ async def recommend(request: CourseRecommendationRequest):
     ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
 
 
-    # TODO: Step 2: Filter to reduce context length based to relevance of the careerGoals
-
-    # TODO: Step 2.1: Use keyword filtering (James) 
+    #Step 2: Filter to reduce context length based to relevance of the careerGoals
+    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals)
+    # print("BEFORE FILTERING") DEBUGGING PURBUSES
+    # for course in keyword_filtered_courses:
+    #    print(course['subjectNumber'])
+    #Step 2.1: Use keyword filtering (James) 
+    for taken in taken_courses:
+       for suggestedCourse in keyword_filtered_courses:
+          if taken == suggestedCourse['subjectNumber']:
+             keyword_filtered_courses.remove(suggestedCourse)
+    # print("AFTER FILTERING") #DEBUGGING PURPOSES
+    # for course in keyword_filtered_courses:
+    #    print(course['subjectNumber'])
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
     # Need to replace this with actual search and keyword filtering
@@ -217,3 +229,30 @@ def convert_time_format(time):
         if hours != '12':
             hours = str(int(hours) + 12)
     return str(hours) + '.' + str(minutes)
+
+
+# schedule_preferences = SchedulePreferences(
+#     earliestStartTime="08:00 AM",
+#     latestEndTime="06:00 PM"
+# )
+
+# fulfilled_requirements = FulfilledRequirements(
+#     humanities=["ENGL 114", "ENGL 120"],
+#     sciences=["CHEM 161", "CHEM 162"],
+#     social=["KREN L1 to L2"],
+#     qr=["MATH 120"],
+#     writing=["KREN L1 to L2"],
+#     language=["SPAN 110"],
+#     priorCourses=["MATH225", "CPSC201", "CPSC323", "CPSC110"]
+# )
+
+# # Now create the CourseRecommendationRequest instance
+# course_recommendation_request = CourseRecommendationRequest(
+#     major="Computer Science",
+#     semester="Fall 2024",
+#     schedulePreferences=schedule_preferences,
+#     careerGoals="I want to be a game developer",
+#     fulfilledRequirements=fulfilled_requirements
+# )
+
+# recommend(course_recommendation_request)
