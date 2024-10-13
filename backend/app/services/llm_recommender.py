@@ -1,9 +1,10 @@
 import json
+import os
 import re
 from typing import List
 from openai import OpenAI
 
-system_prompt = """
+system_prompt = f"""
 You have access to a JSON dataset containing detailed information about various courses offered, including fields such as courseNumber, courseTitle, description, instructorList, meetingPattern, prerequisites, and distDesg (distribution designations).
 
 Your task is to recommend courses to users based on their preferences. When a user asks for course recommendations, consider the following aspects to make suitable suggestions:
@@ -45,9 +46,9 @@ Example Output:
 
 If no exact matches are found, offer similar alternatives or suggest courses that are close to the user's requirements.
 
-Now, given the JSON dataset and user preferences, recommend the most suitable courses.
+Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses.
 
-You are not allowed to output anything else besides the JSON format. And your answer should strictly follow the example output format.
+You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
 """
 
 def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cosine_similarity: bool = True) -> str:
@@ -77,7 +78,7 @@ class LLMRecommender:
         course_text = list_to_json(course_list)
         additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}"
         messages = [
-            {"role": "system", "content": system_prompt},
+            {"role": "system", "content": system_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))},
             {"role": "assistant", "content": f"The JSON dataset of courses is as follows:\n{course_text}"},
             {"role": "user", "content": additional_info}
         ]
