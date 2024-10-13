@@ -11,7 +11,7 @@ def keywordSearch(prompt):
         api_key='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'
     )
     # Define the path to your JSON file
-    file_path = 'C:\Yale\CS439\\f24-yale-career-pathway-planner\yale_courses_keywords.json'  # Replace with your actual file path
+    file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/backend/app/routers/yale_courses_keywords.json'  # Replace with your actual file path
 
     # Open and load the JSON file
     with open(file_path, 'r', encoding='utf-8') as json_file:
