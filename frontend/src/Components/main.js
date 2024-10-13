@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import './main.css';
 import './courseMap.css';
@@ -9,10 +9,70 @@ export default function MainPage() {
   const scrollToCourseMap = () => {
     courseMapRef.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  const [major, setMajor] = useState("Computer Science");
+  const [semester, setSemester] = useState("Fall 2024");
+  const [earliestStartTime, setEarliestStartTime] = useState('');
+  const [latestEndTime, setLatestEndTime] = useState('');
+  const [careerGoals, setCareerGoals] = useState('');
+  const [humanities, setHumanities] = useState('');
+  const [sciences, setSciences] = useState('');
+  const [social, setSocial] = useState('');
+  const [qr, setQr] = useState('');
+  const [writing, setWriting] = useState('');
+  const [language, setLanguage] = useState('');
+  const [priorCourses, setPriorCourses] = useState('');
+
+  const handlePlanClick = () => {
+    const data = {
+      major: major,
+      semester: semester,
+      schedulePreferences: {
+        earliestStartTime: earliestStartTime,
+        latestEndTime: latestEndTime
+      },
+      careerGoals: careerGoals,
+      fulfilledRequirements: {
+        humanities: humanities.split(',').map(item => item.trim()).filter(Boolean),
+        sciences: sciences.split(',').map(item => item.trim()).filter(Boolean),
+        social: social.split(',').map(item => item.trim()).filter(Boolean),
+        qr: qr.split(',').map(item => item.trim()).filter(Boolean),
+        writing: writing.split(',').map(item => item.trim()).filter(Boolean),
+        language: language.split(',').map(item => item.trim()).filter(Boolean),
+        priorCourses: priorCourses.split(',').map(item => item.trim()).filter(Boolean)
+      }
+    };
+
+    // Send POST request to the API
+    fetch('http://localhost:8000/course/recommend', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(responseData => {
+      console.log(responseData);
+      // You can add further processing here, like updating state or redirecting
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+  };
+
   return (
     <div className='container'>
       <div className='top'>
-        <div className='app-name'>Yale CourseMap</div>
+        <div className='left-header'>
+          <img src='/CourseMapLogo.png' alt='Yale CourseMap Logo' className='logo' />
+          <div className='app-name'>Yale CourseMap</div>
+        </div>
         <div>
           <Link to='/about-us'>
             <button className='meet-team-button'>Meet the team</button>
@@ -84,16 +144,18 @@ export default function MainPage() {
 
             <div className="form-row">
               <div className="form-group">
-                <select id="major">
-                  <option>Computer Science</option>
-                  <option>Mathematics</option>
-                  <option>Biology</option>
+                <select id="major" value={major} onChange={(e) => setMajor(e.target.value)}>
+                  <option value="">Select Major</option>
+                  <option value="Computer Science">Computer Science</option>
+                  <option value="Mathematics">Mathematics</option>
+                  <option value="Biology">Biology</option>
                 </select>
               </div>
               <div className="form-group">
-                <select id="semester">
-                  <option>Fall 2024</option>
-                  <option>Spring 2024</option>
+                <select id="semester" value={semester} onChange={(e) => setSemester(e.target.value)}>
+                  <option value="">Select Semester</option>
+                  <option value="Fall 2024">Fall 2024</option>
+                  <option value="Spring 2024">Spring 2024</option>
                 </select>
               </div>
             </div>
@@ -109,27 +171,35 @@ export default function MainPage() {
             </div>
             <div className="form-row">
               <div className="form-group">
-                <select id="earliest-start-time">
-                  <option>8:00 AM</option>
-                  <option>10:00 AM</option>
-                  <option>12:00 PM</option>
+                <select id="earliest-start-time" value={earliestStartTime} onChange={(e) => setEarliestStartTime(e.target.value)}>
+                  <option value="">Select Earliest Start Time</option>
+                  <option value="8:00 AM">8:00 AM</option>
+                  <option value="10:00 AM">10:00 AM</option>
+                  <option value="12:00 PM">12:00 PM</option>
                 </select>
               </div>
               <div className="form-group">
-                <select id="latest-end-time">
-                  <option>6:00 PM</option>
-                  <option>8:00 PM</option>
-                  <option>9:00 PM</option>
+                <select id="latest-end-time" value={latestEndTime} onChange={(e) => setLatestEndTime(e.target.value)}>
+                  <option value="">Select Latest End Time</option>
+                  <option value="6:00 PM">6:00 PM</option>
+                  <option value="8:00 PM">8:00 PM</option>
+                  <option value="9:00 PM">9:00 PM</option>
                 </select>
               </div>
             </div>
 
             <h2>Tell us more about your interests and career goals:</h2>
-            <textarea className="career-goals" placeholder="e.g. I want to be a game developer..." required></textarea>
+            <textarea
+              className="career-goals"
+              placeholder="e.g. I want to be a game developer..."
+              required
+              value={careerGoals}
+              onChange={(e) => setCareerGoals(e.target.value)}
+            ></textarea>
           </div>
 
           <div className="image-container">
-            <img src="divider.svg" alt="Image Description" />
+            <img src="divider.svg" alt="form divider" />
           </div>
 
           <div className="right-panel">
@@ -144,10 +214,22 @@ export default function MainPage() {
             </div>
             <div className="form-row">
               <div className="form-group">
-                <input type="text" id="humanities" placeholder="e.g. ENGL 114, ENGL 120" />
+                <input
+                  type="text"
+                  id="humanities"
+                  placeholder="e.g. ENGL 114, ENGL 120"
+                  value={humanities}
+                  onChange={(e) => setHumanities(e.target.value)}
+                />
               </div>
               <div className="form-group">
-                <input type="text" id="sciences" placeholder="e.g. CHEM 161, CHEM 162" />
+                <input
+                  type="text"
+                  id="sciences"
+                  placeholder="e.g. CHEM 161, CHEM 162"
+                  value={sciences}
+                  onChange={(e) => setSciences(e.target.value)}
+                />
               </div>
             </div>
 
@@ -162,10 +244,22 @@ export default function MainPage() {
 
             <div className="form-row">
               <div className="form-group">
-                <input type="text" id="social" placeholder="e.g. KREN, L1 to L2" />
+                <input
+                  type="text"
+                  id="social"
+                  placeholder="e.g. ECON 110, SOCY 151"
+                  value={social}
+                  onChange={(e) => setSocial(e.target.value)}
+                />
               </div>
               <div className="form-group">
-                <input type="text" id="qr" placeholder="e.g. KREN, L1 to L2" />
+                <input
+                  type="text"
+                  id="qr"
+                  placeholder="e.g. MATH 120"
+                  value={qr}
+                  onChange={(e) => setQr(e.target.value)}
+                />
               </div>
             </div>
 
@@ -180,17 +274,34 @@ export default function MainPage() {
 
             <div className="form-row">
               <div className="form-group">
-                <input type="text" id="writing" placeholder="e.g. KREN, L1 to L2" />
+                <input
+                  type="text"
+                  id="writing"
+                  placeholder="e.g. ENGL 114, ENGL 120"
+                  value={writing}
+                  onChange={(e) => setWriting(e.target.value)}
+                />
               </div>
               <div className="form-group">
-                <input type="text" id="language" placeholder="e.g. KREN, L1 to L2" />
+                <input
+                  type="text"
+                  id="language"
+                  placeholder="e.g. SPAN 110"
+                  value={language}
+                  onChange={(e) => setLanguage(e.target.value)}
+                />
               </div>
             </div>
             <h2>Tell us more about prior courses you've taken that count for your current major</h2>
-            <textarea className="prior-courses" placeholder="e.g. MATH 225, CPSC 201, CPSC 323"></textarea>
+            <textarea
+              className="prior-courses"
+              placeholder="e.g. MATH 225, CPSC 201, CPSC 323"
+              value={priorCourses}
+              onChange={(e) => setPriorCourses(e.target.value)}
+            ></textarea>
 
             <div className="plan-button-container">
-              <button className="plan-button">Plan</button>
+              <button className="plan-button" onClick={handlePlanClick}>Plan</button>
             </div>
           </div>
         </main>
@@ -198,4 +309,5 @@ export default function MainPage() {
     </div>
   );
 }
+
 

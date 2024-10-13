@@ -10,12 +10,30 @@
   .course-map-container {
     padding: 40px 20px;
   }
+
+  .left-header {
+    display: flex;
+    align-items: center;
+  }
   
+  .logo {
+    width: 50px; /* Adjust size as necessary */
+    height: auto; /* Keep aspect ratio */
+    margin-right: 15px; /* Space between the logo and title */
+  }
+  
+  .app-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a8a;
+  }
+  
+/*   
   .logo {
     font-size: 24px;
     font-weight: bold;
     color: #2f2e41;
-  }
+  } */
   
   .about-button {
     background-color: #3949ab;
