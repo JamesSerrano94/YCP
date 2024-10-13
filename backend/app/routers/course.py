@@ -47,8 +47,7 @@ async def recommend(request: CourseRecommendationRequest):
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
-    #5 IS A PLACEHOLDER!!!!
-    number_of_courses_to_recommend = 5 #int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND'))
+    number_of_courses_to_recommend = int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND'))
 
     print("The received request is: ", request)
     print("yale_course_search_api_key: ", yale_course_search_api_key)
@@ -59,15 +58,16 @@ async def recommend(request: CourseRecommendationRequest):
 
     # Step 1: Search based on front-end input, and exclude course that are already taken (Yang)
     data = search_course(request.semester, request.major)
+    print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
     df = pd.json_normalize(data)
     start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
     end_time = convert_time_format(request.schedulePreferences.latestEndTime)
     taken_courses = get_taken_courses(request.fulfilledRequirements)
     df = filter(df, start_time, end_time, taken_courses)
     output_json = df.to_json(orient="records", lines=False)
-    
-    ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
 
+    ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
+    print("JSON after step 1 has department key: ", check_if_element_in_json_has_department_key(json.loads(output_json)))
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
     keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals)
@@ -89,6 +89,7 @@ async def recommend(request: CourseRecommendationRequest):
     #     keyword_filtered_courses = json.load(f)
     keyword_filtered_courses = json.loads(output_json)
 
+    print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(keyword_filtered_courses))
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
     cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key)
 
@@ -96,7 +97,7 @@ async def recommend(request: CourseRecommendationRequest):
                                                                                                        keyword_filtered_courses, 
                                                                                                        n=number_of_courses_to_recommend)
 
-
+    print("JSON after step 2.2 has department key: ", check_if_element_in_json_has_department_key(cos_sim_filtered_courses))
     # TODO: Step 3: Parse into LLM for final output (Yangtian)
     # Transform cos_sim_filtered_courses into a JSON string
 
@@ -113,11 +114,12 @@ async def recommend(request: CourseRecommendationRequest):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
-
+    print("JSON after step 3 has department key: ", check_if_element_in_json_has_department_key(llm_recommended_courses))
 
     # The returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
     llm_recommended_courses_with_reduced_fields = [
             {
+                "department": course.get("department", ""),
                 "courseTitle": course.get("courseTitle", ""),  
                 "courseNumber": course.get("courseNumber", ""),  
                 "time": course.get("meetingPattern", []),  
@@ -256,3 +258,9 @@ def convert_time_format(time):
 # )
 
 # recommend(course_recommendation_request)
+
+def check_if_element_in_json_has_department_key(json):
+    for element in json:
+        if 'department' not in element:
+            return False
+    return True

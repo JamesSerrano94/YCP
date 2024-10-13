@@ -4,6 +4,7 @@ from os.path import join, dirname
 from dotenv import load_dotenv
 import json
 import Levenshtein
+import pathlib
 
 
 def keywordSearch(prompt):
@@ -11,7 +12,9 @@ def keywordSearch(prompt):
         api_key='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'
     )
     # Define the path to your JSON file
-    file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/backend/app/routers/yale_courses_keywords.json'  # Replace with your actual file path
+    curr_path = pathlib.Path(__file__).parent.absolute()
+    print("current path: ", curr_path)
+    file_path = str(curr_path) + '/yale_courses_keywords.json'  # Replace with your actual file path
 
     # Open and load the JSON file
     with open(file_path, 'r', encoding='utf-8') as json_file:

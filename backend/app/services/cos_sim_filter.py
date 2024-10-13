@@ -43,14 +43,7 @@ class CosSimFilter:
         """Process course data and compute embeddings for each course."""
         courses = []
         for course in course_data:
-            course_info = {
-                'courseNumber': course.get('courseNumber', ''),
-                'courseTitle': course.get('courseTitle', ''),
-                'description': course.get('description', ''),
-                'instructorList': course.get('instructorList', []),
-                'meetingPattern': course.get('meetingPattern', []),
-            }
-
+            course_info = course
             course_text = f"{course_info['courseTitle']} {course_info['description']}"
             course_info['embedding'] = self.get_embedding(course_text)
 
