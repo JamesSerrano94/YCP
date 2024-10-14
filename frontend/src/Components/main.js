@@ -75,7 +75,7 @@ export default function MainPage() {
       <div className='top'>
         <div className='left-header'>
           <img src='/CourseMapLogo.png' alt='Yale CourseMap Logo' className='logo' />
-          <div className='app-name'>Yale CourseMap</div>
+          <div className='app-name' data-testid='app-name'>Yale CourseMap</div>
         </div>
         <div>
           <Link to='/about-us'>
