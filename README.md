@@ -6,8 +6,20 @@
 ## Front End Setup
 - Install Node.js
 - cd to Frontend folder
+  ```
+  cd frontend
+  ```
 - Run npm install and then run npm start
+  ```
+  npm install
+  npm start
+  ```
 - should be able to see it running locally on port 3000
+
+## Frontend Test
+```
+npm test
+```
 
 ## Back End Setup
 - Install Conda or Mamba
