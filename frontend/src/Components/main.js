@@ -12,8 +12,8 @@ export default function MainPage() {
 
   const [major, setMajor] = useState("Computer Science");
   const [semester, setSemester] = useState("Fall 2024");
-  const [earliestStartTime, setEarliestStartTime] = useState('');
-  const [latestEndTime, setLatestEndTime] = useState('');
+  const [earliestStartTime, setEarliestStartTime] = useState('8:00 AM');
+  const [latestEndTime, setLatestEndTime] = useState('9:00 PM');
   const [careerGoals, setCareerGoals] = useState('');
   const [humanities, setHumanities] = useState('');
   const [sciences, setSciences] = useState('');
@@ -24,6 +24,10 @@ export default function MainPage() {
   const [priorCourses, setPriorCourses] = useState('');
 
   const handlePlanClick = () => {
+    if (careerGoals.trim() === "") {
+      alert("Please fill out your career goals.");
+      return; // Prevent submission if the field is empty
+    }
     const data = {
       major: major,
       semester: semester,
@@ -51,19 +55,19 @@ export default function MainPage() {
       },
       body: JSON.stringify(data)
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(responseData => {
-      console.log(responseData);
-      // You can add further processing here, like updating state or redirecting
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(responseData => {
+        console.log(responseData);
+        // You can add further processing here, like updating state or redirecting
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
   };
 
   return (
@@ -102,8 +106,8 @@ export default function MainPage() {
         <div className='quote-card' style={{ backgroundColor: 'rgba(255, 190, 186, 0.64)' }}>
           <img src='/frontquote.svg' alt='Front quote' className='quote-icon front-quote' />
           <p>
-            I want to be a Machine learning Engineer specializing in the biotechnology industry.
-            Could you help me plan my course schedule for this semester?
+            I'm interested in animation and visual effects. Can you help me plan my course load to
+            prepare for a career in the film industry?
           </p>
           <img src='/frontquote.svg' alt='Back quote' className='quote-icon back-quote' />
         </div>
@@ -111,8 +115,7 @@ export default function MainPage() {
         <div className='quote-card' style={{ backgroundColor: 'rgba(170, 211, 255, 0.52)' }}>
           <img src='/frontquote.svg' alt='Front quote' className='quote-icon front-quote' />
           <p>
-            I'm interested in animation and visual effects. Can you help me plan my course load to
-            prepare for a career in the film industry?
+          I want to be a Software Development Engineer in the tech industry. Could you help me plan my course schedule for this semester?"
           </p>
           <img src='/frontquote.svg' alt='Back quote' className='quote-icon back-quote' />
         </div>
@@ -120,8 +123,8 @@ export default function MainPage() {
         <div className='quote-card' style={{ backgroundColor: 'rgba(199, 199, 241, 0.68)' }}>
           <img src='/frontquote.svg' alt='Front quote' className='quote-icon front-quote' />
           <p>
-            My goal is to become a data-driven financial analyst, using predictive analytics to guide
-            investment strategies. Could you help me design a course schedule?
+            My goal is to become a quantitative trader.
+            Design a course schedule to build the necessary skills in finance, programming, and quantitative analysis.
           </p>
           <img src='/frontquote.svg' alt='Back quote' className='quote-icon back-quote' />
         </div>
@@ -145,7 +148,6 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <select id="major" value={major} onChange={(e) => setMajor(e.target.value)}>
-                  <option value="">Select Major</option>
                   <option value="Computer Science">Computer Science</option>
                   <option value="Mathematics">Mathematics</option>
                   <option value="Biology">Biology</option>
@@ -153,7 +155,6 @@ export default function MainPage() {
               </div>
               <div className="form-group">
                 <select id="semester" value={semester} onChange={(e) => setSemester(e.target.value)}>
-                  <option value="">Select Semester</option>
                   <option value="Fall 2024">Fall 2024</option>
                   <option value="Spring 2024">Spring 2024</option>
                 </select>
@@ -172,16 +173,17 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <select id="earliest-start-time" value={earliestStartTime} onChange={(e) => setEarliestStartTime(e.target.value)}>
-                  <option value="">Select Earliest Start Time</option>
                   <option value="8:00 AM">8:00 AM</option>
+                  <option value="8:00 AM">9:00 AM</option>
                   <option value="10:00 AM">10:00 AM</option>
-                  <option value="12:00 PM">12:00 PM</option>
+                  <option value="10:00 AM">11:00 AM</option>
                 </select>
               </div>
               <div className="form-group">
                 <select id="latest-end-time" value={latestEndTime} onChange={(e) => setLatestEndTime(e.target.value)}>
-                  <option value="">Select Latest End Time</option>
-                  <option value="6:00 PM">6:00 PM</option>
+                  <option value="6:00 PM">5:00 PM</option>
+                  <option value="8:00 PM">6:00 PM</option>
+                  <option value="8:00 PM">7:00 PM</option>
                   <option value="8:00 PM">8:00 PM</option>
                   <option value="9:00 PM">9:00 PM</option>
                 </select>

@@ -58,8 +58,13 @@ async def recommend(request: CourseRecommendationRequest):
 
 
     # Step 1: Search based on front-end input, and exclude course that are already taken (Yang)
-    data = search_course(request.semester, request.major)
-    print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
+    ## uncomment next line to run cpsc data only
+    # data = search_course(request.semester, request.major)
+
+    # follwing are for all course data
+    with open('/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/combined_course_data.json', 'r', encoding='utf-8') as json_file:
+      data = json.load(json_file)
+    # print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
     df = pd.json_normalize(data)
     start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
     end_time = convert_time_format(request.schedulePreferences.latestEndTime)
@@ -89,6 +94,7 @@ async def recommend(request: CourseRecommendationRequest):
     # with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
     #     keyword_filtered_courses = json.load(f)
     keyword_filtered_courses = json.loads(output_json)
+
     print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(keyword_filtered_courses))
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
     cos_sim_start_time = time.time()
@@ -197,12 +203,20 @@ def is_time_in_range(string_list, start_time, end_time, default):
       select = 1
     else:
       return default
+    ## uncomment these to run cpsc data
+    # time_part = (schedule_list[select].split(' ')[1]).split('-')
+    # start_time_hr = int(time_part[0].split('.')[0])
+    # start_time_min = int(time_part[0].split('.')[1])
+    # end_time_hr = int(time_part[1].split('.')[0])
+    # end_time_min = int(time_part[1].split('.')[1])
 
+    # following are for all course data
     time_part = (schedule_list[select].split(' ')[1]).split('-')
-    start_time_hr = int(time_part[0].split('.')[0])
-    start_time_min = int(time_part[0].split('.')[1])
-    end_time_hr = int(time_part[1].split('.')[0])
-    end_time_min = int(time_part[1].split('.')[1])
+    start_time_hr = int(time_part[0].split('.')[0].replace('p',''))
+    start_time_min = int(time_part[0].split('.')[1].replace('p',''))
+    end_time_hr = int(time_part[1].split('.')[0].replace('p',''))
+    end_time_min = int(time_part[1].split('.')[1].replace('p',''))
+
 
     if (start_time_hr <= 6):
       start_time_hr += 12
