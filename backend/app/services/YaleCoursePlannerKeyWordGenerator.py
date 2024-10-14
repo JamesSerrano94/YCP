@@ -8,32 +8,36 @@ import json
 # dotenv_path = join(dirname(__file__), '.env')
 # load_dotenv(dotenv_path)
 #client = OpenAI()
-
 client = OpenAI(
     api_key='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'
 )
 # Define the path to your JSON file
-file_path = 'C:\Yale\CS439\yale_courses.json'  # Replace with your actual file path
-new_file_path = 'C:\Yale\CS439\yale_courses_keywords.json'
+file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/test.json'  # combine courses
+new_file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/yale_courses_keywords.json' #keyword output new db
 # Open and load the JSON file
 with open(file_path, 'r', encoding='utf-8') as json_file:
     data = json.load(json_file)
 
 for index, entry in enumerate(data):
-    description = entry['description']
-    keywords = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages = [
-          {
-              "role": "user",
-              "content": "This is the description for a course. Come up with keywords that can describe this course. Do not use bullet points. Seperate them by comma: " + description,
-          }
-        ],
-        temperature=0.3, #convo needs to be boring
-        max_tokens=256,
-    )
-    entry['keywords'] = keywords.choices[0].message.content
-
+    description = entry.get('description')  # Use .get() to safely access 'description'
+    
+    if description:  # Only proceed if description is not None
+        keywords = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+              {
+                  "role": "user",
+                  "content": "This is the description for a course. Come up with keywords that can describe this course. Do not use bullet points. Seperate them by comma: " + description,
+              }
+            ],
+            temperature=0.3,  # Make the response concise and not too creative
+            max_tokens=256,
+        )
+        # Add the keywords to the entry
+        entry['keywords'] = keywords.choices[0].message.content
+    else:
+        # If there's no description, set 'keywords' to an empty string or appropriate value
+        entry['keywords'] = ""
 
 with open(new_file_path, 'w', encoding='utf-8') as new_json_file:
     json.dump(data, new_json_file, indent=4, ensure_ascii=False)
