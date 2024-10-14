@@ -1,6 +1,7 @@
 # app/routers/course.py
 
 import json
+import time
 import os
 import pandas as pd
 import ast
@@ -88,15 +89,15 @@ async def recommend(request: CourseRecommendationRequest):
     # with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
     #     keyword_filtered_courses = json.load(f)
     keyword_filtered_courses = json.loads(output_json)
-
     print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(keyword_filtered_courses))
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
+    cos_sim_start_time = time.time()
     cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key)
 
     cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        keyword_filtered_courses, 
                                                                                                        n=number_of_courses_to_recommend)
-
+    print("Cosine similarity filtering took: ", time.time() - cos_sim_start_time)
     print("JSON after step 2.2 has department key: ", check_if_element_in_json_has_department_key(cos_sim_filtered_courses))
     # TODO: Step 3: Parse into LLM for final output (Yangtian)
     # Transform cos_sim_filtered_courses into a JSON string

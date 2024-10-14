@@ -39,15 +39,39 @@ class CosSimFilter:
         )
         return response.data[0].embedding
 
-    def process_course_data_as_dict_and_get_embedding(self, course_data):
-        """Process course data and compute embeddings for each course."""
+    def get_embeddings(self, texts):
+        """Get embeddings for a list of texts using the OpenAI API."""
+        response = self.openai_client.embeddings.create(
+            input=texts,
+            model='text-embedding-ada-002'
+        )
+        return [data.embedding for data in response.data]
+
+    def process_course_data_as_dict_and_get_embedding(self, course_data, batch_size=20):
+        """Process course data and compute embeddings for each course using batching."""
         courses = []
+        course_texts = []
+        course_infos = []
+
+        # Prepare the texts and course info
         for course in course_data:
             course_info = course
             course_text = f"{course_info['courseTitle']} {course_info['description']}"
-            course_info['embedding'] = self.get_embedding(course_text)
+            course_infos.append(course_info)
+            course_texts.append(course_text)
 
+        # Batch the embeddings
+        embeddings = []
+        for i in range(0, len(course_texts), batch_size):
+            batch_texts = course_texts[i:i + batch_size]
+            batch_embeddings = self.get_embeddings(batch_texts)
+            embeddings.extend(batch_embeddings)
+
+        # Assign embeddings back to course_info
+        for course_info, embedding in zip(course_infos, embeddings):
+            course_info['embedding'] = embedding
             courses.append(course_info)
+
         return courses
 
     def cosine_similarity(self, a, b):
