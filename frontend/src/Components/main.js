@@ -156,7 +156,7 @@ export default function MainPage() {
               <div className="form-group">
                 <select id="semester" value={semester} onChange={(e) => setSemester(e.target.value)}>
                   <option value="Fall 2024">Fall 2024</option>
-                  <option value="Spring 2024">Spring 2024</option>
+                  <option value="Spring 2025">Spring 2025</option>
                 </select>
               </div>
             </div>

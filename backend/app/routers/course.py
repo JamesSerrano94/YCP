@@ -61,9 +61,24 @@ async def recommend(request: CourseRecommendationRequest):
     ## uncomment next line to run cpsc data only
     # data = search_course(request.semester, request.major)
 
-    # follwing are for all course data
-    with open('/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/combined_course_data.json', 'r', encoding='utf-8') as json_file:
-      data = json.load(json_file)
+    ## following are for all course data for a specific semester
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    semester_to_file = {
+        "Fall 2024": "combined_course_data_fall_2024.json",
+        "Spring 2025": "combined_course_data_spring_2025.json"
+    }
+    semester = request.semester if request.semester else None
+    json_file_name = semester_to_file.get(semester)
+
+    if json_file_name is None:
+        raise ValueError(f"Unsupported semester: {request.semester}")
+
+    # Construct the path to your JSON file
+    json_file_path = os.path.join(script_dir, json_file_name)
+
+    # Open and load the JSON file using the relative path
+    with open(json_file_path, 'r', encoding='utf-8') as json_file:
+        data = json.load(json_file)
     # print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
     df = pd.json_normalize(data)
     start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
@@ -93,7 +108,8 @@ async def recommend(request: CourseRecommendationRequest):
     # Need to replace this with actual search and keyword filtering
     # with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
     #     keyword_filtered_courses = json.load(f)
-    keyword_filtered_courses = json.loads(output_json)
+    # keyword_filtered_courses = json.loads(output_json)
+    # print(len(keyword_filtered_courses))
 
     print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(keyword_filtered_courses))
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)

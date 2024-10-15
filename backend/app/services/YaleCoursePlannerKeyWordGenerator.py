@@ -11,36 +11,83 @@ import json
 client = OpenAI(
     api_key='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'
 )
-# Define the path to your JSON file
-file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/combined_course_data.json'  # combine courses
-new_file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/yale_courses_keywords.json' #keyword output new db
-# Open and load the JSON file
-with open(file_path, 'r', encoding='utf-8') as json_file:
-    data = json.load(json_file)
 
-for index, entry in enumerate(data):
-    description = entry.get('description')  # Use .get() to safely access 'description'
+file_pairs = [
+    {
+        'input': '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/combined_course_data_fall_2024.json',
+        'output': '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/backend/app/routers/yale_courses_keywords_fall_2024.json'
+    },
+    {
+        'input': '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/combined_course_data_spring_2025.json',
+        'output': '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/backend/app/routers/yale_courses_keywords_spring_2025.json'
+    }
+]
+
+for file_pair in file_pairs:
+    input_file = file_pair['input']
+    output_file = file_pair['output']
     
-    if description:  # Only proceed if description is not None
-        keywords = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[
-              {
-                  "role": "user",
-                  "content": "This is the description for a course. Come up with keywords that can describe this course. Do not use bullet points. Seperate them by comma: " + description,
-              }
-            ],
-            temperature=0.3,  # Make the response concise and not too creative
-            max_tokens=256,
-        )
-        # Add the keywords to the entry
-        entry['keywords'] = keywords.choices[0].message.content
-    else:
-        # If there's no description, set 'keywords' to an empty string or appropriate value
-        entry['keywords'] = ""
+    # Open and load the JSON file
+    with open(input_file, 'r', encoding='utf-8') as json_file:
+        data = json.load(json_file)
 
-with open(new_file_path, 'w', encoding='utf-8') as new_json_file:
-    json.dump(data, new_json_file, indent=4, ensure_ascii=False)
+    for index, entry in enumerate(data):
+        description = entry.get('description')  # Use .get() to safely access 'description'
+        
+        if description:  # Only proceed if description is not None
+            keywords = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                {
+                    "role": "user",
+                    "content": "This is the description for a course. Come up with keywords that can describe this course. Do not use bullet points. Seperate them by comma: " + description,
+                }
+                ],
+                temperature=0.3,  # Make the response concise and not too creative
+                max_tokens=256,
+            )
+            # Add the keywords to the entry
+            entry['keywords'] = keywords.choices[0].message.content
+        else:
+            # If there's no description, set 'keywords' to an empty string or appropriate value
+            entry['keywords'] = ""
+    
+    with open(output_file, 'w', encoding='utf-8') as new_json_file:
+        json.dump(data, new_json_file, indent=4, ensure_ascii=False)
+    
+    print(f"Processed {input_file} and saved with keywords to {output_file}")
+
+
+# # Define the path to your JSON file
+# file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/combined_course_data.json'  # combine courses
+# new_file_path = '/Users/jiayangbao/Desktop/f24-yale-career-pathway-planner/yale_courses_keywords.json' #keyword output new db
+# #Open and load the JSON file
+# with open(file_path, 'r', encoding='utf-8') as json_file:
+#     data = json.load(json_file)
+
+# for index, entry in enumerate(data):
+#     description = entry.get('description')  # Use .get() to safely access 'description'
+    
+#     if description:  # Only proceed if description is not None
+#         keywords = client.chat.completions.create(
+#             model="gpt-3.5-turbo",
+#             messages=[
+#               {
+#                   "role": "user",
+#                   "content": "This is the description for a course. Come up with keywords that can describe this course. Do not use bullet points. Seperate them by comma: " + description,
+#               }
+#             ],
+#             temperature=0.3,  # Make the response concise and not too creative
+#             max_tokens=256,
+#         )
+#         # Add the keywords to the entry
+#         entry['keywords'] = keywords.choices[0].message.content
+#     else:
+#         # If there's no description, set 'keywords' to an empty string or appropriate value
+#         entry['keywords'] = ""
+
+# with open(new_file_path, 'w', encoding='utf-8') as new_json_file:
+#     json.dump(data, new_json_file, indent=4, ensure_ascii=False)
 
 
 # Print out the entire content
