@@ -43,7 +43,7 @@ def check_if_element_in_json_has_department_key(json):
     return True
 
 @router.post("/recommend")
-def recommend(request: CourseRecommendationRequest):
+async def recommend(request: CourseRecommendationRequest):
     # To test, use the following curl command:
     """
     curl -X POST "http://localhost:8000/course/recommend" \
@@ -296,29 +296,29 @@ def convert_time_format(time):
     return 60* int(hours) + int(minutes)
 
 
-schedule_preferences = SchedulePreferences(
-    earliestStartTime="08:00 AM",
-    latestEndTime="06:00 PM"
-)
+# schedule_preferences = SchedulePreferences(
+#     earliestStartTime="08:00 AM",
+#     latestEndTime="06:00 PM"
+# )
 
-fulfilled_requirements = FulfilledRequirements(
-    humanities=["ENGL 114", "ENGL 120"],
-    sciences=["CHEM 161", "CHEM 162"],
-    social=["KREN L1 to L2"],
-    qr=["MATH 120"],
-    writing=["KREN L1 to L2"],
-    language=["SPAN 110"],
-    priorCourses=["MATH225", "CPSC201", "CPSC323", "CPSC110"]
-)
+# fulfilled_requirements = FulfilledRequirements(
+#     humanities=["ENGL 114", "ENGL 120"],
+#     sciences=["CHEM 161", "CHEM 162"],
+#     social=["KREN L1 to L2"],
+#     qr=["MATH 120"],
+#     writing=["KREN L1 to L2"],
+#     language=["SPAN 110"],
+#     priorCourses=["MATH225", "CPSC201", "CPSC323", "CPSC110"]
+# )
 
-# Now create the CourseRecommendationRequest instance
-course_recommendation_request = CourseRecommendationRequest(
-    major="Computer Science",
-    semester="Fall 2024",
-    schedulePreferences=schedule_preferences,
-    careerGoals="I want to be a game developer",
-    fulfilledRequirements=fulfilled_requirements
-)
+# # Now create the CourseRecommendationRequest instance
+# course_recommendation_request = CourseRecommendationRequest(
+#     major="Computer Science",
+#     semester="Fall 2024",
+#     schedulePreferences=schedule_preferences,
+#     careerGoals="I want to be a game developer",
+#     fulfilledRequirements=fulfilled_requirements
+# )
 
-recommend(course_recommendation_request)
+# recommend(course_recommendation_request)
 
