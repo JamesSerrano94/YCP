@@ -105,7 +105,9 @@ async def recommend(request: CourseRecommendationRequest):
     print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
     df = pd.json_normalize(data)
     start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
+    print(start_time)
     end_time = convert_time_format(request.schedulePreferences.latestEndTime)
+    print(end_time)
     taken_courses = get_taken_courses(request.fulfilledRequirements)
     #df = filter(df, start_time, end_time, taken_courses)
     #output_json = df.to_json(orient="records", lines=False)
@@ -114,7 +116,7 @@ async def recommend(request: CourseRecommendationRequest):
     #print("JSON after step 1 has department key: ", check_if_element_in_json_has_department_key(json.loads(output_json)))
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
-    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals, semester)
+    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals)
 
     #Step 2.1: Use keyword filtering (James)
     filtered_courses = []
