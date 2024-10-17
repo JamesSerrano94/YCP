@@ -114,7 +114,7 @@ async def recommend(request: CourseRecommendationRequest):
     #print("JSON after step 1 has department key: ", check_if_element_in_json_has_department_key(json.loads(output_json)))
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
-    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals, semester)
+    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals, semeser=semester)
 
     #Step 2.1: Use keyword filtering (James)
     filtered_courses = []
