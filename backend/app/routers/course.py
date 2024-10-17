@@ -14,14 +14,36 @@ from app.models.course import SchedulePreferences
 from app.configs.api_keys import APIKeysConfig
 from app.services.llm_recommender import LLMRecommender
 from . import YaleCoursePlannerKeyWordSearch
+import re
+from dotenv import load_dotenv
 
 router = APIRouter(
     prefix="/course",
     tags=["course"]
 )
 
+def findTimes(meetingPattern):
+    try:
+        time_only = re.search(r'\d{1,2}\.\d{2}-\d{1,2}\.\d{2}', meetingPattern[0]).group()
+        time_only = time_only.split("-")
+        start = time_only[0].split(".")
+        end = time_only[1].split(".")
+        if int(start[0]) < 9:
+            start[0] = int(start[0]) + 12
+        if int(end[0]) < 9:
+            end[0] = int(end[0]) + 12
+        
+        return 60 * int(start[0]) + int(start[1]), 60 * int(end[0]) + int(end[1])
+    except:
+        return 0, 1400
+def check_if_element_in_json_has_department_key(json):
+    for element in json:
+        if 'department' not in element:
+            return False
+    return True
+
 @router.post("/recommend")
-async def recommend(request: CourseRecommendationRequest):
+def recommend(request: CourseRecommendationRequest):
     # To test, use the following curl command:
     """
     curl -X POST "http://localhost:8000/course/recommend" \
@@ -45,6 +67,7 @@ async def recommend(request: CourseRecommendationRequest):
       }
     }'
     """
+    load_dotenv()
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
@@ -79,30 +102,39 @@ async def recommend(request: CourseRecommendationRequest):
     # Open and load the JSON file using the relative path
     with open(json_file_path, 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
-    # print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
+    print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
     df = pd.json_normalize(data)
     start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
     end_time = convert_time_format(request.schedulePreferences.latestEndTime)
     taken_courses = get_taken_courses(request.fulfilledRequirements)
-    df = filter(df, start_time, end_time, taken_courses)
-    output_json = df.to_json(orient="records", lines=False)
+    #df = filter(df, start_time, end_time, taken_courses)
+    #output_json = df.to_json(orient="records", lines=False)
 
     ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
-    print("JSON after step 1 has department key: ", check_if_element_in_json_has_department_key(json.loads(output_json)))
+    #print("JSON after step 1 has department key: ", check_if_element_in_json_has_department_key(json.loads(output_json)))
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
-    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals)
-    # print("BEFORE FILTERING") DEBUGGING PURBUSES
-    # for course in keyword_filtered_courses:
-    #    print(course['subjectNumber'])
-    #Step 2.1: Use keyword filtering (James) 
-    for taken in taken_courses:
-       for suggestedCourse in keyword_filtered_courses:
-          if taken == suggestedCourse['subjectNumber']:
-             keyword_filtered_courses.remove(suggestedCourse)
-    # print("AFTER FILTERING") #DEBUGGING PURPOSES
-    # for course in keyword_filtered_courses:
-    #    print(course['subjectNumber'])
+    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals, semester)
+
+    #Step 2.1: Use keyword filtering (James)
+    filtered_courses = []
+    for suggestedCourse in keyword_filtered_courses:
+        courseStartTime, courseEndTime = findTimes(suggestedCourse['meetingPattern'])
+        
+        # Check time constraints
+        if courseStartTime < start_time or courseEndTime > end_time:
+            continue
+        
+        # Check if the course has already been taken
+        if suggestedCourse['subjectNumber'] in taken_courses:
+            continue
+        
+        # Add to filtered list if all criteria are met
+        filtered_courses.append(suggestedCourse)
+
+    keyword_filtered_courses = filtered_courses
+
+
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
     # Need to replace this with actual search and keyword filtering
@@ -261,37 +293,32 @@ def convert_time_format(time):
     elif period == 'PM':
         if hours != '12':
             hours = str(int(hours) + 12)
-    return str(hours) + '.' + str(minutes)
+    return 60* int(hours) + int(minutes)
 
 
-# schedule_preferences = SchedulePreferences(
-#     earliestStartTime="08:00 AM",
-#     latestEndTime="06:00 PM"
-# )
+schedule_preferences = SchedulePreferences(
+    earliestStartTime="08:00 AM",
+    latestEndTime="06:00 PM"
+)
 
-# fulfilled_requirements = FulfilledRequirements(
-#     humanities=["ENGL 114", "ENGL 120"],
-#     sciences=["CHEM 161", "CHEM 162"],
-#     social=["KREN L1 to L2"],
-#     qr=["MATH 120"],
-#     writing=["KREN L1 to L2"],
-#     language=["SPAN 110"],
-#     priorCourses=["MATH225", "CPSC201", "CPSC323", "CPSC110"]
-# )
+fulfilled_requirements = FulfilledRequirements(
+    humanities=["ENGL 114", "ENGL 120"],
+    sciences=["CHEM 161", "CHEM 162"],
+    social=["KREN L1 to L2"],
+    qr=["MATH 120"],
+    writing=["KREN L1 to L2"],
+    language=["SPAN 110"],
+    priorCourses=["MATH225", "CPSC201", "CPSC323", "CPSC110"]
+)
 
-# # Now create the CourseRecommendationRequest instance
-# course_recommendation_request = CourseRecommendationRequest(
-#     major="Computer Science",
-#     semester="Fall 2024",
-#     schedulePreferences=schedule_preferences,
-#     careerGoals="I want to be a game developer",
-#     fulfilledRequirements=fulfilled_requirements
-# )
+# Now create the CourseRecommendationRequest instance
+course_recommendation_request = CourseRecommendationRequest(
+    major="Computer Science",
+    semester="Fall 2024",
+    schedulePreferences=schedule_preferences,
+    careerGoals="I want to be a game developer",
+    fulfilledRequirements=fulfilled_requirements
+)
 
-# recommend(course_recommendation_request)
+recommend(course_recommendation_request)
 
-def check_if_element_in_json_has_department_key(json):
-    for element in json:
-        if 'department' not in element:
-            return False
-    return True
