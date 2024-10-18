@@ -1,11 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import './main.css';
 import './courseMap.css';
 
 export default function MainPage() {
   const courseMapRef = useRef(null);
-
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const scrollToCourseMap = () => {
     courseMapRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -46,6 +48,8 @@ export default function MainPage() {
         priorCourses: priorCourses.split(',').map(item => item.trim()).filter(Boolean)
       }
     };
+    setIsLoading(true);
+    
 
     // Send POST request to the API
     fetch('http://localhost:8000/course/recommend', {
@@ -63,15 +67,23 @@ export default function MainPage() {
       })
       .then(responseData => {
         console.log(responseData);
-        // You can add further processing here, like updating state or redirecting
+        navigate('/schedule', { state: { courses: responseData } });
       })
       .catch(error => {
         console.error('There was a problem with the fetch operation:', error);
       });
   };
+  const Loading = () => (
+    <div className="loading-overlay">
+      <div className="loading-spinner"></div>
+      <p>Loading your personalized schedule...</p>
+    </div>
+  );
 
   return (
     <div className='container'>
+       {isLoading && <Loading />}
+       <div className={isLoading ? 'blur-content' : ''}></div>
       <div className='top'>
         <div className='left-header'>
           <img src='/CourseMapLogo.png' alt='Yale CourseMap Logo' className='logo' />
@@ -173,19 +185,17 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <select id="earliest-start-time" value={earliestStartTime} onChange={(e) => setEarliestStartTime(e.target.value)}>
-                  <option value="8:00 AM">8:00 AM</option>
-                  <option value="8:00 AM">9:00 AM</option>
+                  <option value="9:00 AM">9:00 AM</option>
                   <option value="10:00 AM">10:00 AM</option>
-                  <option value="10:00 AM">11:00 AM</option>
+                  <option value="11:00 AM">11:00 AM</option>
                 </select>
               </div>
               <div className="form-group">
                 <select id="latest-end-time" value={latestEndTime} onChange={(e) => setLatestEndTime(e.target.value)}>
-                  <option value="6:00 PM">5:00 PM</option>
-                  <option value="8:00 PM">6:00 PM</option>
-                  <option value="8:00 PM">7:00 PM</option>
+                  <option value="5:00 PM">5:00 PM</option>
+                  <option value="6:00 PM">6:00 PM</option>
+                  <option value="7:00 PM">7:00 PM</option>
                   <option value="8:00 PM">8:00 PM</option>
-                  <option value="9:00 PM">9:00 PM</option>
                 </select>
               </div>
             </div>
