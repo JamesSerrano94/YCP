@@ -117,7 +117,7 @@ async def recommend(request: CourseRecommendationRequest):
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
 
-    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals, semester=semester)
+    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals)
 
 
     #Step 2.1: Use keyword filtering (James)
