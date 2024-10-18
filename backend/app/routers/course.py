@@ -137,6 +137,7 @@ async def recommend(request: CourseRecommendationRequest):
         filtered_courses.append(suggestedCourse)
 
     keyword_filtered_courses = filtered_courses
+    print("number of courses after keyword filtering: ", len(keyword_filtered_courses))
 
 
 
@@ -188,6 +189,7 @@ async def recommend(request: CourseRecommendationRequest):
             }
             for course in llm_recommended_courses
         ]
+    print(llm_recommended_courses_with_reduced_fields)
     return llm_recommended_courses_with_reduced_fields
 
 def filter(df, startTime, endTime, taken_courses):

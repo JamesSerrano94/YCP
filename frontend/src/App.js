@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} /> {/* MainPage on root route */}
         <Route path="/about-us" element={<AboutUs />} /> {/* AboutUs on /about-us */}
-        <Route path="/schedule-display" element={<ScheduleDisplay />} /> {/* AboutUs on /about-us */}
+        <Route path="/schedule" element={<ScheduleDisplay />} /> {/* AboutUs on /about-us */}
       </Routes>
     </Router>
   );

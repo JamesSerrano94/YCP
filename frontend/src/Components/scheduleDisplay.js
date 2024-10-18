@@ -1,101 +1,178 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import './scheduleDisplay.css';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 
-const courses = [
-    { title: "KREN 110", description: "Elementary Korean I", location: "RKZ 08 - Rosenkranz Hall 08", days: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'], time: '10:10am-11:00am', color: '#5CB85C' },
-    { title: "AMTH 431", description: "Optimization and Computation", location: "WTS A53 - Watson Center 60", days: ['Tue', 'Thu'], time: '1:15pm-2:00pm', color: '#D9534F' },
-    { title: "CPSC 327", description: "Object-Oriented Programming", location: "DL 220 - Dunham Laboratory 220", days: ['Mon', 'Wed'], time: '4:00pm-5:00pm', color: '#F0AD4E' },
-    { title: "CGSC 175", description: "The Mystery of Sleep", location: "LC 102 - Linsly-Chittenden Hall 102", days: ['Tue', 'Thu'], time: '4:00pm-5:00pm', color: '#9370DB' }
-];
-
-// Convert a time string like '10:10am' into total minutes since 00:00
-const timeToMinutes = (time) => {
-    const [hours, minutes, period] = time.match(/(\d+):(\d+)(am|pm)/).slice(1);
-    let totalMinutes = (parseInt(hours) % 12) * 60 + parseInt(minutes);
-    if (period === 'pm' && parseInt(hours) !== 12) totalMinutes += 12 * 60;
-    if (period === 'am' && parseInt(hours) === 12) totalMinutes -= 12 * 60; // Handle midnight case
-    return totalMinutes;
+const parseDays = (daysString) => {
+    const days = [];
+    while (daysString.length > 0) {
+        if (daysString.startsWith('Th')) {
+            days.push('Thu');
+            daysString = daysString.slice(2);
+        } else {
+            const char = daysString[0];
+            const dayMap = { M: 'Mon', T: 'Tue', W: 'Wed', F: 'Fri' };
+            days.push(dayMap[char]);
+            daysString = daysString.slice(1);
+        }
+    }
+    return days;
 };
 
-// Convert minutes back to AM/PM format for display
-const minutesToTime = (minutes) => {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    const period = hours >= 12 ? 'pm' : 'am';
-    const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
-    const formattedMins = mins.toString().padStart(2, '0');
-    return `${formattedHours}:${formattedMins}${period}`;
+const HtmlTooltip = styled(({ className, children, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} arrow>
+        {children}
+    </Tooltip>
+))(({ theme }) => ({
+    // Styles applied to the popper element (outermost element)
+    [`& .${tooltipClasses.tooltip}`]: {
+        backgroundColor: '#ffffff',
+        color: '#333333',
+        maxWidth: 500,
+        border: '1px solid #dadde9',
+        boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.2)',
+        padding: '10px',
+    },
+    // Styles for the arrow
+    [`& .${tooltipClasses.arrow}`]: {
+        color: '#ffffff',
+    },
+}));
+
+// Helper function to convert time strings to minutes
+const timeStringToMinutes = (timeString) => {
+    const [hourStr, minuteStr] = timeString.split('.');
+    let hour = parseInt(hourStr, 10);
+    const minute = parseInt(minuteStr, 10);
+
+    // Assuming classes are between 8 AM and 8 PM
+    if (hour < 7) hour += 12; // Convert to PM times
+    return hour * 60 + minute;
 };
 
-// Determine the earliest start time and the latest end time
-const times = courses.flatMap(course => {
-    const [start, end] = course.time.split('-');
-    return [timeToMinutes(start), timeToMinutes(end)];
-});
+const parseCourseTimes = (courses) => {
+    const timePattern = /^[MTWThF]+ \d{1,2}\.\d{2}-\d{1,2}\.\d{2}$/;
+    return courses.flatMap((course) =>
+        course.time.flatMap((timeString) => {
+            if (!timePattern.test(timeString)) {
+                // If it doesn't match, skip this time entry
+                return [];
+            }
+            const [daysPart, timePart] = timeString.split(' ');
+            const days = parseDays(daysPart);
 
-const earliestTime = Math.min(...times);  // Earliest course start time in minutes
-const latestTime = Math.max(...times);    // Latest course end time in minutes
+            const [startTimeStr, endTimeStr] = timePart.split('-');
+            const startTime = timeStringToMinutes(startTimeStr);
+            const endTime = timeStringToMinutes(endTimeStr);
+            return days.map((day) => ({
+                ...course,
+                day,
+                startTime,
+                endTime,
+            }));
+        })
+    );
+};
 
+const earliestTime = 9 * 60; // 9 AM in minutes
+const latestTime = 21 * 60; // 9 PM in minutes
 const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
 const ScheduleDisplay = () => {
-    // Calculate the total number of hours to be displayed
-    const totalTimeInMinutes = latestTime - earliestTime;
-    const numberOfHours = Math.ceil(totalTimeInMinutes / 60);
+    const location = useLocation();
+    const coursesFromState = location.state?.courses || [];
+    const colors = ['#F4A7A7', '#FFD580', '#A7D8F4', '#B8E986', '#C6A7E2', '#FFE5A7', '#E0AFAF', '#AFC0E0', '#E0E0AF', '#AFE0B4'];
+
+    const courses = coursesFromState.map((course, index) => ({
+        ...course,
+        color: course.color || colors[index % colors.length],
+    }));
+    const courseTimes = parseCourseTimes(courses);
 
     return (
         <div className="calendar-container">
             <div className="calendar-header">
                 <div className="time-header"></div>
-                {daysOfWeek.map(day => (
-                    <div key={day} className="day-header">{day}</div>
+                {daysOfWeek.map((day) => (
+                    <div key={day} className="day-header">
+                        {day}
+                    </div>
                 ))}
             </div>
             <div className="calendar-body">
                 <div className="time-column">
-                    {/* Render hourly time slots */}
-                    {Array.from({ length: numberOfHours + 1 }, (_, index) => {
-                        const currentTimeInMinutes = earliestTime + index * 60;
+                    {/* Render time slots in 30-minute intervals */}
+                    {Array.from({ length: (latestTime - earliestTime) / 30 }, (_, index) => {
+                        const totalMinutes = earliestTime + index * 30;
+                        const hours = Math.floor(totalMinutes / 60);
+                        const minutes = totalMinutes % 60;
                         return (
                             <div key={index} className="time-slot">
-                                {minutesToTime(currentTimeInMinutes)}
+                                {`${hours}:${minutes.toString().padStart(2, '0')}`}
                             </div>
                         );
                     })}
                 </div>
                 <div className="days-column">
-                {courses.map(course => course.days.map(day => {
-                    const [start, end] = course.time.split('-');
-                    const startTime = timeToMinutes(start);
-                    const endTime = timeToMinutes(end);
+                    {courseTimes.map((course, index) => {
+                        const startOffset =
+                            ((course.startTime - earliestTime) / (latestTime - earliestTime)) * 100;
+                        const duration =
+                            ((course.endTime - course.startTime) / (latestTime - earliestTime)) * 100;
 
-                    // Convert start time to grid row (each row represents 30 minutes)
-                    const startRow = Math.floor((startTime - earliestTime) / 30) + 1; // Adding 1 to prevent row 0
-                    const duration = Math.ceil((endTime - startTime) / 30); // Duration in rows (30-minute intervals)
+                        return (
+                            <div
+                                key={index}
+                                className="calendar-event"
+                                style={{
+                                    backgroundColor: course.color,
+                                    gridColumn: daysOfWeek.indexOf(course.day) + 1,
+                                    top: `${startOffset}%`,
+                                    height: `${duration}%`
+                                }}
+                            >
+                                <div className="event-title">
+                                    {course.department} {course.courseNumber}
+                                </div>
+                                <div className="event-description">{course.courseTitle}</div>
+                                <HtmlTooltip
+                                    key={index}
+                                    title={
+                                        <React.Fragment>
+                                            <Typography color="inherit" variant="h6">
+                                                {course.courseTitle}
+                                            </Typography>
+                                            <Typography variant="body2" sx={{ mt: 1 }}>
+                                                <strong>Course time:</strong> {course.time}
+                                            </Typography>
+                                            <Typography variant="body2" sx={{ mt: 1 }}>
+                                                <strong>Course description:</strong> {course.description}
+                                            </Typography>
+                                            <Typography variant="body2" sx={{ mt: 1 }}>
+                                                <strong>Why do we recommend it:</strong> {course.explanation}
+                                            </Typography>
+                                        </React.Fragment>
 
-
-                    return (
-                        
-                        <div 
-                            key={`${course.title}-${day}`} 
-                            
-                            className="calendar-event" 
-                            style={{ 
-                                backgroundColor: course.color, 
-                                gridColumnStart: daysOfWeek.indexOf(day) + 2, // Ensure course is in the correct day column
-                                gridColumnEnd: daysOfWeek.indexOf(day) + 3, // Ensure course is in the correct day column
-                                gridRow: `${startRow} / span ${duration}`, // Correctly place the event in the time slot
-                            }}
-                        >
-                            <div className="event-title">{course.title}</div>
-                            <div className="event-description">{course.description}</div>
-                            <div className="event-location">{course.location}</div>
-                            <div className="event-time">{course.time}</div>
-                        </div>
-                    );
-                }))}
-
-
+                                    }
+                                >
+                                    <Button 
+                                        size="small"
+                                        style={{
+                                            position: 'absolute',
+                                            bottom: '5px',
+                                            right: '5px',
+                                            fontSize: '0.7rem',
+                                            minWidth: 'auto',
+                                            padding: '2px 5px',
+                                            lineHeight: 1,
+                                        }}>Details</Button>
+                                </HtmlTooltip>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

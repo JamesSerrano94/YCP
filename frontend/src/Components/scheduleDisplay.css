@@ -2,13 +2,9 @@
     display: grid;
     grid-template-rows: auto 1fr;
     width: 100%;
-    max-width: 1500px;
-    height: 1000px;
-    margin: 0 auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: white;
+    height: 100vh;
+    position: relative;
+    padding: 20px;
 }
 
 .calendar-header {
@@ -17,84 +13,97 @@
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
     text-align: center;
-}
-
-.time-header {
-    background-color: #fff;
+    padding: 10px;
 }
 
 .day-header {
     padding: 10px;
     font-weight: bold;
-    font-size: 14px;
-    border-left: 1px solid #ddd;
+    background-color: #fff;
 }
 
 .calendar-body {
     display: grid;
-    grid-template-columns: 70px repeat(5, 1fr); /* Time column (left) and 5 day columns */
-    grid-auto-rows: minmax(50px, auto); /* Ensure rows adjust based on event duration */
+    grid-template-columns: 1fr repeat(5, 1fr);
+    position: relative;
+    background-color: #f9f9f9;
 }
 
 .time-column {
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
-    background-color: #fff;
-    border-right: 1px solid #ddd;
+    align-items: center;
 }
 
 .time-slot {
-    flex-grow: 1;
+    height: 50px; /* 30 minutes per slot */
     width: 100%;
+    border-top: 1px solid #ddd; /* Add border at the top for the time row */
+    border-bottom: 1px solid #ddd; /* Add border at the bottom to create grid lines */
+    font-size: 12px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 5px;
-    font-size: 14px;
-    color: #555;
+    color: #666;
+}
+
+.days-column {
     position: relative;
-    border-bottom: 1px solid #ddd;
-}
+    grid-column: 2 / span 5;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 50px; /* Match the row height with the time column */
+    background-image: linear-gradient(to bottom, #ddd 1px, transparent 1px),
+                      linear-gradient(to right, #ddd 1px, transparent 1px); /* Add vertical and horizontal grid lines */
+    background-size: 100% 50px, calc(100% / 5) 100%; /* Horizontal lines every 50px, vertical lines every day column */
 
-.gridline {
-    position: absolute;
-    height: 50%; /* 30-minute intervals */
-    width: 100%;
-    top: 50%;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-    z-index: -1;
 }
-
 .calendar-event {
-    position: relative;
+    position: absolute;
     padding: 10px;
-    border-radius: 4px;
-    color: white;
+    border-radius: 5px;
+    color: #333;
     font-size: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure event fills the column */
-    box-sizing: border-box;
-    grid-column: span 1; /* Event takes up one column */
-    grid-row: auto; /* Allow auto row placement */
+    cursor: pointer;
+    overflow: hidden;
+    background-color: #eee;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    z-index: 1; /* Ensure the event card is above other elements */
+}
+
+.calendar-event:hover {
+    transform: scale(1.05);
+    background-color: #ddd;
+    z-index: 2;
 }
 
 .event-title {
     font-weight: bold;
     font-size: 14px;
-}
-
-.event-description {
-    margin-top: 5px;
     font-size: 14px;
 }
 
-.event-location, .event-time {
+.event-description {
     font-size: 12px;
-    margin-top: 5px;
-    opacity: 0.9;
+    margin-bottom: 8px;
 }
+.course-details {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 100%; /* Position it below the course event */
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    font-size: 12px;
+    color: #333;
+}
+
+
+
+
+
+
