@@ -67,11 +67,15 @@ async def recommend(request: CourseRecommendationRequest):
       }
     }'
     """
+    search_start_time = time.time()
+
     load_dotenv()
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
     number_of_courses_to_recommend = int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND'))
+
+    use_precomputed_embeddings = os.getenv('USE_PRECOMPUTED_EMBEDDINGS')
 
     print("The received request is: ", request)
     print("yale_course_search_api_key: ", yale_course_search_api_key)
@@ -151,7 +155,7 @@ async def recommend(request: CourseRecommendationRequest):
     print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(keyword_filtered_courses))
     # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
     cos_sim_start_time = time.time()
-    cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key)
+    cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key, use_precomputed_embeddings=use_precomputed_embeddings)
 
     cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        keyword_filtered_courses, 
@@ -190,6 +194,8 @@ async def recommend(request: CourseRecommendationRequest):
             for course in llm_recommended_courses
         ]
     print(llm_recommended_courses_with_reduced_fields)
+
+    print("Total time taken: ", time.time() - search_start_time)
     return llm_recommended_courses_with_reduced_fields
 
 def filter(df, startTime, endTime, taken_courses):

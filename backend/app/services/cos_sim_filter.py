@@ -3,9 +3,10 @@
 import json
 import os
 import sys
+import time
 
 import numpy as np
-from openai import OpenAI
+from openai import OpenAI, embeddings
 
 try:
     from app.configs.api_keys import APIKeysConfig
@@ -24,7 +25,10 @@ except ImportError:
 class CosSimFilter:
     """Class for filtering courses based on cosine similarity of embeddings."""
 
-    def __init__(self, openai_api_key=None):
+    def __init__(self, openai_api_key=None, use_precomputed_embeddings=False):
+
+        self.use_precomputed_embeddings = use_precomputed_embeddings
+
         if openai_api_key:
             self.openai_client = OpenAI(api_key=openai_api_key)
         else:
@@ -53,6 +57,7 @@ class CosSimFilter:
         course_texts = []
         course_infos = []
 
+        course_info_prep_start_time = time.time()
         # Prepare the texts and course info
         for course in course_data:
             course_info = course
@@ -60,6 +65,10 @@ class CosSimFilter:
             course_infos.append(course_info)
             course_texts.append(course_text)
 
+        #print("Time for preparing course info: ", time.time() - course_info_prep_start_time)
+
+
+        embeddings_batch_start_time = time.time()
         # Batch the embeddings
         embeddings = []
         for i in range(0, len(course_texts), batch_size):
@@ -67,10 +76,15 @@ class CosSimFilter:
             batch_embeddings = self.get_embeddings(batch_texts)
             embeddings.extend(batch_embeddings)
 
+        #print("Time for getting embeddings in batches: ", time.time() - embeddings_batch_start_time)
+
+        embedding_post_process_start_time = time.time()
         # Assign embeddings back to course_info
         for course_info, embedding in zip(course_infos, embeddings):
             course_info['embedding'] = embedding
             courses.append(course_info)
+
+        #print("Time for post-processing embeddings: ", time.time() - embedding_post_process_start_time)
 
         return courses
 
@@ -86,14 +100,21 @@ class CosSimFilter:
                                                                  n=5):
         """Get top N courses similar to user input."""
         user_input_embedding = self.get_embedding(user_input)
+        if not self.use_precomputed_embeddings:
 
-        courses = self.process_course_data_as_dict_and_get_embedding(course_data)
+            emb_start_time = time.time()
+            course_data = self.process_course_data_as_dict_and_get_embedding(course_data)
+            #print("Time for getting embeddings: ", time.time() - emb_start_time)
 
-        for course in courses:
+        cos_sim_start_time = time.time()
+
+        for course in course_data:
             course['cosine_similarity'] = self.cosine_similarity(user_input_embedding, course['embedding'])
+        #print("Time for computing cosine similarity: ", time.time() - cos_sim_start_time)
+
 
         top_n_courses = sorted(
-            courses,
+            course_data,
             key=lambda x: x['cosine_similarity'],
             reverse=True
         )[:n]
