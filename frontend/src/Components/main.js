@@ -229,7 +229,7 @@ export default function MainPage() {
                 <input
                   type="text"
                   id="humanities"
-                  placeholder="e.g. ENGL 114, ENGL 120"
+                  placeholder="e.g. AFAM 115, AFAM 250"
                   value={humanities}
                   onChange={(e) => setHumanities(e.target.value)}
                 />
@@ -298,7 +298,7 @@ export default function MainPage() {
                 <input
                   type="text"
                   id="language"
-                  placeholder="e.g. SPAN 110"
+                  placeholder="e.g. KREN 110, KREN 120, KREN 130"
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
                 />
@@ -307,7 +307,7 @@ export default function MainPage() {
             <h2>Tell us more about prior courses you've taken that count for your current major</h2>
             <textarea
               className="prior-courses"
-              placeholder="e.g. MATH 225, CPSC 201, CPSC 323"
+              placeholder="e.g. MATH 225, CPSC 201, CPSC 223, CPSC 323"
               value={priorCourses}
               onChange={(e) => setPriorCourses(e.target.value)}
             ></textarea>
