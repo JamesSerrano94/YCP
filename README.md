@@ -35,6 +35,7 @@ npm test
   ```
   cd backend
   ```
+- Run `app/services/YaleCoursePlannerKeyWordGenerator.py`
 - Run the application with Uvicorn
   ```
   uvicorn app.main:app --reload
