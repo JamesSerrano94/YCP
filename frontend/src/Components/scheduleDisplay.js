@@ -90,7 +90,8 @@ const ScheduleDisplay = () => {
         ...course,
         color: course.color || colors[index % colors.length],
     }));
-    const courseTimes = parseCourseTimes(courses);
+    let courseTimes = parseCourseTimes(courses);
+    courseTimes.sort((a, b) => b.courseTitle.length - a.courseTitle.length);
 
     return (
         <div className="calendar-container">
