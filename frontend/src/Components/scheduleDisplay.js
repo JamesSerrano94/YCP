@@ -94,88 +94,104 @@ const ScheduleDisplay = () => {
     courseTimes.sort((a, b) => b.courseTitle.length - a.courseTitle.length);
 
     return (
-        <div className="calendar-container">
-            <div className="calendar-header">
-                <div className="time-header"></div>
-                {daysOfWeek.map((day) => (
-                    <div key={day} className="day-header">
-                        {day}
+        <div className="schedule-container">
+
+            <div className="calendar-container">
+                <div className="calendar-header">
+                    <div className="time-header"></div>
+                    {daysOfWeek.map((day) => (
+                        <div key={day} className="day-header">
+                            {day}
+                        </div>
+                    ))}
+                </div>
+                {/* Search bar */}
+                <div className="search-bar">
+                <div className="choose-more-icon">
+        <img src = "more.svg" alt="Choose more" />
+    </div>
+                    <input type="text" placeholder="Refine your career goal" />
+                    <div className="search-icon">
+                    <img src = "plan.svg" alt="Replan" />
                     </div>
-                ))}
-            </div>
-            <div className="calendar-body">
-                <div className="time-column">
-                    {/* Render time slots in 30-minute intervals */}
-                    {Array.from({ length: (latestTime - earliestTime) / 30 }, (_, index) => {
-                        const totalMinutes = earliestTime + index * 30;
-                        const hours = Math.floor(totalMinutes / 60);
-                        const minutes = totalMinutes % 60;
-                        return (
-                            <div key={index} className="time-slot">
-                                {`${hours}:${minutes.toString().padStart(2, '0')}`}
-                            </div>
-                        );
-                    })}
                 </div>
-                <div className="days-column">
-                    {courseTimes.map((course, index) => {
-                        const startOffset =
-                            ((course.startTime - earliestTime) / (latestTime - earliestTime)) * 100;
-                        const duration =
-                            ((course.endTime - course.startTime) / (latestTime - earliestTime)) * 100;
-
-                        return (
-                            <div
-                                key={index}
-                                className="calendar-event"
-                                style={{
-                                    backgroundColor: course.color,
-                                    gridColumn: daysOfWeek.indexOf(course.day) + 1,
-                                    top: `${startOffset}%`,
-                                    height: `${duration}%`
-                                }}
-                            >
-                                <div className="event-title">
-                                    {course.department} {course.courseNumber}
+                <div className="calendar-body">
+                    <div className="time-column">
+                        {/* Render time slots in 30-minute intervals */}
+                        {Array.from({ length: (latestTime - earliestTime) / 30 }, (_, index) => {
+                            const totalMinutes = earliestTime + index * 30;
+                            const hours = Math.floor(totalMinutes / 60);
+                            const minutes = totalMinutes % 60;
+                            return (
+                                <div key={index} className="time-slot">
+                                    {`${hours}:${minutes.toString().padStart(2, '0')}`}
                                 </div>
-                                <div className="event-description">{course.courseTitle}</div>
-                                <HtmlTooltip
-                                    key={index}
-                                    title={
-                                        <React.Fragment>
-                                            <Typography color="inherit" variant="h6">
-                                                {course.courseTitle}
-                                            </Typography>
-                                            <Typography variant="body2" sx={{ mt: 1 }}>
-                                                <strong>Course time:</strong> {course.time}
-                                            </Typography>
-                                            <Typography variant="body2" sx={{ mt: 1 }}>
-                                                <strong>Course description:</strong> {course.description}
-                                            </Typography>
-                                            <Typography variant="body2" sx={{ mt: 1 }}>
-                                                <strong>Why do we recommend it:</strong> {course.explanation}
-                                            </Typography>
-                                        </React.Fragment>
+                            );
+                        })}
+                    </div>
+                    <div className="days-column">
+                        {courseTimes.map((course, index) => {
+                            const startOffset =
+                                ((course.startTime - earliestTime) / (latestTime - earliestTime)) * 100;
+                            const duration =
+                                ((course.endTime - course.startTime) / (latestTime - earliestTime)) * 100;
 
-                                    }
+                            return (
+                                <div
+                                    key={index}
+                                    className="calendar-event"
+                                    style={{
+                                        backgroundColor: course.color,
+                                        gridColumn: daysOfWeek.indexOf(course.day) + 1,
+                                        top: `${startOffset}%`,
+                                        height: `${duration}%`
+                                    }}
                                 >
-                                    <Button 
-                                        size="small"
-                                        style={{
-                                            position: 'absolute',
-                                            bottom: '5px',
-                                            right: '5px',
-                                            fontSize: '0.7rem',
-                                            minWidth: 'auto',
-                                            padding: '2px 5px',
-                                            lineHeight: 1,
-                                        }}>Details</Button>
-                                </HtmlTooltip>
-                            </div>
-                        );
-                    })}
+                                    <div className="event-title">
+                                        {course.department} {course.courseNumber}
+                                    </div>
+                                    <div className="event-description">{course.courseTitle}</div>
+                                    <HtmlTooltip
+                                        key={index}
+                                        title={
+                                            <React.Fragment>
+                                                <Typography color="inherit" variant="h6">
+                                                    {course.courseTitle}
+                                                </Typography>
+                                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                                    <strong>Course time:</strong> {course.time}
+                                                </Typography>
+                                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                                    <strong>Course description:</strong> {course.description}
+                                                </Typography>
+                                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                                    <strong>Why do we recommend it:</strong> {course.explanation}
+                                                </Typography>
+                                            </React.Fragment>
+
+                                        }
+                                    >
+                                        <Button
+                                            size="small"
+                                            style={{
+                                                position: 'absolute',
+                                                bottom: '5px',
+                                                right: '5px',
+                                                fontSize: '0.7rem',
+                                                minWidth: 'auto',
+                                                padding: '2px 5px',
+                                                lineHeight: 1,
+                                            }}>Details</Button>
+                                    </HtmlTooltip>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
+
             </div>
+            <div className="recommendation-container"></div>
+
         </div>
     );
 };
