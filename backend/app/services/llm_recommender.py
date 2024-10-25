@@ -4,6 +4,8 @@ import re
 from typing import List
 from openai import OpenAI
 
+from app.utils.exceptions import CourseNumberNotFoundError, LLMRecommenderError
+
 system_prompt = f"""
 You have access to a JSON dataset containing detailed information about various courses offered, including fields such as courseNumber, courseTitle, description, instructorList, meetingPattern, prerequisites, and distDesg (distribution designations).
 
@@ -107,7 +109,14 @@ class LLMRecommender:
                     for key, value in other_course_info.items():
                         if key not in course:
                             course[key] = value
-                
+                else:
+                    raise CourseNumberNotFoundError(f"Course number {course_number} not found in the course list. "
+                                                    f"First ensure that the given course list to llm is correct. "
+                                                    f"Then, make sure that the course number is correct.")
+                    
+            # Check at least one course number is found
+            if len(recommended_course_list) == 0:
+                raise LLMRecommenderError("No course numbers found in the recommended course list. The input course list might be incorrect. Please try again.")
             
             return recommended_course_list
 
