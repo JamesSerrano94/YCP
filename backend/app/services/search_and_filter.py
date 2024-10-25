@@ -15,48 +15,45 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
     Input: 
     semester: string - Fall 2024 OR Spring 2025
     others: boolean - whether or not to include this requirement in the returned json
-    language: "L1" OR "L3 SPAN" 
+    language: empty_string OR required_code("L1") OR required_code + speficy_language("L3 SPAN")
     returns: a json string
     '''
     semester_to_file = {
-        "Fall 2024": "combined_course_data_fall_2024.json",
-        "Spring 2025": "combined_course_data_spring_2025.json"
+        "Fall 2024": "distributional_combined_course_data_fall_2024.json",
+        "Spring 2025": "distributional_combined_course_data_spring_2025.json"
     }
     json_file_name = semester_to_file.get(semester)
     current_dir = os.path.dirname(__file__)
-    file_path = os.path.join(current_dir, '../routers/', json_file_name)
+    file_path = os.path.join(current_dir, './', json_file_name)
     file_path = os.path.abspath(file_path)
     
     with open(file_path, 'r', encoding='utf-8') as json_file:
         datas = json.load(json_file)
+
     # print(data)
     lang_reqs = language.split()
-    level = f"YC{lang_reqs[0]}"
+    level = f"YC{lang_reqs[0]}" if len(lang_reqs) > 0 else None
     second_word = lang_reqs[1].lower() if len(lang_reqs) > 1 else None
     result = []
     for data in datas:
         requirement = data.get("distDesg", [])
         if (humanity and 'YCHU' in requirement):
             result.append(data)
-            continue
-        if (science and 'YCSC' in requirement):
+        elif (science and 'YCSC' in requirement):
             result.append(data)
-            continue
-        if (social and 'YCSO' in requirement):
+        elif (social and 'YCSO' in requirement):
             result.append(data)
-            continue
-        if (quantitive and 'YCQR' in requirement):
+        elif (quantitive and 'YCQR' in requirement):
             result.append(data)
-            continue
-        if (writing and 'YCWR' in requirement):
+        elif (writing and 'YCWR' in requirement):
             result.append(data)
-            continue
-        if (level in requirement):
+        elif (level in requirement):
             if (second_word):
                 if (second_word not in data.get('courseTitle', '').lower()):
                     continue
             result.append(data)
 
+    # return result
     return json.dumps(result)
 
 
