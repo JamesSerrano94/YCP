@@ -33,11 +33,12 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
     # print(data)
     lang_reqs = language.split()
     level = f"YC{lang_reqs[0]}" if len(lang_reqs) > 0 else None
-    second_word = lang_reqs[1].lower() if len(lang_reqs) > 1 else None
+    second_word = lang_reqs[1] if len(lang_reqs) > 0 else None
     result = []
     for data in datas:
         requirement = data.get("distDesg", [])
         if (humanity and 'YCHU' in requirement):
+            # print(requirement)
             result.append(data)
         elif (science and 'YCSC' in requirement):
             result.append(data)
@@ -47,10 +48,8 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
             result.append(data)
         elif (writing and 'YCWR' in requirement):
             result.append(data)
-        elif (level in requirement):
-            if (second_word):
-                if (second_word not in data.get('courseTitle', '').lower()):
-                    continue
+        elif (level in requirement and second_word == data.get('subjectCode', '')):
+            # print(data.get('courseTitle', ''))
             result.append(data)
 
     # return result
@@ -166,6 +165,6 @@ def convert_time_format(time):
             hours = str(int(hours) + 12)
     return 60* int(hours) + int(minutes)
 
-if __name__ == "__main__":
-#    print(data.get("distDesg", []) for data in retrive_desired_distributional("Fall 2024", True, False, False, False, False, "L3 SPAN"))
-   print(len(retrive_desired_distributional("Fall 2024", False, False, False, False, False, "L3 SPAN")))
+# if __name__ == "__main__":
+#    retrive_desired_distributional("Fall 2024", 0, 0, 0, 0, 0, "L3 SPAN")
+# #    print(len(retrive_desired_distributional("Fall 2024", False, False, False, False, False, "L3 SPAN")))
