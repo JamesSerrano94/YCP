@@ -167,12 +167,11 @@ async def recommend(request: CourseRecommendationRequest):
     # Transform cos_sim_filtered_courses into a JSON string
 
     # Initialize the LLM for final output
-    llm = LLMRecommender(openai_api_key=openai_api_key)
+    llm = LLMRecommender(openai_api_key=openai_api_key, course_list=cos_sim_filtered_courses)
 
     # Get LLM recommendations based on the filtered courses and user request
     try:
         llm_recommended_courses = llm.get_course_recommendations(
-            cos_sim_filtered_courses,
             request.major,
             request.careerGoals,
             request.fulfilledRequirements

@@ -73,23 +73,28 @@ def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cos
         
 
 class LLMRecommender:
-    def __init__(self, openai_api_key: str):
+    def __init__(self, openai_api_key: str, course_list: List[dict]):
         self.client = OpenAI(api_key=openai_api_key)
-        
-    def get_course_recommendations(self, course_list: List[dict], major: str, career_goals: List[str], fulfilled_requirements: List[str]) -> List[str]:
+        self.course_list = course_list  # Store the course list
+        self.messages = []
+
+        # Initialize the conversation
         course_text = list_to_json(course_list)
-        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}"
-        messages = [
+        self.messages = [
             {"role": "system", "content": system_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))},
-            {"role": "assistant", "content": f"The JSON dataset of courses is as follows:\n{course_text}"},
-            {"role": "user", "content": additional_info}
+            {"role": "assistant", "content": f"The JSON dataset of courses is as follows:\n{course_text}"}
         ]
-        
+
+    def get_course_recommendations(self, major: str, career_goals: List[str], fulfilled_requirements: List[str]) -> List[dict]:
+        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}"
+        # Append the user's message to the conversation
+        self.messages.append({"role": "user", "content": additional_info})
+
         # Call the OpenAI API to get the response
         try:
             response = self.client.chat.completions.create(
-                model="gpt-4o",  # Use "gpt-3.5-turbo" if you don't have access to GPT-4
-                messages=messages,
+                model="gpt-4o", #  We can use gpt-4o-mini if we want to save money.
+                messages=self.messages,
                 max_tokens=2000,
                 n=1,
                 stop=None,
@@ -98,27 +103,54 @@ class LLMRecommender:
 
             # Extract the assistant's reply
             reply = response.choices[0].message.content.strip()
+            # Append the assistant's message to the conversation
+            self.messages.append({"role": "assistant", "content": reply})
+
             recommended_course_list = self.parse_course_info(reply)
-            
-            # Put additional information for the recommended courses
-            # TODO: Implement it with maybe dataframe to speed up the process
+
+            # Add additional information for the recommended courses
             for course in recommended_course_list:
                 course_number = course["courseNumber"]
-                other_course_info = next((item for item in course_list if item["courseNumber"] == course_number), None)
+                other_course_info = next((item for item in self.course_list if item["courseNumber"] == course_number), None)
                 if other_course_info is not None:
                     for key, value in other_course_info.items():
                         if key not in course:
                             course[key] = value
                 else:
                     raise CourseNumberNotFoundError(f"Course number {course_number} not found in the course list. "
-                                                    f"First ensure that the given course list to llm is correct. "
+                                                    f"First ensure that the given course list to LLM is correct. "
                                                     f"Then, make sure that the course number is correct.")
-                    
-            # Check at least one course number is found
+
+            # Check that at least one course number is found
             if len(recommended_course_list) == 0:
                 raise LLMRecommenderError("No course numbers found in the recommended course list. The input course list might be incorrect. Please try again.")
-            
+
             return recommended_course_list
+
+        except Exception as e:
+            raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
+        
+    def continue_conversation(self, user_message: str) -> str:
+        # Append the user's new message to the conversation
+        self.messages.append({"role": "user", "content": user_message})
+
+        # Call the OpenAI API
+        try:
+            response = self.client.chat.completions.create(
+                model="gpt-4",
+                messages=self.messages,
+                max_tokens=2000,
+                n=1,
+                stop=None,
+                temperature=0.7,
+            )
+
+            # Extract the assistant's reply
+            reply = response.choices[0].message.content.strip()
+            # Append the assistant's message to the conversation
+            self.messages.append({"role": "assistant", "content": reply})
+
+            return reply
 
         except Exception as e:
             raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
