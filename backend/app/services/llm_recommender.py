@@ -56,7 +56,7 @@ Now, given the JSON dataset and user preferences, recommend the most _number_of_
 You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
 """
 
-schedule_prompt = f"""Please further find a non-conflicting schedule for the recommended classes.
+schedule_prompt = f"""Please further find a non-conflicting schedule for the recommended classes. It should be a subset of the recommended courses and the meeting times should not overlap.
 
 Example Output:
 1. 
@@ -71,7 +71,7 @@ Example Output:
 - Meeting Time: "MWF 10.30-11.20"
 - Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
 
-Again, you should still directlyoutput the same format as before, and you are not allowed to output anything else besides the required format.
+Again, you should still directly output the same format as before, and you are not allowed to output anything else besides the required format.
 """
 
 def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cosine_similarity: bool = True) -> str:
@@ -160,6 +160,9 @@ class LLMRecommender:
             
             # Parse the reply
             recommended_non_conflicting_schedule = self.parse_course_info(reply)
+            
+            if not self.verify_non_conflicting_schedule(recommended_non_conflicting_schedule):
+                raise LLMRecommenderError("The recommended schedule is conflicting. Please try again.")
 
             return recommended_non_conflicting_schedule
 
@@ -213,5 +216,45 @@ class LLMRecommender:
                                                     f"Then, make sure that the course number is correct.")
 
         return course_list
-        
+    
+
+    def verify_non_conflicting_schedule(self, schedule: List[dict]):
+        # Create a dictionary to store the time slots for each day
+        time_slots = {day: [] for day in ['M', 'T', 'W', 'Th', 'F']}
+
+        for course in schedule:
+            meeting_pattern = course.get('meetingPattern', [])
+            for pattern in meeting_pattern:
+                # Extract day and time information
+                match = re.match(r'([MTWThF]+)\s+(\d+\.\d+)-(\d+\.\d+)', pattern)
+                if not match:
+                    continue
+                
+                days, start_time, end_time = match.groups()
+                
+                # Convert time to minutes for easier comparison
+                start_minutes = self.time_to_minutes(start_time)
+                end_minutes = self.time_to_minutes(end_time)
+
+                # Check for conflicts on each day
+                day_list = []
+                if 'Th' in days:
+                    day_list.extend(['Th'])
+                    days = days.replace('Th', '')
+                day_list.extend(list(days))
+
+                for day in day_list:
+                    for existing_start, existing_end in time_slots[day]:
+                        if (start_minutes < existing_end and end_minutes > existing_start):
+                            return False  # Conflict found
+                    
+                    # If no conflict, add the time slot
+                    time_slots[day].append((start_minutes, end_minutes))
+
+        return True  # No conflicts found
+
+    def time_to_minutes(self, time_str):
+        # Convert time string to minutes (e.g., "13.30" to 810 minutes)
+        hours, minutes = map(float, time_str.split('.'))
+        return int(hours * 60 + minutes)
     
