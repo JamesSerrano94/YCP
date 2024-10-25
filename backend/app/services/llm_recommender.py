@@ -121,7 +121,8 @@ class LLMRecommender:
             return recommended_course_list
 
         except Exception as e:
-            return f"An error occurred: {e}"
+            raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
+
         
     def parse_course_info(self, text):
         # Split the text by course entries
