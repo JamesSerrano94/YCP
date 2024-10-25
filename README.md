@@ -40,3 +40,11 @@ npm test
   ```
   uvicorn app.main:app --reload
   ```
+
+## Current Pipeline
+- Offline: Precompute word embeddings for all courses offline
+- Online:
+  1. Convert input formats of time and taken courses
+  2. Filter based on time and taken courses
+  3. Perform cosine similarity to find suitable courses
+  4. Use LLM to finalize the output
