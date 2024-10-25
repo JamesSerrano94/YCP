@@ -14,6 +14,7 @@ from app.models.course import SchedulePreferences
 from app.configs.api_keys import APIKeysConfig
 from app.services.llm_recommender import LLMRecommender
 from . import YaleCoursePlannerKeyWordSearch
+from app.services import search_and_filter
 import re
 from dotenv import load_dotenv
 
@@ -108,11 +109,11 @@ async def recommend(request: CourseRecommendationRequest):
         data = json.load(json_file)
     print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
     # df = pd.json_normalize(data)
-    # start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
-    # print(start_time)
-    # end_time = convert_time_format(request.schedulePreferences.latestEndTime)
-    # print(end_time)
-    # taken_courses = get_taken_courses(request.fulfilledRequirements)
+    start_time = search_and_filter.convert_time_format(request.schedulePreferences.earliestStartTime)
+    print(start_time)
+    end_time = search_and_filter.convert_time_format(request.schedulePreferences.latestEndTime)
+    print(end_time)
+    taken_courses = search_and_filter.get_taken_courses(request.fulfilledRequirements)
     #df = filter(df, start_time, end_time, taken_courses)
     #output_json = df.to_json(orient="records", lines=False)
 
