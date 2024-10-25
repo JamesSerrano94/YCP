@@ -192,6 +192,9 @@ async def recommend(request: CourseRecommendationRequest):
     llm_recommended_non_conflicting_schedule_with_reduced_fields = reduce_fields(llm_recommended_non_conflicting_schedule)
     print(llm_recommended_courses_with_reduced_fields)
     print(llm_recommended_non_conflicting_schedule_with_reduced_fields)
+    
+    # Remove duplicate courses in the recommended courses
+    llm_recommended_courses_with_reduced_fields = reduce_duplicate_courses(llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields)
 
     print("Total time taken: ", time.time() - search_start_time)
     return llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields
@@ -242,6 +245,9 @@ def get_taken_courses(courses: FulfilledRequirements):
     return result
 
 def reduce_fields(courses: List[dict]):
+    """
+    Given a list of courses, reduce the fields of each course to only include the required fields.
+    """
     return [
             {
                 "department": course.get("department", ""),
@@ -253,7 +259,20 @@ def reduce_fields(courses: List[dict]):
                 "explanation": course.get("explanation", "")
             }
             for course in courses
-        ]   
+        ]
+    
+def reduce_duplicate_courses(courses_A: List[dict], courses_B: List[dict]):
+    """
+    Given two lists of courses, reduce the courses in courses_A to only include courses that are not in courses_B.
+    
+    Example:
+    courses_A = [{'courseNumber': 'CPSC 110'}, {'courseNumber': 'CPSC 201'}]
+    courses_B = [{'courseNumber': 'CPSC 110'}]
+    reduce_duplicate_courses(courses_A, courses_B) will return [{'courseNumber': 'CPSC 201'}]
+    """
+    courses_A_set = set(course['courseNumber'] for course in courses_A)
+    courses_B_set = set(course['courseNumber'] for course in courses_B)
+    return [course for course in courses_A if course['courseNumber'] not in courses_B_set]
    
 
 def convert_major_format(major):
