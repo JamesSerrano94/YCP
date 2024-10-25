@@ -3,6 +3,7 @@
 import json
 import time
 import os
+from typing import List
 import pandas as pd
 import ast
 import requests
@@ -169,19 +170,79 @@ async def recommend(request: CourseRecommendationRequest):
     # Initialize the LLM for final output
     llm = LLMRecommender(openai_api_key=openai_api_key, course_list=cos_sim_filtered_courses)
 
-    # Get LLM recommendations based on the filtered courses and user request
     try:
+        # Get LLM recommendations based on the filtered courses and user request
         llm_recommended_courses = llm.get_course_recommendations(
             request.major,
             request.careerGoals,
             request.fulfilledRequirements
         )
+        
+        # LLM recommends a non-conflicting schedule
+        llm_recommended_non_conflicting_schedule = llm.recommend_non_conflicting_schedule()
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
-    print("JSON after step 3 has department key: ", check_if_element_in_json_has_department_key(llm_recommended_courses))
+    
+    
+    print("JSON after step 3 has department key: ", 
+          check_if_element_in_json_has_department_key(llm_recommended_non_conflicting_schedule) & check_if_element_in_json_has_department_key(llm_recommended_courses))
 
     # The returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
-    llm_recommended_courses_with_reduced_fields = [
+    llm_recommended_courses_with_reduced_fields = reduce_fields(llm_recommended_courses)
+    llm_recommended_non_conflicting_schedule_with_reduced_fields = reduce_fields(llm_recommended_non_conflicting_schedule)
+    print(llm_recommended_courses_with_reduced_fields)
+    print(llm_recommended_non_conflicting_schedule_with_reduced_fields)
+
+    print("Total time taken: ", time.time() - search_start_time)
+    return llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields
+
+def filter(df, startTime, endTime, taken_courses):
+    result = df
+    # result = df[df['department'] == major]
+    result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
+    taken_courses_split = [course.split(' ', 1) for course in taken_courses]
+    # print(taken_courses_split)
+    taken_courses_df = pd.DataFrame(taken_courses_split, columns=['department', 'courseNumber'])
+    result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
+    result.reset_index(drop=True, inplace=True)
+    return result
+
+def search_course(semester, major):
+    search_api = APIKeysConfig.yale_course_search_api
+    headers = {
+        'apikey': search_api,
+        'Accept': 'application/json',
+    }
+    params = {
+                    'termCode': get_term_code(semester),
+                    'subjectCode': convert_major_format(major),
+                }
+    response = requests.get("https://gw.its.yale.edu/soa-gateway/courses/webservice/v3/index", headers=headers, params=params)
+    return response.json()
+
+def get_term_code(term_str):
+    splitted = term_str.split()
+    termcode = '01'
+    if (splitted[0] == "Summer"):
+        termcode = '02'
+    elif(splitted[0] == "Fall"):
+        termcode = '03'
+    return splitted[1] + termcode  
+
+def get_taken_courses(courses: FulfilledRequirements):
+    result = []
+    result.extend(courses.humanities)
+    result.extend(courses.sciences)
+    result.extend(courses.social)
+    result.extend(courses.qr)
+    result.extend(courses.writing)
+    result.extend(courses.language)
+    result.extend(courses.priorCourses)
+    # print(result)
+    return result
+
+def reduce_fields(courses: List[dict]):
+    return [
             {
                 "department": course.get("department", ""),
                 "courseTitle": course.get("courseTitle", ""),  
@@ -191,12 +252,72 @@ async def recommend(request: CourseRecommendationRequest):
                 "distDesg": course.get("distDesg", []),
                 "explanation": course.get("explanation", "")
             }
-            for course in llm_recommended_courses
-        ]
-    print(llm_recommended_courses_with_reduced_fields)
+            for course in courses
+        ]   
+   
 
-    print("Total time taken: ", time.time() - search_start_time)
-    return llm_recommended_courses_with_reduced_fields
+def convert_major_format(major):
+    # Need to add all major conversion, or do it in frontend
+    if (major == "Computer Science"):
+      return 'CPSC'
+
+def is_time_in_range(string_list, start_time, end_time, default):
+    valid_days = set('MThWF')
+    schedule_list = ast.literal_eval(str(string_list))
+
+    if len(schedule_list) == 0:
+      return default
+
+    select = 0
+    if (set(schedule_list[0].split(' ')[0]).issubset(valid_days)):
+      select = 0
+    elif (len(schedule_list) > 1 and set(schedule_list[1].split(' ')[0]).issubset(valid_days)):
+      select = 1
+    else:
+      return default
+    ## uncomment these to run cpsc data
+    # time_part = (schedule_list[select].split(' ')[1]).split('-')
+    # start_time_hr = int(time_part[0].split('.')[0])
+    # start_time_min = int(time_part[0].split('.')[1])
+    # end_time_hr = int(time_part[1].split('.')[0])
+    # end_time_min = int(time_part[1].split('.')[1])
+
+    # following are for all course data
+    time_part = (schedule_list[select].split(' ')[1]).split('-')
+    start_time_hr = int(time_part[0].split('.')[0].replace('p',''))
+    start_time_min = int(time_part[0].split('.')[1].replace('p',''))
+    end_time_hr = int(time_part[1].split('.')[0].replace('p',''))
+    end_time_min = int(time_part[1].split('.')[1].replace('p',''))
+
+
+    if (start_time_hr <= 6):
+      start_time_hr += 12
+    if (end_time_hr <= 6):
+      end_time_hr += 12
+    start_time_total = start_time_hr * 60 + start_time_min
+    end_time_total = end_time_hr * 60 + end_time_min
+
+    start_time_obj = int(start_time.split('.')[0]) * 60 + int(start_time.split('.')[1])
+    end_time_obj = int(end_time.split('.')[0]) * 60 + int(end_time.split('.')[1])
+
+    if (start_time_total >= start_time_obj and end_time_total <= end_time_obj):
+      return True
+
+    return default
+
+def convert_time_format(time):
+    """
+      06:00 PM will be convert to 18.00
+    """
+    time_small, period = time.split()
+    hours, minutes = time_small.split(':')
+    if period == 'AM':
+        if hours == '12':
+            hours = '00'
+    elif period == 'PM':
+        if hours != '12':
+            hours = str(int(hours) + 12)
+    return 60* int(hours) + int(minutes)
 
 
 # schedule_preferences = SchedulePreferences(
