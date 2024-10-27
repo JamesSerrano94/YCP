@@ -4,7 +4,7 @@ import re
 from typing import List
 from openai import OpenAI
 
-from app.utils.exceptions import CourseNumberNotFoundError, LLMRecommenderError
+from backend.app.utils.exceptions import CourseNumberNotFoundError, LLMRecommenderError
 
 system_prompt = f"""
 You have access to a JSON dataset containing detailed information about various courses offered, including fields such as courseNumber, courseTitle, description, instructorList, meetingPattern, prerequisites, and distDesg (distribution designations).

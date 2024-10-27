@@ -5,10 +5,10 @@ import ast
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from app.models.course import CourseRecommendationRequest
-from app.models.course import FulfilledRequirements
-from app.models.course import SchedulePreferences
-from app.configs.api_keys import APIKeysConfig
+from backend.app.models.course import CourseRecommendationRequest
+from backend.app.models.course import FulfilledRequirements
+from backend.app.models.course import SchedulePreferences
+from backend.app.configs.api_keys import APIKeysConfig
 
 def retrive_desired_distributional(semester, humanity, science, social, quantitive, writing, language):
     '''
@@ -152,20 +152,6 @@ def is_time_in_range(string_list, start_time, end_time, default):
       return True
 
     return default
-
-def convert_time_format(time):
-    """
-      06:00 PM will be convert to 18.00
-    """
-    time_small, period = time.split()
-    hours, minutes = time_small.split(':')
-    if period == 'AM':
-        if hours == '12':
-            hours = '00'
-    elif period == 'PM':
-        if hours != '12':
-            hours = str(int(hours) + 12)
-    return 60* int(hours) + int(minutes)
 
 # if __name__ == "__main__":
 #    retrive_desired_distributional("Fall 2024", 0, 0, 0, 0, 0, "L3 SPAN")

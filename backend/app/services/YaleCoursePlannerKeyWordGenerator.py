@@ -6,7 +6,7 @@ import json
 import pathlib
 import tqdm
 
-from cos_sim_filter import CosSimFilter
+from backend.app.services.cos_sim_filter import CosSimFilter
 #import bigFive
 
 # dotenv_path = join(dirname(__file__), '.env')

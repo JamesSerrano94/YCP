@@ -9,14 +9,14 @@ import numpy as np
 from openai import OpenAI, embeddings
 
 try:
-    from app.configs.api_keys import APIKeysConfig
+    from backend.app.configs.api_keys import APIKeysConfig
 except ImportError:
     # If the import fails, adjust the sys.path to include the parent directory
     current_dir = os.path.dirname(os.path.abspath(__file__))
     parent_dir = os.path.dirname(os.path.dirname(current_dir))  # Goes up two levels
     sys.path.append(parent_dir)
     try:
-        from app.configs.api_keys import APIKeysConfig
+        from backend.app.configs.api_keys import APIKeysConfig
     except ImportError as exc:
         # If still failing, report error
         raise ImportError("Cannot import APIKeysConfig") from exc

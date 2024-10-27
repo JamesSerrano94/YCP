@@ -23,22 +23,18 @@ npm test
 
 ## Back End Setup
 - Install Conda or Mamba
-- Navigate to the back end folder
-  ```
-  cd backend
-  ```
 - Create the environment
   ```
-  conda env create -f environment.yml
+  conda env create -f backend/environment.yml
   ```
-- Navigate to the backend folder
+- Install Package in editable mode
   ```
-  cd backend
-  ```
-- Run `app/services/YaleCoursePlannerKeyWordGenerator.py`
+  pip install -e .
+  ``` 
+- Run `backend/app/services/YaleCoursePlannerKeyWordGenerator.py`
 - Run the application with Uvicorn
   ```
-  uvicorn app.main:app --reload
+  uvicorn backend.app.main:app --reload
   ```
 
 ## Current Pipeline

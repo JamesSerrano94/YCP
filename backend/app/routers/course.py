@@ -8,14 +8,13 @@ import pandas as pd
 import ast
 import requests
 from fastapi import APIRouter, HTTPException
-from app.services.cos_sim_filter import CosSimFilter
-from app.models.course import CourseRecommendationRequest
-from app.models.course import FulfilledRequirements
-from app.models.course import SchedulePreferences
-from app.configs.api_keys import APIKeysConfig
-from app.services.llm_recommender import LLMRecommender
-from . import YaleCoursePlannerKeyWordSearch
-from app.services import search_and_filter
+from backend.app.routers.YaleCoursePlannerKeyWordSearch import keywordSearch
+from backend.app.services.cos_sim_filter import CosSimFilter
+from backend.app.models.course import CourseRecommendationRequest
+from backend.app.models.course import FulfilledRequirements
+from backend.app.models.course import SchedulePreferences
+from backend.app.configs.api_keys import APIKeysConfig
+from backend.app.services.llm_recommender import LLMRecommender
 import re
 from dotenv import load_dotenv
 
@@ -118,11 +117,11 @@ async def recommend(request: CourseRecommendationRequest):
         data = json.load(json_file)
     print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
     # df = pd.json_normalize(data)
-    start_time = search_and_filter.convert_time_format(request.schedulePreferences.earliestStartTime)
+    start_time = convert_time_format(request.schedulePreferences.earliestStartTime)
     print(start_time)
-    end_time = search_and_filter.convert_time_format(request.schedulePreferences.latestEndTime)
+    end_time = convert_time_format(request.schedulePreferences.latestEndTime)
     print(end_time)
-    taken_courses = search_and_filter.get_taken_courses(request.fulfilledRequirements)
+    taken_courses = get_taken_courses(request.fulfilledRequirements)
     #df = filter(df, start_time, end_time, taken_courses)
     #output_json = df.to_json(orient="records", lines=False)
 
@@ -131,7 +130,7 @@ async def recommend(request: CourseRecommendationRequest):
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
 
-    keyword_filtered_courses = YaleCoursePlannerKeyWordSearch.keywordSearch(request.careerGoals)
+    keyword_filtered_courses = keywordSearch(request.careerGoals)
 
 
     #Step 2.1: Use keyword filtering (James)
