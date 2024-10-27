@@ -177,9 +177,11 @@ async def recommend(request: CourseRecommendationRequest):
             request.careerGoals,
             request.fulfilledRequirements
         )
+        print("check llm.get_course_recommendations")
         
         # LLM recommends a non-conflicting schedule
         llm_recommended_non_conflicting_schedule = llm.recommend_non_conflicting_schedule()
+        print("check llm_recommended_non_conflicting_schedule")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
     

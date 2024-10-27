@@ -15808,6 +15808,499 @@
     },
     {
         "cSectionStatus": "A",
+        "courseNumber": "035",
+        "courseTitle": "The Ecology of Food",
+        "crn": "10191",
+        "department": "E&EB",
+        "description": "<p>Food and ecology are inextricably linked, both in producing domesticated food through agriculture and livestock and in harvesting&#160;wild plants and animals.&#160; Furthermore, the production and consumption of food have downstream consequences through energy consumption, food waste, trophic interactions, and the transportation of food around the globe. These topics link to many of the fundamental concepts of ecology, including population biology, the niche, trophic interactions, nitrogen cycling, and the effects on biodiversity. In this class, we explore these topics intensively through a combination of lectures, readings, and interactive field trips to on/near campus ecosystems, including the Marsh Botanical Gardens, the Yale Sustainable Farm, a nearby forest and salt marsh, and an orchard. Each week, we meet twice for 50 minutes for a combination of lecture and discussion and for 110 minutes for field trips, discussions, and guest lectures.&#160;</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Linda Puth"
+        ],
+        "instructorUPI": [
+            "11643492"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "M 1.30-2.20",
+            "W 1.30-3.20",
+            "1 HTBA"
+        ],
+        "meetingPatternLocation": [
+            "WTS A35",
+            "1 HTBA"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.&#160;</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "The Ecology of Food",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB035",
+        "syllabusLink": "https://yale.instructure.com/courses/98090/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "115",
+        "courseTitle": "Conservation Biology",
+        "crn": "10192",
+        "department": "E&EB",
+        "description": "<p>An introduction to ecological and evolutionary principles underpinning efforts to conserve Earth's biodiversity. Efforts to halt the rapid increase in disappearance of both plants and animals. Discussion of sociological and economic issues.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "32",
+        "instructorList": [
+            "Linda Puth"
+        ],
+        "instructorUPI": [
+            "11643492"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "KGL 123"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "E&EB515",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Conservation Biology",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB115",
+        "syllabusLink": "https://yale.instructure.com/courses/98094/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "220",
+        "courseTitle": "General Ecology",
+        "crn": "10193",
+        "department": "E&EB",
+        "description": "<p>The theory and practice of ecology, including the ecology of individuals, population dynamics and regulation, community structure, ecosystem function, and ecological interactions at broad spatial and temporal scales. Topics such as climate change, fisheries management, and infectious diseases are placed in an ecological context.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "33",
+        "instructorList": [
+            "David Vasseur",
+            "Michelle Wong"
+        ],
+        "instructorUPI": [
+            "12769895",
+            "24501653"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MWF 10.30-11.20"
+        ],
+        "meetingPatternLocation": [
+            "WTS A30"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: MATH 112 or equivalent.</p>",
+        "primXLst": "E&EB520",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "EVST223"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "General Ecology",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB220",
+        "syllabusLink": "https://yale.instructure.com/courses/98098/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "246",
+        "courseTitle": "Plant Diversity and Evolution",
+        "crn": "10194",
+        "department": "E&EB",
+        "description": "<p>This course has several, interrelated objectives. First, it serves as an introduction to the science of phylogenetics, providing an overview of both the theory and methodology involved in constructing phylogenetic trees, and how to use trees to study character and organismal evolution. For our second objective, we put this new framework to immediate use by using phylogeny to explore and illustrate 400 million years of land plant evolution, with emphasis on the diversity of flowering plants. The course examines major trends in plant evolution from functional, ecological, and bio-geographical perspectives. Students acquire a basic understanding of 1) phylogenetic approaches to comparative biology, 2) plant anatomy and morphology, 3) evolutionary relationships among the major land plant clades (with emphasis on the flowering plants), and 4) major evolutionary trends that have significantly shaped the diversity of plant life that we see today. The third and most important objective is to instill in students the ability to look at any biological problem through the lens of \"phylogeny-colored glasses\"- a powerful way to examine the complexity of life that surrounds (and includes!) us.&#160;</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Erika Edwards"
+        ],
+        "instructorUPI": [
+            "11174241"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "ESC 110"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "E&EB546"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Plant Diversity & Evolution",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB246",
+        "syllabusLink": "https://yale.instructure.com/courses/98102/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "247L",
+        "courseTitle": "Laboratory for Plant Diversity and Evolution",
+        "crn": "10195",
+        "department": "E&EB",
+        "description": "<p>Hands-on experience with the plant groups examined in the accompanying lectures. Local field trips.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Erika Edwards"
+        ],
+        "instructorUPI": [
+            "11174241"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "1 HTBA",
+            "W 1.00-4.00"
+        ],
+        "meetingPatternLocation": [
+            "1 HTBA",
+            "MARSH 3"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">To be taken concurrently with E&amp;EB 246.</p>\n<p>BIOL 104</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "E&EB547"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Lab:Plant Diversity& Evolution",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB247L",
+        "syllabusLink": "https://yale.instructure.com/courses/98106/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "262",
+        "courseTitle": "The Biology of Sharks and Their Relatives",
+        "crn": "10196",
+        "department": "E&EB",
+        "description": "<p>An integrative course that examines the biology of sharks and other cartilaginous fishes (Class Chondrichthyes) from a variety of perspectives. Students learn about the taxonomy and systematics, paleontology, functional anatomy, behavior, physiology, ecology, and cultural significance of sharks. Coursework includes answers to discussion prompts, guided review of scientific literature, and in-class exams that allow students to demonstrate their understanding of chondrichthyan biology and sharks' unique place in the vertebrate tree of life. To be taken with E&amp;EB 263L.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "34",
+        "instructorList": [
+            "Joshua Moyer"
+        ],
+        "instructorUPI": [
+            "24715377"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MWF 11.35-12.25"
+        ],
+        "meetingPatternLocation": [
+            "ESC 110"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Biology of Sharks",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB262",
+        "syllabusLink": "https://yale.instructure.com/courses/98109/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "263L",
+        "courseTitle": "The Biology of Sharks and Their Relatives Laboratory",
+        "crn": "10197",
+        "department": "E&EB",
+        "description": "<p>This is a hands-on, specimen-based overview of the fossil record, comparative anatomy, functional morphology, and biodiversity of sharks and their relatives, the skates, rays, and ratfish. Students examine and dissect fresh and preserved specimens and use the fossil remains of extinct sharks to investigate the evolution of cartilaginous fishes. This course should be taken concurrently with E&amp;EB 262,&#160;The Biology of Sharks and Their Relatives.&#160;</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "26",
+        "instructorList": [
+            "Joshua Moyer"
+        ],
+        "instructorUPI": [
+            "24715377"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.00-4.00"
+        ],
+        "meetingPatternLocation": [
+            "ESC 200"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Shark Biology Laboratory",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB263L",
+        "syllabusLink": "https://yale.instructure.com/courses/98113/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "295",
+        "courseTitle": "Life in Motion: Ecological and Evolutionary Physiology",
+        "crn": "10200",
+        "department": "E&EB",
+        "description": "<p>Physiology is the study of the functions that organisms perform and how they use those functions to interact with the environment. To survive, grow, and reproduce, all organisms must acquire energy and avoid conditions that exceed their physiological limits. These interactions all involve motion\u2014ions traveling across membranes, muscle fibers twitching, respiration, and locomotion, to name a few. In this course, we tackle physiological processes from both \u201cbottom up\u201d and \u201ctop down\u201d approaches, with integration among these dimensions, to extract general physiological rules of life. Then, we link our discoveries to the broader context of ongoing global change, and consider whether and how organisms can physiologically respond to contemporary selective pressures. While the course focuses heavily on animal physiology, plants, fungi, and microbes are also featured.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "32",
+        "instructorList": [
+            "Martha Munoz"
+        ],
+        "instructorUPI": [
+            "24174063"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "ESC 110"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: BIOL 101, 102, 103, 104, and CHEM 161, or permission of the instructor.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Comparative Physiology",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB295",
+        "syllabusLink": "https://yale.instructure.com/courses/98125/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "354",
+        "courseTitle": "Phylogenetic Biology",
+        "crn": "10201",
+        "department": "E&EB",
+        "description": "<p>Phylogenetic Biology is the study of the evolutionary relationships between organisms, and the use of evolutionary relationships to understand other aspects of organism biology. This course surveys phylogenetic methods, providing a detailed picture of the statistical, mathematical, and computational tools for building phylogenies and using them to study evolution. We also examine the application of these tools to particular problems in the literature and emerging areas of study.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Casey Dunn"
+        ],
+        "instructorUPI": [
+            "11174224"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "OML 201"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: E&amp;EB 225 and an organismal course.</p>",
+        "primXLst": "E&EB654",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Phylogenetic Biology",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB354",
+        "syllabusLink": "https://yale.instructure.com/courses/98128/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "106",
+        "courseTitle": "Biology of Malaria, Lyme, and Other Vector-Borne Diseases",
+        "crn": "11506",
+        "department": "E&EB",
+        "description": "<p>Introduction to the biology of pathogen transmission from one organism to another by insects; special focus on malaria, dengue, and Lyme disease. Biology of the pathogens including modes of transmission, establishment of infection, and immune responses; the challenges associated with vector control, prevention, development of vaccines, and treatments.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Alexia Belperron"
+        ],
+        "instructorUPI": [
+            "10093007"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 1.00-2.15"
+        ],
+        "meetingPatternLocation": [
+            "YK212 004"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Intended for non\u2013science majors; preference to first-years and sophomores. Prerequisite: high school biology.</p>",
+        "primXLst": "MCDB106",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "HLTH155"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "MalariaLyme&VectorBorneDisease",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB106",
+        "syllabusLink": "https://yale.instructure.com/courses/99052/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "335",
+        "courseTitle": "Evolution and Medicine",
+        "crn": "13443",
+        "department": "E&EB",
+        "description": "<p>Introduction to the ways in which evolutionary science informs medical research and clinical practice. Diseases of civilization and their relation to humans' evolutionary past; the evolution of human defense mechanisms; antibiotic resistance and virulence in pathogens; cancer as an evolutionary process. Students view course lectures on line; class time focuses on discussion of lecture topics and research papers.</p>",
+        "distDesg": [
+            "YCSC",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Brandon Ogbunu"
+        ],
+        "instructorUPI": [
+            "11615714"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 1.00-2.15"
+        ],
+        "meetingPatternLocation": [
+            "ESC 110"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: BIOL 101\u2013104.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "HLTH250",
+            "E&EB635"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Evolution and Medicine",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB335",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "464",
+        "courseTitle": "Human Osteology",
+        "crn": "16328",
+        "department": "E&EB",
+        "description": "<p>A lecture and laboratory course focusing on the characteristics of the human skeleton and its use in studies of functional morphology, paleodemography, and paleopathology. Laboratories familiarize students with skeletal parts; lectures focus on the nature of bone tissue, its biomechanical modification, sexing, aging, and interpretation of lesions.</p>",
+        "distDesg": [
+            "YANB",
+            "YCSC",
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Eric Sargis"
+        ],
+        "instructorUPI": [
+            "11271838"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 1.00-2.15"
+        ],
+        "meetingPatternLocation": [
+            "SA10 10"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "ANTH464",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "ARCG864",
+            "ARCG464",
+            "ANTH864"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Human Osteology",
+        "subjectCode": "E&EB",
+        "subjectNumber": "E&EB464",
+        "syllabusLink": "https://yale.instructure.com/courses/102814/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
         "courseNumber": "234",
         "courseTitle": "Japanese Detective Fiction",
         "crn": "10190",
@@ -25959,6 +26452,672 @@
     },
     {
         "cSectionStatus": "A",
+        "courseNumber": "214",
+        "courseTitle": "Classics of Ethics, Politics and Economics",
+        "crn": "10236",
+        "department": "EP&E",
+        "description": "<p>This course is designed to explore the moral and theoretical foundations, critiques, and open questions surrounding the social organization of production and governance in modern societies. A key aim of this class is to better understand the moral and philosophical background of market-based distribution, criticisms of it, and how thinkers have tried to make sense of it.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Kevin Elliott"
+        ],
+        "instructorUPI": [
+            "25048679"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "HLH31 108"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Classics of EP&E",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E214",
+        "syllabusLink": "https://yale.instructure.com/courses/98114/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "217",
+        "courseTitle": "Classics of EP&E\u2013Intellectual Origins of Liberalism and Conservatism",
+        "crn": "10237",
+        "department": "EP&E",
+        "description": "<p>The purpose of this course is to explore the intellectual origins of liberalism and conservatism through an EP&amp;E framework. We discuss the tensions between collective wisdom and individual reason in the early modern period and survey the thought of thinkers in the proto-liberal and proto-conservative traditions, such as Thomas Hobbes and John Locke on sovereignty, individual autonomy, reason, and toleration; and Robert Filmer, Richard Hooker, and David Hume on order, custom, and utility. Our main object of inquiry, however, is the intellectual division that emerged between supporters and critics of the French Revolution, the historical event that prompted the modern political identities of liberalism and conservatism. Accordingly, we examine the political, moral, and economic theories of the Revolution; reactions to the Revolution from Edmund Burke, Joseph de Maistre, and other counterrevolutionaries; critical responses to their reactions, including those from Thomas Paine, Mary Wollstonecraft, and James Mackintosh; and the impact of this debate on the evolution of liberalism and conservatism in the nineteenth and twentieth centuries in Europe and the United States. Class discussions and readings confront liberal and conservative perspectives on human nature; reason; freedom; tradition; individual rights; religion; the Enlightenment; market economies; democratic participation; and equality.&#160;</p></p>\n<p><p><br /></p>\n<p>&#160;</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Gregory Collins"
+        ],
+        "instructorUPI": [
+            "17403308"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "HLH31 108"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Classics: Liberal/Conservative",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E217",
+        "syllabusLink": "https://yale.instructure.com/courses/98118/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "306",
+        "courseTitle": "First Amendment and Ethics of Law",
+        "crn": "10238",
+        "department": "EP&E",
+        "description": "<p style=\"margin-left:5.0pt\">This course addresses the First Amendment and freedom of speech, focusing on the ethical implications of restrictions on free speech, as well as the exercise of free speech. Course topics and discussions include the \u201cfighting words\u201d doctrine, hate speech, true threats, content regulated speech, freedom of speech and the internet, and the so-called \u201cright to be forgotten.\u201d&#160;By the end of the course, students recognize the role free speech plays in society, including its negative and positive impacts on various segments of society. Students also have an understanding of the competing interests arising from the First Amendment\u2019s right to free speech, and can analyze how these competing interests are weighed and measured in the United States as compared with other countries.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Karen Goodrow"
+        ],
+        "instructorUPI": [
+            "17338028"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "HLH31 108"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PLSC228"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "First Amendment&Ethics of Law",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E306",
+        "syllabusLink": "https://yale.instructure.com/courses/98126/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "328",
+        "courseTitle": "YData: Data Science for Political Campaigns",
+        "crn": "10819",
+        "department": "EP&E",
+        "description": "<p>Political campaigns have become increasingly data driven. Data science is used to inform where campaigns compete, which messages they use, how they deliver them, and among which voters. In this course, we explore how data science is being used to design winning campaigns. Students gain an understanding of what data is available to campaigns, how campaigns use this data to identify supporters, and the use of experiments in campaigns. This course provides students with an introduction to political campaigns, an introduction to data science tools necessary for studying politics, and opportunities to practice the data science skills presented in S&amp;DS 123, YData.<br /></p>\n<p>&#160;</p>",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Joshua Kalla"
+        ],
+        "instructorUPI": [
+            "13182842"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "WALL53 AUD"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "S&DS572",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PLSC347",
+            "PLSC524"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "YData: Science for Politics",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E328",
+        "syllabusLink": "https://yale.instructure.com/courses/98720/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "234",
+        "courseTitle": "Contemporary Moral and Social Controversies: Freedom, Autonomy, Well-Being",
+        "crn": "11125",
+        "department": "EP&E",
+        "description": "<p>We are living in a time of moral turmoil. Not only have legal rights we took for granted been overturned (e.g., the right to abortion), but we seem more polarized than ever. In this course, we take a careful and sober look at some of the moral and social controversies that constitute this state of turmoil and polarization. At the heart of the course are debates concerning conflicts between the following rights and values that people in liberal democracies see as sacrosanct, e.g., autonomy (e.g., bodily autonomy), freedom (e.g., free speech and freedom of association), harm prevention, the right to life, and well being. We start by exploring the fundamental theories in morality (e.g., Consequentialism, Deontology, and Rights Theory) and well-being (e.g., Hedonism, Desire-satisfaction, and Objective List views). We then use these theories to critically analyze particular moral and social controversies. In particular, we explore how these theories answer the following questions, \u201cIs abortion morally permissible?\u201d, \u201cIs euthanasia morally wrong?\u201d, \u201cShould there be limits on free speech? If so, when?\u201d, \u201cShould there be limits on what can be bought and sold?\u201d, \u201cCan the state be justified in interfering with who gets to parent children?\u201d, \u201cHow open should state borders be?\u201d, \u201cWhat do we owe the global poor?\u201d</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Max Lewis"
+        ],
+        "instructorUPI": [
+            "25249177"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "HLH31 108"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Moral & Social Controversies",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E234",
+        "syllabusLink": "https://yale.instructure.com/courses/98122/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "212",
+        "courseTitle": "Classics Justice, Morality, and the State",
+        "crn": "11548",
+        "department": "EP&E",
+        "description": "<p>In this course, we critically explore classic theories of morality, justice, politics, and economics concerning how we each individually ought to live and how we ought to live together in a society. Our aim is not just to understand these theories and their implications, but to understand their strengths, limitations, and the important questions they leave open. To this end, we explore how some of the most influential thinkers in Western philosophy, politics, and economics answered the following questions, \u201cHow should we live?\u201d \u201cHow can I be virtuous?\u201d \u201cWhat makes actions right or wrong?\u201d \u201cWhat is justice and what makes a society just?\u201d \u201cWhat makes a political system legitimate or authoritative?\u201d \u201cWhen, if ever, may we legitimately limit people\u2019s freedoms?\u201d, \u201cCan a society protect both liberty and equality\u201d, \u201cHow do we come to justly acquire and transfer property?\u201d, \u201cIs there is conflict between our capitalist society and our nature as humans?\u201d, \u201cHow should we distribute resources, goods, and opportunities in society?\u201d and so on.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Max Lewis"
+        ],
+        "instructorUPI": [
+            "25249177"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "M 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "HLH31 108"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Justice, Morality, & the State",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E212",
+        "syllabusLink": "https://yale.instructure.com/courses/99080/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "372",
+        "courseTitle": "Thucydides",
+        "crn": "11671",
+        "department": "EP&E",
+        "description": "<p>In this seminar, we undertake a careful examination of Thucydides' so-called History of the Peloponnesian War in its entirety. Central problems include the psychological and structural causes of war, the relation of justice to necessity, the susceptibility of democracy to imperialism and demagoguery, and the experience of war itself. We also engage with the secondary literature on Thucydides.&#160;</p>",
+        "distDesg": [
+            "YCHU",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Daniel Schillinger"
+        ],
+        "instructorUPI": [
+            "24365058"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "M 3.30-5.20",
+            "1 HTBA HQ 401"
+        ],
+        "meetingPatternLocation": [
+            "HQ 401",
+            "1 HTBA HQ 401"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC329",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "HUMS263"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Thucydides",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E372",
+        "syllabusLink": "https://yale.instructure.com/courses/99183/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "390",
+        "courseTitle": "Democracy and Sustainability",
+        "crn": "11895",
+        "department": "EP&E",
+        "description": "<p>Democracy, liberty, and the sustainable use of natural resources. Concepts include institutional analysis, democratic consent, property rights, market failure, and common pool resources. Topics of policy substance are related to human use of the environment and to U.S. and global political institutions.</p>",
+        "distDesg": [
+            "YCSO",
+            "YCWR",
+            "YEPA"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Michael Fotos"
+        ],
+        "instructorUPI": [
+            "12478974"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 9.25-11.15",
+            "1 HTBA WALL81 101"
+        ],
+        "meetingPatternLocation": [
+            "WALL81 101",
+            "1 HTBA WALL81 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC212",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "EVST212"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Democracy and Sustainability",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E390",
+        "syllabusLink": "https://yale.instructure.com/courses/99315/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "336",
+        "courseTitle": "Democracy and Bureaucracy",
+        "crn": "12403",
+        "department": "EP&E",
+        "description": "<p>Exploration of what government agencies do and why; focus on issues of accountability and the role of bureaucracy in representative democracy.&#160;Understanding how bureaucracy works internally and how it is affected by interactions with other political actors and institutions.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Ian Turner"
+        ],
+        "instructorUPI": [
+            "17310114"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "PR77 A001"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC258",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Democracy and Bureaucracy",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E336",
+        "syllabusLink": "https://yale.instructure.com/courses/99577/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "239",
+        "courseTitle": "Political Representation",
+        "crn": "12407",
+        "department": "EP&E",
+        "description": "<p>The notion of political representation lies at the center of government in the United States and much of the rest of the world. In this course, we examine the features of political representation, both in theory and practice. We ask (and possibly find ourselves struggling to answer!) such questions as: What is political representation? Should we have a representative system as opposed to something else like monarchy or direct democracy? Should representatives demographically resemble those they represent, or is that not necessary? How do things like congressional redistricting, electoral competition, and term limits affect the quality of representation? Do constituents\u2019 preferences actually translate into policy in the United States, and if so, how?&#160;In Part I of this course, we discuss the theoretical foundations upon which representative government rests. In Part II, we move beyond theories of representation and on to the way political representation actually operates in the United States. In Part III, we move beyond the ways in which representation works and focus instead on some ways in which it doesn\u2019t work. Proposed solutions are also explored.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "26",
+        "instructorList": [
+            "Amir Fairdosi"
+        ],
+        "instructorUPI": [
+            "24120479"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 1.30-3.20",
+            "1 HTBA RKZ 05"
+        ],
+        "meetingPatternLocation": [
+            "RKZ 05",
+            "1 HTBA RKZ 05"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC239",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Political Representation",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E239",
+        "syllabusLink": "https://yale.instructure.com/courses/99576/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "246",
+        "courseTitle": "Participatory Democracy",
+        "crn": "12409",
+        "department": "EP&E",
+        "description": "<p>What does democracy look like without elections? In this class, we discuss the theory and practice of \u201cparticipatory\u201d forms of democracy (i.e. those that allow and encourage citizens to influence policy directly, rather than indirectly through elected representatives).</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "26",
+        "instructorList": [
+            "Amir Fairdosi"
+        ],
+        "instructorUPI": [
+            "24120479"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "1 HTBA RKZ 02",
+            "Th 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "1 HTBA RKZ 02",
+            "RKZ 02"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC330",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Participatory Democracy",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E246",
+        "syllabusLink": "https://yale.instructure.com/courses/99578/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "295",
+        "courseTitle": "Game Theory and Political Science",
+        "crn": "12506",
+        "department": "EP&E",
+        "description": "<p>Introduction to game theory\u2014a method by which strategic interactions among individuals and groups in society are mathematically modeled\u2014and its applications to political science. Concepts employed by game theorists, such as Nash equilibrium, subgame perfect equilibrium, and perfect Bayesian equilibrium. Problems of cooperation, time-consistency, signaling, and reputation formation. Political applications include candidate competition, policy making, political bargaining, and international conflict.</p>",
+        "distDesg": [
+            "YCQR",
+            "YCSO",
+            "YGLR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Ian Turner"
+        ],
+        "instructorUPI": [
+            "17310114"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 2.30-3.20",
+            "1 HTBA LUCE 101"
+        ],
+        "meetingPatternLocation": [
+            "LUCE 101",
+            "1 HTBA LUCE 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">No prerequisites other than high school algebra. Political Science majors who take this course may not count ECON 159 toward the major.</p>",
+        "primXLst": "PLSC344",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Game Theory& Political Science",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E295",
+        "syllabusLink": "https://yale.instructure.com/courses/99651/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "250",
+        "courseTitle": "The European Union",
+        "crn": "12636",
+        "department": "EP&E",
+        "description": "<p>Origins and development of the European Community and Union over the past fifty years; ways in which the often-conflicting ambitions of its member states have shaped the EU; relations between member states and the EU's supranational institutions and politics; and economic, political, and geopolitical challenges.</p>",
+        "distDesg": [
+            "YCSO",
+            "YEPA"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "David Cameron"
+        ],
+        "instructorUPI": [
+            "10007038"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 3.30-5.20",
+            "1 HTBA RKZ 102"
+        ],
+        "meetingPatternLocation": [
+            "RKZ 102",
+            "1 HTBA RKZ 102"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC354",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "The European Union",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E250",
+        "syllabusLink": "https://yale.instructure.com/courses/99754/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "299",
+        "courseTitle": "Philosophy of Science for the Study of Politics",
+        "crn": "12772",
+        "department": "EP&E",
+        "description": "<p>An examination of the philosophy of science from the perspective of the study of politics. Particular attention to the ways in which assumptions about science influence models of political behavior, the methods adopted to study that behavior, and the relations between science and democracy. Readings include works by both classic and contemporary authors.</p>",
+        "distDesg": [
+            "YCSO",
+            "YEPA"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Ian Shapiro"
+        ],
+        "instructorUPI": [
+            "10149974"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 1.30-3.20",
+            "1 HTBA RKZ 102"
+        ],
+        "meetingPatternLocation": [
+            "RKZ 102",
+            "1 HTBA RKZ 102"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC509",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "GLBL299"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "PhilosOfScienceForStdyOfPoltcs",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E299",
+        "syllabusLink": "https://yale.instructure.com/courses/99820/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "244",
+        "courseTitle": "The Economic Analysis of Conflict",
+        "crn": "12824",
+        "department": "EP&E",
+        "description": "<p>In this course we apply microeconomic techniques, theoretical and empirical, to the analysis of internal violent conflict, including civil wars, terrorism and insurgencies, its causes and consequences. Topics include forced migration, ethnic conflict, long-term consequences of war and individual choices to participate in violence. Readings comprise frontier research papers and students will learn to critically engage with cutting-edge research designs.</p>",
+        "distDesg": [
+            "YCSO",
+            "YEC2",
+            "YECP",
+            "YEPA"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Gerard Padro"
+        ],
+        "instructorUPI": [
+            "17502112"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "WLH 209"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: Intermediate econometrics</p>",
+        "primXLst": "ECON449",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PLSC374"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Economic Analysis of Conflict",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E244",
+        "syllabusLink": "https://yale.instructure.com/courses/99864/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "375",
+        "courseTitle": "Liberalism",
+        "crn": "15722",
+        "department": "EP&E",
+        "description": "<p>What is liberalism? And why do arguments about it stand at the epicenter of our political life? Is it a political idea, or is it a philosophy that tries to carve out a space apart from high politics? Is it about rights, or about equality? Is it about freedom and liberty, or laws and regulations? Is it ancient? Is it modern? Can we even define what liberalism means, or does the attempt to do so in some way even miss the point?&#160;This class is a historical, philosophical, and political examination of one of the most important and contested ideas in the modern world. We read both critics and advocates of liberalism. We also examine it historically, sociologically, and comparatively, in order to gain a better sense of what it means in practice, and how it differs from the arguments of both its most strong supporters and defenders, and its critics. Special attention is paid to the development of the ethos and examples of liberalism. This course is also a meditation on how to study politics and political theory. What does liberalism mean, and how should we examine it? Where did it come from, and how has it changed over time?</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Mordechai Levy-Eichel"
+        ],
+        "instructorUPI": [
+            "12681869"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "1 HTBA RKZ 02",
+            "M 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "1 HTBA RKZ 02",
+            "RKZ 02"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "PLSC340",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "HUMS158"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Liberalism",
+        "subjectCode": "EP&E",
+        "subjectNumber": "EP&E375",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
         "courseNumber": "355",
         "courseTitle": "Extraordinary Glimpses of Past Life",
         "crn": "12056",
@@ -26449,6 +27608,1562 @@
         "subjectCode": "EPS",
         "subjectNumber": "EPS261",
         "syllabusLink": "https://yale.instructure.com/courses/100435/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "C",
+        "courseNumber": "439",
+        "courseTitle": "Fruits of Empire",
+        "crn": "10029",
+        "department": "ER&M",
+        "description": "<p>Readings, discussions, and research on imperialism and \"green gold\" and their consequences for the imperial powers and their colonies and neo-colonies. Spatially conceived as a world-system that enmeshes the planet and as earth's latitudes that divide the temperate from the tropical zones, imperialism as discourse and material relations is this seminar's focus together with its implantations\u2014an empire of plants. Vast plantations of sugar, cotton, tea, coffee, bananas, and pineapples occupy land cultivated by native and migrant workers, and their fruits move from the tropical to the temperate zones, impoverishing the periphery while profiting the core. Fruits of Empire, thus, implicates power and the social formation of race, gender, sexuality, class, and nation.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "AMST439",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "C",
+        "session": null,
+        "shortTitle": "Fruits of Empire",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M439",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "C",
+        "courseNumber": "411",
+        "courseTitle": "Migration in East Asia and Beyond",
+        "crn": "10186",
+        "department": "ER&M",
+        "description": "<p>Over the past few decades, East Asia has become a new destination region for migrants, the phenomenon of which is continuing to cause fierce public and political discussions on national identity and immigration and integration policies.&#160;This course explores various types, debates, and industries of migration in contemporary East Asia. While we focus largely on Japan and South Korea, we also have an opportunity to discuss migrant experiences in other popular destination and origin countries in Asia including China, Indonesia, the Philippines, Singapore, and Taiwan.&#160;Starting with the major theories and concepts in international migration, we examine East Asian migration regimes, connections between migration and high- and low-skilled labor, gender, co-ethnics, and families, as well as state, public, and civil society responses to migration.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "50",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "EAST425",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "SOCY425"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "C",
+        "session": null,
+        "shortTitle": "Migration East Asia and Beyond",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M411",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "150",
+        "courseTitle": "Mexicans, Mexican Americans, and the U.S. Empire",
+        "crn": "10247",
+        "department": "ER&M",
+        "description": "<p>This course examines the history of Mexicans and Mexican Americans at the U.S.-Mexico border and their important contributions to U.S. politics and culture, from the Treaty of Guadalupe Hidalgo to the present. By looking at specific historical case studies, students learn about the impact of U.S. imperial and migratory policies on border life, the tensions and solidarity bonds between Mexicans and Mexican Americans, the formation of a hybrid Mexican American culture, and the long history of popular resistance and activism. As students learn about this history, they reflect on the politics behind our historical memory surrounding Mexicans and Mexican Americans, and the newest methodological proposals to recover their history.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Ximena Lopez Carrillo"
+        ],
+        "instructorUPI": [
+            "24653225"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "WLH 202"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Mexicans & Mexican Americans",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M150",
+        "syllabusLink": "https://yale.instructure.com/courses/98154/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "C",
+        "courseNumber": "238",
+        "courseTitle": "Third World Studies",
+        "crn": "10248",
+        "department": "ER&M",
+        "description": "<p>Introduction to the historical and contemporary theories and articulations of Third World studies (comparative ethnic studies) as an academic field and practice. Consideration of subject matters; methodologies and theories; literatures; and practitioners and institutional arrangements.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AFST238",
+            "AFAM192",
+            "AMST238"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "C",
+        "session": null,
+        "shortTitle": "Third World Studies",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M238",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "300",
+        "courseTitle": "Comparative Ethnic Studies",
+        "crn": "10249",
+        "department": "ER&M",
+        "description": "<p>Introduction to the methods and practice of comparative ethnic studies. Examination of racial formation in the United States within a transnational framework. Legacies of colonialism, slavery, and racial exclusion; racial formation in schools, prisons, and citizenship law; cultural politics of music and performance; social movements; and postcolonial critique.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Fatima El-Tayeb"
+        ],
+        "instructorUPI": [
+            "24650658"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Comparative Ethnic Studies",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M300",
+        "syllabusLink": "https://yale.instructure.com/courses/98166/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "219",
+        "courseTitle": "Jews and the World: From the Bible through Early Modern Times",
+        "crn": "10358",
+        "department": "ER&M",
+        "description": "<p>A broad introduction to the history of the Jews from biblical beginnings until the European Reformation and the Ottoman Empire. Focus on the formative period of classical rabbinic Judaism and on the symbiotic relationships among Jews, Christians, and Muslims. Jewish society and culture in its biblical, rabbinic, and medieval settings. Counts toward either European or non-Western distributional credit within the History major, upon application to the director of undergraduate studies.</p>",
+        "distDesg": [
+            "PREI",
+            "YCHU"
+        ],
+        "finalExam": "24",
+        "instructorList": [
+            "Ivan Marcus"
+        ],
+        "instructorUPI": [
+            "10252518"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "HQ 227"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "HIST596",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "RLST773",
+            "MMES149",
+            "MDVL596",
+            "JDST200",
+            "RLST148",
+            "JDST761"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Jews and the World",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M219",
+        "syllabusLink": "https://yale.instructure.com/courses/98359/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "207",
+        "courseTitle": "Language Endangerment and Revitalization",
+        "crn": "10481",
+        "department": "ER&M",
+        "description": "<p>Introduction to language endangerment and language revitalization. This course explores a range of theories and practices that provide the basis by which linguists and language activists aim to revitalize endangered languages in communities around the world. Beginning with surveying the various ways in which the world\u2019s linguistic diversity and language ecologies can be assessed and discussing the serious threats to that diversity, why this might be a matter of concern, and the principle of linguistic human rights, the course will narrow toward individual student projects to investigate a minority language in some depth and report on its status with respect to the range of issues discussed in class.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Edwin Ko"
+        ],
+        "instructorUPI": [
+            "25131452"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "DOW 112"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "LING107",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Lang Revitalization",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M207",
+        "syllabusLink": "https://yale.instructure.com/courses/98604/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "081",
+        "courseTitle": "Race and Place in British New Wave, K-Pop, and Beyond",
+        "crn": "10758",
+        "department": "ER&M",
+        "description": "<p>This seminar introduces you to several popular musical genres and explores how they are tied to racial, regional, and national identities. We examine how music is exported via migrants, return migrants, industry professionals, and the nation-state (in the case of Korean Popular Music, or K-Pop). Readings and discussions focus primarily on the British New Wave (from about 1979 to 1985) and K-Pop (1992-present), but we also discuss first-wave reggae, ska, rocksteady from the 1960s-70s, British and American punk rock music (1970s-1980s), the precursors of modern K-Pop, and have a brief discussion of Japanese City Pop. The class focuses mainly on the British New Wave and K-Pop because these two genres of popular music have strong ties to particular geographic areas, but they became or have become extremely popular in other parts of the world. We also investigate the importance of music videos in the development of these genres.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Grace Kao"
+        ],
+        "instructorUPI": [
+            "17253164"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 4.00-5.15"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 103"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first year students.&#160;</p>",
+        "primXLst": "SOCY081",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MUSI081"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Race in New Wave & K-Pop",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M081",
+        "syllabusLink": "https://yale.instructure.com/courses/98820/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "211",
+        "courseTitle": "Race, Ethnicity, and Immigration",
+        "crn": "10761",
+        "department": "ER&M",
+        "description": "<p>Exploration of sociological studies and theoretical and empirical analyses of race, ethnicity, and immigration, with focus on race relations and racial and ethnic differences in outcomes in contemporary U.S. society (post-1960s). Study of the patterns of educational and labor market outcomes, incarceration, and family formation of whites, blacks (African Americans), Hispanics, and Asian Americans in the United States, as well as immigration patterns and how they affect race and ethnic relations.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Grace Kao"
+        ],
+        "instructorUPI": [
+            "17253164"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 10.30-11.20"
+        ],
+        "meetingPatternLocation": [
+            "WLH 208"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "SOCY144",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "EDST144",
+            "EVST144"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Race, Ethnicity, & Immigration",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M211",
+        "syllabusLink": "https://yale.instructure.com/courses/98835/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "285",
+        "courseTitle": "Latin American Immigration to the United States: Past, Present, and Future",
+        "crn": "10764",
+        "department": "ER&M",
+        "description": "<p>Immigration from Latin America is the one of the most important and controversial issues in the United States today. The family separation crisis, the infamous border wall, and the Dream Act dominate political debate. Latinos\u2014numbering more than 60 million in the U.S.\u2014are a large, heterogeneous, and growing group with a unique social, political, and cultural history. This course explores key current issues in immigration, as well as the history of Latin American migration to the U.S., with the aim of providing students the tools necessary to thoughtfully participate in current debates.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "32",
+        "instructorList": [
+            "Angel Escamilla Garcia"
+        ],
+        "instructorUPI": [
+            "25000484"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "HQ C01"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "SOCY305",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "LAST305"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Latin American Immigration",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M285",
+        "syllabusLink": "https://yale.instructure.com/courses/98869/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "360",
+        "courseTitle": "Politics of Reproduction",
+        "crn": "10767",
+        "department": "ER&M",
+        "description": "<p>Reproduction as a process that is simultaneously biological and social, involving male and female bodies, family formation, and powerful social institutions such as medicine, law, and the marketplace. Sociological research on reproductive topics such as pregnancy, birth, abortion, contraception, infertility, reproductive technology, and aging. Core sociological concepts used to examine how the politics of reproduction are shaped by the intersecting inequalities of gender, race, class, and sexuality.</p>",
+        "distDesg": [
+            "YCSO",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Rene Almeling"
+        ],
+        "instructorUPI": [
+            "13163275"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 3.30-5.20"
+        ],
+        "meetingPatternLocation": [
+            "WLH 002"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "SOCY390",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "WGSS390",
+            "HSHM432",
+            "HLTH370"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Politics of Reproduction",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M360",
+        "syllabusLink": "https://yale.instructure.com/courses/98879/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "200",
+        "courseTitle": "Introduction to Ethnicity, Race, and Migration",
+        "crn": "10855",
+        "department": "ER&M",
+        "description": "<p>Historical roots of contemporary ethnic and racial formations and competing theories of ethnicity, race, and migration. Cultural constructions and social practices of race, ethnicity, and migration in the United States and around the world.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Alicia Schmidt Camacho"
+        ],
+        "instructorUPI": [
+            "10938060"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 1.00-2.15",
+            "1 HTBA HQ L02"
+        ],
+        "meetingPatternLocation": [
+            "HQ L02",
+            "1 HTBA HQ L02"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "IntroToEthnicityRace&Migration",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M200",
+        "syllabusLink": "https://yale.instructure.com/courses/98158/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "236",
+        "courseTitle": "Feminism without Women: Modernist and Postcolonial Textual Experiments",
+        "crn": "11089",
+        "department": "ER&M",
+        "description": "<p>Antifeminist critics charge the feminist movement with having forgotten \u201creal women'' in favor of inaccessible theories rejecting the supposedly incontrovertible fact that there are only two sexes and genders. This seminar turns the charge on its head by exploring a theoretical and literary canon that - by questioning the ontological status of the male/female binary - has transformed feminism into a capacious, radically inclusive, revolutionary 21st Century movement. The texts and the theories that we discuss put pressure on the very category of \u201cwoman\u201d as they strive to rethink feminism as a non-identitarian world-making project. The class focuses on two movements that employ art and literature to push back against the idea of \u201cwomen\u201d as the monolithic subject of feminism: Italian vanguard modernism and Italophone literary postcolonialism. We discuss modernist and postcolonial novels, poems, essays, and performative art pieces together with classics of feminist, queer and postcolonial theory. We push our own political imagination further by asking ever more sophisticated questions about gender, sexuality, ethnicity, race, and the way these intersecting social formations mediate the way we see, experience, and represent our material and social reality. The course is taught entirely in English.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Serena Bassi"
+        ],
+        "instructorUPI": [
+            "17545547"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 9.25-11.15",
+            "1 HTBA WLH 202"
+        ],
+        "meetingPatternLocation": [
+            "WLH 202",
+            "1 HTBA WLH 202"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">No previous knowledge of Italian language, art, or literature required. Students seeking departmental credit for Italian do their writing and reading in the original language, and attend a discussion session in Italian.</p>",
+        "primXLst": "ITAL337",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "LITR395",
+            "WGSS364"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Feminism without Women",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M236",
+        "syllabusLink": "https://yale.instructure.com/courses/98587/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "333",
+        "courseTitle": "Mexico and the Migratory Lyric",
+        "crn": "11263",
+        "department": "ER&M",
+        "description": "<p>What is a lyric and how does it move? How have understandings of Mexican poetry changed over the course of the nation\u2019s history, and what factors have contributed to these changes? To investigate these questions, this course examines how different forms of lyrical communication have been disseminated within Mexico and internationally. Therein, we discuss how lyrical production has been complicated by such issues as print culture and the publication industry; race, gender, class, and economics; and cultural politics and political representation. Our explorations begin with the popular <em>corrido</em>. They then move to discussions of nationality, translation, and bilingual anthology production before and after the rise of boom literature; border writing, migration, and the formation of multilingual literary communities; discourse of gender, sexuality, race, and disease; and the popularization of narco-ballads. We conclude by discussing the contemporary lyric as seen in different media like the novel and the film industry.&#160;</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "David Francis"
+        ],
+        "instructorUPI": [
+            "17548828"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 102"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Mexico and the Migratory Lyric",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M333",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "278",
+        "courseTitle": "Borders & Globalization in Hispanophone Cultures",
+        "crn": "11336",
+        "department": "ER&M",
+        "description": "<p class=\"p1\">The borders that constitute the geographical divisions of the world are contingent, but they can have enormous ordering power in the lives of people and other beings. Human-made borders can both allow and disallow the flow of people and resources (including goods, knowledge, information, technologies, etc.). Like geographical borders, social borders such as race, caste, class, and gender can form and perpetuate privileged categories of humans that constrain the access of excluded persons to resources, education, security, and social mobility. Thus, bordering can differentially value human lives.&#160;Working with the premise that borders are sites of power, in this course we study bordering and debordering practices in the Hispanic cultures of Iberia, Latin America, and North America, from the 1490s to the present. Through analyses of a wide range of texts that may include treatises, maps, travel literature, visual culture, material culture (e.g., currency), law, music, and performance art, students investigate the multiple ways in which social, cultural, and spatial borders are initiated, expressed, materialized, and contested. More broadly, we explore, describe, and trace the entanglements of bordering, globalizations, and knowledge production in Hispanophone cultures. Some of the questions that will guide our conversations are: What are (social) borders and what are the processes through which they persist? How do the effects of practices that transcend borders (e.g., environmental pollution, deforestation) change our understanding of borders? What can we learn from indigenous peoples\u2019 responses to bordering process and globalization?&#160;</p>",
+        "distDesg": [
+            "YCHU",
+            "YCL5"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Luna Najera"
+        ],
+        "instructorUPI": [
+            "24174403"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "HQ 133"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: SPAN 140 or 145, or in accordance with placement results.</p>\n<p>The course is conducted entirely in Spanish. Readings are available electronically through Canvas and the University Library. To be conducted in Spanish.</p>",
+        "primXLst": "SPAN228",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "LAST228"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Borders & Globalization",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M278",
+        "syllabusLink": "https://yale.instructure.com/courses/98706/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "467",
+        "courseTitle": "Racial Republic: African Diasporic Literature and Culture in Postcolonial France",
+        "crn": "11745",
+        "department": "ER&M",
+        "description": "<p>This is an interdisciplinary seminar on French cultural history from the 1930s to the present. We focus on issues concerning race and gender in the context of colonialism, postcolonialism, and migration. The course investigates how the silencing of colonial history has been made possible culturally and ideologically, and how this silencing has in turn been central to the reorganizing of French culture and society from the period of decolonization to the present. We ask how racial regimes and spaces have been constructed in French colonial discourses and how these constructions have evolved in postcolonial France. We examine postcolonial African diasporic literary writings, films, and other cultural productions that have explored the complex relations between race, colonialism, historical silences, republican universalism, and color-blindness.&#160;Topics include the 1931 Colonial Exposition, Black Paris, decolonization, universalism, the Trente Glorieuses, the Paris massacre of 1961, anti-racist movements, the \"beur\" author, memory, the 2005 riots, and contemporary afro-feminist and decolonial movements.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Fadila Habchi"
+        ],
+        "instructorUPI": [
+            "13947043"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "FREN481",
+            "AFAM457",
+            "AFST457",
+            "AMST470"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "AfricanLit:PostcolonialFrance",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M467",
+        "syllabusLink": "https://yale.instructure.com/courses/99231/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "291",
+        "courseTitle": "Caribbean Diasporic Literature",
+        "crn": "11750",
+        "department": "ER&M",
+        "description": "<p>An examination of contemporary literature written by Caribbean writers who have migrated to, or who journey between, different countries around the Atlantic rim. Focus on literature written in English in the twentieth and twenty-first centuries, both fiction and nonfiction. Writers include Caryl Phillips, Nalo Hopkinson, and Jamaica Kincaid.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Fadila Habchi"
+        ],
+        "instructorUPI": [
+            "13947043"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 3.30-5.20"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AMST438",
+            "LITR295",
+            "AFAM352",
+            "WGSS343"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Caribbean Diasporic Literature",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M291",
+        "syllabusLink": "https://yale.instructure.com/courses/99230/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "432",
+        "courseTitle": "Muslims in the United States",
+        "crn": "11782",
+        "department": "ER&M",
+        "description": "<p>Since 9/11, cases of what has been termed \u201chome-grown terrorism\u201d have cemented the fear that \u201cbad\u201d Islam is not just something that exists far away, in distant lands. As a result, there has been an urgent interest to understand who American Muslims are by officials, experts, journalists, and the public. Although Muslims have been part of America\u2019s story from its founding, Muslims have alternated from an invisible minority to the source of national moral panics, capturing national attention during political crises, as a cultural threat or even a potential fifth column. Today the stakes are high to understand what kinds of meanings and attachments connect Muslims in America to the Muslim world and to the US as a nation.&#160;Over the course of the semester, students grapple with how to define and apply the slippery concept of diaspora to different dispersed Muslim populations in the US, including racial and ethnic diasporas, trading diasporas, political diasporas, and others. By focusing on a range of communities-in-motion and a diverse set of cultural texts, students explore the ways mobility, loss, and communal identity are conceptualized by immigrants, expatriates, refugees, guest-workers, religious seekers, and exiles. To this end, we read histories, ethnographies, essays, policy papers, novels, poetry, memoirs; we watch documentary and fictional films; we listen to music, speeches, spoken word performances, and prayers. Our aim is to deepen our understanding of the multiple meanings and conceptual limits of homeland and diaspora for Muslims in America, particularly in the Age of Terror.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Zareena Grewal"
+        ],
+        "instructorUPI": [
+            "12435896"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "HQ 113"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "AMST430",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "ANTH430",
+            "HIST123"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Muslims in the United States",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M432",
+        "syllabusLink": "https://yale.instructure.com/courses/99246/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "430",
+        "courseTitle": "Islam in the American Imagination",
+        "crn": "11785",
+        "department": "ER&M",
+        "description": "<p>The representation of Muslims in the United States and abroad throughout the twentieth century. The place of Islam in the American imagination; intersections between concerns of race and citizenship in the United States and foreign policies directed toward the Middle East.</p>",
+        "distDesg": [
+            "YCSO",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Zareena Grewal"
+        ],
+        "instructorUPI": [
+            "12435896"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "WLH 001"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AMST450",
+            "WGSS461"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Islam in American Imagination",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M430",
+        "syllabusLink": "https://yale.instructure.com/courses/99247/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "252",
+        "courseTitle": "Our Guinea: Locating Africa in Early Iberian Archives",
+        "crn": "11799",
+        "department": "SP&P",
+        "description": "<p>African coastlines were the first horizons of Iberian imperial expansion into the Atlantic, and eventually, the world.&#160; While the worlds made by Africans displaced by the slave trade and their descendants have received extensive attention in recent years,&#160; Africa itself rarely enters the frame. The histories that unfolded on the continent in many ways challenge our understandings of Spanish and Portuguese expansion and colonialism, shaped as they are by the \u201cNew World\u201d paradigm of conquest and conversion.&#160; Were African societies part of the \u201cNew World\u201d or the \u201cOld World\u201d? In this course we study an often-overlooked domain of Spanish and Portuguese imperialism and commerce from an approach that includes but does not limit itself to the study of slavery and enslaved Africans in the Americas.&#160; We read a selection of&#160; primary texts from the early modern Ibero-African archive, with a focus on texts produced about the African continent and Africans (and when possible, by Africans) in Spanish, and to a lesser extent Portuguese, seeking (1) to challenge existing narratives and frameworks for the study of precolonial Africa, but also (2) to see what kinds of African worlds appear when we set aside our assumptions and generalizations.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCL5"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Alexandra Cook"
+        ],
+        "instructorUPI": [
+            "25502222"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 4.00-5.15"
+        ],
+        "meetingPatternLocation": [
+            "HQ 113"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "SPAN360",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AFST363",
+            "AFAM345"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Africa in Iberian Archives",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M252",
+        "syllabusLink": "https://yale.instructure.com/courses/99256/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "297",
+        "courseTitle": "Food, Race, and Migration in United States Society",
+        "crn": "11890",
+        "department": "ER&M",
+        "description": "<p>Exploration of the relationship between food, race, and migration in historical and contemporary United States contexts. Organized thematically and anchored in selected case studies, this course is comparative in scope and draws from contemporary work in the fields of food studies, ethnic studies, migration studies, American studies, anthropology, and history.&#160;&#160;</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Quan Tran"
+        ],
+        "instructorUPI": [
+            "12341699"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "HQ 317"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AMST371"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Food, Race & Migration in U.S.",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M297",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "368",
+        "courseTitle": "Political Violence, Citizenship, and Democracy in Latin America",
+        "crn": "11941",
+        "department": "ER&M",
+        "description": "<p>Exploration of how and when definitions of citizenship and democracy have been shaped by violent conflicts; how local and global contexts have influenced individual and collective political action; and the transformation of leadership, ideologies, and utopias in different Latin American contexts.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCWR"
+        ],
+        "finalExam": "23",
+        "instructorList": [
+            "Marcela Echeverri Munoz"
+        ],
+        "instructorUPI": [
+            "14682973"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 10.30-11.20"
+        ],
+        "meetingPatternLocation": [
+            "WLH 002"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "HIST368",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "LAST368"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "PoliticalViolenceLatinAmerica",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M368",
+        "syllabusLink": "https://yale.instructure.com/courses/99340/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "339",
+        "courseTitle": "Region, Indigeneity, and American Literary Realism",
+        "crn": "12376",
+        "department": "ER&M",
+        "description": "<p>A study of American literature between roughly 1865 and 1930, with a focus on the themes of place and race, especially how authors handle the theme of being authentically American. An outsized focus is placed on the often neglected works of Indigenous American writers. Potential readings: Zitkala-Sa, Sarah Winnemucca, Susette La Flesche, Mourning Dove, Twain, James, Charles Chesnutt, Hurston, Cather, Dunbar, Wharton, Sherwood Anderson, Jewett, Sui Sin Far.</p>",
+        "distDesg": [
+            "YCHU",
+            "YENS"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Lloyd Kevin Sy"
+        ],
+        "instructorUPI": [
+            "25214480"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 102"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">May satisfy the 18th/19th century or 20th/21st century literature requirement for English majors with permission from the instructor and the DUS.</p>",
+        "primXLst": "ENGL396",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AMST416"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "American Literary Realism",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M339",
+        "syllabusLink": "https://yale.instructure.com/courses/99558/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "448",
+        "courseTitle": "\u201cI Don\u2019t Like to Argue\u201d: The Styles and Politics of Humility",
+        "crn": "12381",
+        "department": "AMST",
+        "description": "<p>What can academic writing do besides argue? Why does critical thinking so often compel an idiom of claiming, exploring, discovering, and mastering? What might writers strive for, if not newness, rigor, excellence, or even one\u2019s own voice?&#160;In this class, we defamiliarize and repair the habits of mind and body that have been normalized by the university. Some of our time goes toward identifying the racial and colonial logics as well as presumptions about gender and ability that inform the conventions, genres, and styles of scholarly prose. For example, we contemplate the power relations and tonal effects embedded in the familiar maneuvers of advancing and defending arguments. Most of the class\u2019s energy, however, is devoted to testing out less combative modes of inhabiting the page. We pursue these experiments not in the name of novelty but with the hope that our compositional practices can move us toward different values and different futures for writing, conversing, and living as subjects of the university. To guide us in this endeavor, we look to scholars who have critiqued the politics of knowledge by mobilizing alternative styles of knowing. Some, for example, have turned footnotes into an occasion for giving thanks instead of exhibiting mastery. Others have repurposed quotations and images in ways that challenge traditional regimes of evidence.&#160;</p>",
+        "distDesg": [
+            "YCHU",
+            "YENJ"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Sunny Xiang",
+            "Minh Vu"
+        ],
+        "instructorUPI": [
+            "15861209",
+            "17118422"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 102"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "AMST428",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "ENGL332",
+            "WGSS328"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Styles & Politics of Humility",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M448",
+        "syllabusLink": "https://yale.instructure.com/courses/99561/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "394",
+        "courseTitle": "Climate and Society: Perspectives from the Social Sciences and Humanities",
+        "crn": "12537",
+        "department": "ER&M",
+        "description": "<p>Discussion of the major currents of thought regarding climate and climate change; focusing on equity, collapse, folk knowledge, historic and contemporary visions, western and non-western perspectives, drawing on the social sciences and humanities.</p>",
+        "distDesg": [
+            "YCSO",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Michael Dove"
+        ],
+        "instructorUPI": [
+            "10405093"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "KRN 321"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "EVST422",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "F&ES422",
+            "ANTH409",
+            "ENV878",
+            "GLBL394"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Climate and Society",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M394",
+        "syllabusLink": "https://yale.instructure.com/courses/99679/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "C",
+        "courseNumber": "271",
+        "courseTitle": "Media, Writing, and Feminist Resistance in the Americas",
+        "crn": "12997",
+        "department": "ER&M",
+        "description": "<p>From the crafting of the text \u201cme too\u201d in the United States to \u201cnot one less\u201d in Latin America \u00ad\u2013to visibilize sexual abuse and combat feminicide respectively\u2013 multitudes of thousands have gathered in the streets and in the digital avenues of the continent to demand a different world and to change everything. In this course we approach these texts as events, as literatures, as cultural artifacts, and as entry points for the analysis of culture and feminist resistance in the continent. We explore the power of writing and of words through the analysis of contemporary slogans, manifestos, digital media threads, chants, novels, poetry and artifacts \u00ad\u2013such as a green scarf\u2013 throughout the Americas. These \u201ctexts\u201d are explored as communally woven knowledges that are socially, politically and historically specific and that were created to contest different systems of organized violence in the forms of colonialism, capitalism and patriarchy.&#160;By closely reading films, performances, exhibits, digital media threads, we explore the following questions: What emotions does the text mobilize? What do they want to achieve? How were they created? What can they do? How do they circulate? Where do they take place?&#160;</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "50",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "C",
+        "session": null,
+        "shortTitle": "Feminist Media & Writing",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M271",
+        "syllabusLink": "https://yale.instructure.com/courses/99983/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "417",
+        "courseTitle": "Comparative settler geographies",
+        "crn": "13161",
+        "department": "ER&M",
+        "description": "<p>This advanced undergraduate seminar delves into theories and comparative studies of recent and contemporary settler colonial geographies to ask the following questions: 1) What are the key characteristics of settler colonial geographies and (how) are they distinct from colonial geographies? &#160;2) What are the intellectual and political stakes of applying settler colonialism as an analytical lens? 3) How does comparative analysis deepen or disrupt concepts such as sovereignty, race, and I/indigeneity, especially in a majority world context? 4) How do Indigenous or and/or occupied peoples contest settler cartographies through placemaking and other strategies?&#160;In this seminar, we read key theoretical texts in colonial, postcolonial, settler, Native, and Indigenous studies with an emphasis on global and Southern intervention. Alongside theoretical texts, we focus on four case studies that, to a greater or lesser degree, push the boundaries of settler colonial definitions and concepts: South Africa, Morocco/Western Sahara, Israel/Palestine, and southwestern China and Tibet. Where possible, we invite scholars with expertise in the cases to speak to the class.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Leslie Gross-Wyrtzen"
+        ],
+        "instructorUPI": [
+            "17507501"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "AFST389",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MMES389"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Settler geographies",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M417",
+        "syllabusLink": "https://yale.instructure.com/courses/100114/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "039",
+        "courseTitle": "Latinx Literature Aside the Law",
+        "crn": "13323",
+        "department": "ER&M",
+        "description": "<p>How has Latinx identity emerged through and against the law? From the suspension of Puerto Rican sovereignty to the contemporary proliferation of ethnic studies bans, the state has used the law to delimit Latinx to transparent or static categories of irregular \u201ccitizen,\u201d \u201crefugee,\u201d and \u201cmigrant.\u201d&#160;&#160;If conventional thinking assumes that art only responds to the law in protest or affirmation of the status quo, this seminar introduces students to the ways Latinx literature engages, resists, and disidentifies with the law as it delineates national belonging. We ask how do Latinx creative expressions expand the notions of citizenship, nation, and family beyond their raced, classed, and gendered origins to imagine new futures.&#160;Through attention to contemporary tv, film, novels, and poetry, we examine how Latinx artists build alternative forms of thriving collective life in forms of mutual aid, queer kinship, party, and protest. Works up for discussion include those by Justin Torres, Raquel Salas Rivera, and the television show&#160;<em>Vida.&#160;</em>Drawing inspiration from these texts, students collaborate on podcasts, write analytical essays, and complete other critical and creative projects.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Joseph Miranda"
+        ],
+        "instructorUPI": [
+            "25214599"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "HQ 123"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.</p>",
+        "primXLst": "ENGL039",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AMST039"
+        ],
+        "sectionNumber": "02",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Latinx Lit Aside the Law",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M039",
+        "syllabusLink": "https://yale.instructure.com/courses/100195/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "444",
+        "courseTitle": "Race, Religion, and Transnational Mobilities",
+        "crn": "14040",
+        "department": "ER&M",
+        "description": "<p>This course surveys how \u201cmigrants\u201d and \u201cdesirable migrants\u201d are produced through race and religion in the Americas and Europe. It also examines how racial identities and religious beliefs inform human mobilities and shape the experiences of such mobile persons as settlers, exiles, asylum seekers, temporary workers, and economic migrants. By the end of the course, participants will familiarize themselves with the crucial roles that religious beliefs and practices play in causing and responding to human mobilities. Students will also gain familiarity with the ways in which migrants' religious practices transform local cultures, politics, and societies as their own religious practices are reconfigured by and in the context of host nations. Topics to be covered include citizenship and cultural difference, religion and the public sphere, multiculturalism, Islam and democracy, Christian Pentecostal missions, liberation theology, and African diasporic religions.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Gana Ndiaye"
+        ],
+        "instructorUPI": [
+            "25362499"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 3.30-5.20"
+        ],
+        "meetingPatternLocation": [
+            "WLH 001"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "RLST289"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Race, Religion, and Mobilities",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M444",
+        "syllabusLink": "https://yale.instructure.com/courses/100457/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "404",
+        "courseTitle": "Texas Histories",
+        "crn": "14164",
+        "department": "ER&M",
+        "description": "<p>An exploration of topics in Texas history from the 16th century into the contemporary moment. Readings focus on Native American, African American, Latinx, Asian American, and LGBTQ histories, as well as broader political developments and patterns over the last two centuries.&#160;&#160;</p>",
+        "distDesg": [
+            "YCHU",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Stephen Pitti"
+        ],
+        "instructorUPI": [
+            "10635545"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "WALL82 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "HIST114J",
+            "AMST394"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Texas Histories",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M404",
+        "syllabusLink": "https://yale.instructure.com/courses/100534/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "154",
+        "courseTitle": "Advanced Studies: Women Filmmakers and Photographers of the Portuguese-Speaking World",
+        "crn": "14312",
+        "department": "ER&M",
+        "description": "<p><em>Women Filmmakers and Photographers of the Portuguese-Speaking World</em>&#160;is a Portuguese advanced course that delves into the language and culture of the Lusophone world through the lens of women filmmakers and photographers. Organized into three interconnected units, namely, \"Diasporas and (De)Territorialities\", \"Memories They Told Me\", and \"Reframing Other Existences\", students explore how these authors bring forth other perspectives, including those of indigenous people, Afro-Lusophone women, immigrants, and LGBTQIA+ community, among others, challenging societal norms and dominant portrayals. It also explores how their films and photographs reconnect with cultural roots in Africa and Latin America, fragmented by patriarchy, colonialism, and capitalism. By exploring a variety of productions by photographers like Yassmin Forte, Madalena Schwartz, Claudia Andujar, and filmmakers like Anna Muylaert, Carolina Paiva, and L\u00facia Murat, among others, students investigate links between identities, memory, and language, enabling them to describe, interpret and make inferences about how cultural environments have been historically constructed and how these artistic productions reshape perceptions of our societies. By the course's end, students have a deeper understanding of the Portuguese language and diverse cultural aspects within the Lusophone world.&#160;Conducted in Portuguese.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCL5"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Giseli Tordin"
+        ],
+        "instructorUPI": [
+            "17603976"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "HQ 227"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Portuguese 140 or equivalent.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PORT154",
+            "FILM154",
+            "WGSS154",
+            "LAST154"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Advanced Studies in Portuguese",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M154",
+        "syllabusLink": "https://yale.instructure.com/courses/100604/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "412",
+        "courseTitle": "Native American Mental Health",
+        "crn": "14422",
+        "department": "ER&M",
+        "description": "<p>Issues of health policy, research, and service delivery in Native American communities, with a focus on historical antecedents that shape health outcomes and social policy for indigenous communities. Urgent problems in health and wellness, with special attention to Native American mental health. The roles of the Indian Health Service, state and local agencies, and tribal health centers; comparison of Native American and European American conceptions of health and illness.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Mark Beitel",
+            "Christopher Cutter"
+        ],
+        "instructorUPI": [
+            "11846166",
+            "12757757"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 9.25-11.15"
+        ],
+        "meetingPatternLocation": [
+            "LC 103"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PSYC312"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Native American Mental Health",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M412",
+        "syllabusLink": "https://yale.instructure.com/courses/100669/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "C",
+        "courseNumber": "357",
+        "courseTitle": "\"None Dare Call It Conspiracy:\" Paranoia and Conspiracy Theories in 20th and 21st C. America",
+        "crn": "14427",
+        "department": "ER&M",
+        "description": "<p>In this course we examine the development and growth of conspiracy theories in American politics and culture in the 20th and 21st centuries. We look at texts from a variety of different analytical and political traditions to develop an understanding of how and why conspiracy theories develop, their structural dynamics, and how they function as a narrative. We examine a variety of different conspiracy theories and conspiratorial groups from across the political spectrum, but we pay particular attention to anti-Semitism as a foundational form of conspiracy theorizing, as well as the particular role of conspiracy theories in far-right politics, ranging from the John Birch Society in the 1960s to the Tea Party, QAnon, and beyond in the 21st century. We also look at how <em>real </em>conspiracies shape and reinforce conspiracy theorizing as a mode of thought, and formulate ethical answers on how to address conspiracy as a mode of politics.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "50",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "HUMS418",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "HIST112",
+            "AMST328"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "C",
+        "session": null,
+        "shortTitle": "ConspiracyTheories 20th&21stC",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M357",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "089",
+        "courseTitle": "Asian Americans and STEM",
+        "crn": "14478",
+        "department": "ER&M",
+        "description": "<p>As both objects of study and agents of discovery, Asian Americans have played an important yet often unseen role in fields of science, technology, engineering, and math (STEM) in the U.S. Now more than ever, there is a need to rethink and educate students on science\u2019s role in society and its interface with society. This course unites the humanities fields of Asian American history and American Studies with the STEM fields of medicine, physics, and computer science to explore the ways in which scientific practice has been shaped by U.S. histories of imperialism and colonialism, migration and racial exclusion, domestic and international labor and economics, and war. The course also explores the scientific research undertaken in these fields and delves into key scientific principles and concepts to understand the impact of such work on the lives of Asians and Asian Americans, and how the migration of people may have impacted the migration of ideas and scientific progress. Using case students, students engage with fundamental scientific concepts in these fields. They explore key roles Asians and Asian Americans had in the development in science and technology in the United States and around the world as well as the impact of state policies regarding the migration of technical labor and the concerns over brain drains. Students also examine diversity and inclusion in the context of the experiences of Asians and Asian Americans in STEM.</p>",
+        "distDesg": [
+            "YCHU",
+            "YCSC"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Eun-Joo Ahn"
+        ],
+        "instructorUPI": [
+            "25211828"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "HQ C64"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.&#160;</p>",
+        "primXLst": "PHYS047",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AMST099",
+            "HIST059"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Asian Americans and STEM",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M089",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "269",
+        "courseTitle": "Embodied Methods: Lessons in Praxis from Women of Color",
+        "crn": "14481",
+        "department": "ER&M",
+        "description": "<p>Understanding ethnic studies, black studies, and gender studies as necessarily anti-disciplinary practices, this course explores modes of research that embrace the body as a tool, a way of knowing, and a method for cutting across the silos and boundaries that academic disciplines impose. We explore various forms of embodied research praxis, including performance ethnography, food studies, oral history, dance, and other boundary-crossing methods. Centering the approaches of women of color researchers, artists, and practitioners who have, we ask, what is the role of the body and embodied knowledge in relationship to written scholarship?&#160;How do embodied approaches contribute to our work about migration, mobility, social movements, race, class, gender, sexuality, and their intersections? The class involves movement and embodiment practices during every session, both instructor and student-led. Students should be willing to participate and experiment with various forms. Students should anticipate a holistic experience that requires an openness to physical activity (accessible to all) as one of our primary tools for both analyzing course materials and constructing our own boundary-crossing projects.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Alison Kibbe"
+        ],
+        "instructorUPI": [
+            "17503608"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "WLH 209"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Embodiments: Women of Color",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M269",
+        "syllabusLink": "https://yale.instructure.com/courses/100678/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "229",
+        "courseTitle": "Marxism and Social Movements in the Twentieth Century",
+        "crn": "14812",
+        "department": "ER&M",
+        "description": "<p>The history of Marxism and its relation to the labor, feminist, and anticolonial social movements since the great upheavals of 1919. Topics include the Leninisms of the Communist movement, the anticolonial Marxisms of national liberation struggles, the cultural and intellectual trajectory of Western Marxism, the New Left, and contemporary global justice movements.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Michael Denning"
+        ],
+        "instructorUPI": [
+            "10299642"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "HQ 113"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "AMST369",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Marxism & Social Movts: 20th C",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M229",
+        "syllabusLink": "https://yale.instructure.com/courses/100928/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "337",
+        "courseTitle": "Theorizing Black Women\u2019s Cultural Production from 1945 to the Present",
+        "crn": "16428",
+        "department": "ER&M",
+        "description": "<p>This seminar surveys black women\u2019s cultural production during, and in light of, the second half of the 20th century. Drawing from a range of methodologies and approaches, including (but not limited to): literary, cultural, and art history, performance studies, queer theory, affect theory, and Marxist analysis, this seminar asks: how do we treat black women\u2019s cultural production both historically and at our current conjuncture? Moving chronologically from performance in the 1940s, to black women\u2019s poetics during the Black Arts Movement, and onto the proliferation of black women novelists in the 1970s/80s, students gain a broad overview of black women\u2019s cultural production and its ties to, what we now consider, black feminism.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Jocelyn Proietti",
+            "Quan Tran"
+        ],
+        "instructorUPI": [
+            "17250733",
+            "12341699"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 3.30-5.20"
+        ],
+        "meetingPatternLocation": [
+            ""
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "AFAM453",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "WGSS455"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Black Women's Culture & Theory",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M337",
+        "syllabusLink": "https://yale.instructure.com/courses/102850/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "413",
+        "courseTitle": "20th Century Black Art Movements",
+        "crn": "16494",
+        "department": "ER&M",
+        "description": "<p>What constitutes a movement of black art? How have black artists and writers navigated the personal, political, and aesthetic stakes of black representation across the long 20th century? By charting the historical development and impact of two seminal art movements (The Black Arts Movement of the 60s/70s and the Black Women\u2019s Literary Renaissance of the 1970s/80s) this seminar affords students the opportunity to gain a greater understanding of the key figures and ideologies that shaped the intersection of 20th century black art and activism.&#160;Designed to move chronologically, this course draws from a diverse range of published and unpublished primary sources with an emphasis on analyzing poetry, film, short fiction, and political essays. Students can also expect to gain firsthand experience in undertaking methods of literary, historical, and film analysis, especially as these methods relate to issues of gender, sexuality, race, and power. Notably, this course covers works by: Amiri Baraka, Sonia Sanchez, Larry Neal, June Jordan, Toni Cade Bambara, and Ntozake Shange.</p>",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Jocelyn Proietti"
+        ],
+        "instructorUPI": [
+            "17250733"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            ""
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "AFAM214"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Black Art Movements",
+        "subjectCode": "ER&M",
+        "subjectNumber": "ER&M413",
+        "syllabusLink": "https://yale.instructure.com/courses/102904/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -27577,6 +30292,51 @@
         "subjectCode": "EVST",
         "subjectNumber": "EVST215",
         "syllabusLink": "https://yale.instructure.com/courses/100668/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "422",
+        "courseTitle": "Climate and Society: Perspectives from the Social Sciences and Humanities",
+        "crn": "12538",
+        "department": "F&ES",
+        "description": "<p>Discussion of the major currents of thought regarding climate and climate change; focusing on equity, collapse, folk knowledge, historic and contemporary visions, western and non-western perspectives, drawing on the social sciences and humanities.</p>",
+        "distDesg": [
+            "YCSO",
+            "YCWR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Michael Dove"
+        ],
+        "instructorUPI": [
+            "10405093"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "KRN 321"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "EVST422",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "ANTH409",
+            "ENV878",
+            "ER&M394",
+            "GLBL394"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Climate and Society",
+        "subjectCode": "F&ES",
+        "subjectNumber": "F&ES422",
+        "syllabusLink": "https://yale.instructure.com/courses/99679/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -49968,6 +52728,681 @@
     },
     {
         "cSectionStatus": "A",
+        "courseNumber": "330",
+        "courseTitle": "Modeling Biological Systems I",
+        "crn": "11521",
+        "department": "MB&B",
+        "description": "<p>Biological systems make sophisticated decisions at many levels. This course explores the molecular and computational underpinnings of how these decisions are made, with a focus on modeling static and dynamic processes in example biological systems. This course is aimed at biology students and teaches the analytic and computational methods needed to model genetic networks and protein signaling pathways. Students present and discuss original papers in class. They learn to model using MatLab in a series of in-class hackathons that illustrate the biological examples discussed in the lectures. Biological systems and processes that are modeled include: (i) gene expression, including the kinetics of RNA and protein synthesis and degradation; (ii) activators and repressors; (iii) the lysogeny/lysis switch of lambda phage; (iv) network motifs and how they shape response dynamics; (v) cell signaling, MAP kinase networks and cell fate decisions; and (vi) noise in gene expression.</p>",
+        "distDesg": [
+            "YCQR",
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Thierry Emonet",
+            "Kathryn Miller-Jensen"
+        ],
+        "instructorUPI": [
+            "12478532",
+            "13271361"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "YSB C142"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: MATH 115 or 116. BIOL 101-104,&#160; or with permission of instructors. This course also benefits students who have taken more advanced biology courses (e.g. MCDB 200, MCDB 310, MB&amp;B 300/301).</p>",
+        "primXLst": "MCDB561",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "BENG230",
+            "NSCI324",
+            "PHYS561",
+            "MB&B561"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "ModelingBiologicalSystemsI",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B330",
+        "syllabusLink": "https://yale.instructure.com/courses/99056/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "105",
+        "courseTitle": "Biology, the World, and Us",
+        "crn": "11625",
+        "department": "MB&B",
+        "description": "<p>This course is for non-science majors who wish to gain an understanding of modern biology by examining the scientific basis of current issues.&#160;We\u2019ll consider issues related to: &#160;i) pandemics and global infectious disease; &#160;ii) the climate crisis; &#160;iii) the future of genetics and the new green revolution.&#160;Many of the topics have an increasingly large impact on our daily lives.&#160;&#160;The issues are both social and biological, and it\u2019s crucial that social debate be based on a clear understanding of the underlying science.&#160;&#160;The instructors will explain the scientific foundation beneath each issue.&#160;&#160;We\u2019ll emphasize the nature of science as a process of inquiry rather than a fixed body of terminology and facts.&#160;&#160;The course is not intended to be a comprehensive survey of biology.&#160;</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Ronit Kaufman",
+            "John Carlson",
+            "Josh Gendron",
+            "Jennifer Marlon"
+        ],
+        "instructorUPI": [
+            "13935721",
+            "10441813",
+            "15005021",
+            "14316674"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 11.35-12.25"
+        ],
+        "meetingPatternLocation": [
+            "DAVIES AUD"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MCDB105"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Biology, the World, and Us",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B105",
+        "syllabusLink": "https://yale.instructure.com/courses/99145/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "121L",
+        "courseTitle": "Introduction to Physics in Living Systems I: Observation and Analysis",
+        "crn": "11627",
+        "department": "MB&B",
+        "description": "<p>A hands-on introduction to the physics that enables life and human measurement of living things. This lab&#160;builds student knowledge of scientific experimental design and practice. Topics include detection of light, basic circuit building, sterile technique in biology and physics, data collection with student-built instrumentation, and quantitative assessment.&#160;For students choosing to major in MB&amp;B, this course may be used to fulfill the MB&amp;B requirement for <em>Practical Skills</em> in physics.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Katherine Schilling",
+            "Caitlin Hansen"
+        ],
+        "instructorUPI": [
+            "17218722",
+            "15845739"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 10.30-11.45",
+            "1 HTBA"
+        ],
+        "meetingPatternLocation": [
+            "",
+            "1 HTBA"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">There are no prerequisites to this \u00bd credit class and it is helpful to take it in the same semester as MB&amp;B 122L.</p>\n<p>Priority is given to first-year students looking to fulfill medical school application requirements and students seeking to join research labs at Yale.&#160;</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PHYS121L"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Living Systems I:Obsrvtn&Anlys",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B121L",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "251L",
+        "courseTitle": "Laboratory for Biochemistry",
+        "crn": "11629",
+        "department": "MB&B",
+        "description": "<p>An introduction to current experimental methods in molecular biology, biophysics, and biochemistry. Limited enrollment.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Ghazia Abbas"
+        ],
+        "instructorUPI": [
+            "25443334"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "T 1.30-5.30"
+        ],
+        "meetingPatternLocation": [
+            ""
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: BIOL 101.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MCDB301L"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Laboratory for Biochemistry",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B251L",
+        "syllabusLink": "https://yale.instructure.com/courses/99147/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "251L",
+        "courseTitle": "Laboratory for Biochemistry",
+        "crn": "11631",
+        "department": "MB&B",
+        "description": "<p>An introduction to current experimental methods in molecular biology, biophysics, and biochemistry. Limited enrollment.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Ghazia Abbas"
+        ],
+        "instructorUPI": [
+            "25443334"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "Th 1.30-5.30"
+        ],
+        "meetingPatternLocation": [
+            ""
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: BIOL 101.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MCDB301L"
+        ],
+        "sectionNumber": "02",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Laboratory for Biochemistry",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B251L",
+        "syllabusLink": "https://yale.instructure.com/courses/99147/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "275",
+        "courseTitle": "Biology at the Molecular Level",
+        "crn": "11633",
+        "department": "MB&B",
+        "description": "<p>An introductory course for students to learn the key concepts from physics and physical chemistry that govern the structure and function of biomolecules in biology and medicine. Emphasis is placed on atomic-scale biomolecular motions, energy, reaction rates and mechanisms; core elements that underpin the exquisite specificity and regulated control of life processes. This course prepares students for upper level course content where these concepts are revisited. Connections to medicine and research are made through the use of practical examples, laboratory-based activities and training in biologically relevant areas of math, statistics and computer programming.&#160;This course is open to all Yale students. For MB&amp;B majors, this course is accepted as fulfillment of one semester of MB&amp;B\u2019s two-semester requirement in physical chemistry.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "36",
+        "instructorList": [
+            "Enrique De La Cruz",
+            "Allison Didychuk"
+        ],
+        "instructorUPI": [
+            "11434290",
+            "24717230"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 1.00-2.15",
+            "1 HTBA"
+        ],
+        "meetingPatternLocation": [
+            "BASS 305",
+            "1 HTBA"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: BIOL 101-102, MATH 112 (or equivalent), college level General Chemistry, and high school Physics.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Biology at the Molecular Level",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B275",
+        "syllabusLink": "https://yale.instructure.com/courses/99149/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "300",
+        "courseTitle": "Principles of Biochemistry I",
+        "crn": "11634",
+        "department": "MB&B",
+        "description": "<p>Discussion of the physical, structural, and functional properties of proteins, lipids, and carbohydrates, three major classes of molecules in living organisms. Energy metabolism and hormone signaling as examples of complex biological processes whose underlying mechanisms can be understood by identifying and analyzing the molecules responsible for these phenomena.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "24",
+        "instructorList": [
+            "Matthew Simon",
+            "Michael Koelle",
+            "Candie Paulsen"
+        ],
+        "instructorUPI": [
+            "14403935",
+            "10488461",
+            "17379066"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "SSS 114"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: After BIOL 101 and CHEM 174 or CHEM 220.</p>",
+        "primXLst": "MB&B600",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Principles of Biochemistry I",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B300",
+        "syllabusLink": "https://yale.instructure.com/courses/99150/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "420",
+        "courseTitle": "Macromolecular Structure and Biophysical Analysis",
+        "crn": "11635",
+        "department": "MB&B",
+        "description": "<p>Analysis of macromolecular architecture and its elucidation using modern methods of structural biology and biochemistry. Topics include architectural arrangements of proteins, RNA, and DNA; practical methods in structural analysis; and an introduction to diffraction and NMR.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "24",
+        "instructorList": [
+            "Yong Xiong",
+            "Franziska Bleichert",
+            "Joe Howard",
+            "Steven Tang"
+        ],
+        "instructorUPI": [
+            "11472557",
+            "11509770",
+            "14570127",
+            "25254583"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "BASS 405"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: MBB 301 and 302.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MB&B720"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Macromolecular Structure",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B420",
+        "syllabusLink": "https://yale.instructure.com/courses/99151/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "435",
+        "courseTitle": "Quantitative Methods in Biology",
+        "crn": "11636",
+        "department": "MB&B",
+        "description": "<p>An introduction to quantitative methods relevant to analysis and interpretation of <strong>biological</strong> data. Topics include statistical testing, data presentation, and error analysis; introduction to artificial intelligence-based data analysis tools, Alpha Fold Tutorial, introduction to mathematical modeling of biological dynamics; and Fourier analysis in signal/image processing and macromolecular structural studies. Instruction in basic programming skills and data analysis using MATLAB; study of real data from MB&amp;B research groups.</p>",
+        "distDesg": [
+            "YCQR",
+            "YCSC"
+        ],
+        "finalExam": "22",
+        "instructorList": [
+            "Nikhil Malvankar",
+            "Julien Berro",
+            "Yong Xiong"
+        ],
+        "instructorUPI": [
+            "15890160",
+            "12659344",
+            "11472557"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "BASS 405"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: MATH 120 and MB&amp;B 300 or equivalents, or with permission of instructors.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MB&B635"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "QuantitativeMethodsBiology",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B435",
+        "syllabusLink": "https://yale.instructure.com/courses/99154/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "449",
+        "courseTitle": "Medical Impact of Basic Science",
+        "crn": "11637",
+        "department": "MB&B",
+        "description": "<p>Examples of recent discoveries in basic science that have elucidated the molecular origins of disease or that have suggested new therapies for disease. Readings from the primary scientific and medical literature, with emphasis on developing the ability to read this literature critically.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Joan Steitz",
+            "Sandy Chang",
+            "Daniel DiMaio",
+            "I. George Miller",
+            "Andrew Miranker",
+            "Karla Neugebauer",
+            "Abhijit Patel",
+            "David Schatz",
+            "Seyedtaghi Takyar"
+        ],
+        "instructorUPI": [
+            "10437325",
+            "13382099",
+            "10036261",
+            "10405841",
+            "10285294",
+            "14444905",
+            "10172669",
+            "10365211",
+            "12477818"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 1.00-2.15"
+        ],
+        "meetingPatternLocation": [
+            "SHM C103"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: MB&amp;B 300 and 301 or equivalents, or permission of instructor.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Medical Impact ofBasic Science",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B449",
+        "syllabusLink": "https://yale.instructure.com/courses/99155/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "425",
+        "courseTitle": "Basic Concepts of Genetic Analysis",
+        "crn": "11646",
+        "department": "MB&B",
+        "description": "<p>The universal principles of genetic analysis in eukaryotes. Reading and analysis of primary papers that illustrate the best of genetic analysis in the study of various biological issues. Focus on the concepts and logic underlying modern genetic analysis.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Jun Lu"
+        ],
+        "instructorUPI": [
+            "13091926"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "TAC N107"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: MCDB 202 or pre-approval of instructor.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MCDB425",
+            "MCDB625",
+            "MB&B625",
+            "GENE625"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "BasicConceptsOfGeneticAnalysis",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B425",
+        "syllabusLink": "https://yale.instructure.com/courses/99096/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "200",
+        "courseTitle": "Biochemistry",
+        "crn": "11706",
+        "department": "MB&B",
+        "description": "<p>An introduction to the biochemistry of animals, plants, and microorganisms, emphasizing the relations of chemical principles and structure to the evolution and regulation of living systems.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "32",
+        "instructorList": [
+            "Sigrid Nachtergaele",
+            "Ronald Breaker",
+            "Mark Hochstrasser",
+            "Steven Tang"
+        ],
+        "instructorUPI": [
+            "24213299",
+            "10415769",
+            "11211097",
+            "25254583"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MWF 9.25-10.15",
+            "1 HTBA DL 220"
+        ],
+        "meetingPatternLocation": [
+            "DL 220",
+            "1 HTBA DL 220"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Introductory biology coursework (BIOL 101, BIOL 102, BIOL 103) or equivalent performance on the corresponding biological sciences placement examination; one term of organic chemistry (CHEM 174 or CHEM 220); or with permission of instructor. Note for MB&amp;B majors: this course does not substitute for MB&amp;B 300 and MB&amp;B 301.</p>",
+        "primXLst": "MCDB300",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MCDB500",
+            "MB&B500"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Biochemistry",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B200",
+        "syllabusLink": "https://yale.instructure.com/courses/99212/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "364",
+        "courseTitle": "Light Microscopy: Techniques and Image Analysis",
+        "crn": "11903",
+        "department": "MB&B",
+        "description": "<p>A rigorous study of principles and pertinent modalities involved in modern light microscopy. The overall course learning objective is to develop competencies involving advanced light microscopy applications common to multidisciplinary research. Laboratory modules coupled with critical analysis of pertinent research papers cover all major light microscope methods\u2014from the basics (principles of optics, image contrast, detector types, fluorescence, 1P and 2P excitation, widefield, confocal principle, TIRF), to more recent advances, including: superresolution, lightsheet, FLIM/FRET, motion analysis and force measurements. This course is capped at 8 students to promote interactions and ensure a favorable hands-on experience. Priority for enrollment is given to students who are planning on using these techniques in their independent research.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Joseph Wolenski",
+            "Joe Howard"
+        ],
+        "instructorUPI": [
+            "10310267",
+            "14570127"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 1.30-4.30"
+        ],
+        "meetingPatternLocation": [
+            "YSB C105"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: MCDB 205, PHYS 170/171 or above, either&#160;CHEM 161/165&#160;or above; with&#160;CHEM 134L,&#160;136L or permission from the instructor.</p>",
+        "primXLst": "MCDB364",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MCDB564"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Light Microscopy: Techniques",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B364",
+        "syllabusLink": "https://yale.instructure.com/courses/99317/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "459",
+        "courseTitle": "Writing about Science, Medicine, and the Environment",
+        "crn": "14419",
+        "department": "MB&B",
+        "description": "<p>Advanced non-fiction workshop in which students write about science, medicine, and the environment for a broad public audience. Students read exemplary work, ranging from newspaper articles to book excerpts, to learn how to translate complex subjects into compelling prose. Admission by permission of the instructor only. Applicants should email the instructor at carl@carlzimmer.com with the following information: 1. One or two samples of nonacademic, nonfiction writing. (No fiction or scientific papers, please.) Indicate the course or publication, if any, for which you wrote each sample. 2. A note in which you briefly describe your background (including writing experience and courses) and explain why you\u2019d like to take the course. Formerly ENGL 459.</p>",
+        "distDesg": [
+            "YCWR"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Carl Zimmer"
+        ],
+        "instructorUPI": [
+            "12055810"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "M 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "PM 107"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "ENGL459",
+            "EVST215"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "WritingAboutScience&Environmnt",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B459",
+        "syllabusLink": "https://yale.instructure.com/courses/100668/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "251L",
+        "courseTitle": "Laboratory for Biochemistry",
+        "crn": "14489",
+        "department": "MB&B",
+        "description": "<p>An introduction to current experimental methods in molecular biology, biophysics, and biochemistry. Limited enrollment.</p>",
+        "distDesg": [
+            "YCSC"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Ghazia Abbas"
+        ],
+        "instructorUPI": [
+            "25443334"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 1.30-5.30"
+        ],
+        "meetingPatternLocation": [
+            ""
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: BIOL 101.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MCDB301L"
+        ],
+        "sectionNumber": "03",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Laboratory for Biochemistry",
+        "subjectCode": "MB&B",
+        "subjectNumber": "MB&B251L",
+        "syllabusLink": "https://yale.instructure.com/courses/99147/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
         "courseNumber": "310",
         "courseTitle": "Physiological Systems",
         "crn": "10087",
@@ -62673,6 +66108,531 @@
         "subjectCode": "RUSS",
         "subjectNumber": "RUSS380",
         "syllabusLink": "https://yale.instructure.com/courses/100447/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "123",
+        "courseTitle": "YData: An Introduction to Data Science",
+        "crn": "10803",
+        "department": "S&DS",
+        "description": "<p>Computational, programming, and statistical skills are no longer optional in our increasingly data-driven world; these skills are essential for opening doors to manifold research and career opportunities. This course aims to dramatically enhance knowledge and capabilities in fundamental ideas and skills in data science, especially computational and programming skills along with inferential thinking. YData is an introduction to Data Science that emphasizes the development of these skills while providing opportunities for hands-on experience and practice.&#160;YData is accessible to students with little or no background in computing, programming, or statistics, but is also engaging for more technically oriented students through extensive use of examples and hands-on data analysis. Python 3, a popular and widely used computing language, is the language used in this course. The computing materials will be hosted on a special purpose web server.</p>",
+        "distDesg": [
+            "YCQR",
+            "YGLR"
+        ],
+        "finalExam": "27",
+        "instructorList": [
+            "Ethan Meyers"
+        ],
+        "instructorUPI": [
+            "24169388"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 2.30-3.45",
+            "1 HTBA SSS 114"
+        ],
+        "meetingPatternLocation": [
+            "SSS 114",
+            "1 HTBA SSS 114"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "S&DS523",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PLSC351",
+            "CPSC123"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "YData",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS123",
+        "syllabusLink": "https://yale.instructure.com/courses/98708/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "150",
+        "courseTitle": "Data Science Ethics",
+        "crn": "10804",
+        "department": "S&DS",
+        "description": "<p>In this course, we introduce, discuss, and analyze ethical issues, algorithmic challenges, and policy decisions that arise when addressing real-world problems via the lens of data science. We grapple with the normative questions of what constitutes bias, fairness, discrimination, or ethics when it comes to data science and machine learning in applications such as policing, health, journalism, and employment. We incorporate technical precision by introducing quantitative measures that allow us to study how algorithms codify, exacerbate and/or introduce biases of their own, and study analytic methods of correcting for or eliminating these biases. Lastly, we study the social implications of these decisions, and understand the legal, political and policy decisions that could be used to govern data-driven decision making by making them transparent and auditable. We read critical commentary by practitioners, state-of-the-art technical papers by data scientist and computer scientists, and samples of legal scholarship, moral and ethical philosophy, readings in sociology, and policy documents. We often ground our discussions around recent case studies, controversies, and current events.</p>",
+        "distDesg": [
+            "YCSO"
+        ],
+        "finalExam": "0",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: One from S&amp;DS 238, S&amp;DS 241, S&amp;DS 242, or the equivalent; and one from S&amp;DS 230, ECON 131, or the equivalent. Suggested courses: one from: CPSC 470, S&amp;DS 365, ECON 429, CPSC 365, CPSC 366, or equivalent; and one from: EP&amp;E 215, PHIL 175, PHIL 177, SOCY 144, PLSC 262, PLSC 320, or equivalent.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Data Science Ethics",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS150",
+        "syllabusLink": null,
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "172",
+        "courseTitle": "YData: Data Science for Political Campaigns",
+        "crn": "10805",
+        "department": "S&DS",
+        "description": "<p>Political campaigns have become increasingly data driven. Data science is used to inform where campaigns compete, which messages they use, how they deliver them, and among which voters. In this course, we explore how data science is being used to design winning campaigns. Students gain an understanding of what data is available to campaigns, how campaigns use this data to identify supporters, and the use of experiments in campaigns. This course provides students with an introduction to political campaigns, an introduction to data science tools necessary for studying politics, and opportunities to practice the data science skills presented in S&amp;DS 123, YData.<br /></p>\n<p>&#160;</p>",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Joshua Kalla"
+        ],
+        "instructorUPI": [
+            "13182842"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "W 1.30-3.20"
+        ],
+        "meetingPatternLocation": [
+            "WALL53 AUD"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "S&DS572",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "PLSC347",
+            "PLSC524",
+            "EP&E328"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "YData: Science for Politics",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS172",
+        "syllabusLink": "https://yale.instructure.com/courses/98720/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "230",
+        "courseTitle": "Data Exploration and Analysis",
+        "crn": "10806",
+        "department": "S&DS",
+        "description": "<p>Survey of statistical methods: plots, transformations, regression, analysis of variance, clustering, principal components, contingency tables, and time series analysis. The R computing language and Web data sources are used.</p>",
+        "distDesg": [
+            "YCQR",
+            "YGLR"
+        ],
+        "finalExam": "22",
+        "instructorList": [
+            "Ethan Meyers"
+        ],
+        "instructorUPI": [
+            "24169388"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "ML 211"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: a 100-level Statistics course or equivalent, or with permission of instructor.</p>",
+        "primXLst": "S&DS530",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "ENV757",
+            "PLSC530"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Data Exploration and Analysis",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS230",
+        "syllabusLink": "https://yale.instructure.com/courses/98725/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "238",
+        "courseTitle": "Probability and Bayesian Statistics",
+        "crn": "10807",
+        "department": "S&DS",
+        "description": "<p>Fundamental principles and techniques of probabilistic thinking, statistical modeling, and data analysis. Essentials of probability, including conditional probability, random variables, distributions, law of large numbers, central limit theorem, and Markov chains. Statistical inference with emphasis on the Bayesian approach: parameter estimation, likelihood, prior and posterior distributions, Bayesian inference using Markov chain Monte Carlo. Introduction to regression and linear models. Computers are used for calculations, simulations, and analysis of data.</p>",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "26",
+        "instructorList": [
+            "Joseph Chang"
+        ],
+        "instructorUPI": [
+            "10279667"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 1.00-2.15"
+        ],
+        "meetingPatternLocation": [
+            "DL 220"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">After or concurrently with MATH 118 or 120.</p>",
+        "primXLst": "S&DS538",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Probability and Statistics",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS238",
+        "syllabusLink": "https://yale.instructure.com/courses/98730/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "241",
+        "courseTitle": "Probability Theory",
+        "crn": "10808",
+        "department": "S&DS",
+        "description": "<p>Introduction to probability theory. Topics include probability spaces, random variables, expectations and probabilities, conditional probability, independence, discrete and continuous distributions, central limit theorem, Markov chains, and probabilistic modeling.</p>",
+        "distDesg": [
+            "YCQR",
+            "YMAS"
+        ],
+        "finalExam": "32",
+        "instructorList": [
+            "Harrison Zhou"
+        ],
+        "instructorUPI": [
+            "12024275"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "YSB MARSH"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">After or concurrently with MATH 120 or equivalent.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "MATH241",
+            "S&DS541"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Probability Theory",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS241",
+        "syllabusLink": "https://yale.instructure.com/courses/98736/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "265",
+        "courseTitle": "Introductory Machine Learning",
+        "crn": "10809",
+        "department": "S&DS",
+        "description": "<p>This course covers the key ideas and techniques in machine learning without the use of advanced mathematics. Basic methodology and relevant concepts are presented in lectures, including the intuition behind the methods. Assignments give students hands-on experience with the methods on different types of data. Topics include linear regression and classification, tree-based methods, clustering, topic models, word embeddings, recurrent neural networks, dictionary learning and deep learning. Examples come from a variety of sources including political speeches, archives of scientific articles, real estate listings, natural images, and several others. Programming is central to the course, and is based on the Python programming language.</p>",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "24",
+        "instructorList": [
+            "John Lafferty"
+        ],
+        "instructorUPI": [
+            "17293760"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "DAVIES AUD"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: Two of the following courses: S&amp;DS 230, 238, 240, 241 and 242; previous programming experience (e.g., R, Matlab, Python, C++), Python preferred.</p>",
+        "primXLst": "S&DS565",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Introductory Machine Learning",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS265",
+        "syllabusLink": "https://yale.instructure.com/courses/98741/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "312",
+        "courseTitle": "Linear Models",
+        "crn": "10810",
+        "department": "S&DS",
+        "description": "<p>The geometry of least squares; distribution theory for normal errors; regression, analysis of variance, and designed experiments; numerical algorithms, with particular reference to the R statistical language.</p>",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "34",
+        "instructorList": [
+            "Zongming Ma"
+        ],
+        "instructorUPI": [
+            "25127542"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 11.35-12.50"
+        ],
+        "meetingPatternLocation": [
+            "DL 220"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">After S&amp;DS 242 and MATH 222 or 225.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "S&DS612"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Linear Models",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS312",
+        "syllabusLink": "https://yale.instructure.com/courses/98746/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "365",
+        "courseTitle": "Intermediate Machine Learning",
+        "crn": "10811",
+        "department": "S&DS",
+        "description": "<p>S&amp;DS 365 is a second course in machine learning at the advanced undergraduate or beginning graduate level. The course assumes familiarity with the basic ideas and techniques in machine learning, for example as covered in S&amp;DS 265. The course treats methods together with mathematical frameworks that provide intuition and justifications for how and when the methods work. Assignments give students hands-on experience with machine learning techniques, to build the skills needed to adapt approaches to new problems. Topics include nonparametric regression and classification, kernel methods, risk bounds, nonparametric Bayesian approaches, graphical models, attention and language models, generative models, sparsity and manifolds, and reinforcement learning. Programming is central to the course, and is based on the Python programming language and Jupyter notebooks.</p>",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "36",
+        "instructorList": [
+            "John Lafferty"
+        ],
+        "instructorUPI": [
+            "17293760"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 1.00-2.15"
+        ],
+        "meetingPatternLocation": [
+            "WLH 201"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: a background in probability and statistics at the level of S&amp;DS 242; familiarity with the core ideas from linear algebra, for example through Math 222; and computational skills at the level of S&amp;DS 265 or CPSC 200.</p>",
+        "primXLst": "S&DS665",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Intermediate Machine Learning",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS365",
+        "syllabusLink": "https://yale.instructure.com/courses/98751/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "400",
+        "courseTitle": "Advanced Probability",
+        "crn": "10812",
+        "department": "S&DS",
+        "description": "<p>Measure theoretic probability, conditioning, laws of large numbers, convergence in distribution, characteristic functions, central limit theorems, martingales.</p>",
+        "distDesg": [
+            "YCQR",
+            "YMAS"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Sekhar Tatikonda"
+        ],
+        "instructorUPI": [
+            "11633768"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "SPL 57"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Some knowledge of real analysis assumed.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "S&DS600",
+            "MATH330"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Advanced Probability",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS400",
+        "syllabusLink": "https://yale.instructure.com/courses/98757/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "425",
+        "courseTitle": "Statistical Case Studies",
+        "crn": "10814",
+        "department": "S&DS",
+        "description": "<p>Statistical analysis of a variety of statistical problems using real data. Emphasis on methods of choosing data, acquiring data, assessing data quality, and the issues posed by extremely large data sets. Extensive computations using R statistical software.</p>",
+        "distDesg": [
+            "YCQR",
+            "YGLR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Brian Macdonald"
+        ],
+        "instructorUPI": [
+            "24652426"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 9.00-10.15"
+        ],
+        "meetingPatternLocation": [
+            "KT 219"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: S&amp;DS 361, and prior course work in probability, statistics, and data analysis (e.g. 363, 365, 220, 230, etc., equivalent courses, or equivalent research/internship experience).&#160; Enrollment limited; requires permission of the instructor.&#160;</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Statistical Case Studies",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS425",
+        "syllabusLink": "https://yale.instructure.com/courses/98768/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "100",
+        "courseTitle": "Introductory Statistics",
+        "crn": "11034",
+        "department": "S&DS",
+        "description": "<p>An introduction to statistical reasoning. Topics include numerical and graphical summaries of data, data acquisition and experimental design, probability, hypothesis testing, confidence intervals, correlation and regression. Application of statistical concepts to data; analysis of real-world problems.</p>",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "26",
+        "instructorList": [
+            "Robert Wooster"
+        ],
+        "instructorUPI": [
+            "24909415"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 1.00-2.15"
+        ],
+        "meetingPatternLocation": [
+            "YSB MARSH"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">May not be taken after S&amp;DS 101\u2013106 or 109.</p>",
+        "primXLst": "S&DS500",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Introductory Statistics",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS100",
+        "syllabusLink": "https://yale.instructure.com/courses/98703/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "425",
+        "courseTitle": "Statistical Case Studies",
+        "crn": "12531",
+        "department": "S&DS",
+        "description": "<p>Statistical analysis of a variety of statistical problems using real data. Emphasis on methods of choosing data, acquiring data, assessing data quality, and the issues posed by extremely large data sets. Extensive computations using R statistical software.</p>",
+        "distDesg": [
+            "YCQR",
+            "YGLR"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Jay Emerson"
+        ],
+        "instructorUPI": [
+            "10281435"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "MW 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "HLH17 101"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Prerequisites: S&amp;DS 361, and prior course work in probability, statistics, and data analysis (e.g. 363, 365, 220, 230, etc., equivalent courses, or equivalent research/internship experience).&#160; Enrollment limited; requires permission of the instructor.&#160;</p>",
+        "primXLst": "S&DS625",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "02",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Statistical Case Studies",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS425",
+        "syllabusLink": "https://yale.instructure.com/courses/99676/assignments/syllabus",
         "termCode": "202403"
     },
     {

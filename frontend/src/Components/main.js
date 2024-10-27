@@ -48,6 +48,7 @@ export default function MainPage() {
         priorCourses: priorCourses.split(',').map(item => item.trim()).filter(Boolean)
       }
     };
+    localStorage.setItem('coursePlan', JSON.stringify(data));
     setIsLoading(true);
 
 

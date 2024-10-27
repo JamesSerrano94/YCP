@@ -178,7 +178,7 @@ class LLMRecommender:
         course_list = []
 
         # Regular expressions to match each field
-        course_number_re = re.compile(r'- Course Number:\s*"(\d+)"')
+        course_number_re = re.compile(r'- Course Number:\s*"(\w+)"')
         course_title_re = re.compile(r'- Course Title:\s*"([^"]+)"')
         explanation_re = re.compile(r'- Explanation:\s*"([^"]+)"')
         meeting_time_re = re.compile(r'- Meeting Time:\s*"([^"]+)"')
