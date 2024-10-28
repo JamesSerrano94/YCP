@@ -142,17 +142,14 @@ const ScheduleDisplay = () => {
                     return response.json();
                 })
                 .then(responseData => {
-                    // 合并返回的两个列表
                     const combinedRecommendations = [...responseData[0], ...responseData[1]];
 
-                    // 过滤已经在日历中的课程
                     const newRecommendations = combinedRecommendations.filter(recCourse => {
                         return !calendarCourses.some(calCourse =>
                             areCoursesEqual(calCourse, recCourse)
                         );
                     });
 
-                    // 更新推荐课程列表
                     setRecommendationCourses(newRecommendations);
 
                     setIsLoading(false);
