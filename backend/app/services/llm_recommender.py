@@ -124,6 +124,7 @@ class LLMRecommender:
 
             # Extract the assistant's reply
             reply = response.choices[0].message.content.strip()
+            print(reply)
             # Append the assistant's message to the conversation
             self.messages.append({"role": "assistant", "content": reply})
 

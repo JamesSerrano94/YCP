@@ -215,10 +215,10 @@
 }
 
 .recommendations-title {
-    text-align: center; /* 居中对齐 */
-    font-size: 24px;    /* 增大字体 */
-    font-weight: bold;  /* 让字体更粗 */
-    margin-bottom: 20px; /* 调整下方的间距 */
+    text-align: center;
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 20px;
 }
 
 .add-course-btn img {
@@ -226,6 +226,19 @@
     height: 24px;
     cursor: pointer;
 }
+
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.delete-icon img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
 
 
 

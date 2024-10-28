@@ -5,6 +5,8 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
+
 
 
 const parseDays = (daysString) => {
@@ -85,11 +87,25 @@ const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
 const ScheduleDisplay = () => {
     const location = useLocation();
-    const coursesFromState = location.state?.courses?.[1] || [];
+    const [calendarCourses, setCalendarCourses] = useState(location.state?.courses?.[1] || []);
+
+    const [recommendationCourses, setRecommendationCourses] = useState(location.state?.courses?.[0] || []);
+
+    // const coursesFromState = location.state?.courses?.[1] || [];
     const colors = ['#F4A7A7', '#FFD580', '#A7D8F4', '#B8E986', '#C6A7E2', '#FFE5A7', '#E0AFAF', '#AFC0E0', '#E0E0AF', '#AFE0B4'];
     const [careerGoals, setCareerGoals] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+
+    const getCourseColor = (course) => {
+        const courseId = `${course.department}${course.courseNumber}`;
+        let hash = 0;
+        for (let i = 0; i < courseId.length; i++) {
+            hash = courseId.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        const index = Math.abs(hash % colors.length);
+        return colors[index];
+    };
 
     useEffect(() => {
         // Load stored data from local storage when the component mounts
@@ -99,6 +115,8 @@ const ScheduleDisplay = () => {
             // Load other form fields if needed
         }
     }, []);
+
+
 
     const handleReplanClick = () => {
         const storedData = JSON.parse(localStorage.getItem('coursePlan'));
@@ -124,8 +142,19 @@ const ScheduleDisplay = () => {
                     return response.json();
                 })
                 .then(responseData => {
-                    console.log(responseData);
-                    navigate('/schedule', { state: { courses: responseData } });
+                    // 合并返回的两个列表
+                    const combinedRecommendations = [...responseData[0], ...responseData[1]];
+
+                    // 过滤已经在日历中的课程
+                    const newRecommendations = combinedRecommendations.filter(recCourse => {
+                        return !calendarCourses.some(calCourse =>
+                            areCoursesEqual(calCourse, recCourse)
+                        );
+                    });
+
+                    // 更新推荐课程列表
+                    setRecommendationCourses(newRecommendations);
+
                     setIsLoading(false);
                 })
                 .catch(error => {
@@ -141,18 +170,45 @@ const ScheduleDisplay = () => {
             <p>Loading your personalized schedule...</p>
         </div>
     );
+    const areCoursesEqual = (courseA, courseB) => {
+        return courseA.courseTitle === courseB.courseTitle;
+    };
 
-    const courses = coursesFromState.map((course, index) => ({
-        ...course,
-        color: course.color || colors[index % colors.length],
-    }));
-    let courseTimes = parseCourseTimes(courses);
+
+    const handleAddCourseToCalendar = (course) => {
+        setRecommendationCourses(prev => prev.filter(c =>
+            !areCoursesEqual(c, course)
+        ));
+        setCalendarCourses(prev => [...prev, course]);
+    };
+
+    const handleRemoveCourseFromCalendar = (course) => {
+        setCalendarCourses(prev => prev.filter(c =>
+            !areCoursesEqual(c, course)
+        ));
+        setRecommendationCourses(prev => [...prev, course]);
+    };
+
+
+    // const courses = calendarCourses.map((course, index) => ({
+    //     ...course,
+    //     color: course.color || colors[index % colors.length],
+    // }));
+    let courseTimes = parseCourseTimes(calendarCourses);
     courseTimes.sort((a, b) => b.courseTitle.length - a.courseTitle.length);
     return (
         <div className="schedule-container">
             {isLoading && <Loading />}
             <div className={isLoading ? 'blur-content' : ''}></div>
             <div className="calendar-container">
+            <div className="back-arrow-container2">
+  <Link to="/">
+    <button className="back-arrow-button" aria-label="Go back">
+      <img src="/back-arrow.svg" alt="Back Arrow" />
+    </button>
+  </Link>
+</div>
+
                 <div className="calendar-header">
                     <div className="time-header"></div>
                     {daysOfWeek.map((day) => (
@@ -202,7 +258,7 @@ const ScheduleDisplay = () => {
                                     key={index}
                                     className="calendar-event"
                                     style={{
-                                        backgroundColor: course.color,
+                                        backgroundColor: getCourseColor(course),
                                         gridColumn: daysOfWeek.indexOf(course.day) + 1,
                                         top: `${startOffset}%`,
                                         height: `${duration}%`
@@ -212,6 +268,9 @@ const ScheduleDisplay = () => {
                                         {course.department} {course.courseNumber}
                                     </div>
                                     <div className="event-description">{course.courseTitle}</div>
+                                    <div className="delete-icon" onClick={() => handleRemoveCourseFromCalendar(course)}>
+                                        <img src="delete.svg" alt="Delete" style={{ cursor: 'pointer' }} />
+                                    </div>
                                     <HtmlTooltip
                                         key={index}
                                         title={
@@ -255,7 +314,7 @@ const ScheduleDisplay = () => {
                 <div className="recommendations-title">More Recommendations</div>
 
                 <div className="recommendation-list">
-                    {location.state?.courses?.[0]?.map((course, index) => (
+                    {recommendationCourses.map((course, index) => (
                         <div className="recommendation-card">
                             <div className="recommendation-content">
                                 <div className="event-title">
@@ -297,7 +356,12 @@ const ScheduleDisplay = () => {
                                 </HtmlTooltip>
                             </div>
                             <div className="recommendation-action">
-                                <img src="add.svg" alt="Add" />
+                                <img
+                                    src="add.svg"
+                                    alt="Add"
+                                    onClick={() => handleAddCourseToCalendar(course)}
+                                    style={{ cursor: 'pointer' }}
+                                />
                             </div>
                         </div>
                     ))}
