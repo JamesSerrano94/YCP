@@ -93,16 +93,29 @@ def get_term_code(term_str):
 
 def get_taken_courses(courses: FulfilledRequirements):
     result = []
-    result.extend(courses.humanities)
-    result.extend(courses.sciences)
-    result.extend(courses.social)
-    result.extend(courses.qr)
-    result.extend(courses.writing)
-    result.extend(courses.language)
+    # result.extend(courses.humanities)
+    # result.extend(courses.sciences)
+    # result.extend(courses.social)
+    # result.extend(courses.qr)
+    # result.extend(courses.writing)
+    # result.extend(courses.language)
     result.extend(courses.priorCourses)
-    # print(result)
+
     return result
    
+def convert_time_format(time):
+    """
+      06:00 PM will be convert to 18.00
+    """
+    time_small, period = time.split()
+    hours, minutes = time_small.split(':')
+    if period == 'AM':
+        if hours == '12':
+            hours = '00'
+    elif period == 'PM':
+        if hours != '12':
+            hours = str(int(hours) + 12)
+    return 60* int(hours) + int(minutes)
 
 def convert_major_format(major):
     # Need to add all major conversion, or do it in frontend
