@@ -48,14 +48,33 @@ const HtmlTooltip = styled(({ className, children, ...props }) => (
 
 // Helper function to convert time strings to minutes
 const timeStringToMinutes = (timeString) => {
+    let period = '';
+    if (timeString.endsWith('a') || timeString.endsWith('p')) {
+        period = timeString.slice(-1).toUpperCase();
+        timeString = timeString.slice(0, -1); // Remove the 'a' or 'p' suffix
+    }
+
     const [hourStr, minuteStr] = timeString.split('.');
     let hour = parseInt(hourStr, 10);
     const minute = parseInt(minuteStr, 10);
 
-    // Assuming classes are between 8 AM and 8 PM
-    if (hour < 7) hour += 12; // Convert to PM times
+    if (period === 'P') {
+        if (hour !== 12) hour += 12; // Convert PM times to 24-hour format
+    } else if (period === 'A') {
+        if (hour === 12) hour = 0; // Convert 12 AM to 0 hours
+    } else {
+        // No period specified, make an assumption
+        if (hour >= 7 && hour <= 12) {
+            // Assume AM for hours between 7 and 12
+        } else {
+            // Assume PM for hours between 1 and 6
+            hour += 12;
+        }
+    }
+
     return hour * 60 + minute;
 };
+
 
 const parseCourseTimes = (courses) => {
     const timePattern = /^[MTWThF]+ \d{1,2}\.\d{2}[ap]?-?\d{1,2}\.\d{2}[ap]?$/;
