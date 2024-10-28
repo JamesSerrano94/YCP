@@ -37,6 +37,11 @@ npm test
   uvicorn backend.app.main:app --reload
   ```
 
+## Backend Test
+```
+pytest
+```
+
 ## Current Pipeline
 - Offline: Precompute word embeddings for all courses offline
 - Online:
