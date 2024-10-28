@@ -180,50 +180,68 @@ class LLMRecommender:
 
         
     def parse_course_info(self, text):
-        # Split the text by course entries
-        courses = re.split(r'\d+\.\s*\n', text)
-        
+        # Adjusted pattern to match each course block
+        course_pattern = re.compile(
+            r'^\s*\d+\.\s*$'            # Match the course number line
+            r'(?:\s*-.*\n)+',           # Match subsequent lines starting with '-'
+            re.MULTILINE
+        )
+
+        # Regular expressions to match each field within a course block
+        subject_number_re = re.compile(r'-\s*Subject Number:\s*"([^"]+)"')
+        course_title_re = re.compile(r'-\s*Course Title:\s*"([^"]+)"')
+        explanation_re = re.compile(r'-\s*Explanation:\s*"([^"]+)"')
+        meeting_time_re = re.compile(r'-\s*Meeting Time:\s*"([^"]+)"')
+
         # List to store the parsed course information
         course_list = []
 
-        # Regular expressions to match each field
-        subject_number_re = re.compile(r'- Subject Number:\s*"([^"]+)"')
-        course_title_re = re.compile(r'- Course Title:\s*"([^"]+)"')
-        explanation_re = re.compile(r'- Explanation:\s*"([^"]+)"')
-        meeting_time_re = re.compile(r'- Meeting Time:\s*"([^"]+)"')
+        # Find all course entries in the text
+        course_entries = course_pattern.findall(text)
+        for course in course_entries:
+            # Extract course number, title, explanation, and meeting time
+            subject_number = subject_number_re.search(course)
+            course_title = course_title_re.search(course)
+            explanation = explanation_re.search(course)
+            meeting_time = meeting_time_re.search(course)
+            
+            subject_number = subject_number.group(1) if subject_number else None
+            course_title = course_title.group(1) if course_title else None
+            explanation = explanation.group(1) if explanation else None
+            meeting_time = meeting_time.group(1) if meeting_time else None
+            
+            if not subject_number:
+                raise CourseNumberNotFoundError(
+                    f"Subject number {subject_number} not found in the course list. "
+                    f"First ensure that the given course list to LLM is correct. "
+                    f"Then, make sure that the subject number is correct."
+                )
 
-        for course in courses:
-            if course.strip():  # Skip any empty entries
-                # Extract course number, title, and explanation using regex
-                subject_number = subject_number_re.search(course)
-                course_title = course_title_re.search(course)
-                explanation = explanation_re.search(course)
-                meeting_time = meeting_time_re.search(course)
-                
-                subject_number = subject_number.group(1) if subject_number else None
-                course_title = course_title.group(1) if course_title else None
-                explanation = explanation.group(1) if explanation else None
-                meeting_time = meeting_time.group(1) if meeting_time else None
-                
-                # Add to the course_list as a dictionary
-                course_dict = {
-                    "subjectNumber": subject_number,
-                    "courseTitle": course_title,
-                    "explanation": explanation,
-                    "meetingTime": meeting_time,
-                }
-                course_list.append(course_dict)
-                
-                other_course_info = next((item for item in self.course_list 
-                                          if item["subjectNumber"] == subject_number), None)
-                if other_course_info is not None:
-                    for key, value in other_course_info.items():
-                        if key not in course_dict:
-                            course_dict[key] = value    
-                else:
-                    raise CourseNumberNotFoundError(f"Subject number {subject_number} not found in the course list. "
-                                                    f"First ensure that the given course list to LLM is correct. "
-                                                    f"Then, make sure that the subject number is correct.")
+            # Add to the course_list as a dictionary
+            course_dict = {
+                "subjectNumber": subject_number,
+                "courseTitle": course_title,
+                "explanation": explanation,
+                "meetingTime": meeting_time,
+            }
+            
+            # Fetch additional course info if available
+            other_course_info = next(
+                (item for item in self.course_list if item["subjectNumber"] == subject_number), 
+                None
+            )
+            if other_course_info is not None:
+                for key, value in other_course_info.items():
+                    if key not in course_dict:
+                        course_dict[key] = value
+            else:
+                raise CourseNumberNotFoundError(
+                    f"Subject number {subject_number} not found in the course list. "
+                    f"First ensure that the given course list to LLM is correct. "
+                    f"Then, make sure that the subject number is correct."
+                )
+
+            course_list.append(course_dict)
 
         return course_list
     
