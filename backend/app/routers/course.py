@@ -9,6 +9,7 @@ import ast
 import requests
 from fastapi import APIRouter, HTTPException
 from backend.app.routers.YaleCoursePlannerKeyWordSearch import keywordSearch
+from backend.app.services import search_and_filter
 from backend.app.services.cos_sim_filter import CosSimFilter
 from backend.app.models.course import CourseRecommendationRequest
 from backend.app.models.course import FulfilledRequirements
