@@ -30,21 +30,21 @@ Example Input from User:
 - "Are there any advanced courses on machine learning that are offered on Tuesdays and Thursdays?"
 - "I want to take a course taught by Professor Sohee Park."
 
-Based on the user's request, respond with 2-3 suitable course options, providing relevant details:
-- Course Number: The course code
+Based on the user's request, respond with _number_of_courses_to_recommend_for_llm suitable course options, providing relevant details:
+- Subject Number: The subject number of the course
 - Course Title: The name of the course
 - Meeting Time: Meeting pattern of days of the week and times of day
 - Explanation: A brief explanation of how the course relates to the user's major or career objectives
 
 Example Output:
 1. 
-- Course Number: "439"
+- Subject Number: "CPSC439"
 - Course Title: "Software Engineering"
 - Meeting Time: "TTh 11.35-12.50"
 - Explanation: "Software Engineering is a course that is directly related to a software engineer's role. It is a course that teaches you the basics of software engineering and how to build software."
 
 2. 
-- Course Number: "100"
+- Subject Number: "CPSC100"
 - Course Title: "Introduction to Computer Science"
 - Meeting Time: "MWF 10.30-11.20"
 - Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
@@ -60,18 +60,18 @@ schedule_prompt = f"""Please further find a non-conflicting schedule for the rec
 
 Example Output:
 1. 
-- Course Number: "439"
+- Subject Number: "CPSC439"
 - Course Title: "Software Engineering"
 - Meeting Time: "TTh 11.35-12.50"
 - Explanation: "Software Engineering is a course that is directly related to a software engineer's role. It is a course that teaches you the basics of software engineering and how to build software."
 
 2. 
-- Course Number: "100"
+- Subject Number: "CPSC100"
 - Course Title: "Introduction to Computer Science"
 - Meeting Time: "MWF 10.30-11.20"
 - Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
 
-Again, you should still directly output the same format as before, and you are not allowed to output anything else besides the required format.
+Again, you should still directly output the same format as before, and you are not allowed to output anything else besides the required format. The output should be a list of courses with no conflicts in meeting times.
 """
 
 def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cosine_similarity: bool = True) -> str:
@@ -140,32 +140,40 @@ class LLMRecommender:
             raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
         
     def recommend_non_conflicting_schedule(self) -> List[dict]:
-        # Append the user's new message to the conversation
+        # Add schedule prompt to conversation
         self.messages.append({"role": "user", "content": schedule_prompt})
 
-        # Call the OpenAI API
+        MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER'))
         try:
-            response = self.client.chat.completions.create(
-                model="gpt-4o",
-                messages=self.messages,
-                max_tokens=2000,
-                n=1,
-                stop=None,
-                temperature=0.7,
+            for attempt in range(MAX_RETRIES):
+                # Get LLM response
+                response = self.client.chat.completions.create(
+                    model="gpt-4o",
+                    messages=self.messages,
+                    max_tokens=2000,
+                    n=1,
+                    stop=None,
+                    temperature=0.7,
+                )
+
+                # Process response
+                reply = response.choices[0].message.content.strip()
+                self.messages.append({"role": "assistant", "content": reply})
+                
+                schedule = self.parse_course_info(reply)
+                
+                # Return if schedule is valid, otherwise retry
+                if self.verify_non_conflicting_schedule(schedule):
+                    return schedule
+                    
+                self.messages.append({
+                    "role": "user", 
+                    "content": "The recommended schedule is conflicting. Please try again."
+                })
+
+            raise LLMRecommenderError(
+                "Unable to generate a non-conflicting schedule after maximum retries."
             )
-
-            # Extract the assistant's reply
-            reply = response.choices[0].message.content.strip()
-            # Append the assistant's message to the conversation
-            self.messages.append({"role": "assistant", "content": reply})
-            
-            # Parse the reply
-            recommended_non_conflicting_schedule = self.parse_course_info(reply)
-            
-            if not self.verify_non_conflicting_schedule(recommended_non_conflicting_schedule):
-                raise LLMRecommenderError("The recommended schedule is conflicting. Please try again.")
-
-            return recommended_non_conflicting_schedule
 
         except Exception as e:
             raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
@@ -179,7 +187,7 @@ class LLMRecommender:
         course_list = []
 
         # Regular expressions to match each field
-        course_number_re = re.compile(r'- Course Number:\s*"(\w+)"')
+        subject_number_re = re.compile(r'- Subject Number:\s*"([^"]+)"')
         course_title_re = re.compile(r'- Course Title:\s*"([^"]+)"')
         explanation_re = re.compile(r'- Explanation:\s*"([^"]+)"')
         meeting_time_re = re.compile(r'- Meeting Time:\s*"([^"]+)"')
@@ -187,34 +195,35 @@ class LLMRecommender:
         for course in courses:
             if course.strip():  # Skip any empty entries
                 # Extract course number, title, and explanation using regex
-                course_number = course_number_re.search(course)
+                subject_number = subject_number_re.search(course)
                 course_title = course_title_re.search(course)
                 explanation = explanation_re.search(course)
                 meeting_time = meeting_time_re.search(course)
                 
-                course_number = course_number.group(1) if course_number else None
+                subject_number = subject_number.group(1) if subject_number else None
                 course_title = course_title.group(1) if course_title else None
                 explanation = explanation.group(1) if explanation else None
                 meeting_time = meeting_time.group(1) if meeting_time else None
                 
                 # Add to the course_list as a dictionary
                 course_dict = {
-                    "courseNumber": course_number,
+                    "subjectNumber": subject_number,
                     "courseTitle": course_title,
                     "explanation": explanation,
                     "meetingTime": meeting_time,
                 }
                 course_list.append(course_dict)
                 
-                other_course_info = next((item for item in self.course_list if item["courseNumber"] == course_number), None)
+                other_course_info = next((item for item in self.course_list 
+                                          if item["subjectNumber"] == subject_number), None)
                 if other_course_info is not None:
                     for key, value in other_course_info.items():
                         if key not in course_dict:
                             course_dict[key] = value    
                 else:
-                    raise CourseNumberNotFoundError(f"Course number {course_number} not found in the course list. "
+                    raise CourseNumberNotFoundError(f"Subject number {subject_number} not found in the course list. "
                                                     f"First ensure that the given course list to LLM is correct. "
-                                                    f"Then, make sure that the course number is correct.")
+                                                    f"Then, make sure that the subject number is correct.")
 
         return course_list
     
