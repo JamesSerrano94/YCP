@@ -19,12 +19,14 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
     returns: a json string
     '''
     semester_to_file = {
-        "Fall 2024": "distributional_combined_course_data_fall_2024.json",
-        "Spring 2025": "distributional_combined_course_data_spring_2025.json"
+        # "Fall 2024": "distributional_combined_course_data_fall_2024.json",
+        # "Spring 2025": "distributional_combined_course_data_spring_2025.json"
+        "Fall 2024": "yale_courses_keywords_fall_2024.json",
+        "Spring 2025": "yale_courses_keywords_spring_2025.json"
     }
     json_file_name = semester_to_file.get(semester)
     current_dir = os.path.dirname(__file__)
-    file_path = os.path.join(current_dir, './', json_file_name)
+    file_path = os.path.join(current_dir, '../routers', json_file_name)
     file_path = os.path.abspath(file_path)
     
     with open(file_path, 'r', encoding='utf-8') as json_file:
@@ -52,8 +54,8 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
             # print(data.get('courseTitle', ''))
             result.append(data)
 
-    # return result
-    return json.dumps(result)
+    return result
+    # return json.dumps(result)
 
 
 def filter(df, startTime, endTime, taken_courses):

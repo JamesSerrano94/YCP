@@ -26,9 +26,18 @@ class FulfilledRequirements(BaseModel):
     language: List[str]
     priorCourses: List[str]
 
+class NeededDistributionals(BaseModel):
+    humanities: int
+    sciences: int
+    social: int
+    qr: int
+    writing: int
+    language: str
+
 class CourseRecommendationRequest(BaseModel):
     major: str
     semester: str
     schedulePreferences: SchedulePreferences
     careerGoals: str
     fulfilledRequirements: FulfilledRequirements
+    needDistributionals: NeededDistributionals

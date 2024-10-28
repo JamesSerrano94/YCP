@@ -66,6 +66,14 @@ async def recommend(request: CourseRecommendationRequest):
         "writing": ["KREN L1 to L2"],
         "language": ["SPAN 110"],
         "priorCourses": ["MATH 225", "CPSC 201", "CPSC 323"]
+      },
+      "needDistributionals": {
+        "humanities": 0,
+        "sciences": 0,
+        "social": 1,
+        "qr": 0,
+        "writing": 0,
+        "language": "L3 SPAN"
       }
     }'
     """
@@ -162,8 +170,20 @@ async def recommend(request: CourseRecommendationRequest):
     cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        keyword_filtered_courses, 
                                                                                                        n=number_of_courses_to_recommend)
+    
     print("Cosine similarity filtering took: ", time.time() - cos_sim_start_time)
     print("JSON after step 2.2 has department key: ", check_if_element_in_json_has_department_key(cos_sim_filtered_courses))
+
+    distributional_courses = search_and_filter.retrive_desired_distributional(request.semester,
+                                                                              request.needDistributionals.humanities,
+                                                                              request.needDistributionals.sciences,
+                                                                              request.needDistributionals.social,
+                                                                              request.needDistributionals.qr,
+                                                                              request.needDistributionals.writing,
+                                                                              request.needDistributionals.language)
+    distributional_cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
+                                                                                                       distributional_courses, 
+                                                                                                       n=number_of_courses_to_recommend)
     # TODO: Step 3: Parse into LLM for final output (Yangtian)
     # Transform cos_sim_filtered_courses into a JSON string
 
