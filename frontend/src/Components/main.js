@@ -17,11 +17,11 @@ export default function MainPage() {
   const [earliestStartTime, setEarliestStartTime] = useState('8:00 AM');
   const [latestEndTime, setLatestEndTime] = useState('9:00 PM');
   const [careerGoals, setCareerGoals] = useState('');
-  const [humanities, setHumanities] = useState('');
-  const [sciences, setSciences] = useState('');
-  const [social, setSocial] = useState('');
-  const [qr, setQr] = useState('');
-  const [writing, setWriting] = useState('');
+  const [humanities, setHumanities] = useState(0);
+  const [sciences, setSciences] = useState(0);
+  const [social, setSocial] = useState(0);
+  const [qr, setQr] = useState(0);
+  const [writing, setWriting] = useState(0);
   const [language, setLanguage] = useState('');
   const [priorCourses, setPriorCourses] = useState('');
 
@@ -39,15 +39,18 @@ export default function MainPage() {
       },
       careerGoals: careerGoals,
       fulfilledRequirements: {
-        humanities: humanities.split(',').map(item => item.trim()).filter(Boolean),
-        sciences: sciences.split(',').map(item => item.trim()).filter(Boolean),
-        social: social.split(',').map(item => item.trim()).filter(Boolean),
-        qr: qr.split(',').map(item => item.trim()).filter(Boolean),
-        writing: writing.split(',').map(item => item.trim()).filter(Boolean),
-        language: language.split(',').map(item => item.trim()).filter(Boolean),
         priorCourses: priorCourses.split(',').map(item => item.trim()).filter(Boolean)
+      },
+      needDistributionals: {
+        humanities,
+        sciences,
+        social,
+        qr,
+        writing,
+        language: language,
       }
     };
+    console.log("Sending data:", JSON.stringify(data, null, 2));
     localStorage.setItem('coursePlan', JSON.stringify(data));
     setIsLoading(true);
 
@@ -304,20 +307,18 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   id="humanities"
-                  placeholder="e.g. ENGL 114, ENGL 120"
                   value={humanities}
-                  onChange={(e) => setHumanities(e.target.value)}
+                  onChange={(e) => setHumanities(Number(e.target.value))}
                 />
               </div>
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   id="sciences"
-                  placeholder="e.g. CHEM 161, CHEM 162"
                   value={sciences}
-                  onChange={(e) => setSciences(e.target.value)}
+                  onChange={(e) => setSciences(Number(e.target.value))}
                 />
               </div>
             </div>
@@ -334,20 +335,18 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   id="social"
-                  placeholder="e.g. ECON 110, SOCY 151"
                   value={social}
-                  onChange={(e) => setSocial(e.target.value)}
+                  onChange={(e) => setSocial(Number(e.target.value))}
                 />
               </div>
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   id="qr"
-                  placeholder="e.g. MATH 120"
                   value={qr}
-                  onChange={(e) => setQr(e.target.value)}
+                  onChange={(e) => setQr(Number(e.target.value))}
                 />
               </div>
             </div>
@@ -364,18 +363,17 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <input
-                  type="text"
+                  type="number"
                   id="writing"
-                  placeholder="e.g. ENGL 114, ENGL 120"
                   value={writing}
-                  onChange={(e) => setWriting(e.target.value)}
+                  onChange={(e) => setWriting(Number(e.target.value))}
                 />
               </div>
               <div className="form-group">
                 <input
                   type="text"
                   id="language"
-                  placeholder="e.g. SPAN 110"
+                  placeholder="e.g. L3 SPAN"
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
                 />

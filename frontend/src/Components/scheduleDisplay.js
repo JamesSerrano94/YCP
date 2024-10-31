@@ -48,14 +48,33 @@ const HtmlTooltip = styled(({ className, children, ...props }) => (
 
 // Helper function to convert time strings to minutes
 const timeStringToMinutes = (timeString) => {
+    let period = '';
+    if (timeString.endsWith('a') || timeString.endsWith('p')) {
+        period = timeString.slice(-1).toUpperCase();
+        timeString = timeString.slice(0, -1); // Remove the 'a' or 'p' suffix
+    }
+
     const [hourStr, minuteStr] = timeString.split('.');
     let hour = parseInt(hourStr, 10);
     const minute = parseInt(minuteStr, 10);
 
-    // Assuming classes are between 8 AM and 8 PM
-    if (hour < 7) hour += 12; // Convert to PM times
+    if (period === 'P') {
+        if (hour !== 12) hour += 12; // Convert PM times to 24-hour format
+    } else if (period === 'A') {
+        if (hour === 12) hour = 0; // Convert 12 AM to 0 hours
+    } else {
+        // No period specified, make an assumption
+        if (hour >= 7 && hour <= 12) {
+            // Assume AM for hours between 7 and 12
+        } else {
+            // Assume PM for hours between 1 and 6
+            hour += 12;
+        }
+    }
+
     return hour * 60 + minute;
 };
+
 
 const parseCourseTimes = (courses) => {
     const timePattern = /^[MTWThF]+ \d{1,2}\.\d{2}[ap]?-?\d{1,2}\.\d{2}[ap]?$/;
@@ -95,7 +114,7 @@ const ScheduleDisplay = () => {
     const colors = ['#F4A7A7', '#FFD580', '#A7D8F4', '#B8E986', '#C6A7E2', '#FFE5A7', '#E0AFAF', '#AFC0E0', '#E0E0AF', '#AFE0B4'];
     const [careerGoals, setCareerGoals] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const navigate = useNavigate();
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const getCourseColor = (course) => {
         const courseId = `${course.department}${course.courseNumber}`;
@@ -120,7 +139,8 @@ const ScheduleDisplay = () => {
 
     const handleReplanClick = () => {
         const storedData = JSON.parse(localStorage.getItem('coursePlan'));
-        if (storedData) {
+        if (storedData && !isSubmitting) {
+            setIsSubmitting(true);
             const updatedData = {
                 ...storedData,
                 careerGoals // Update career goals with the current value
@@ -153,10 +173,13 @@ const ScheduleDisplay = () => {
                     setRecommendationCourses(newRecommendations);
 
                     setIsLoading(false);
+
+                    setIsSubmitting(false);
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
                     setIsLoading(false);
+                    setIsSubmitting(false); 
                 });
         }
     };
@@ -198,13 +221,13 @@ const ScheduleDisplay = () => {
             {isLoading && <Loading />}
             <div className={isLoading ? 'blur-content' : ''}></div>
             <div className="calendar-container">
-            <div className="back-arrow-container2">
-  <Link to="/">
-    <button className="back-arrow-button" aria-label="Go back">
-      <img src="/back-arrow.svg" alt="Back Arrow" />
-    </button>
-  </Link>
-</div>
+                <div className="back-arrow-container2">
+                    <Link to="/">
+                        <button className="back-arrow-button" aria-label="Go back">
+                            <img src="/back-arrow.svg" alt="Back Arrow" />
+                        </button>
+                    </Link>
+                </div>
 
                 <div className="calendar-header">
                     <div className="time-header"></div>
@@ -222,8 +245,12 @@ const ScheduleDisplay = () => {
                     <input
                         type="text"
                         placeholder="Refine your career goal"
-                        value={careerGoals} // Bind to the careerGoals state
-                        onChange={(e) => setCareerGoals(e.target.value)} // Update state on input change
+                        value={careerGoals}
+                        onChange={(e) => setCareerGoals(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter")
+                                handleReplanClick();
+                        }}
                     />
                     <div className="search-icon" onClick={handleReplanClick} >
                         <img src="plan.svg" alt="Replan" />
@@ -278,6 +305,12 @@ const ScheduleDisplay = () => {
                                                 <Typography variant="body2" sx={{ mt: 1 }}>
                                                     <strong>Course time:</strong> {course.time}
                                                 </Typography>
+                                                {course.distDesg.length > 0 && (
+                                                    <Typography variant="body2" sx={{ mt: 1 }}>
+                                                        <strong>Fulfilled Distributional:</strong> {course.distDesg.join(', ')}
+                                                    </Typography>
+                                                )}
+
                                                 <Typography variant="body2" sx={{ mt: 1 }}>
                                                     <strong>Course description:</strong> {course.description}
                                                 </Typography>
@@ -329,6 +362,12 @@ const ScheduleDisplay = () => {
                                             <Typography variant="body2" sx={{ mt: 1 }}>
                                                 <strong>Course time:</strong> {course.time}
                                             </Typography>
+                                            {course.distDesg.length > 0 && (
+                                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                                    <strong>Fulfilled Distributional:</strong> {course.distDesg.join(', ')}
+                                                </Typography>
+                                            )}
+
                                             <Typography variant="body2" sx={{ mt: 1 }}>
                                                 <strong>Course description:</strong> {course.description}
                                             </Typography>
