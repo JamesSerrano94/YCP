@@ -38,6 +38,9 @@ export default function MainPage() {
         latestEndTime: latestEndTime
       },
       careerGoals: careerGoals,
+      fulfilledRequirements: {
+        priorCourses: priorCourses.split(',').map(item => item.trim()).filter(Boolean)
+      },
       needDistributionals: {
         humanities,
         sciences,
@@ -45,7 +48,6 @@ export default function MainPage() {
         qr,
         writing,
         language: language,
-        priorCourses: priorCourses.split(',').map(item => item.trim()).filter(Boolean)
       }
     };
     console.log("Sending data:", JSON.stringify(data, null, 2));
@@ -371,7 +373,7 @@ export default function MainPage() {
                 <input
                   type="text"
                   id="language"
-                  placeholder="e.g. SPAN 110"
+                  placeholder="e.g. L3 SPAN"
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
                 />
