@@ -106,6 +106,7 @@ async def recommend(request: CourseRecommendationRequest):
 
     # Construct the path to your JSON file
     json_file_path = os.path.join(script_dir, json_file_name)
+    print(json_file_path)
 
     # Open and load the JSON file using the relative path
     with open(json_file_path, 'r', encoding='utf-8') as json_file:
