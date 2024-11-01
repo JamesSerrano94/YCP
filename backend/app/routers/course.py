@@ -124,7 +124,7 @@ async def recommend(request: CourseRecommendationRequest):
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
 
-    loaded_cached_courses = load_cached_courses()
+    loaded_cached_courses = load_cached_courses(request.semester)
 
     filtered_courses = []
     for suggestedCourse in loaded_cached_courses:
