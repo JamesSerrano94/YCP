@@ -158,7 +158,7 @@ async def recommend(request: CourseRecommendationRequest):
     cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        loaded_cached_courses,
                                                                                                        n=number_of_courses_to_recommend)
-    
+
     print("Cosine similarity filtering took: ", time.time() - cos_sim_start_time)
     print("JSON after step 2.2 has department key: ", check_if_element_in_json_has_department_key(cos_sim_filtered_courses))
 
@@ -169,6 +169,7 @@ async def recommend(request: CourseRecommendationRequest):
                                                                               request.needDistributionals.qr,
                                                                               request.needDistributionals.writing,
                                                                               request.needDistributionals.language)
+
     distributional_cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        distributional_courses, 
                                                                                                        n=number_of_courses_to_recommend)

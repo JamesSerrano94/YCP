@@ -97,9 +97,16 @@ class CosSimFilter:
     def get_top_n_cos_sim_courses_given_user_input_and_json_data(self, 
                                                                  user_input, 
                                                                  course_data, 
-                                                                 n=5):
+                                                                 n=5,
+                                                                 user_input_is_embedding=False):
         """Get top N courses similar to user input."""
-        user_input_embedding = self.get_embedding(user_input)
+        if not user_input_is_embedding:
+            user_input_embedding = self.get_embedding(user_input)
+            print("user_input: ", user_input)
+            print("current user input embedding: ", user_input_embedding)
+        else:
+            user_input_embedding = user_input
+
         if not self.use_precomputed_embeddings:
 
             emb_start_time = time.time()
