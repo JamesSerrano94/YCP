@@ -32,7 +32,6 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
     with open(file_path, 'r', encoding='utf-8') as json_file:
         datas = json.load(json_file)
 
-    # print(data)
     lang_reqs = language.split()
     level = f"YC{lang_reqs[0]}" if len(lang_reqs) > 0 else None
     second_word = lang_reqs[1] if len(lang_reqs) > 0 else None
@@ -51,12 +50,9 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
         elif (writing and 'YCWR' in requirement):
             result.append(data)
         elif (level in requirement and second_word == data.get('subjectCode', '')):
-            # print(data.get('courseTitle', ''))
             result.append(data)
 
     return result
-    # return json.dumps(result)
-
 
 def filter(df, startTime, endTime, taken_courses):
     result = df

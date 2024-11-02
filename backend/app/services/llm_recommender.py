@@ -49,8 +49,6 @@ Example Output:
 - Meeting Time: "MWF 10.30-11.20"
 - Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
 
-If no exact matches are found, offer similar alternatives or suggest courses that are close to the user's requirements.
-
 Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses.
 
 You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
@@ -111,30 +109,39 @@ class LLMRecommender:
         # Append the user's message to the conversation
         self.messages.append({"role": "user", "content": additional_info})
 
-        # Call the OpenAI API to get the response
+        MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER'))
         try:
-            response = self.client.chat.completions.create(
-                model="gpt-4o", #  We can use gpt-4o-mini if we want to save money.
-                messages=self.messages,
-                max_tokens=2000,
-                n=1,
-                stop=None,
-                temperature=0.7,
+            for attempt in range(MAX_RETRIES):
+                # Call the OpenAI API to get the response
+                response = self.client.chat.completions.create(
+                    model="gpt-4o", #  We can use gpt-4o-mini if we want to save money.
+                    messages=self.messages,
+                    max_tokens=2000,
+                    n=1,
+                    stop=None,
+                    temperature=0.7,
+                )
+
+                # Extract the assistant's reply
+                reply = response.choices[0].message.content.strip()
+                print(reply)
+                # Append the assistant's message to the conversation
+                self.messages.append({"role": "assistant", "content": reply})
+
+                # Parse the course information from the reply
+                try:
+                    recommended_course_list = self.parse_course_info(reply)
+                    return recommended_course_list
+                except CourseNumberNotFoundError as e:
+                    self.messages.append({
+                        "role": "user",
+                        "content": "The recommended courses do not exist in the given course list. Please try again."
+                    })
+                    continue
+
+            raise LLMRecommenderError(
+                "Unable to generate valid course recommendations after maximum retries."
             )
-
-            # Extract the assistant's reply
-            reply = response.choices[0].message.content.strip()
-            print(reply)
-            # Append the assistant's message to the conversation
-            self.messages.append({"role": "assistant", "content": reply})
-
-            recommended_course_list = self.parse_course_info(reply)
-
-            # Check that at least one course number is found
-            if len(recommended_course_list) == 0:
-                raise LLMRecommenderError("No course numbers found in the recommended course list. The input course list might be incorrect. Please try again.")
-
-            return recommended_course_list
 
         except Exception as e:
             raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
@@ -183,15 +190,15 @@ class LLMRecommender:
         # Adjusted pattern to match each course block
         course_pattern = re.compile(
             r'^\s*\d+\.\s*$'            # Match the course number line
-            r'(?:\s*-.*\n)+',           # Match subsequent lines starting with '-'
+            r'(?:\s*-.*(?:\n|$))+',     # Match subsequent lines starting with '-', ending with newline or end of string
             re.MULTILINE
         )
 
         # Regular expressions to match each field within a course block
         subject_number_re = re.compile(r'-\s*Subject Number:\s*"([^"]+)"')
         course_title_re = re.compile(r'-\s*Course Title:\s*"([^"]+)"')
-        explanation_re = re.compile(r'-\s*Explanation:\s*"([^"]+)"')
         meeting_time_re = re.compile(r'-\s*Meeting Time:\s*"([^"]+)"')
+        explanation_re = re.compile(r'-\s*Explanation:\s*"([^"]+)"')
 
         # List to store the parsed course information
         course_list = []
@@ -202,14 +209,13 @@ class LLMRecommender:
             # Extract course number, title, explanation, and meeting time
             subject_number = subject_number_re.search(course)
             course_title = course_title_re.search(course)
-            explanation = explanation_re.search(course)
             meeting_time = meeting_time_re.search(course)
+            explanation = explanation_re.search(course)
             
             subject_number = subject_number.group(1) if subject_number else None
             course_title = course_title.group(1) if course_title else None
-            explanation = explanation.group(1) if explanation else None
             meeting_time = meeting_time.group(1) if meeting_time else None
-            
+            explanation = explanation.group(1) if explanation else None
             if not subject_number:
                 raise CourseNumberNotFoundError(
                     f"Subject number {subject_number} not found in the course list. "
@@ -221,8 +227,8 @@ class LLMRecommender:
             course_dict = {
                 "subjectNumber": subject_number,
                 "courseTitle": course_title,
-                "explanation": explanation,
                 "meetingTime": meeting_time,
+                "explanation": explanation,
             }
             
             # Fetch additional course info if available

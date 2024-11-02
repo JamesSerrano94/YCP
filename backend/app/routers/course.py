@@ -8,7 +8,7 @@ import pandas as pd
 import ast
 import requests
 from fastapi import APIRouter, HTTPException
-from backend.app.routers.YaleCoursePlannerKeyWordSearch import keywordSearch
+from backend.app.routers.cached_course_loader import load_cached_courses
 from backend.app.services import search_and_filter
 from backend.app.services.cos_sim_filter import CosSimFilter
 from backend.app.models.course import CourseRecommendationRequest
@@ -106,31 +106,28 @@ async def recommend(request: CourseRecommendationRequest):
 
     # Construct the path to your JSON file
     json_file_path = os.path.join(script_dir, json_file_name)
+    print(json_file_path)
 
     # Open and load the JSON file using the relative path
     with open(json_file_path, 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
     print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
-    # df = pd.json_normalize(data)
+
     start_time = search_and_filter.convert_time_format(request.schedulePreferences.earliestStartTime)
     print(start_time)
     end_time = search_and_filter.convert_time_format(request.schedulePreferences.latestEndTime)
     print(end_time)
     taken_courses = search_and_filter.get_taken_courses(request.fulfilledRequirements)
-    #df = filter(df, start_time, end_time, taken_courses)
-    #output_json = df.to_json(orient="records", lines=False)
 
     ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
     #print("JSON after step 1 has department key: ", check_if_element_in_json_has_department_key(json.loads(output_json)))
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
 
-    keyword_filtered_courses = keywordSearch(request.careerGoals)
+    loaded_cached_courses = load_cached_courses(request.semester)
 
-
-    #Step 2.1: Use keyword filtering (James)
     filtered_courses = []
-    for suggestedCourse in keyword_filtered_courses:
+    for suggestedCourse in loaded_cached_courses:
         courseStartTime, courseEndTime = findTimes(suggestedCourse['meetingPattern'])
         
         # Check time constraints
@@ -144,27 +141,24 @@ async def recommend(request: CourseRecommendationRequest):
         # Add to filtered list if all criteria are met
         filtered_courses.append(suggestedCourse)
 
-    keyword_filtered_courses = filtered_courses
-    print("number of courses after keyword filtering: ", len(keyword_filtered_courses))
-
-
+    loaded_cached_courses = filtered_courses
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
     # Need to replace this with actual search and keyword filtering
     # with open('app/services/example_yale_course_search_api_return.json', 'r') as f:
-    #     keyword_filtered_courses = json.load(f)
-    # keyword_filtered_courses = json.loads(output_json)
-    # print(len(keyword_filtered_courses))
+    #     loaded_cached_courses = json.load(f)
+    # loaded_cached_courses = json.loads(output_json)
+    # print(len(loaded_cached_courses))
 
-    print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(keyword_filtered_courses))
-    # TODO: Step 2.2: Use cosine similarity on text embeddings (Xiatao)
+    print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(loaded_cached_courses))
+    # Step 2.2: Use cosine similarity on text embeddings (Xiatao)
     cos_sim_start_time = time.time()
     cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key, use_precomputed_embeddings=use_precomputed_embeddings)
 
     cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
-                                                                                                       keyword_filtered_courses, 
+                                                                                                       loaded_cached_courses,
                                                                                                        n=number_of_courses_to_recommend)
-    
+
     print("Cosine similarity filtering took: ", time.time() - cos_sim_start_time)
     print("JSON after step 2.2 has department key: ", check_if_element_in_json_has_department_key(cos_sim_filtered_courses))
 
@@ -175,10 +169,11 @@ async def recommend(request: CourseRecommendationRequest):
                                                                               request.needDistributionals.qr,
                                                                               request.needDistributionals.writing,
                                                                               request.needDistributionals.language)
+
     distributional_cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        distributional_courses, 
                                                                                                        n=number_of_courses_to_recommend)
-    # TODO: Step 3: Parse into LLM for final output (Yangtian)
+    # Step 3: Parse into LLM for final output (Yangtian)
     # Transform cos_sim_filtered_courses into a JSON string
 
     # Initialize the LLM for final output
@@ -218,8 +213,6 @@ async def recommend(request: CourseRecommendationRequest):
 def reduce_fields(courses: List[dict]):
     """
     Given a list of courses, reduce the fields of each course to only include the required fields.
-
-    
     """
     return [
             {
@@ -247,18 +240,28 @@ def reduce_duplicate_courses(courses_A: List[dict], courses_B: List[dict]):
     courses_B_set = set(course['courseNumber'] for course in courses_B)
     return [course for course in courses_A if course['courseNumber'] not in courses_B_set]
 
-schedule_preferences = SchedulePreferences(
-    earliestStartTime="08:00 AM",
-    latestEndTime="06:00 PM"
-)
+# schedule_preferences = SchedulePreferences(
+#     earliestStartTime="08:00 AM",
+#     latestEndTime="06:00 PM"
+# )
 
-fulfilled_requirements = FulfilledRequirements(
+# fulfilled_requirements = FulfilledRequirements(
+#     humanities=["ENGL 114", "ENGL 120"],
+#     sciences=["CHEM 161", "CHEM 162"],
+#     social=["KREN L1 to L2"],
+#     qr=["MATH 120"],
+#     writing=["KREN L1 to L2"],
+#     language=["SPAN 110"],
+#     priorCourses=["MATH225", "CPSC201", "CPSC323", "CPSC110"]
+# )
 
-    priorCourses=["MATH 225", "CPSC 201", "CPSC 323", "CPSC 110", 
-                  "AFAM 115", "AFAM 250", 
-                  "CHEM 161", "CHEM 162", 
-                  "ECON 110", "SOCY 151", 
-                  "MATH 120", 
-                  "ENGL 114", "ENGL 120", 
-                  "KREN 110", "KREN 120"]
-)
+# # Now create the CourseRecommendationRequest instance
+# course_recommendation_request = CourseRecommendationRequest(
+#     major="Computer Science",
+#     semester="Fall 2024",
+#     schedulePreferences=schedule_preferences,
+#     careerGoals="I want to be a game developer",
+#     fulfilledRequirements=fulfilled_requirements
+# )
+
+# recommend(course_recommendation_request)

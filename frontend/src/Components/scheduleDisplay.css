@@ -2,10 +2,7 @@
     display: flex;
     width: 100%
 }
-.recommendation-container {
-    width: 25%;
-    background-color: #f9f9f9;
-}
+
 .calendar-container {
     display: grid;
     grid-template-rows: auto 1fr;
@@ -54,6 +51,7 @@
     cursor: pointer;
 }
 
+
 .choose-more-icon {
     margin-right: 10px; /* Adjust spacing to align with text */
     display: flex;
@@ -71,10 +69,16 @@
 }
 
 .day-header {
-    padding: 10px;
+    padding: 6px;
+    font-size: 22px;
     font-weight: bold;
-    background-color: #fff;
+    color: #333;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
 }
+
+
+
 
 .calendar-body {
     display: grid;
@@ -90,16 +94,18 @@
 }
 
 .time-slot {
-    height: 50px; /* 30 minutes per slot */
+    height: 50px;
     width: 100%;
-    border-top: 1px solid #ddd; /* Add border at the top for the time row */
-    border-bottom: 1px solid #ddd; /* Add border at the bottom to create grid lines */
-    font-size: 12px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold; 
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    color: #666;
+    align-items: center;
+    justify-content: center; 
+    color: #333;
 }
+
 
 .days-column {
     position: relative;
@@ -139,7 +145,7 @@
 }
 
 .event-description {
-    font-size: 12px;
+    font-size: 14px;
     margin-bottom: 8px;
 }
 .course-details {
