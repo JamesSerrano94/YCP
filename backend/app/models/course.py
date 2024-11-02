@@ -18,14 +18,7 @@ class SchedulePreferences(BaseModel):
     latestEndTime: str
 
 class FulfilledRequirements(BaseModel):
-    # humanities: List[str]
-    # sciences: List[str]
-    # social: List[str]
-    # qr: List[str]
-    # writing: List[str]
-    # language: List[str]
     priorCourses: List[str]
-
 
 class NeededDistributionals(BaseModel):
     humanities: int
@@ -34,8 +27,6 @@ class NeededDistributionals(BaseModel):
     qr: int
     writing: int
     language: str
-
-
 
 class CourseRecommendationRequest(BaseModel):
     major: str

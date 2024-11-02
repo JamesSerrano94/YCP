@@ -1,5 +1,6 @@
 import requests
 import json
+import urllib.parse
 
 API_KEY = "l71881101cd28e4091a40bc47b2808e0ef"
 SUBJECT_API_URL = f"https://gw.its.yale.edu/soa-gateway/course/webservice/v2/subjects?apikey={API_KEY}"
@@ -22,6 +23,8 @@ def fetch_course_codes():
 
 # Function to fetch course details by subject code and term code
 def fetch_course_details_by_subject_code(subject_code, term_code):
+    subject_code = urllib.parse.quote(subject_code)
+    print(subject_code)
     url = COURSE_API_URL_TEMPLATE.format(API_KEY, subject_code, term_code)
     response = requests.get(url)
     if response.status_code == 200:
@@ -40,6 +43,7 @@ def combine_course_data_for_term(term_code, output_filename, dist_output_filenam
     combined_course_list = []
     distributional_course_list = []
     subject_codes = fetch_course_codes()
+    print(subject_codes)
     
     for subject in subject_codes:
         subject_code = subject.get("code")

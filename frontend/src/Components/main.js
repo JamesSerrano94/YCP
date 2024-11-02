@@ -48,8 +48,9 @@ export default function MainPage() {
         priorCourses: priorCourses.split(',').map(item => item.trim()).filter(Boolean)
       }
     };
+    localStorage.setItem('coursePlan', JSON.stringify(data));
     setIsLoading(true);
-    
+
 
     // Send POST request to the API
     fetch('http://localhost:8000/course/recommend', {
@@ -82,8 +83,8 @@ export default function MainPage() {
 
   return (
     <div className='container'>
-       {isLoading && <Loading />}
-       <div className={isLoading ? 'blur-content' : ''}></div>
+      {isLoading && <Loading />}
+      <div className={isLoading ? 'blur-content' : ''}></div>
       <div className='top'>
         <div className='left-header'>
           <img src='/CourseMapLogo.png' alt='Yale CourseMap Logo' className='logo' />
@@ -127,7 +128,7 @@ export default function MainPage() {
         <div className='quote-card' style={{ backgroundColor: 'rgba(170, 211, 255, 0.52)' }}>
           <img src='/frontquote.svg' alt='Front quote' className='quote-icon front-quote' />
           <p>
-          I want to be a Software Development Engineer in the tech industry. Could you help me plan my course schedule for this semester?"
+            I want to be a Software Development Engineer in the tech industry. Could you help me plan my course schedule for this semester?"
           </p>
           <img src='/frontquote.svg' alt='Back quote' className='quote-icon back-quote' />
         </div>
@@ -160,9 +161,85 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <select id="major" value={major} onChange={(e) => setMajor(e.target.value)}>
+                  <option value="African American Studies">African American Studies</option>
+                  <option value="African Studies">African Studies</option>
+                  <option value="American Studies">American Studies</option>
+                  <option value="Anthropology">Anthropology</option>
+                  <option value="Applied Mathematics">Applied Mathematics</option>
+                  <option value="Applied Physics">Applied Physics</option>
+                  <option value="Archaeological Studies">Archaeological Studies</option>
+                  <option value="Architecture">Architecture</option>
+                  <option value="Art">Art</option>
+                  <option value="Astronomy">Astronomy</option>
+                  <option value="Astrophysics">Astrophysics</option>
+                  <option value="Biomedical Engineering">Biomedical Engineering</option>
+                  <option value="Chemical Engineering">Chemical Engineering</option>
+                  <option value="Chemistry">Chemistry</option>
+                  <option value="Classical Civilization">Classical Civilization</option>
+                  <option value="Classics">Classics</option>
+                  <option value="Cognitive Science">Cognitive Science</option>
+                  <option value="Comparative Literature">Comparative Literature</option>
                   <option value="Computer Science">Computer Science</option>
+                  <option value="Computer Science and Economics">Computer Science and Economics</option>
+                  <option value="Computer Science and Mathematics">Computer Science and Mathematics</option>
+                  <option value="Computer Science and Psychology">Computer Science and Psychology</option>
+                  <option value="Computing and Linguistics">Computing and Linguistics</option>
+                  <option value="Computing and the Arts">Computing and the Arts</option>
+                  <option value="Earth and Planetary Sciences">Earth and Planetary Sciences</option>
+                  <option value="East Asian Languages and Literatures">East Asian Languages and Literatures</option>
+                  <option value="East Asian Studies">East Asian Studies</option>
+                  <option value="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</option>
+                  <option value="Economics">Economics</option>
+                  <option value="Economics and Mathematics">Economics and Mathematics</option>
+                  <option value="Electrical Engineering">Electrical Engineering</option>
+                  <option value="Electrical Engineering and Computer Science">Electrical Engineering and Computer Science</option>
+                  <option value="Engineering Sciences">Engineering Sciences</option>
+                  <option value="English">English</option>
+                  <option value="Environmental Engineering">Environmental Engineering</option>
+                  <option value="Environmental Studies">Environmental Studies</option>
+                  <option value="Ethics, Politics, and Economics">Ethics, Politics, and Economics</option>
+                  <option value="Ethnicity, Race, and Migration">Ethnicity, Race, and Migration</option>
+                  <option value="Film and Media Studies">Film and Media Studies</option>
+                  <option value="French">French</option>
+                  <option value="German Studies">German Studies</option>
+                  <option value="Global Affairs">Global Affairs</option>
+                  <option value="Greek">Greek</option>
+                  <option value="History">History</option>
+                  <option value="History of Art">History of Art</option>
+                  <option value="History of Science, Medicine, and Public Health">History of Science, Medicine, and Public Health</option>
+                  <option value="Humanities">Humanities</option>
+                  <option value="Italian Studies">Italian Studies</option>
+                  <option value="Jewish Studies">Jewish Studies</option>
+                  <option value="Latin American Studies">Latin American Studies</option>
+                  <option value="Linguistics">Linguistics</option>
                   <option value="Mathematics">Mathematics</option>
-                  <option value="Biology">Biology</option>
+                  <option value="Mathematics and Philosophy">Mathematics and Philosophy</option>
+                  <option value="Mathematics and Physics">Mathematics and Physics</option>
+                  <option value="Mechanical Engineering">Mechanical Engineering</option>
+                  <option value="Modern Middle East Studies">Modern Middle East Studies</option>
+                  <option value="Molecular Biophysics and Biochemistry">Molecular Biophysics and Biochemistry</option>
+                  <option value="Molecular, Cellular, and Developmental Biology">Molecular, Cellular, and Developmental Biology</option>
+                  <option value="Music">Music</option>
+                  <option value="Near Eastern Languages and Civilizations">Near Eastern Languages and Civilizations</option>
+                  <option value="Neuroscience">Neuroscience</option>
+                  <option value="Philosophy">Philosophy</option>
+                  <option value="Physics">Physics</option>
+                  <option value="Physics and Geosciences">Physics and Geosciences</option>
+                  <option value="Physics and Philosophy">Physics and Philosophy</option>
+                  <option value="Political Science">Political Science</option>
+                  <option value="Portuguese">Portuguese</option>
+                  <option value="Psychology">Psychology</option>
+                  <option value="Religious Studies">Religious Studies</option>
+                  <option value="Russian">Russian</option>
+                  <option value="Russian, East European, and Eurasian Studies">Russian, East European, and Eurasian Studies</option>
+                  <option value="Sociology">Sociology</option>
+                  <option value="South Asian Studies">South Asian Studies</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="Special Divisional Major">Special Divisional Major</option>
+                  <option value="Statistics and Data Science">Statistics and Data Science</option>
+                  <option value="Theater, Dance, and Performance Studies">Theater, Dance, and Performance Studies</option>
+                  <option value="Urban Studies">Urban Studies</option>
+                  <option value="Women’s, Gender, and Sexuality Studies">Women’s, Gender, and Sexuality Studies</option>
                 </select>
               </div>
               <div className="form-group">
@@ -215,7 +292,7 @@ export default function MainPage() {
           </div>
 
           <div className="right-panel">
-            <h2>Fulfilled Distributional Requirements</h2>
+            <h2>Distributional Requirements</h2>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="humanities">Humanities</label>

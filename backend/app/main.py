@@ -4,7 +4,8 @@ This module initializes the FastAPI app and includes the routers.
 
 from fastapi import FastAPI
 from dotenv import load_dotenv
-from app.routers import course
+import uvicorn
+from backend.app.routers import course
 from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
@@ -21,3 +22,7 @@ app.add_middleware(
 )
 
 app.include_router(course.router)
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

@@ -4,46 +4,74 @@ import re
 from typing import List
 from openai import OpenAI
 
+from backend.app.utils.exceptions import CourseNumberNotFoundError, LLMRecommenderError
+
 system_prompt = f"""
-You are an undergraduate academic advisor. You have access to a JSON dataset containing detailed information about various courses offered, including fields such as courseNumber, courseTitle, description, instructorList, meetingPattern, prerequisites, and distDesg (distribution designations).
+You have access to a JSON dataset containing detailed information about various courses offered, including fields such as courseNumber, courseTitle, description, instructorList, meetingPattern, prerequisites, and distDesg (distribution designations).
 
-Your task is to create a conflict-free schedule to users based on their interests and previous background. You must adhere to the following aspects to make a suitable schedule:
+Your task is to recommend courses to users based on their preferences. When a user asks for course recommendations, consider the following aspects to make suitable suggestions:
 
-Prerequisites: Before you add a course, understand the course's prerequisites mentioned in description. Make sure the student is academically prepared based on the student's prior courses. If the course is too difficult for the student, recommend the prerequisite courses so that the student would be prepared in the long term.
-Major: Consider the user's declared major to prioritize the major-required courses which they haven't taken yet. Visit this website for comprehensive details: https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science/
-Career Goals: Listen the user's stated career aspirations and gain domain knowledge on that field to suggest courses that align with their interests and goals. If the prerequisites of the user are not met, consider how to best prepare the student to take that course in the future
-Distributional Designations: In your schedule, you must fulfill the number of distributional requirement courses which they have requested.
+1. Course Level: Understand if the user prefers introductory (e.g., 100-level), intermediate (200-300-level), or advanced (400-level) courses.
+2. Topics of Interest: Identify any keywords or topics mentioned by the user (e.g., "machine learning," "programming," "data science," "artificial intelligence") and find courses that match these topics in the courseTitle or description.
+3. Instructor Preferences: If the user specifies an instructor, recommend courses taught by that instructor.
+4. Schedule and Timing: Consider any mentioned schedule preferences, e.g., "afternoon classes," "MW"(which stands for Monday and Wednesday), "TTh" (Tuesday and Thursday), or specific times.
+5. Prerequisites: Check if the user is looking for courses without prerequisites or if they meet the prerequisites based on their background.
+6. Final Exam: If a user prefers courses without a final exam, filter accordingly.
+7. Distribution Designations: Match courses that fulfill specific distribution designations if specified by the user (e.g., "Quantitative Reasoning," "Science").
+8. Major: Consider the user's declared major or field of study to recommend relevant courses.
+9. Career Goals: Take into account the user's stated career aspirations to suggest courses that align with their professional objectives.
+10. Fulfilled Requirements: Be aware of the courses and requirements the user has already completed to avoid recommending redundant courses and to ensure progression in their academic journey.
 
-I want you to create the conflict-free schedule in an iterative way. Be aware of prerequisites mentioned in the course description. If the student's prior courses do not prepare them for the course you're about to recommend, do not recommend it. Instead recommend the prerequisites or other courses that will prepare them to succeed in that course. Firstly, choose courses that are required for their major which they haven't taken yet. Visit this website for comprehensive details on these major-required courses: https://catalog.yale.edu/ycps/subjects-of-instruction/computer-science/ Secondly, choose major-related (elective) courses that prepare them for their career goals or skills they're interested in learning. Thirdly, choose the number courses that fulfill the distributional requirements which they have requested. Make sure your schedule is conflict free.
+When recommending courses, prioritize those that align with the user's major, support their career goals, and complement their existing academic achievements. Provide a brief explanation of how each recommended course relates to the user's major or career objectives.
 
-Provide a brief explanation of how each recommended course relates to the user's major or career objectives.
+Example Input from User:
+- "I want to be a software engineer and I'm interested in machine learning."
+- "I'm looking for an introductory course in computer science with no prerequisites."
+- "Are there any advanced courses on machine learning that are offered on Tuesdays and Thursdays?"
+- "I want to take a course taught by Professor Sohee Park."
 
-Personalizing on the student's request, respond with a suitable schedule of 4-5 courses, providing relevant details:
-- Subject Code: The subject code of the course
-- Course Number: The course number
+Based on the user's request, respond with _number_of_courses_to_recommend_for_llm suitable course options, providing relevant details:
+- Subject Number: The subject number of the course
 - Course Title: The name of the course
 - Meeting Time: Meeting pattern of days of the week and times of day
-- Distributional: The distributional requirement which is fulfilled
-- Explanation: A brief, pedagogical explanation of how the course relates to the user's major or career objectives using relevant information from the course description. If the course does not directly relate to the student's career objectives right now, state how it prepares the student for more relevant courses. Be concise (less than 20 words).
+- Explanation: A brief explanation of how the course relates to the user's major or career objectives
 
 Example Output:
 1. 
-- Subject Code: "CPSC"
-- Course Number: "439"
+- Subject Number: "CPSC439"
 - Course Title: "Software Engineering"
-- Meeting Time: ['TTh 11.35-12.50']
-- Distributional: "QR"
-- Explanation: "You'll learn how to plan and design complex projects—essential for building machine learning models in production. Concepts like debugging, test-case generation, and static analysis will ensure your software is robust and scalable, which are critical in creating reliable ML pipelines. Additionally, the teamwork aspect mirrors real-world software development, preparing you for collaboration in machine learning-focused roles."
+- Meeting Time: "TTh 11.35-12.50"
+- Explanation: "Software Engineering is a course that is directly related to a software engineer's role. It is a course that teaches you the basics of software engineering and how to build software."
 
 2. 
-- Subject Code: "FILM"
-- Course Number: "390"
-- Course Title: "Media, AI and Algorithmic Bias "
-- Meeting Time: ['TTh 11:35am-12:50pm']
-- Distributional: "WR"
-- Explanation: "By exploring real-world case studies like Netflix's recommendation system, you'll gain valuable skills in analyzing the ethical dimensions of AI, preparing you to design more responsible software systems."
+- Subject Number: "CPSC100"
+- Course Title: "Introduction to Computer Science"
+- Meeting Time: "MWF 10.30-11.20"
+- Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
+
+If no exact matches are found, offer similar alternatives or suggest courses that are close to the user's requirements.
+
+Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses.
 
 You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
+"""
+
+schedule_prompt = f"""Please further find a non-conflicting schedule for the recommended classes. It should be a subset of the recommended courses and the meeting times should not overlap.
+
+Example Output:
+1. 
+- Subject Number: "CPSC439"
+- Course Title: "Software Engineering"
+- Meeting Time: "TTh 11.35-12.50"
+- Explanation: "Software Engineering is a course that is directly related to a software engineer's role. It is a course that teaches you the basics of software engineering and how to build software."
+
+2. 
+- Subject Number: "CPSC100"
+- Course Title: "Introduction to Computer Science"
+- Meeting Time: "MWF 10.30-11.20"
+- Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
+
+Again, you should still directly output the same format as before, and you are not allowed to output anything else besides the required format. The output should be a list of courses with no conflicts in meeting times.
 """
 
 def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cosine_similarity: bool = True) -> str:
@@ -66,23 +94,28 @@ def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cos
         
 
 class LLMRecommender:
-    def __init__(self, openai_api_key: str):
+    def __init__(self, openai_api_key: str, course_list: List[dict]):
         self.client = OpenAI(api_key=openai_api_key)
-        
-    def get_course_recommendations(self, course_list: List[dict], major: str, career_goals: List[str], fulfilled_requirements: List[str]) -> List[str]:
+        self.course_list = course_list  # Store the course list
+        self.messages = []
+
+        # Initialize the conversation
         course_text = list_to_json(course_list)
-        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}"
-        messages = [
+        self.messages = [
             {"role": "system", "content": system_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))},
-            {"role": "assistant", "content": f"The JSON dataset of courses is as follows:\n{course_text}"},
-            {"role": "user", "content": additional_info}
+            {"role": "assistant", "content": f"The JSON dataset of courses is as follows:\n{course_text}"}
         ]
-        
+
+    def get_course_recommendations(self, major: str, career_goals: List[str], fulfilled_requirements: List[str]) -> List[dict]:
+        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}"
+        # Append the user's message to the conversation
+        self.messages.append({"role": "user", "content": additional_info})
+
         # Call the OpenAI API to get the response
         try:
             response = self.client.chat.completions.create(
-                model="gpt-4o",  # Use "gpt-3.5-turbo" if you don't have access to GPT-4
-                messages=messages,
+                model="gpt-4o", #  We can use gpt-4o-mini if we want to save money.
+                messages=self.messages,
                 max_tokens=2000,
                 n=1,
                 stop=None,
@@ -91,51 +124,165 @@ class LLMRecommender:
 
             # Extract the assistant's reply
             reply = response.choices[0].message.content.strip()
+            print(reply)
+            # Append the assistant's message to the conversation
+            self.messages.append({"role": "assistant", "content": reply})
+
             recommended_course_list = self.parse_course_info(reply)
-            
-            # Put additional information for the recommended courses
-            # TODO: Implement it with maybe dataframe to speed up the process
-            for course in recommended_course_list:
-                course_number = course["courseNumber"]
-                other_course_info = next((item for item in course_list if item["courseNumber"] == course_number), None)
-                if other_course_info is not None:
-                    for key, value in other_course_info.items():
-                        if key not in course:
-                            course[key] = value
-                
-            
+
+            # Check that at least one course number is found
+            if len(recommended_course_list) == 0:
+                raise LLMRecommenderError("No course numbers found in the recommended course list. The input course list might be incorrect. Please try again.")
+
             return recommended_course_list
 
         except Exception as e:
-            return f"An error occurred: {e}"
+            raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
+        
+    def recommend_non_conflicting_schedule(self) -> List[dict]:
+        # Add schedule prompt to conversation
+        self.messages.append({"role": "user", "content": schedule_prompt})
+
+        MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER'))
+        try:
+            for attempt in range(MAX_RETRIES):
+                # Get LLM response
+                response = self.client.chat.completions.create(
+                    model="gpt-4o",
+                    messages=self.messages,
+                    max_tokens=2000,
+                    n=1,
+                    stop=None,
+                    temperature=0.7,
+                )
+
+                # Process response
+                reply = response.choices[0].message.content.strip()
+                self.messages.append({"role": "assistant", "content": reply})
+                
+                schedule = self.parse_course_info(reply)
+                
+                # Return if schedule is valid, otherwise retry
+                if self.verify_non_conflicting_schedule(schedule):
+                    return schedule
+                    
+                self.messages.append({
+                    "role": "user", 
+                    "content": "The recommended schedule is conflicting. Please try again."
+                })
+
+            raise LLMRecommenderError(
+                "Unable to generate a non-conflicting schedule after maximum retries."
+            )
+
+        except Exception as e:
+            raise LLMRecommenderError(f"An error occurred in LLMRecommender: {e}")
+
         
     def parse_course_info(self, text):
-        # Split the text by course entries
-        courses = re.split(r'\d+\.\s*\n', text)
-        
+        # Adjusted pattern to match each course block
+        course_pattern = re.compile(
+            r'^\s*\d+\.\s*$'            # Match the course number line
+            r'(?:\s*-.*\n)+',           # Match subsequent lines starting with '-'
+            re.MULTILINE
+        )
+
+        # Regular expressions to match each field within a course block
+        subject_number_re = re.compile(r'-\s*Subject Number:\s*"([^"]+)"')
+        course_title_re = re.compile(r'-\s*Course Title:\s*"([^"]+)"')
+        explanation_re = re.compile(r'-\s*Explanation:\s*"([^"]+)"')
+        meeting_time_re = re.compile(r'-\s*Meeting Time:\s*"([^"]+)"')
+
         # List to store the parsed course information
         course_list = []
 
-        # Regular expressions to match each field
-        course_number_re = re.compile(r'- Course Number:\s*"(\d+)"')
-        course_title_re = re.compile(r'- Course Title:\s*"([^"]+)"')
-        explanation_re = re.compile(r'- Explanation:\s*"([^"]+)"')
+        # Find all course entries in the text
+        course_entries = course_pattern.findall(text)
+        for course in course_entries:
+            # Extract course number, title, explanation, and meeting time
+            subject_number = subject_number_re.search(course)
+            course_title = course_title_re.search(course)
+            explanation = explanation_re.search(course)
+            meeting_time = meeting_time_re.search(course)
+            
+            subject_number = subject_number.group(1) if subject_number else None
+            course_title = course_title.group(1) if course_title else None
+            explanation = explanation.group(1) if explanation else None
+            meeting_time = meeting_time.group(1) if meeting_time else None
+            
+            if not subject_number:
+                raise CourseNumberNotFoundError(
+                    f"Subject number {subject_number} not found in the course list. "
+                    f"First ensure that the given course list to LLM is correct. "
+                    f"Then, make sure that the subject number is correct."
+                )
 
-        for course in courses:
-            if course.strip():  # Skip any empty entries
-                # Extract course number, title, and explanation using regex
-                course_number = course_number_re.search(course)
-                course_title = course_title_re.search(course)
-                explanation = explanation_re.search(course)
+            # Add to the course_list as a dictionary
+            course_dict = {
+                "subjectNumber": subject_number,
+                "courseTitle": course_title,
+                "explanation": explanation,
+                "meetingTime": meeting_time,
+            }
+            
+            # Fetch additional course info if available
+            other_course_info = next(
+                (item for item in self.course_list if item["subjectNumber"] == subject_number), 
+                None
+            )
+            if other_course_info is not None:
+                for key, value in other_course_info.items():
+                    if key not in course_dict:
+                        course_dict[key] = value
+            else:
+                raise CourseNumberNotFoundError(
+                    f"Subject number {subject_number} not found in the course list. "
+                    f"First ensure that the given course list to LLM is correct. "
+                    f"Then, make sure that the subject number is correct."
+                )
 
-                # Add to the course_list as a dictionary
-                course_dict = {
-                    "courseNumber": course_number.group(1) if course_number else None,
-                    "courseTitle": course_title.group(1) if course_title else None,
-                    "explanation": explanation.group(1) if explanation else None,
-                }
-                course_list.append(course_dict)
+            course_list.append(course_dict)
 
         return course_list
-        
+    
+
+    def verify_non_conflicting_schedule(self, schedule: List[dict]):
+        # Create a dictionary to store the time slots for each day
+        time_slots = {day: [] for day in ['M', 'T', 'W', 'Th', 'F']}
+
+        for course in schedule:
+            meeting_pattern = course.get('meetingPattern', [])
+            for pattern in meeting_pattern:
+                # Extract day and time information
+                match = re.match(r'([MTWThF]+)\s+(\d+\.\d+)-(\d+\.\d+)', pattern)
+                if not match:
+                    continue
+                
+                days, start_time, end_time = match.groups()
+                
+                # Convert time to minutes for easier comparison
+                start_minutes = self.time_to_minutes(start_time)
+                end_minutes = self.time_to_minutes(end_time)
+
+                # Check for conflicts on each day
+                day_list = []
+                if 'Th' in days:
+                    day_list.extend(['Th'])
+                    days = days.replace('Th', '')
+                day_list.extend(list(days))
+
+                for day in day_list:
+                    for existing_start, existing_end in time_slots[day]:
+                        if (start_minutes < existing_end and end_minutes > existing_start):
+                            return False  # Conflict found
+                    
+                    # If no conflict, add the time slot
+                    time_slots[day].append((start_minutes, end_minutes))
+
+        return True  # No conflicts found
+
+    def time_to_minutes(self, time_str):
+        # Convert time string to minutes (e.g., "13.30" to 810 minutes)
+        hours, minutes = map(float, time_str.split('.'))
+        return int(hours * 60 + minutes)
     

@@ -23,19 +23,29 @@ npm test
 
 ## Back End Setup
 - Install Conda or Mamba
-- Navigate to the back end folder
-  ```
-  cd backend
-  ```
 - Create the environment
   ```
-  conda env create -f environment.yml
+  conda env create -f backend/environment.yml
   ```
-- Navigate to the backend folder
+- Install Package in editable mode
   ```
-  cd backend
-  ```
+  pip install -e .
+  ``` 
+- Run `backend/app/services/YaleCoursePlannerKeyWordGenerator.py`
 - Run the application with Uvicorn
   ```
-  uvicorn app.main:app --reload
+  uvicorn backend.app.main:app --reload
   ```
+
+## Backend Test
+```
+pytest
+```
+
+## Current Pipeline
+- Offline: Precompute word embeddings for all courses offline
+- Online:
+  1. Convert input formats of time and taken courses
+  2. Filter based on time and taken courses
+  3. Perform cosine similarity to find suitable courses
+  4. Use LLM to finalize the output

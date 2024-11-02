@@ -23,6 +23,7 @@ def keywordSearch(prompt, semester="Fall 2024"):
     with open(file_path, 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
 
+    return data
 
     keywordsRequestGPT = client.chat.completions.create(
         model="gpt-3.5-turbo",

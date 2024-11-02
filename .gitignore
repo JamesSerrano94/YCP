@@ -163,3 +163,6 @@ cython_debug/
 
 .DS_Store
 **/.DS_Store
+backend/app/routers/yale_courses_keywords_spring_2025.json
+backend/app/routers/yale_courses_keywords_fall_2024.json
+.nyc_output/
