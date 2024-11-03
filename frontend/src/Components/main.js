@@ -295,7 +295,7 @@ export default function MainPage() {
           </div>
 
           <div className="right-panel">
-            <h2>Distributional Requirements</h2>
+            <h2>Distributional Requirements For This Semester</h2>
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="humanities">Humanities</label>

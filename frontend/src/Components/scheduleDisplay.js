@@ -47,7 +47,7 @@ const HtmlTooltip = styled(({ className, children, ...props }) => (
 }));
 
 // Helper function to convert time strings to minutes
-const timeStringToMinutes = (timeString) => {
+export const timeStringToMinutes = (timeString) => {
     let period = '';
     if (timeString.endsWith('a') || timeString.endsWith('p')) {
         period = timeString.slice(-1).toUpperCase();
@@ -78,8 +78,8 @@ const timeStringToMinutes = (timeString) => {
 
 const parseCourseTimes = (courses) => {
     const timePattern = /^[MTWThF]+ \d{1,2}\.\d{2}[ap]?-?\d{1,2}\.\d{2}[ap]?$/;
-    return courses.flatMap((course) =>
-        course.time.flatMap((timeString) => {
+    return courses.flatMap((course) => 
+        course.time ? course.time.flatMap((timeString) => {
             if (!timePattern.test(timeString)) {
                 // If it doesn't match, skip this time entry
                 return [];
@@ -96,7 +96,7 @@ const parseCourseTimes = (courses) => {
                 startTime,
                 endTime,
             }));
-        })
+        }) : [] // Return an empty array if course.time is undefined
     );
 };
 
@@ -280,6 +280,7 @@ const ScheduleDisplay = () => {
                             return (
                                 <div
                                     key={index}
+                                    data-testid={`course-${course.department}-${course.courseNumber}`}
                                     className="calendar-event"
                                     style={{
                                         backgroundColor: getCourseColor(course),
@@ -345,7 +346,11 @@ const ScheduleDisplay = () => {
 
                 <div className="recommendation-list">
                     {recommendationCourses.map((course, index) => (
-                        <div className="recommendation-card">
+                        <div
+                        key={index}
+                        data-testid={`recommendation-${course.department}-${course.courseNumber}`}
+                        className="recommendation-card"
+                        >
                             <div className="recommendation-content">
                                 <div className="event-title">
                                     {course.department} {course.courseNumber}
