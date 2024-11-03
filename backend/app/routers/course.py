@@ -178,13 +178,21 @@ async def recommend(request: CourseRecommendationRequest):
 
     # Initialize the LLM for final output
     llm = LLMRecommender(openai_api_key=openai_api_key, course_list=cos_sim_filtered_courses)
+    distributional_llm = LLMRecommender(openai_api_key=openai_api_key, course_list=distributional_cos_sim_filtered_courses)
 
     try:
         # Get LLM recommendations based on the filtered courses and user request
         llm_recommended_courses = llm.get_course_recommendations(
             request.major,
             request.careerGoals,
-            request.fulfilledRequirements
+            request.fulfilledRequirements,
+            request.needDistributionals
+        )
+        distributional_llm_recommended_courses = distributional_llm.get_course_recommendations(
+            request.major,
+            request.careerGoals,
+            request.fulfilledRequirements,
+            request.needDistributionals
         )
         print("check llm.get_course_recommendations")
         
@@ -201,14 +209,16 @@ async def recommend(request: CourseRecommendationRequest):
     # The returned JSON should be a dict of course title, course number, time, description, distDesg. Other fields need to be dropped
     llm_recommended_courses_with_reduced_fields = reduce_fields(llm_recommended_courses)
     llm_recommended_non_conflicting_schedule_with_reduced_fields = reduce_fields(llm_recommended_non_conflicting_schedule)
+    distributional_llm_recommended_courses_with_reduced_fields = reduce_fields(distributional_llm_recommended_courses)
     print(llm_recommended_courses_with_reduced_fields)
     print(llm_recommended_non_conflicting_schedule_with_reduced_fields)
+    print(distributional_llm_recommended_courses_with_reduced_fields)
     
     # Remove duplicate courses in the recommended courses
     llm_recommended_courses_with_reduced_fields = reduce_duplicate_courses(llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields)
-
+    distributional_llm_recommended_courses_with_reduced_fields = reduce_duplicate_courses(distributional_llm_recommended_courses_with_reduced_fields, llm_recommended_courses_with_reduced_fields)
     print("Total time taken: ", time.time() - search_start_time)
-    return llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields
+    return llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields, distributional_llm_recommended_courses_with_reduced_fields
 
 def reduce_fields(courses: List[dict]):
     """

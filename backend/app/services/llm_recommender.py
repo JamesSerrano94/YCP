@@ -17,7 +17,7 @@ Your task is to recommend courses to users based on their preferences. When a us
 4. Schedule and Timing: Consider any mentioned schedule preferences, e.g., "afternoon classes," "MW"(which stands for Monday and Wednesday), "TTh" (Tuesday and Thursday), or specific times.
 5. Prerequisites: Check if the user is looking for courses without prerequisites or if they meet the prerequisites based on their background.
 6. Final Exam: If a user prefers courses without a final exam, filter accordingly.
-7. Distribution Designations: Match courses that fulfill specific distribution designations if specified by the user (e.g., "Quantitative Reasoning," "Science").
+7. Distribution Designations: Match courses that fulfill specific distribution designations if possible (not mandatory).
 8. Major: Consider the user's declared major or field of study to recommend relevant courses.
 9. Career Goals: Take into account the user's stated career aspirations to suggest courses that align with their professional objectives.
 10. Fulfilled Requirements: Be aware of the courses and requirements the user has already completed to avoid recommending redundant courses and to ensure progression in their academic journey.
@@ -50,6 +50,42 @@ Example Output:
 - Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
 
 Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses.
+
+You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
+"""
+
+distributional_prompt = f"""You have access to a JSON dataset containing detailed information about various courses offered, including fields such as courseNumber, courseTitle, description, instructorList, meetingPattern, prerequisites, and distDesg (distribution designations).
+
+Your task is to recommend courses to users considering distribution designations and their career goals.
+
+When recommending courses, prioritize those that align with their career goals, distribution designations, personal interests, and complement their existing academic achievements. Provide a brief explanation of how each recommended course relates to their career goals and distribution designations.
+
+Example Input from User:
+- "I want to be a research scientist in natural language processing."
+- "I'm looking for an introductory course in computer science with no prerequisites."
+- "Are there any advanced courses on machine learning that are offered on Tuesdays and Thursdays?"
+- "I want to take a course taught by Professor Sohee Park."
+
+Based on the user's request, respond with _number_of_courses_to_recommend_for_llm suitable course options, providing relevant details:
+- Subject Number: The subject number of the course
+- Course Title: The name of the course
+- Meeting Time: Meeting pattern of days of the week and times of day
+- Explanation: A brief explanation of how the course relates to the user's major or career objectives
+
+Example Output:
+1. 
+- Subject Number: "LING227"
+- Course Title: "Language and Computation I"
+- Meeting Time: "MW 9.00-10.15"
+- Explanation: "This course is a Language and Computation I course that is directly related to a research scientist's role. It is a course that teaches you the basics of language and computation. It satisfies the distribution designation of Quantitative Reasoning"
+
+2. 
+- Subject Number: "SOCY133"
+- Course Title: "Computers, Networks, and Society"
+- Meeting Time: "TTh 1.00-2.15"
+- Explanation: "This course is a Computers, Networks, and Society course that is directly related to a research scientist's role. It is a course that teaches you the basics of computers, networks, and society. It satisfies the distribution designation of Social Science."
+
+Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses. Your answer should contain at least the number of courses specified by distribution_designations.
 
 You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
 """
@@ -92,20 +128,24 @@ def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cos
         
 
 class LLMRecommender:
-    def __init__(self, openai_api_key: str, course_list: List[dict]):
+    def __init__(self, openai_api_key: str, course_list: List[dict], if_distributional: bool = False):
         self.client = OpenAI(api_key=openai_api_key)
         self.course_list = course_list  # Store the course list
         self.messages = []
 
         # Initialize the conversation
         course_text = list_to_json(course_list)
+        if if_distributional:
+            self.system_prompt = distributional_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))
+        else:
+            self.system_prompt = system_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))
         self.messages = [
-            {"role": "system", "content": system_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))},
+            {"role": "system", "content": self.system_prompt},
             {"role": "assistant", "content": f"The JSON dataset of courses is as follows:\n{course_text}"}
         ]
 
-    def get_course_recommendations(self, major: str, career_goals: List[str], fulfilled_requirements: List[str]) -> List[dict]:
-        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}"
+    def get_course_recommendations(self, major: str, career_goals: List[str], fulfilled_requirements: List[str], distribution_designations: List[str]) -> List[dict]:
+        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}\nDistribution Designations: {distribution_designations}"
         # Append the user's message to the conversation
         self.messages.append({"role": "user", "content": additional_info})
 
