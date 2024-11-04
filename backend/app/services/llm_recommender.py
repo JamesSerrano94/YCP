@@ -159,7 +159,7 @@ class LLMRecommender:
                     max_tokens=2000,
                     n=1,
                     stop=None,
-                    temperature=0.7,
+                    temperature=0.5,
                 )
 
                 # Extract the assistant's reply
@@ -201,7 +201,7 @@ class LLMRecommender:
                     max_tokens=2000,
                     n=1,
                     stop=None,
-                    temperature=0.7,
+                    temperature=0.5,
                 )
 
                 # Process response
