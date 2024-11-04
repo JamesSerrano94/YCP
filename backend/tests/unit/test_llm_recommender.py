@@ -39,11 +39,13 @@ def test_get_course_recommendations(recommender):
     major = "Computer Science"
     career_goals = "Software Engineering"
     fulfilled_requirements = {"courses": ["CPSC 201"]}
+    distribution_designations = {"humanities": 0, "sciences": 0, "social": 2, "qr": 0, "writing": 0, "language": "L3 SPAN"}
 
     recommended_courses = recommender.get_course_recommendations(
         major,
         career_goals,
-        fulfilled_requirements
+        fulfilled_requirements,
+        distribution_designations
     )
 
     assert isinstance(recommended_courses, list)
