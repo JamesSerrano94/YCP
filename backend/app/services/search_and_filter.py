@@ -120,9 +120,9 @@ def findTimes(meetingPattern, usr_start_time, usr_end_time):
             start_hour += 12
             end_hour += 12
         else:
-            if start_hour < 9:
+            if start_hour < 7:
                 start_hour += 12
-            if end_hour < 9:
+            if end_hour < 7:
                 end_hour += 12
         
         start_minutes = 60 * start_hour + start_minute
