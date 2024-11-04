@@ -24,26 +24,6 @@ router = APIRouter(
     tags=["course"]
 )
 
-def findTimes(meetingPattern):
-    try:
-        time_only = re.search(r'\d{1,2}\.\d{2}-\d{1,2}\.\d{2}', meetingPattern[0]).group()
-        time_only = time_only.split("-")
-        start = time_only[0].split(".")
-        end = time_only[1].split(".")
-        if int(start[0]) < 9:
-            start[0] = int(start[0]) + 12
-        if int(end[0]) < 9:
-            end[0] = int(end[0]) + 12
-        
-        return 60 * int(start[0]) + int(start[1]), 60 * int(end[0]) + int(end[1])
-    except:
-        return 0, 1400
-def check_if_element_in_json_has_department_key(json):
-    for element in json:
-        if 'department' not in element:
-            return False
-    return True
-
 @router.post("/recommend")
 async def recommend(request: CourseRecommendationRequest):
     # To test, use the following curl command:
@@ -128,7 +108,7 @@ async def recommend(request: CourseRecommendationRequest):
 
     filtered_courses = []
     for suggestedCourse in loaded_cached_courses:
-        courseStartTime, courseEndTime = findTimes(suggestedCourse['meetingPattern'])
+        courseStartTime, courseEndTime = search_and_filter.findTimes(suggestedCourse['meetingPattern'])
         
         # Check time constraints
         if courseStartTime < start_time or courseEndTime > end_time:
@@ -219,6 +199,12 @@ async def recommend(request: CourseRecommendationRequest):
     distributional_llm_recommended_courses_with_reduced_fields = reduce_duplicate_courses(distributional_llm_recommended_courses_with_reduced_fields, llm_recommended_courses_with_reduced_fields)
     print("Total time taken: ", time.time() - search_start_time)
     return llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields, distributional_llm_recommended_courses_with_reduced_fields
+
+def check_if_element_in_json_has_department_key(json):
+    for element in json:
+        if 'department' not in element:
+            return False
+    return True
 
 def reduce_fields(courses: List[dict]):
     """

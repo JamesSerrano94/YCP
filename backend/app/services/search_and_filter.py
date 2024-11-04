@@ -54,38 +54,19 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
 
     return result
 
-def filter(df, startTime, endTime, taken_courses):
-    result = df
-    # result = df[df['department'] == major]
-    result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
-    taken_courses_split = [course.split(' ', 1) for course in taken_courses]
-    # print(taken_courses_split)
-    taken_courses_df = pd.DataFrame(taken_courses_split, columns=['department', 'courseNumber'])
-    result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
-    result.reset_index(drop=True, inplace=True)
-    return result
-
-def search_course(semester, major):
-    search_api = APIKeysConfig.yale_course_search_api
-    headers = {
-        'apikey': search_api,
-        'Accept': 'application/json',
-    }
-    params = {
-                    'termCode': get_term_code(semester),
-                    'subjectCode': convert_major_format(major),
-                }
-    response = requests.get("https://gw.its.yale.edu/soa-gateway/courses/webservice/v3/index", headers=headers, params=params)
-    return response.json()
-
-def get_term_code(term_str):
-    splitted = term_str.split()
-    termcode = '01'
-    if (splitted[0] == "Summer"):
-        termcode = '02'
-    elif(splitted[0] == "Fall"):
-        termcode = '03'
-    return splitted[1] + termcode  
+def convert_time_format(time):
+    """
+      Time will be converted to minutes from 00:00
+    """
+    time_small, period = time.split()
+    hours, minutes = time_small.split(':')
+    if period == 'AM':
+        if hours == '12':
+            hours = '00'
+    elif period == 'PM':
+        if hours != '12':
+            hours = str(int(hours) + 12)
+    return 60* int(hours) + int(minutes)
 
 def get_taken_courses(courses: FulfilledRequirements):
     result = []
@@ -98,25 +79,54 @@ def get_taken_courses(courses: FulfilledRequirements):
     result.extend(courses.priorCourses)
 
     return result
-   
-def convert_time_format(time):
-    """
-      06:00 PM will be convert to 18.00
-    """
-    time_small, period = time.split()
-    hours, minutes = time_small.split(':')
-    if period == 'AM':
-        if hours == '12':
-            hours = '00'
-    elif period == 'PM':
-        if hours != '12':
-            hours = str(int(hours) + 12)
-    return 60* int(hours) + int(minutes)
 
-def convert_major_format(major):
-    # Need to add all major conversion, or do it in frontend
-    if (major == "Computer Science"):
-      return 'CPSC'
+def findTimes(meetingPattern):
+    try:
+        time_only = re.search(r'\d{1,2}\.\d{2}-\d{1,2}\.\d{2}', meetingPattern[0]).group()
+        time_only = time_only.split("-")
+        start = time_only[0].split(".")
+        end = time_only[1].split(".")
+        if int(start[0]) < 9:
+            start[0] = int(start[0]) + 12
+        if int(end[0]) < 9:
+            end[0] = int(end[0]) + 12
+        
+        return 60 * int(start[0]) + int(start[1]), 60 * int(end[0]) + int(end[1])
+    except:
+        return 0, 1400
+
+def filter(df, startTime, endTime, taken_courses):
+    result = df
+    # result = df[df['department'] == major]
+    result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
+    taken_courses_split = [course.split(' ', 1) for course in taken_courses]
+    # print(taken_courses_split)
+    taken_courses_df = pd.DataFrame(taken_courses_split, columns=['department', 'courseNumber'])
+    result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
+    result.reset_index(drop=True, inplace=True)
+    return result
+
+def search_course(semester, subjectCode):
+    search_api = APIKeysConfig.yale_course_search_api
+    headers = {
+        'apikey': search_api,
+        'Accept': 'application/json',
+    }
+    params = {
+                    'termCode': get_term_code(semester),
+                    'subjectCode': subjectCode,
+                }
+    response = requests.get("https://gw.its.yale.edu/soa-gateway/courses/webservice/v3/index", headers=headers, params=params)
+    return response.json()
+
+def get_term_code(term_str):
+    splitted = term_str.split()
+    termcode = '01'
+    if (splitted[0] == "Summer"):
+        termcode = '02'
+    elif(splitted[0] == "Fall"):
+        termcode = '03'
+    return splitted[1] + termcode
 
 def is_time_in_range(string_list, start_time, end_time, default):
     valid_days = set('MThWF')
