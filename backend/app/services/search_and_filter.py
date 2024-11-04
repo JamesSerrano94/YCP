@@ -58,10 +58,8 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
 def filter_course_by_time(courses, usr_start_time, usr_end_time, taken_courses):
     filtered_courses = []
     for suggestedCourse in courses:
-        courseStartTime, courseEndTime = findTimes(suggestedCourse['meetingPattern'])
-        
         # Check time constraints
-        if courseStartTime < usr_start_time or courseEndTime > usr_end_time:
+        if not findTimes(suggestedCourse['meetingPattern'], usr_start_time, usr_end_time):
             continue
         
         # Check if the course has already been taken
@@ -84,7 +82,7 @@ def convert_time_format(time):
     elif period == 'PM':
         if hours != '12':
             hours = str(int(hours) + 12)
-    return 60* int(hours) + int(minutes)
+    return 60 * int(hours) + int(minutes)
 
 def get_taken_courses(courses: FulfilledRequirements):
     result = []
@@ -97,20 +95,43 @@ def get_taken_courses(courses: FulfilledRequirements):
     result.extend(courses.priorCourses)
     return [course.replace(" ", "") for course in result]
 
-def findTimes(meetingPattern):
-    try:
-        time_only = re.search(r'\d{1,2}\.\d{2}-\d{1,2}\.\d{2}', meetingPattern[0]).group()
-        time_only = time_only.split("-")
-        start = time_only[0].split(".")
-        end = time_only[1].split(".")
-        if int(start[0]) < 9:
-            start[0] = int(start[0]) + 12
-        if int(end[0]) < 9:
-            end[0] = int(end[0]) + 12
+def findTimes(meetingPattern, usr_start_time, usr_end_time):
+    time_ranges = []
+    for mp in meetingPattern:
+        match = re.search(r'\d{1,2}\.\d{2}-\d{1,2}\.\d{2}p?', mp)
+        if match:
+            time_ranges.append(match.group())
+    
+    if len(time_ranges) == 0:
+        return True
+    
+    for time_range in time_ranges:
+        is_pm = time_range.endswith("p")
+        time_range = time_range.replace("p", "")
         
-        return 60 * int(start[0]) + int(start[1]), 60 * int(end[0]) + int(end[1])
-    except:
-        return 0, 1400
+        start_time, end_time = time_range.split("-")
+        start = start_time.split(".")
+        end = end_time.split(".")
+        
+        start_hour, start_minute = int(start[0]), int(start[1])
+        end_hour, end_minute = int(end[0]), int(end[1])
+        
+        if is_pm:
+            start_hour += 12
+            end_hour += 12
+        else:
+            if start_hour < 9:
+                start_hour += 12
+            if end_hour < 9:
+                end_hour += 12
+        
+        start_minutes = 60 * start_hour + start_minute
+        end_minutes = 60 * end_hour + end_minute
+        
+        if usr_start_time > start_minutes or end_minutes > usr_end_time:
+            return False
+
+    return True
 
 def filter(df, startTime, endTime, taken_courses):
     result = df
