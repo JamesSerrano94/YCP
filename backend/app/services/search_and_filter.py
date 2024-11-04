@@ -55,6 +55,23 @@ def retrive_desired_distributional(semester, humanity, science, social, quantiti
 
     return result
 
+def filter_course_by_time(courses, usr_start_time, usr_end_time, taken_courses):
+    filtered_courses = []
+    for suggestedCourse in courses:
+        courseStartTime, courseEndTime = findTimes(suggestedCourse['meetingPattern'])
+        
+        # Check time constraints
+        if courseStartTime < usr_start_time or courseEndTime > usr_end_time:
+            continue
+        
+        # Check if the course has already been taken
+        if suggestedCourse['subjectNumber'] in taken_courses:
+            continue
+        
+        # Add to filtered list if all criteria are met
+        filtered_courses.append(suggestedCourse)
+    return filtered_courses
+
 def convert_time_format(time):
     """
       Time will be converted to minutes from 00:00
@@ -78,8 +95,7 @@ def get_taken_courses(courses: FulfilledRequirements):
     # result.extend(courses.writing)
     # result.extend(courses.language)
     result.extend(courses.priorCourses)
-
-    return result
+    return [course.replace(" ", "") for course in result]
 
 def findTimes(meetingPattern):
     try:

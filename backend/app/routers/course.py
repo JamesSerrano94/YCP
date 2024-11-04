@@ -104,23 +104,7 @@ async def recommend(request: CourseRecommendationRequest):
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
 
     loaded_cached_courses = load_cached_courses(request.semester)
-
-    filtered_courses = []
-    for suggestedCourse in loaded_cached_courses:
-        courseStartTime, courseEndTime = search_and_filter.findTimes(suggestedCourse['meetingPattern'])
-        
-        # Check time constraints
-        if courseStartTime < start_time or courseEndTime > end_time:
-            continue
-        
-        # Check if the course has already been taken
-        if suggestedCourse['subjectNumber'] in taken_courses:
-            continue
-        
-        # Add to filtered list if all criteria are met
-        filtered_courses.append(suggestedCourse)
-
-    loaded_cached_courses = filtered_courses
+    loaded_cached_courses = search_and_filter.filter_course_by_time(loaded_cached_courses, start_time, end_time, taken_courses)
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
     # Need to replace this with actual search and keyword filtering
@@ -148,7 +132,7 @@ async def recommend(request: CourseRecommendationRequest):
                                                                               request.needDistributionals.qr,
                                                                               request.needDistributionals.writing,
                                                                               request.needDistributionals.language)
-
+    distributional_courses = search_and_filter.filter_course_by_time(distributional_courses, start_time, end_time, taken_courses)
     distributional_cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        distributional_courses, 
                                                                                                        n=number_of_courses_to_recommend)
