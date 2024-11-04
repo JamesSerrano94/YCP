@@ -145,10 +145,16 @@ class LLMRecommender:
         ]
 
     def get_course_recommendations(self, major: str, career_goals: List[str], fulfilled_requirements: List[str], distribution_designations: List[str]) -> List[dict]:
-        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}\nDistribution Designations: {distribution_designations}"
+        # If the course list is empty, return empty list
+        if len(self.course_list) == 0:
+            print("The given course list is empty. Returning empty list.")
+            return []
+        
         # Append the user's message to the conversation
+        additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}\nDistribution Designations: {distribution_designations}"
         self.messages.append({"role": "user", "content": additional_info})
 
+        # Multiple retries to get a valid response
         MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER'))
         try:
             for attempt in range(MAX_RETRIES):
