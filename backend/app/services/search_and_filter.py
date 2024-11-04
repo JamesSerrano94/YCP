@@ -4,6 +4,7 @@ import pandas as pd
 import ast
 import sys
 import os
+import re
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
 from backend.app.models.course import CourseRecommendationRequest
 from backend.app.models.course import FulfilledRequirements

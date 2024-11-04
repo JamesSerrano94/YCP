@@ -16,7 +16,6 @@ from backend.app.models.course import FulfilledRequirements
 from backend.app.models.course import SchedulePreferences
 from backend.app.configs.api_keys import APIKeysConfig
 from backend.app.services.llm_recommender import LLMRecommender
-import re
 from dotenv import load_dotenv
 
 router = APIRouter(
