@@ -1,5 +1,6 @@
 import pytest
 import json
+import io
 from backend.app.services import search_and_filter
 from backend.app.models.course import FulfilledRequirements
 
@@ -27,7 +28,7 @@ def fulfilled_requirements():
 
 def test_retrive_desired_distributional(monkeypatch):
     def mock_open(*args, **kwargs):
-        return json.dumps(sample_courses_data)
+        return io.StringIO(json.dumps(sample_courses_data))
 
     # Mock the open function to return sample data
     monkeypatch.setattr("builtins.open", lambda *args, **kwargs: mock_open())
