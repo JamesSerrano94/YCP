@@ -133,82 +133,82 @@ def findTimes(meetingPattern, usr_start_time, usr_end_time):
 
     return True
 
-def filter(df, startTime, endTime, taken_courses):
-    result = df
-    # result = df[df['department'] == major]
-    result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
-    taken_courses_split = [course.split(' ', 1) for course in taken_courses]
-    # print(taken_courses_split)
-    taken_courses_df = pd.DataFrame(taken_courses_split, columns=['department', 'courseNumber'])
-    result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
-    result.reset_index(drop=True, inplace=True)
-    return result
+# def filter(df, startTime, endTime, taken_courses):
+#     result = df
+#     # result = df[df['department'] == major]
+#     result = result[result['meetingPattern'].apply(lambda x: is_time_in_range(x, startTime, endTime, False))]
+#     taken_courses_split = [course.split(' ', 1) for course in taken_courses]
+#     # print(taken_courses_split)
+#     taken_courses_df = pd.DataFrame(taken_courses_split, columns=['department', 'courseNumber'])
+#     result = result[~result.set_index(['department', 'courseNumber']).index.isin(taken_courses_df.set_index(['department', 'courseNumber']).index)]
+#     result.reset_index(drop=True, inplace=True)
+#     return result
 
-def search_course(semester, subjectCode):
-    search_api = APIKeysConfig.yale_course_search_api
-    headers = {
-        'apikey': search_api,
-        'Accept': 'application/json',
-    }
-    params = {
-                    'termCode': get_term_code(semester),
-                    'subjectCode': subjectCode,
-                }
-    response = requests.get("https://gw.its.yale.edu/soa-gateway/courses/webservice/v3/index", headers=headers, params=params)
-    return response.json()
+# def search_course(semester, subjectCode):
+#     search_api = APIKeysConfig.yale_course_search_api
+#     headers = {
+#         'apikey': search_api,
+#         'Accept': 'application/json',
+#     }
+#     params = {
+#                     'termCode': get_term_code(semester),
+#                     'subjectCode': subjectCode,
+#                 }
+#     response = requests.get("https://gw.its.yale.edu/soa-gateway/courses/webservice/v3/index", headers=headers, params=params)
+#     return response.json()
 
-def get_term_code(term_str):
-    splitted = term_str.split()
-    termcode = '01'
-    if (splitted[0] == "Summer"):
-        termcode = '02'
-    elif(splitted[0] == "Fall"):
-        termcode = '03'
-    return splitted[1] + termcode
+# def get_term_code(term_str):
+#     splitted = term_str.split()
+#     termcode = '01'
+#     if (splitted[0] == "Summer"):
+#         termcode = '02'
+#     elif(splitted[0] == "Fall"):
+#         termcode = '03'
+#     return splitted[1] + termcode
 
-def is_time_in_range(string_list, start_time, end_time, default):
-    valid_days = set('MThWF')
-    schedule_list = ast.literal_eval(str(string_list))
+# def is_time_in_range(string_list, start_time, end_time, default):
+#     valid_days = set('MThWF')
+#     schedule_list = ast.literal_eval(str(string_list))
 
-    if len(schedule_list) == 0:
-      return default
+#     if len(schedule_list) == 0:
+#       return default
 
-    select = 0
-    if (set(schedule_list[0].split(' ')[0]).issubset(valid_days)):
-      select = 0
-    elif (len(schedule_list) > 1 and set(schedule_list[1].split(' ')[0]).issubset(valid_days)):
-      select = 1
-    else:
-      return default
-    ## uncomment these to run cpsc data
-    # time_part = (schedule_list[select].split(' ')[1]).split('-')
-    # start_time_hr = int(time_part[0].split('.')[0])
-    # start_time_min = int(time_part[0].split('.')[1])
-    # end_time_hr = int(time_part[1].split('.')[0])
-    # end_time_min = int(time_part[1].split('.')[1])
+#     select = 0
+#     if (set(schedule_list[0].split(' ')[0]).issubset(valid_days)):
+#       select = 0
+#     elif (len(schedule_list) > 1 and set(schedule_list[1].split(' ')[0]).issubset(valid_days)):
+#       select = 1
+#     else:
+#       return default
+#     ## uncomment these to run cpsc data
+#     # time_part = (schedule_list[select].split(' ')[1]).split('-')
+#     # start_time_hr = int(time_part[0].split('.')[0])
+#     # start_time_min = int(time_part[0].split('.')[1])
+#     # end_time_hr = int(time_part[1].split('.')[0])
+#     # end_time_min = int(time_part[1].split('.')[1])
 
-    # following are for all course data
-    time_part = (schedule_list[select].split(' ')[1]).split('-')
-    start_time_hr = int(time_part[0].split('.')[0].replace('p',''))
-    start_time_min = int(time_part[0].split('.')[1].replace('p',''))
-    end_time_hr = int(time_part[1].split('.')[0].replace('p',''))
-    end_time_min = int(time_part[1].split('.')[1].replace('p',''))
+#     # following are for all course data
+#     time_part = (schedule_list[select].split(' ')[1]).split('-')
+#     start_time_hr = int(time_part[0].split('.')[0].replace('p',''))
+#     start_time_min = int(time_part[0].split('.')[1].replace('p',''))
+#     end_time_hr = int(time_part[1].split('.')[0].replace('p',''))
+#     end_time_min = int(time_part[1].split('.')[1].replace('p',''))
 
 
-    if (start_time_hr <= 6):
-      start_time_hr += 12
-    if (end_time_hr <= 6):
-      end_time_hr += 12
-    start_time_total = start_time_hr * 60 + start_time_min
-    end_time_total = end_time_hr * 60 + end_time_min
+#     if (start_time_hr <= 6):
+#       start_time_hr += 12
+#     if (end_time_hr <= 6):
+#       end_time_hr += 12
+#     start_time_total = start_time_hr * 60 + start_time_min
+#     end_time_total = end_time_hr * 60 + end_time_min
 
-    start_time_obj = int(start_time.split('.')[0]) * 60 + int(start_time.split('.')[1])
-    end_time_obj = int(end_time.split('.')[0]) * 60 + int(end_time.split('.')[1])
+#     start_time_obj = int(start_time.split('.')[0]) * 60 + int(start_time.split('.')[1])
+#     end_time_obj = int(end_time.split('.')[0]) * 60 + int(end_time.split('.')[1])
 
-    if (start_time_total >= start_time_obj and end_time_total <= end_time_obj):
-      return True
+#     if (start_time_total >= start_time_obj and end_time_total <= end_time_obj):
+#       return True
 
-    return default
+#     return default
 
 # if __name__ == "__main__":
 #    retrive_desired_distributional("Fall 2024", 0, 0, 0, 0, 0, "L3 SPAN")
