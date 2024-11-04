@@ -64,9 +64,9 @@ Example Input from User:
 - "I want to be a research scientist in natural language processing."
 - "I'm looking for an introductory course in computer science with no prerequisites."
 - "Are there any advanced courses on machine learning that are offered on Tuesdays and Thursdays?"
-- "I want to take a course taught by Professor Sohee Park."
+- "I want to take a course taught by Professor Sohee Park." 
 
-Based on the user's request, respond with _number_of_courses_to_recommend_for_llm suitable course options, providing relevant details:
+Based on the user's request, respond with some suitable course options, providing relevant details:
 - Subject Number: The subject number of the course
 - Course Title: The name of the course
 - Meeting Time: Meeting pattern of days of the week and times of day
@@ -85,7 +85,7 @@ Example Output:
 - Meeting Time: "TTh 1.00-2.15"
 - Explanation: "This course is a Computers, Networks, and Society course that is directly related to a research scientist's role. It is a course that teaches you the basics of computers, networks, and society. It satisfies the distribution designation of Social Science."
 
-Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses. Your answer should contain at least the number of courses specified by distribution_designations.
+Now, given the JSON dataset and user preferences, recommend some suitable courses. Your answer should contain at least the number of courses specified by distribution_designation. (e.g. if the user indicate humanities=0 sciences=0 social=2 qr=0 writing=0 language='L3 SPAN', then your answer should contain at least 2 courses that satisfies the distribution designation of Social Science)
 
 You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
 """
@@ -173,9 +173,10 @@ class LLMRecommender:
                     recommended_course_list = self.parse_course_info(reply)
                     return recommended_course_list
                 except CourseNumberNotFoundError as e:
+                    print("Missing course number: ", e.missing_course_number)
                     self.messages.append({
                         "role": "user",
-                        "content": "The recommended courses do not exist in the given course list. Please try again."
+                        "content": f"The recommended courses with subject number {e.missing_course_number} do not exist in the given course list. Please try again."
                     })
                     continue
 
@@ -213,6 +214,7 @@ class LLMRecommender:
                 if self.verify_non_conflicting_schedule(schedule):
                     return schedule
                     
+                print("The recommended schedule is conflicting. Please try again.")
                 self.messages.append({
                     "role": "user", 
                     "content": "The recommended schedule is conflicting. Please try again."
@@ -260,7 +262,8 @@ class LLMRecommender:
                 raise CourseNumberNotFoundError(
                     f"Subject number {subject_number} not found in the course list. "
                     f"First ensure that the given course list to LLM is correct. "
-                    f"Then, make sure that the subject number is correct."
+                    f"Then, make sure that the subject number is correct.",
+                    subject_number
                 )
 
             # Add to the course_list as a dictionary
@@ -284,7 +287,8 @@ class LLMRecommender:
                 raise CourseNumberNotFoundError(
                     f"Subject number {subject_number} not found in the course list. "
                     f"First ensure that the given course list to LLM is correct. "
-                    f"Then, make sure that the subject number is correct."
+                    f"Then, make sure that the subject number is correct.",
+                    subject_number
                 )
 
             course_list.append(course_dict)

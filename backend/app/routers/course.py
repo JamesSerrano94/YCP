@@ -141,7 +141,7 @@ async def recommend(request: CourseRecommendationRequest):
 
     # Initialize the LLM for final output
     llm = LLMRecommender(openai_api_key=openai_api_key, course_list=cos_sim_filtered_courses)
-    distributional_llm = LLMRecommender(openai_api_key=openai_api_key, course_list=distributional_cos_sim_filtered_courses)
+    distributional_llm = LLMRecommender(openai_api_key=openai_api_key, course_list=distributional_cos_sim_filtered_courses, if_distributional=True)
 
     try:
         # Get LLM recommendations based on the filtered courses and user request
