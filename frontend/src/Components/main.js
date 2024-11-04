@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import './main.css';
 import './courseMap.css';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
 
 export default function MainPage() {
   const courseMapRef = useRef(null);
@@ -24,6 +28,26 @@ export default function MainPage() {
   const [writing, setWriting] = useState(0);
   const [language, setLanguage] = useState('');
   const [priorCourses, setPriorCourses] = useState('');
+
+  const HtmlTooltip = styled(({ className, children, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} arrow>
+      {children}
+    </Tooltip>
+  ))(({ theme }) => ({
+    // Styles applied to the popper element (outermost element)
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: '#ffffff',
+      color: '#333333',
+      maxWidth: 500,
+      border: '1px solid #dadde9',
+      boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.2)',
+      padding: '10px',
+    },
+    // Styles for the arrow
+    [`& .${tooltipClasses.arrow}`]: {
+      color: '#ffffff',
+    },
+  }));
 
   const handlePlanClick = () => {
     if (careerGoals.trim() === "") {
@@ -131,7 +155,7 @@ export default function MainPage() {
         <div className='quote-card' style={{ backgroundColor: 'rgba(170, 211, 255, 0.52)' }}>
           <img src='/frontquote.svg' alt='Front quote' className='quote-icon front-quote' />
           <p>
-            I want to be a Software Development Engineer in the tech industry. Could you help me plan my course schedule for this semester?"
+            I want to be a Software Development Engineer in the tech industry. Could you help me plan my course schedule for this semester?
           </p>
           <img src='/frontquote.svg' alt='Back quote' className='quote-icon back-quote' />
         </div>
@@ -295,7 +319,38 @@ export default function MainPage() {
           </div>
 
           <div className="right-panel">
-            <h2>Distributional Requirements For This Semester</h2>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <h2>Distributional Requirements For This Semester</h2>
+              <HtmlTooltip
+                title={
+                  <React.Fragment>
+                    <Typography color="inherit">
+                      <strong>Instructions:</strong>
+                      <br />
+                      - Enter the number of distributional courses you want to take in each category (integer values only).
+                      For example, if you want to take 3 Humanities courses, enter "3".
+                      <br />
+                      - For language, specify the language type and proficiency level (text only).
+                    </Typography>
+
+                  </React.Fragment>
+                }
+              >
+    <img
+      src="/alert-circle.svg" // Path from the public folder
+      alt="Info icon"
+      style={{
+        color: 'red',
+        marginLeft: 8,
+        width: 20,
+        height: 20,
+        cursor: 'pointer',
+        transform: 'translateY(3px)' // Adjust vertical alignment
+      }}
+    />
+              </HtmlTooltip>
+            </div>
+
             <div className="form-row">
               <div className="form-group">
                 <label htmlFor="humanities">Humanities</label>

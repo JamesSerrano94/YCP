@@ -108,7 +108,14 @@ const ScheduleDisplay = () => {
     const location = useLocation();
     const [calendarCourses, setCalendarCourses] = useState(location.state?.courses?.[1] || []);
 
-    const [recommendationCourses, setRecommendationCourses] = useState(location.state?.courses?.[0] || []);
+    const [recommendationCourses, setRecommendationCourses] = useState(() => {
+        const courses = location.state?.courses || [];
+        const firstList = Array.isArray(courses[0]) ? courses[0] : [];
+        const secondList = Array.isArray(courses[2]) ? courses[2] : [];
+        return [...firstList, ...secondList]; // Combine the two lists
+      });
+      
+      
 
     // const coursesFromState = location.state?.courses?.[1] || [];
     const colors = ['#F4A7A7', '#FFD580', '#A7D8F4', '#B8E986', '#C6A7E2', '#FFE5A7', '#E0AFAF', '#AFC0E0', '#E0E0AF', '#AFE0B4'];
