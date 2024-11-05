@@ -154,8 +154,9 @@ const ScheduleDisplay = () => {
             };
 
             setIsLoading(true);
-
-            fetch('http://localhost:8000/course/recommend', {
+            
+            const apiUrl = process.env.REACT_APP_API_URL;
+            fetch(`${apiUrl}/course/recommend`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

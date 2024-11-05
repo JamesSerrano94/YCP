@@ -78,9 +78,9 @@ export default function MainPage() {
     localStorage.setItem('coursePlan', JSON.stringify(data));
     setIsLoading(true);
 
-
+    const apiUrl = process.env.REACT_APP_API_URL;
     // Send POST request to the API
-    fetch('http://localhost:8000/course/recommend', {
+    fetch(`${apiUrl}/course/recommend`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
