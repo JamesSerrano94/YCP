@@ -16,7 +16,7 @@ app = FastAPI()
 # Set CORS origins dynamically
 origins = [
     "http://localhost:3000",  # for local development
-    os.getenv("PRODUCTION_URL")  # for production, should be set in your .env file
+    "http://18.116.115.43"  # for production, should be set in your .env file
 ]
 
 # Add CORS middleware
