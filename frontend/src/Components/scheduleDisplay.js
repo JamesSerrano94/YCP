@@ -11,19 +11,38 @@ import { Link } from 'react-router-dom';
 
 const parseDays = (daysString) => {
     const days = [];
+    const dayMap = { M: 'Mon', T: 'Tue', W: 'Wed', Th: 'Thu', F: 'Fri' };
+    const dayOrder = ['M', 'T', 'W', 'Th', 'F'];
+
     while (daysString.length > 0) {
-        if (daysString.startsWith('Th')) {
-            days.push('Thu');
+        if (daysString.includes('-')) {
+            // Handle range like "M-F"
+            const [startDay, endDay] = daysString.split('-');
+            const startIndex = dayOrder.indexOf(startDay);
+            const endIndex = dayOrder.indexOf(endDay);
+
+            if (startIndex !== -1 && endIndex !== -1 && startIndex <= endIndex) {
+                // Add all days in the range
+                for (let i = startIndex; i <= endIndex; i++) {
+                    days.push(dayMap[dayOrder[i]]);
+                }
+            }
+            break; // Exit the loop since the entire range is processed
+        } else if (daysString.startsWith('Th')) {
+            // Handle "Th" separately for Thursday
+            days.push(dayMap['Th']);
             daysString = daysString.slice(2);
         } else {
+            // Handle individual days
             const char = daysString[0];
-            const dayMap = { M: 'Mon', T: 'Tue', W: 'Wed', F: 'Fri' };
             days.push(dayMap[char]);
             daysString = daysString.slice(1);
         }
     }
+
     return days;
 };
+
 
 
 const HtmlTooltip = styled(({ className, children, ...props }) => (
@@ -77,7 +96,7 @@ export const timeStringToMinutes = (timeString) => {
 
 
 const parseCourseTimes = (courses) => {
-    const timePattern = /^[MTWThF]+ \d{1,2}\.\d{2}[ap]?-?\d{1,2}\.\d{2}[ap]?$/;
+    const timePattern = /^[MTWThF]+(?:-[MTWThF]+)? \d{1,2}\.\d{2}[ap]?-?\d{1,2}\.\d{2}[ap]?$/;
     return courses.flatMap((course) => 
         course.time ? course.time.flatMap((timeString) => {
             if (!timePattern.test(timeString)) {
