@@ -74,7 +74,6 @@ export default function MainPage() {
         language: language,
       }
     };
-    console.log("Sending data:", JSON.stringify(data, null, 2));
     localStorage.setItem('coursePlan', JSON.stringify(data));
     setIsLoading(true);
 
@@ -94,7 +93,6 @@ export default function MainPage() {
         return response.json();
       })
       .then(responseData => {
-        console.log(responseData);
         navigate('/schedule', { state: { courses: responseData } });
       })
       .catch(error => {
@@ -289,6 +287,7 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <select id="earliest-start-time" value={earliestStartTime} onChange={(e) => setEarliestStartTime(e.target.value)}>
+                <option value="8:00 AM">8:00 AM</option>
                   <option value="9:00 AM">9:00 AM</option>
                   <option value="10:00 AM">10:00 AM</option>
                   <option value="11:00 AM">11:00 AM</option>

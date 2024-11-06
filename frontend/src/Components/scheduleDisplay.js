@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import './scheduleDisplay.css';
 import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
@@ -119,8 +119,8 @@ const parseCourseTimes = (courses) => {
     );
 };
 
-const earliestTime = 9 * 60; // 9 AM in minutes
-const latestTime = 21 * 60; // 9 PM in minutes
+const earliestTime = 8 * 60; // 9 AM in minutes
+const latestTime = 22 * 60; // 9 PM in minutes
 const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 
 const ScheduleDisplay = () => {
@@ -189,7 +189,9 @@ const ScheduleDisplay = () => {
                     return response.json();
                 })
                 .then(responseData => {
-                    const combinedRecommendations = [...responseData[0], ...responseData[1]];
+                    const combinedRecommendations = [
+                        ...new Set([...responseData[0], ...responseData[1], ...responseData[2]])
+                    ];
 
                     const newRecommendations = combinedRecommendations.filter(recCourse => {
                         return !calendarCourses.some(calCourse =>
