@@ -19,13 +19,13 @@ const AboutUs = () => {
       imgSrc: "/kien_linkedin_headshot.jpg",
     },
     {
-      name: "Xiatao Sun",
+      name: "Yangtian Zhang",
       role: "Backend Engineer",
-      intro: "I work on backend systems to ensure fast and reliable data services for course recommendations.",
-      imgSrc: "/bulldog.jpg",
+      intro: "I am a backend engineer specializing in the application of large language models to deliver personalized recommendations, optimizing user experiences through advanced AI-driven solutions.",
+      imgSrc: "/Yangtian.jpg",
     },
     {
-      name: "Yangtian Zhang",
+      name: "Xiatao Sun",
       role: "Backend Engineer",
       intro: "I work on backend systems to ensure fast and reliable data services for course recommendations.",
       imgSrc: "/bulldog.jpg",
