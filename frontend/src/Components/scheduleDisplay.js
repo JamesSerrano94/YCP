@@ -257,6 +257,11 @@ const ScheduleDisplay = () => {
                         </button>
                     </Link>
                 </div>
+                <div className="feedback">
+                    <Link to="https://docs.google.com/forms/d/e/1FAIpQLScyonigzkcblq3AOgAyFVAhEJ87NOuMpH9WN-I3yXpcTI2Zyg/viewform" target="_blank">
+                        Give us feedbacks!
+                    </Link>
+                </div>
 
                 <div className="calendar-header">
                     <div className="time-header"></div>

@@ -245,6 +245,31 @@
     cursor: pointer;
 }
 
+.feedback {
+    position: fixed;
+    top: 12px;
+    left: 100px;
+    background-color: #0073e6; /* Nice blue background */
+    color: #ffffff; /* White text color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    z-index: 1000; /* Keep it on top */
+}
+
+.feedback a {
+    color: #ffffff; /* Ensures link text color stays white */
+    text-decoration: none;
+}
+
+.feedback:hover {
+    background-color: #005bb5; /* Darker blue on hover */
+}
+
+
 
 
 
