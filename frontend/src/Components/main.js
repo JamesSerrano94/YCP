@@ -446,7 +446,7 @@ export default function MainPage() {
             </div>
             <div className="title-container">
               <div className="distributional-container">Tell us more about prior courses you've taken that count for your current major</div>
-              <div className="upload-container">
+              {/* <div className="upload-container">
                 <div className="upload-text">Upload your transcript PDF for automatic input of prior courses</div>
                 <label htmlFor="file-upload" className="custom-file-upload" style={{
                   backgroundColor: pdfFile ? "#2541b2" : "transparent",
@@ -456,7 +456,7 @@ export default function MainPage() {
                   {pdfFile ? "Transcript Uploaded" : "Transcript Upload"}
                 </label>
                 <input id="file-upload" type="file" onChange={handlePdfUpload} />
-              </div>
+              </div> */}
             </div>
             <textarea
               className="prior-courses"
