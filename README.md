@@ -22,6 +22,7 @@
 npm test
 ```
 - We have achieved 89.94% statement coverage for frontend code
+![Screenshot 2024-11-12 at 3 54 55 PM](https://github.com/user-attachments/assets/7ea26695-4941-46c3-b1cd-eca90a0bec1c)
 
 ## Back End Setup
 - Install Conda or Mamba
