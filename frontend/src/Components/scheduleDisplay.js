@@ -190,8 +190,12 @@ const ScheduleDisplay = () => {
                 })
                 .then(responseData => {
                     const combinedRecommendations = [
-                        ...new Set([...responseData[0], ...responseData[1], ...responseData[2]])
-                    ];
+                        ...new Set([
+                          ...(responseData[0] || []),
+                          ...(responseData[1] || []),
+                          ...(responseData[2] || []),
+                        ])
+                      ];                      
 
                     const newRecommendations = combinedRecommendations.filter(recCourse => {
                         return !calendarCourses.some(calCourse =>

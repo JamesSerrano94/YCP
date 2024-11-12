@@ -10,7 +10,7 @@ describe('AboutUs Component', () => {
         <AboutUs />
       </MemoryRouter>
     );
-
+ 
     // Verify the header and description text
     expect(screen.getByRole('heading', { name: /About Us/i })).toBeInTheDocument();
     expect(screen.getByText(/Yale CourseMap offers a personalized course planning tool/i)).toBeInTheDocument();

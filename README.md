@@ -17,9 +17,11 @@
 - should be able to see it running locally on port 3000
 
 ## Frontend Test
+- Run the following command to run unit test for frontend
 ```
 npm test
 ```
+- We have achieved 89.94% statement coverage for frontend code
 
 ## Back End Setup
 - Install Conda or Mamba

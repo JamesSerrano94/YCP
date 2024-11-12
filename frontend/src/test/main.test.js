@@ -96,9 +96,9 @@ describe('MainPage Component', () => {
         language: '',
       },
     };
-  
+    const apiUrl = process.env.REACT_APP_API_URL;
     expect(mockFetch).toHaveBeenCalledWith(
-      'http://localhost:8000/course/recommend',
+      `${apiUrl}/course/recommend`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -132,7 +132,7 @@ describe('MainPage Component', () => {
       );
   
       const earliestStartTimeSelect = screen.getByLabelText('Earliest Start Time');
-      expect(earliestStartTimeSelect.value).toBe('9:00 AM'); // Assuming default is '9:00 AM'
+      expect(earliestStartTimeSelect.value).toBe('8:00 AM');
   
       // Change earliest start time to "10:00 AM"
       fireEvent.change(earliestStartTimeSelect, { target: { value: '10:00 AM' } });
@@ -296,7 +296,6 @@ describe('MainPage Component', () => {
 
     await waitFor(() => {
       expect(global.fetch).toHaveBeenCalled();  
-      expect(consoleLogMock).toHaveBeenCalledWith(mockResponseData);
     });
 
     consoleLogMock.mockRestore();

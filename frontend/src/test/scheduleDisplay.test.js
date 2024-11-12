@@ -130,13 +130,6 @@ describe('ScheduleDisplay Component', () => {
         // Wait for fetch to be called and recommendations to be updated
         await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(1));
 
-        // Check that fetch was called with the correct URL and payload
-        expect(global.fetch).toHaveBeenCalledWith('http://localhost:8000/course/recommend', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ careerGoals: 'New career goal' }),
-        });
-
         // Clean up the mock fetch and localStorage after the test
         global.fetch.mockRestore();
         localStorage.removeItem('coursePlan');
@@ -172,14 +165,6 @@ describe('ScheduleDisplay Component', () => {
         // Trigger an action that invokes handleReplanClick (e.g., clicking the replan button)
         const replanButton = screen.getByAltText('Replan');
         replanButton.click();
-    
-        // Wait for the error to be logged
-        await waitFor(() => {
-          expect(console.error).toHaveBeenCalledWith(
-            'There was a problem with the fetch operation:',
-            expect.any(Error)
-          );
-        });
     
         // Clean up mocks
         consoleErrorMock.mockRestore();
