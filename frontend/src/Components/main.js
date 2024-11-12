@@ -33,7 +33,6 @@ export default function MainPage() {
     const file = e.target.files[0];
     if (file && file.type === "application/pdf") {
       setPdfFile(file);
-      alert("Transcript PDF uploaded!");
     }
     else {
       setPdfFile(null);
