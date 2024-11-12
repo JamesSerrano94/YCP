@@ -1,5 +1,5 @@
 # Yale Career Pathway Planner
-## Welcome to Yale CourseMap
+## Welcome to Yale CourseMap, see our project at https://yalecoursemap.com/
 
 ![Screenshot 2024-09-21 at 5 24 31 PM](https://github.com/user-attachments/assets/7510d73a-5369-4729-8729-0334b69e289a)
 
