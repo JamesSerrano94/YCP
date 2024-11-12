@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import './main.css';
 import './courseMap.css';
 import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 
@@ -28,6 +27,19 @@ export default function MainPage() {
   const [writing, setWriting] = useState(0);
   const [language, setLanguage] = useState('');
   const [priorCourses, setPriorCourses] = useState('');
+  const [pdfFile, setPdfFile] = useState(null);
+
+  const handlePdfUpload = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type === "application/pdf") {
+      setPdfFile(file);
+      alert("Transcript PDF uploaded!");
+    }
+    else {
+      setPdfFile(null);
+      alert("Please upload a valid PDF file");
+    }
+  }
 
   const HtmlTooltip = styled(({ className, children, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} arrow>
@@ -287,7 +299,7 @@ export default function MainPage() {
             <div className="form-row">
               <div className="form-group">
                 <select id="earliest-start-time" value={earliestStartTime} onChange={(e) => setEarliestStartTime(e.target.value)}>
-                <option value="8:00 AM">8:00 AM</option>
+                  <option value="8:00 AM">8:00 AM</option>
                   <option value="9:00 AM">9:00 AM</option>
                   <option value="10:00 AM">10:00 AM</option>
                   <option value="11:00 AM">11:00 AM</option>
@@ -335,18 +347,18 @@ export default function MainPage() {
                   </React.Fragment>
                 }
               >
-    <img
-      src="/alert-circle.svg" // Path from the public folder
-      alt="Info icon"
-      style={{
-        color: 'red',
-        marginLeft: 8,
-        width: 20,
-        height: 20,
-        cursor: 'pointer',
-        transform: 'translateY(3px)' // Adjust vertical alignment
-      }}
-    />
+                <img
+                  src="/alert-circle.svg" // Path from the public folder
+                  alt="Info icon"
+                  style={{
+                    color: 'red',
+                    marginLeft: 8,
+                    width: 20,
+                    height: 20,
+                    cursor: 'pointer',
+                    transform: 'translateY(3px)' // Adjust vertical alignment
+                  }}
+                />
               </HtmlTooltip>
             </div>
 
@@ -433,7 +445,20 @@ export default function MainPage() {
                 />
               </div>
             </div>
-            <h2>Tell us more about prior courses you've taken that count for your current major</h2>
+            <div className="title-container">
+              <div className="distributional-container">Tell us more about prior courses you've taken that count for your current major</div>
+              <div className="upload-container">
+                <div className="upload-text">Upload your transcript PDF for automatic input of prior courses</div>
+                <label htmlFor="file-upload" className="custom-file-upload" style={{
+                  backgroundColor: pdfFile ? "#2541b2" : "transparent",
+                  color: pdfFile ? "#fff" : "#1e3a8a",
+                  border: pdfFile ? "none" : "2px solid #1e3a8a",
+                }}>
+                  {pdfFile ? "Transcript Uploaded" : "Transcript Upload"}
+                </label>
+                <input id="file-upload" type="file" onChange={handlePdfUpload} />
+              </div>
+            </div>
             <textarea
               className="prior-courses"
               placeholder="e.g. MATH 225, CPSC 201, CPSC 223, CPSC 323"

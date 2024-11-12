@@ -257,5 +257,53 @@ body, html {
     filter: blur(2px);
     pointer-events: none;
   }
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .distributional-container {
+    font-size: 24px;
+    color: #1e3a8a;
+    margin-top:20px;
+    font-weight: bold;
+    margin-bottom:10px;
+  }
+
+  .upload-text {
+    font-size: 16px;
+    color: #E5446D;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .upload-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+  
+  .custom-file-upload {
+    width: 160px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 10px;
+    font-size: 14px;
+    color:  #1e3a8a;
+    border: 2px solid #1e3a8a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
   
   
