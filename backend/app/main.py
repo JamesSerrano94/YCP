@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import uvicorn
 import os
 from backend.app.routers import course
+from backend.app.routers import login
 from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
@@ -19,6 +20,10 @@ origins = [
     "http://18.116.115.43"  # for production, should be set in your .env file
 ]
 
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the application!"}
+
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -29,7 +34,11 @@ app.add_middleware(
 )
 
 app.include_router(course.router)
+app.include_router(login.router)
 
+# Get IP from HOST and PORT in .env
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    host = os.getenv("HOST")
+    port = os.getenv("PORT")
+    uvicorn.run(app, host=host, port=port)

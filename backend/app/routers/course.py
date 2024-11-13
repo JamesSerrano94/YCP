@@ -7,7 +7,7 @@ from typing import List
 import pandas as pd
 import ast
 import requests
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from backend.app.routers.cached_course_loader import load_cached_courses
 from backend.app.services import search_and_filter
 from backend.app.services.cos_sim_filter import CosSimFilter
@@ -16,6 +16,8 @@ from backend.app.models.course import FulfilledRequirements
 from backend.app.models.course import SchedulePreferences
 from backend.app.configs.api_keys import APIKeysConfig
 from backend.app.services.llm_recommender import LLMRecommender
+from backend.app.routers.login import require_auth
+from backend.app.models.login import User
 from dotenv import load_dotenv
 
 router = APIRouter(
@@ -24,7 +26,9 @@ router = APIRouter(
 )
 
 @router.post("/recommend")
-async def recommend(request: CourseRecommendationRequest):
+async def recommend(request: CourseRecommendationRequest,
+                    current_user: User = Depends(require_auth)):
+    print("Current user is: ", current_user.net_id)
     # To test, use the following curl command:
     """
     curl -X POST "http://localhost:8000/course/recommend" \
