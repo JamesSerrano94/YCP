@@ -41,9 +41,9 @@ npm test
   ```
 
 ## Backend Test
-```
-pytest
-```
+- Run the backend test with ``pytest``
+- We have implemented unit tests for all backend functionalities and passes all tests
+![backend_img](backend/tests/backend_test.png)
 
 ## Current Pipeline
 - Offline: Precompute word embeddings for all courses offline
