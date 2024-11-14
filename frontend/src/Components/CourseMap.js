@@ -1,0 +1,373 @@
+// CourseMap.js
+import React from 'react';
+import { styled } from '@mui/material/styles';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
+import Typography from '@mui/material/Typography';
+
+function CourseMap(props) {
+  const {
+    courseMapRef,
+    major,
+    setMajor,
+    semester,
+    setSemester,
+    earliestStartTime,
+    setEarliestStartTime,
+    latestEndTime,
+    setLatestEndTime,
+    careerGoals,
+    setCareerGoals,
+    humanities,
+    setHumanities,
+    sciences,
+    setSciences,
+    social,
+    setSocial,
+    qr,
+    setQr,
+    writing,
+    setWriting,
+    language,
+    setLanguage,
+    priorCourses,
+    setPriorCourses,
+    handlePdfUpload,
+    pdfFile,
+    handlePlanClick,
+  } = props;
+
+  const HtmlTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} arrow>
+      {props.children}
+    </Tooltip>
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: '#ffffff',
+      color: '#333333',
+      maxWidth: 500,
+      border: '1px solid #dadde9',
+      boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.2)',
+      padding: '10px',
+    },
+    [`& .${tooltipClasses.arrow}`]: {
+      color: '#ffffff',
+    },
+  }));
+
+  return (
+    <div ref={courseMapRef} className="container">
+      <main className="main-content">
+        <div className="left-panel">
+          <h2>Information</h2>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="major">Major</label>
+            </div>
+            <div className="form-group">
+              <label htmlFor="semester">Semester</label>
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <select id="major" value={major} onChange={(e) => setMajor(e.target.value)}>
+                <option value="African American Studies">African American Studies</option>
+                <option value="African Studies">African Studies</option>
+                <option value="American Studies">American Studies</option>
+                <option value="Anthropology">Anthropology</option>
+                <option value="Applied Mathematics">Applied Mathematics</option>
+                <option value="Applied Physics">Applied Physics</option>
+                <option value="Archaeological Studies">Archaeological Studies</option>
+                <option value="Architecture">Architecture</option>
+                <option value="Art">Art</option>
+                <option value="Astronomy">Astronomy</option>
+                <option value="Astrophysics">Astrophysics</option>
+                <option value="Biomedical Engineering">Biomedical Engineering</option>
+                <option value="Chemical Engineering">Chemical Engineering</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Classical Civilization">Classical Civilization</option>
+                <option value="Classics">Classics</option>
+                <option value="Cognitive Science">Cognitive Science</option>
+                <option value="Comparative Literature">Comparative Literature</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Computer Science and Economics">Computer Science and Economics</option>
+                <option value="Computer Science and Mathematics">Computer Science and Mathematics</option>
+                <option value="Computer Science and Psychology">Computer Science and Psychology</option>
+                <option value="Computing and Linguistics">Computing and Linguistics</option>
+                <option value="Computing and the Arts">Computing and the Arts</option>
+                <option value="Earth and Planetary Sciences">Earth and Planetary Sciences</option>
+                <option value="East Asian Languages and Literatures">East Asian Languages and Literatures</option>
+                <option value="East Asian Studies">East Asian Studies</option>
+                <option value="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</option>
+                <option value="Economics">Economics</option>
+                <option value="Economics and Mathematics">Economics and Mathematics</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Electrical Engineering and Computer Science">Electrical Engineering and Computer Science</option>
+                <option value="Engineering Sciences">Engineering Sciences</option>
+                <option value="English">English</option>
+                <option value="Environmental Engineering">Environmental Engineering</option>
+                <option value="Environmental Studies">Environmental Studies</option>
+                <option value="Ethics, Politics, and Economics">Ethics, Politics, and Economics</option>
+                <option value="Ethnicity, Race, and Migration">Ethnicity, Race, and Migration</option>
+                <option value="Film and Media Studies">Film and Media Studies</option>
+                <option value="French">French</option>
+                <option value="German Studies">German Studies</option>
+                <option value="Global Affairs">Global Affairs</option>
+                <option value="Greek">Greek</option>
+                <option value="History">History</option>
+                <option value="History of Art">History of Art</option>
+                <option value="History of Science, Medicine, and Public Health">History of Science, Medicine, and Public Health</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Italian Studies">Italian Studies</option>
+                <option value="Jewish Studies">Jewish Studies</option>
+                <option value="Latin American Studies">Latin American Studies</option>
+                <option value="Linguistics">Linguistics</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Mathematics and Philosophy">Mathematics and Philosophy</option>
+                <option value="Mathematics and Physics">Mathematics and Physics</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Modern Middle East Studies">Modern Middle East Studies</option>
+                <option value="Molecular Biophysics and Biochemistry">Molecular Biophysics and Biochemistry</option>
+                <option value="Molecular, Cellular, and Developmental Biology">Molecular, Cellular, and Developmental Biology</option>
+                <option value="Music">Music</option>
+                <option value="Near Eastern Languages and Civilizations">Near Eastern Languages and Civilizations</option>
+                <option value="Neuroscience">Neuroscience</option>
+                <option value="Philosophy">Philosophy</option>
+                <option value="Physics">Physics</option>
+                <option value="Physics and Geosciences">Physics and Geosciences</option>
+                <option value="Physics and Philosophy">Physics and Philosophy</option>
+                <option value="Political Science">Political Science</option>
+                <option value="Portuguese">Portuguese</option>
+                <option value="Psychology">Psychology</option>
+                <option value="Religious Studies">Religious Studies</option>
+                <option value="Russian">Russian</option>
+                <option value="Russian, East European, and Eurasian Studies">Russian, East European, and Eurasian Studies</option>
+                <option value="Sociology">Sociology</option>
+                <option value="South Asian Studies">South Asian Studies</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Special Divisional Major">Special Divisional Major</option>
+                <option value="Statistics and Data Science">Statistics and Data Science</option>
+                <option value="Theater, Dance, and Performance Studies">Theater, Dance, and Performance Studies</option>
+                <option value="Urban Studies">Urban Studies</option>
+                <option value="Women’s, Gender, and Sexuality Studies">Women’s, Gender, and Sexuality Studies</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <select id="semester" value={semester} onChange={(e) => setSemester(e.target.value)}>
+                <option value="Fall 2024">Fall 2024</option>
+                <option value="Spring 2025">Spring 2025</option>
+              </select>
+            </div>
+          </div>
+
+          <h2>Course Schedule Preferences</h2>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="earliest-start-time">Earliest Start Time</label>
+            </div>
+            <div className="form-group">
+              <label htmlFor="latest-end-time">Latest End Time</label>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <select
+                id="earliest-start-time"
+                value={earliestStartTime}
+                onChange={(e) => setEarliestStartTime(e.target.value)}
+              >
+                <option value="8:00 AM">8:00 AM</option>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+              </select>
+            </div>
+            <div className="form-group">
+              <select
+                id="latest-end-time"
+                value={latestEndTime}
+                onChange={(e) => setLatestEndTime(e.target.value)}
+              >
+                <option value="5:00 PM">5:00 PM</option>
+                <option value="6:00 PM">6:00 PM</option>
+                <option value="7:00 PM">7:00 PM</option>
+                <option value="8:00 PM">8:00 PM</option>
+              </select>
+            </div>
+          </div>
+
+          <h2>Tell us more about your interests and career goals:</h2>
+          <textarea
+            className="career-goals"
+            placeholder="e.g. I want to be a game developer..."
+            required
+            value={careerGoals}
+            onChange={(e) => setCareerGoals(e.target.value)}
+          ></textarea>
+        </div>
+
+        <div className="image-container">
+          <img src="divider.svg" alt="form divider" />
+        </div>
+
+        <div className="right-panel">
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <h2>Distributional Requirements For This Semester</h2>
+            <HtmlTooltip
+              title={
+                <React.Fragment>
+                  <Typography color="inherit">
+                    <strong>Instructions:</strong>
+                    <br />
+                    1. Distributional Requirements apply to undergraduates only; graduate students can ignore this field.
+                    <br />
+                    2. Enter the number of distributional courses you want to take in each category (integer values only).
+                    For example, if you want to take 3 Humanities courses, enter "3".
+                    <br />
+                    3. For language, specify the language type and proficiency level (text only).
+                  </Typography>
+                </React.Fragment>
+              }
+            >
+              <img
+                src="/alert-circle.svg"
+                alt="Info icon"
+                style={{
+                  color: 'red',
+                  marginLeft: 8,
+                  width: 20,
+                  height: 20,
+                  cursor: 'pointer',
+                  transform: 'translateY(3px)',
+                }}
+              />
+            </HtmlTooltip>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="humanities">Humanities</label>
+            </div>
+            <div className="form-group">
+              <label htmlFor="sciences">Sciences</label>
+            </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <input
+                type="number"
+                id="humanities"
+                value={humanities}
+                onChange={(e) => setHumanities(Number(e.target.value))}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="number"
+                id="sciences"
+                value={sciences}
+                onChange={(e) => setSciences(Number(e.target.value))}
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="social">Social</label>
+            </div>
+            <div className="form-group">
+              <label htmlFor="qr">QR</label>
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <input
+                type="number"
+                id="social"
+                value={social}
+                onChange={(e) => setSocial(Number(e.target.value))}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="number"
+                id="qr"
+                value={qr}
+                onChange={(e) => setQr(Number(e.target.value))}
+              />
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="writing">Writing</label>
+            </div>
+            <div className="form-group">
+              <label htmlFor="language">Language</label>
+            </div>
+          </div>
+
+          <div className="form-row">
+            <div className="form-group">
+              <input
+                type="number"
+                id="writing"
+                value={writing}
+                onChange={(e) => setWriting(Number(e.target.value))}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                id="language"
+                placeholder="e.g. L3 SPAN"
+                value={language}
+                onChange={(e) => setLanguage(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="title-container">
+            <div className="distributional-container">
+              Tell us more about prior courses you've taken that count for your current major
+            </div>
+          </div>
+          <textarea
+            className="prior-courses"
+            placeholder="e.g. MATH 225, CPSC 201, CPSC 223, CPSC 323"
+            value={priorCourses}
+            onChange={(e) => setPriorCourses(e.target.value)}
+          ></textarea>
+
+          {/* Uncomment the following block if you want to include PDF upload functionality */}
+          {/* 
+          <div className="upload-container">
+            <div className="upload-text">Upload your transcript PDF for automatic input of prior courses</div>
+            <label
+              htmlFor="file-upload"
+              className="custom-file-upload"
+              style={{
+                backgroundColor: pdfFile ? "#2541b2" : "transparent",
+                color: pdfFile ? "#fff" : "#1e3a8a",
+                border: pdfFile ? "none" : "2px solid #1e3a8a",
+              }}
+            >
+              {pdfFile ? "Transcript Uploaded" : "Transcript Upload"}
+            </label>
+            <input id="file-upload" type="file" onChange={handlePdfUpload} />
+          </div>
+          */}
+
+          <div className="plan-button-container">
+            <button className="plan-button" onClick={handlePlanClick}>
+              Plan
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+export default CourseMap;

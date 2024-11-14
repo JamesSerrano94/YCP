@@ -6,6 +6,11 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from urllib.parse import urlencode
 import logging
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 from ..models.login import User, CASConfig
 
@@ -96,7 +101,8 @@ async def cas_auth(
     logger.debug(f"Created session for user {user.net_id} with session_id {session_id}")
 
     # Create the RedirectResponse
-    redirect_response = RedirectResponse(url="/")
+    frontend_url = os.getenv("FRONTEND_URL")
+    redirect_response = RedirectResponse(url=frontend_url)
     # Set session cookie on the RedirectResponse
     redirect_response.set_cookie(
         key="session_id",

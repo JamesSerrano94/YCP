@@ -1418,7 +1418,7 @@
         "courseNumber": "484",
         "courseTitle": "Musical Pan-Africanisms",
         "crn": "12495",
-        "department": "MUSI",
+        "department": "AFST",
         "description": "This seminar surveys the musical conversation that has circulated around the \u201cBlack Atlantic\u201d cultural sphere (sub-Saharan Africa, Afro-America, the Afro-Caribbean, and Latin America) for most of the twentieth century, facilitated by the advent of sound recording and broadcast technologies at the beginning of the twentieth century, and articulated through discourses of black cultural connection and concrete histories of trans-Atlantic encounter. Many \u2013though not all\u2013 of the readings focus on the decades immediately following World War II, when \u201cPan-Africanism\u201d was an explicit and prominent political discourse. Others address earlier or later examples when the idea of cross-cultural connection was more implicit but equally influential. We trace the unfolding of this conversation through a variety of sources: scholarly, personal (i.e. biographies/autobiographies), journalistic, and, of course, sonic.",
         "distDesg": [
             "YCHU",
@@ -1440,11 +1440,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "MUSI485",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "MUSI485",
             "AFAM277"
         ],
         "sectionNumber": "01",
@@ -1508,7 +1507,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "22",
         "instructorList": [
             "Helen Yitah"
         ],
@@ -1524,12 +1523,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.</p>",
-        "primXLst": null,
+        "primXLst": "LITR001",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "LITR001"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
@@ -5695,11 +5692,11 @@
         "meetingEndTimeList": [],
         "meetingPattern": [
             "T 1.30-3.20",
-            "1 HTBA HLH51 101"
+            "1 HTBA ESC 100"
         ],
         "meetingPatternLocation": [
-            "HLH51 101",
-            "1 HTBA HLH51 101"
+            "ESC 100",
+            "1 HTBA ESC 100"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -6036,8 +6033,7 @@
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "ARCG645",
-            "NELC743"
+            "ARCG645"
         ],
         "sectionNumber": "01",
         "sectionStatus": "A",
@@ -6547,6 +6543,7 @@
         "description": "A seminar and workshop in the craft of nonfiction writing as pertains to a given subcategory or genre. Each section focuses on a different form of nonfiction writing and explores its distinctive features through a variety of written and oral assignments. Students read key texts as models and analyze their compositional strategies. They then practice the fundamentals of nonfiction in writing and revising their own essays. Section topics, which change yearly, are listed at the beginning of each term on the English department website. This course may be repeated for credit in a section that treats a different genre or style of writing; ENGL 121 and ENGL 421 may not be taken for credit on the same topic.",
         "distDesg": [
             "YCHU",
+            "YCWR",
             "YENW"
         ],
         "finalExam": "0",
@@ -8510,7 +8507,7 @@
         "shortTitle": "ComputatnlMethods:Astrophysics",
         "subjectCode": "ASTR",
         "subjectNumber": "ASTR420",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/98096/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -8647,7 +8644,7 @@
         "distDesg": [
             "YCSC"
         ],
-        "finalExam": "26",
+        "finalExam": "0",
         "instructorList": [
             "Meg Urry"
         ],
@@ -10330,7 +10327,7 @@
         "distDesg": [
             "YCSC"
         ],
-        "finalExam": "50",
+        "finalExam": "36",
         "instructorList": [
             "Paul Cooper"
         ],
@@ -10542,12 +10539,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisites: Two terms of organic chemistry and two terms of physical chemistry or related courses or permission of the instructor.</p>",
-        "primXLst": null,
+        "primXLst": "CHEM516",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "CHEM516"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
@@ -10583,19 +10578,17 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisites: CHEM 416 and two terms of introductory organic chemistry, and two terms of physical chemistry. Permission of the instructor may be sought for potential exceptions.</p>",
-        "primXLst": null,
+        "primXLst": "CHEM517",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "CHEM517"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
         "shortTitle": "Organic Kinetics and Thermo",
         "subjectCode": "CHEM",
         "subjectNumber": "CHEM417",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99786/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -10624,12 +10617,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisites: Two terms of both General Chemistry I and II (CHEM 161/165 and/or CHEM 163/167) as well as Organic Chemistry (CHEM 174/175 and/or CHEM 220/221).</p>",
-        "primXLst": null,
+        "primXLst": "CHEM519",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "CHEM519"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
@@ -10665,19 +10656,17 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\"><strong>PREREQUISITES: </strong>Two semesters of undergraduate organic chemistry (CHEM 174/175 and/or CHEM 220/221). A basic understanding of biochemistry and molecular biology is also assumed, but you can \u201ccatch up\u201d by carefully and thoroughly reading the course materials and recommended books.</p>",
-        "primXLst": null,
+        "primXLst": "CHEM521",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "CHEM521"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
         "shortTitle": "Protein Design & Catalysis",
         "subjectCode": "CHEM",
         "subjectNumber": "CHEM421",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99790/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -10716,7 +10705,7 @@
         "shortTitle": "Chemical Biol Drug Discovery",
         "subjectCode": "CHEM",
         "subjectNumber": "CHEM424",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99791/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -10911,7 +10900,7 @@
         "shortTitle": "Intro to Stat Mech I",
         "subjectCode": "CHEM",
         "subjectNumber": "CHEM472",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99796/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -10950,7 +10939,7 @@
         "shortTitle": "Intro to Stat Mech 2",
         "subjectCode": "CHEM",
         "subjectNumber": "CHEM473",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99797/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -12852,7 +12841,7 @@
             "YCHU",
             "YCWR"
         ],
-        "finalExam": "50",
+        "finalExam": "24",
         "instructorList": [
             "Tim Clarke"
         ],
@@ -12915,8 +12904,7 @@
         "scndXLst": [
             "HUMS129",
             "NELC158",
-            "HIST159",
-            "RLST649"
+            "HIST159"
         ],
         "sectionNumber": "01",
         "sectionStatus": "A",
@@ -12951,7 +12939,7 @@
             "TTh 1.00-2.15"
         ],
         "meetingPatternLocation": [
-            "WLH 003"
+            "HQ 229"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Enrollment is limited to first-year students.</p>",
@@ -13108,7 +13096,7 @@
             "TTh 2.30-3.45"
         ],
         "meetingPatternLocation": [
-            "YK220 002"
+            "SML 323"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -13155,11 +13143,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "MGRK216",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "MGRK216",
             "WGSS209",
             "LITR239"
         ],
@@ -14642,11 +14629,9 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Marta Figlerowicz"
         ],
         "instructorUPI": [
-            "15877274",
             "14914071"
         ],
         "meetingEndTimeList": [],
@@ -14686,11 +14671,9 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Greg Ellermann"
         ],
         "instructorUPI": [
-            "15877274",
             "17382687"
         ],
         "meetingEndTimeList": [],
@@ -14730,11 +14713,9 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Stefanie Markovits"
         ],
         "instructorUPI": [
-            "15877274",
             "10435166"
         ],
         "meetingEndTimeList": [],
@@ -14774,11 +14755,9 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Michal Beth Dinkler"
         ],
         "instructorUPI": [
-            "15877274",
             "15168391"
         ],
         "meetingEndTimeList": [],
@@ -14818,11 +14797,9 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Riley Soles"
         ],
         "instructorUPI": [
-            "15877274",
             "13756609"
         ],
         "meetingEndTimeList": [],
@@ -14832,7 +14809,7 @@
         ],
         "meetingPatternLocation": [
             "HQ L02",
-            "WALL82 103"
+            "PH 207"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -14862,11 +14839,9 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Thomas Phillips"
         ],
         "instructorUPI": [
-            "15877274",
             "25432080"
         ],
         "meetingEndTimeList": [],
@@ -14906,11 +14881,9 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Benedek Kruchio"
         ],
         "instructorUPI": [
-            "15877274",
             "25292119"
         ],
         "meetingEndTimeList": [],
@@ -14950,21 +14923,19 @@
         ],
         "finalExam": "63",
         "instructorList": [
-            "Katja Lindskog",
             "Marijeta Bozovic"
         ],
         "instructorUPI": [
-            "15877274",
             "14833661"
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "W 11.35-12.25",
-            "TTh 11.35-12.50"
+            "TTh 11.35-12.50",
+            "W 11.35-12.25"
         ],
         "meetingPatternLocation": [
-            "HQ L02",
-            "WLH 210"
+            "WLH 210",
+            "HQ L02"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -14995,11 +14966,9 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Volker Leppin"
         ],
         "instructorUPI": [
-            "15877274",
             "24664122"
         ],
         "meetingEndTimeList": [],
@@ -15040,11 +15009,9 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Isabelle Chouinard"
         ],
         "instructorUPI": [
-            "15877274",
             "24733023"
         ],
         "meetingEndTimeList": [],
@@ -15085,21 +15052,19 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Brad Inwood"
         ],
         "instructorUPI": [
-            "15877274",
             "15300719"
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "F 11.35-12.25",
-            "TTh 1.00-2.15"
+            "TTh 1.00-2.15",
+            "F 11.35-12.25"
         ],
         "meetingPatternLocation": [
-            "HQ L02",
-            "WALL81 401"
+            "WALL81 401",
+            "HQ L02"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -15130,11 +15095,9 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Netta Sovinsky"
         ],
         "instructorUPI": [
-            "15877274",
             "17261579"
         ],
         "meetingEndTimeList": [],
@@ -15175,11 +15138,9 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Verity Harte"
         ],
         "instructorUPI": [
-            "15877274",
             "12218313"
         ],
         "meetingEndTimeList": [],
@@ -15220,21 +15181,19 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Malina Buturovic"
         ],
         "instructorUPI": [
-            "15877274",
             "14387547"
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "F 11.35-12.25",
-            "TTh 2.30-3.45"
+            "TTh 2.30-3.45",
+            "F 11.35-12.25"
         ],
         "meetingPatternLocation": [
-            "HQ L02",
-            "WALL81 401"
+            "WALL81 401",
+            "HQ L02"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -15265,11 +15224,9 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Paul Grimstad"
         ],
         "instructorUPI": [
-            "15877274",
             "12506684"
         ],
         "meetingEndTimeList": [],
@@ -15310,11 +15267,9 @@
         ],
         "finalExam": "24",
         "instructorList": [
-            "Katja Lindskog",
             "Michael Della Rocca"
         ],
         "instructorUPI": [
-            "15877274",
             "10257244"
         ],
         "meetingEndTimeList": [],
@@ -15355,11 +15310,9 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Steven Smith"
         ],
         "instructorUPI": [
-            "15877274",
             "10421719"
         ],
         "meetingEndTimeList": [],
@@ -15400,21 +15353,19 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Maria Doerfler"
         ],
         "instructorUPI": [
-            "15877274",
             "17104669"
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "M 11.35-12.25",
-            "MW 1.00-2.15"
+            "MW 1.00-2.15",
+            "M 11.35-12.25"
         ],
         "meetingPatternLocation": [
-            "HQ L02",
-            "HQ 213"
+            "HQ 213",
+            "HQ L02"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -15445,21 +15396,19 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Stuart Semmel"
         ],
         "instructorUPI": [
-            "15877274",
             "12734790"
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "M 11.35-12.25",
-            "TTh 1.00-2.15"
+            "TTh 1.00-2.15",
+            "M 11.35-12.25"
         ],
         "meetingPatternLocation": [
-            "HQ L02",
-            "HQ C03"
+            "HQ C03",
+            "HQ L02"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -15490,21 +15439,19 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Isaac Nakhimovsky"
         ],
         "instructorUPI": [
-            "15877274",
             "14814621"
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "M 11.35-12.25",
-            "TTh 1.00-2.15"
+            "TTh 1.00-2.15",
+            "M 11.35-12.25"
         ],
         "meetingPatternLocation": [
-            "HQ L02",
-            "WALL81 101"
+            "WALL81 101",
+            "HQ L02"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -15535,11 +15482,9 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Heather Wilford"
         ],
         "instructorUPI": [
-            "15877274",
             "24376533"
         ],
         "meetingEndTimeList": [],
@@ -15580,21 +15525,19 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Daniel Schillinger"
         ],
         "instructorUPI": [
-            "15877274",
             "24365058"
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "M 11.35-12.25",
-            "TTh 2.30-3.45"
+            "TTh 2.30-3.45",
+            "M 11.35-12.25"
         ],
         "meetingPatternLocation": [
-            "HQ L02",
-            "HQ C03"
+            "HQ C03",
+            "HQ L02"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -15625,11 +15568,9 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Paul Freedman"
         ],
         "instructorUPI": [
-            "15877274",
             "10278035"
         ],
         "meetingEndTimeList": [],
@@ -15670,11 +15611,9 @@
         ],
         "finalExam": "34",
         "instructorList": [
-            "Katja Lindskog",
             "Timothy Kreiner"
         ],
         "instructorUPI": [
-            "15877274",
             "15403416"
         ],
         "meetingEndTimeList": [],
@@ -16541,7 +16480,7 @@
         "shortTitle": "AdvancedReadings:ModChineseLit",
         "subjectCode": "EALL",
         "subjectNumber": "EALL351",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/98190/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -16681,7 +16620,7 @@
         "courseTitle": "Sinological Methods",
         "crn": "14231",
         "department": "EALL",
-        "description": "A research course in Chinese studies,\u00a0designed for students with background in modern and literary Chinese. Explore and evaluate the wealth of primary sources and research tools available in China and in the West. For native speakers of Chinese, introduction to the secondary literature in English and instruction in writing professionally in English on topics about China. Topics include Chinese bibliographies; bibliophiles\u2019 notes; specialized dictionaries; maps and geographical gazetteers; textual editions, variations and reliability of texts; genealogies and biographical sources; archaeological and visual materials; and major Chinese encyclopedias, compendia, and databases.",
+        "description": "A research course designed for graduate and advanced undergraduate students working on early, imperial or modern China in preparation for their theses. Students use their own research topic as a focus to explore and utilize the wealth of primary sources and tools available in China, Japan, and the West. As a group, we learn about the history of Chinese book collecting, classification of knowledge, the compilation of the encyclopedia\u00a0Gujin tushu jicheng\u00a0and the canon\u00a0Siku quanshu, as well as the darker aspects of censorship from ancient\u00a0times to the present. For native speakers of Chinese, the course includes secondary literature in English and instruction in professional writing in English about China. Other topics include Chinese bibliographies, bibliophiles\u2019 notes, specialized dictionaries, maps and geographical gazetteers, textual editions, genealogies and biographical sources, archaeological and visual materials, major Chinese encyclopedias, compendia, and databases, and\u00a0evaluating variations and reliability,\u00a0The course is supplemented by materials from the Beinecke rare books collection.",
         "distDesg": [
             "YCHU"
         ],
@@ -16693,11 +16632,10 @@
         "meetingPatternLocation": [],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: CHNS 171 or equivalent. Formerly CHNS 202.&#160;</p>",
-        "primXLst": null,
+        "primXLst": "EALL600",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "EALL600",
             "EAST640",
             "EAST340"
         ],
@@ -16732,7 +16670,7 @@
             "F 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "HQ C05"
+            "HQ 401"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -16860,7 +16798,7 @@
             "TTh 1.00-2.15"
         ],
         "meetingPatternLocation": [
-            "SML 207"
+            "HQ C07"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -16961,6 +16899,45 @@
         "subjectCode": "EALL",
         "subjectNumber": "EALL203",
         "syllabusLink": "https://yale.instructure.com/courses/101429/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "353",
+        "courseTitle": "Studies in Korean Popular Culture",
+        "crn": "16932",
+        "department": "EALL",
+        "description": "This advanced undergraduate seminar examines the dissemination, visibility, and prominence of Korean popular culture within and outside its national borders. We spend time exploring a wide variety of cultural forms such as music, film, television, fashion, performance, and new media from the early twentieth century to the present-day moment, focusing our attention on the following questions: How did Korean cultural values and historical experiences shape the content, style, and aesthetics of contemporary Korean popular culture? What is the ideological, economic, and socio-political function of popular culture in South Korea today? What makes Korean popular culture attractive to a global audience who are not necessarily familiar with the Korean language and culture? In answering these questions, we examine Korean popular culture against major historical events that took place in Korea over the twentieth century such as Japanese occupation and the Korean War, as well as the military dictatorships, democratization, and neoliberalization of South Korea.\u00a0On top of conventional research writing assignments, students are also expected to produce creative essays reflecting on their own relationship with Korean popular culture and present them in class.",
+        "distDesg": [
+            "YCHU"
+        ],
+        "finalExam": "0",
+        "instructorList": [
+            "Kyunghee Eo"
+        ],
+        "instructorUPI": [
+            "25123768"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "M 3.30-5.20"
+        ],
+        "meetingPatternLocation": [
+            ""
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">Students are not expected to be deeply familiar with Korean history, but some level of familiarity with Korean culture and language is helpful.&#160;</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Korean Popular Culure",
+        "subjectCode": "EALL",
+        "subjectNumber": "EALL353",
+        "syllabusLink": null,
         "termCode": "202403"
     },
     {
@@ -19506,7 +19483,7 @@
             "MW 9.00-10.15"
         ],
         "meetingPatternLocation": [
-            "CO100 180A"
+            "HLH17 101"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: PSYC 110.</p>",
@@ -19703,7 +19680,7 @@
         "distDesg": [
             "YCSO"
         ],
-        "finalExam": "0",
+        "finalExam": "26",
         "instructorList": [
             "Eleanor Schiff"
         ],
@@ -19739,7 +19716,7 @@
         "courseNumber": "361",
         "courseTitle": "Production Seminar: Theater in Education",
         "crn": "11609",
-        "department": "THST",
+        "department": "EDST",
         "description": "Centering on the creation of a new production of Aurand Harris's\u00a0Arkansaw Bear, this studio course will explore foundational Theatre in Education (TIE) theories and methods to bring performance and enrichment materials to New Haven area school children. Open to all majors, with opportunities for students to engage as performers (actors, acrobats, musicians) and designers, and to explore dramaturgy and production logistics through a small-scale educational tour, in conversation with regional leaders in the field.",
         "distDesg": [
             "YCHU"
@@ -19839,7 +19816,7 @@
             "W 7.00-8.50p"
         ],
         "meetingPatternLocation": [
-            "WLH 112"
+            "PH 207"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Preference given to Education Studies Scholars or others who have taken EDST 110.</p>",
@@ -19935,7 +19912,7 @@
         "shortTitle": "What is the University?",
         "subjectCode": "EDST",
         "subjectNumber": "EDST281",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/100562/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -20035,7 +20012,7 @@
             "YCSC",
             "YCWR"
         ],
-        "finalExam": "50",
+        "finalExam": "24",
         "instructorList": [
             "Jung Han"
         ],
@@ -20142,7 +20119,7 @@
         "shortTitle": "Semiconductor Devices",
         "subjectCode": "EENG",
         "subjectNumber": "EENG320",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/98341/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -20167,7 +20144,7 @@
             "TTh 11.35-12.50"
         ],
         "meetingPatternLocation": [
-            "DL 124"
+            "ML 104"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: EENG 200.</p>",
@@ -20266,7 +20243,7 @@
         "termCode": "202403"
     },
     {
-        "cSectionStatus": "A",
+        "cSectionStatus": "C",
         "courseNumber": "431",
         "courseTitle": "Foundations of Data Science",
         "crn": "11120",
@@ -20276,19 +20253,11 @@
             "YCSC"
         ],
         "finalExam": "50",
-        "instructorList": [
-            "Amin Karbasi"
-        ],
-        "instructorUPI": [
-            "15008591"
-        ],
+        "instructorList": [],
+        "instructorUPI": [],
         "meetingEndTimeList": [],
-        "meetingPattern": [
-            "MW 1.00-2.15"
-        ],
-        "meetingPatternLocation": [
-            "WTS A46"
-        ],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisites: MATH 120, MATH 222, CPSC 365, and STAT 241.</p>",
         "primXLst": null,
@@ -20296,7 +20265,7 @@
         "schoolDescription": "Yale College",
         "scndXLst": [],
         "sectionNumber": "01",
-        "sectionStatus": "A",
+        "sectionStatus": "C",
         "session": null,
         "shortTitle": "Foundations of Data Science",
         "subjectCode": "EENG",
@@ -20408,7 +20377,7 @@
             "TTh 1.00-2.15"
         ],
         "meetingPatternLocation": [
-            "HLH17 113"
+            ""
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: EENG 310 or permission of instructor.</p>",
@@ -21128,7 +21097,7 @@
         ],
         "meetingPatternLocation": [
             "HQ 401",
-            "HQ 109"
+            "WLH 202"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -21138,6 +21107,7 @@
         "scndXLst": [
             "LITR364",
             "THST416",
+            "CPLT933",
             "ENGL928",
             "FILM751"
         ],
@@ -21682,7 +21652,7 @@
         "shortTitle": "World English Literatures",
         "subjectCode": "ENGL",
         "subjectNumber": "ENGL128",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/98081/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -21748,7 +21718,7 @@
             "TTh 1.00-2.15"
         ],
         "meetingPatternLocation": [
-            "LC 210"
+            "WLH 203"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -21989,7 +21959,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "0",
+        "finalExam": "24",
         "instructorList": [
             "Caleb Smith"
         ],
@@ -22330,12 +22300,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.</p>",
-        "primXLst": null,
+        "primXLst": "AFAM017",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "AFAM017"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
@@ -23241,7 +23209,8 @@
         "department": "ENGL",
         "description": "Issues of faith examined through poetry, with a focus on modern poems from 1850 to the present. Poems from various faith traditions studied, as well as to secular and antireligious poetry.",
         "distDesg": [
-            "YCHU"
+            "YCHU",
+            "YENJ"
         ],
         "finalExam": "0",
         "instructorList": [
@@ -23255,7 +23224,7 @@
             "Th 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "LC 103"
+            "LC 317"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -23354,7 +23323,7 @@
         "shortTitle": "The Gawain Poet",
         "subjectCode": "ENGL",
         "subjectNumber": "ENGL317",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99537/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -23525,7 +23494,7 @@
         "shortTitle": "Fictions of the Harlem Vogue",
         "subjectCode": "ENGL",
         "subjectNumber": "ENGL351",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99543/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -23688,7 +23657,7 @@
         "shortTitle": "Writing Across Literary Genres",
         "subjectCode": "ENGL",
         "subjectNumber": "ENGL484",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99551/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -23827,6 +23796,7 @@
         "description": "A seminar and workshop in the craft of nonfiction writing as pertains to a given subcategory or genre. Each section focuses on a different form of nonfiction writing and explores its distinctive features through a variety of written and oral assignments. Students read key texts as models and analyze their compositional strategies. They then practice the fundamentals of nonfiction in writing and revising their own essays. Section topics, which change yearly, are listed at the beginning of each term on the English department website. This course may be repeated for credit in a section that treats a different genre or style of writing; ENGL 121 and ENGL 421 may not be taken for credit on the same topic.",
         "distDesg": [
             "YCHU",
+            "YCWR",
             "YENW"
         ],
         "finalExam": "0",
@@ -24937,7 +24907,7 @@
             "TTh 1.00-2.15"
         ],
         "meetingPatternLocation": [
-            "WLH 015"
+            "WALL53 B-03"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -25639,7 +25609,7 @@
             "MW 2.30-3.45"
         ],
         "meetingPatternLocation": [
-            "WLH 006"
+            "WLH 114"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -25903,7 +25873,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "0",
+        "finalExam": "27",
         "instructorList": [
             "Jacqueline Goldsby"
         ],
@@ -25995,12 +25965,10 @@
         "meetingPatternLocation": [],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "FILM170",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "FILM170"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "C",
         "session": null,
@@ -26096,7 +26064,7 @@
         "distDesg": [
             "YCWR"
         ],
-        "finalExam": "50",
+        "finalExam": "0",
         "instructorList": [
             "Carl Zimmer"
         ],
@@ -26164,6 +26132,41 @@
         "subjectCode": "ENGL",
         "subjectNumber": "ENGL004",
         "syllabusLink": "https://yale.instructure.com/courses/102714/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "C",
+        "courseNumber": "2854",
+        "courseTitle": "Interpreting Film Masterpieces",
+        "crn": "16934",
+        "department": "ENGL",
+        "description": "A close examination of key films of the second half of the 20th century in Europe and America, following a generally chronological sequence from The Third Man\u00a0(Graham Greene/Carol Reed) and Orpheus\u00a0(Cocteau) in 1950 to Eyes Wide Shut\u00a0(Arthur Schnitzler/Stanley Kubrick, 1999) in order to speculate on the modernist momentum of certain thematic and stylictic elements. Questions of cinema\u2019s relation to social history and to the other arts will grow out of intense analyses of the films themselves and often of the fiction they derive from. We will monitor critics as they approach standout films, or try to grasp the import of cinema when taken at its highest level. Formerly ENGL 308.",
+        "distDesg": [
+            "YCHU",
+            "YENJ"
+        ],
+        "finalExam": "50",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "HUMS454",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "FILM242",
+            "LITR398"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "C",
+        "session": null,
+        "shortTitle": "Interpreting Film Masterpieces",
+        "subjectCode": "ENGL",
+        "subjectNumber": "ENGL2854",
+        "syllabusLink": null,
         "termCode": "202403"
     },
     {
@@ -27858,7 +27861,7 @@
             "MW 2.30-3.45"
         ],
         "meetingPatternLocation": [
-            "DOW 112"
+            "WLH 211"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -28165,7 +28168,7 @@
         "shortTitle": "Mexico and the Migratory Lyric",
         "subjectCode": "ER&M",
         "subjectNumber": "ER&M333",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/98169/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -28388,7 +28391,7 @@
         "courseNumber": "252",
         "courseTitle": "Our Guinea: Locating Africa in Early Iberian Archives",
         "crn": "11799",
-        "department": "SP&P",
+        "department": "ER&M",
         "description": "African coastlines were the first horizons of Iberian imperial expansion into the Atlantic, and eventually, the world.\u00a0 While the worlds made by Africans displaced by the slave trade and their descendants have received extensive attention in recent years,\u00a0 Africa itself rarely enters the frame. The histories that unfolded on the continent in many ways challenge our understandings of Spanish and Portuguese expansion and colonialism, shaped as they are by the \u201cNew World\u201d paradigm of conquest and conversion.\u00a0 Were African societies part of the \u201cNew World\u201d or the \u201cOld World\u201d? In this course we study an often-overlooked domain of Spanish and Portuguese imperialism and commerce from an approach that includes but does not limit itself to the study of slavery and enslaved Africans in the Americas.\u00a0 We read a selection of\u00a0 primary texts from the early modern Ibero-African archive, with a focus on texts produced about the African continent and Africans (and when possible, by Africans) in Spanish, and to a lesser extent Portuguese, seeking (1) to challenge existing narratives and frameworks for the study of precolonial Africa, but also (2) to see what kinds of African worlds appear when we set aside our assumptions and generalizations.",
         "distDesg": [
             "YCHU",
@@ -28448,7 +28451,7 @@
             "T 9.25-11.15"
         ],
         "meetingPatternLocation": [
-            "HQ 317"
+            "WALL82 101"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -28464,7 +28467,7 @@
         "shortTitle": "Food, Race & Migration in U.S.",
         "subjectCode": "ER&M",
         "subjectNumber": "ER&M297",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99312/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -28556,7 +28559,7 @@
         "courseNumber": "448",
         "courseTitle": "\u201cI Don\u2019t Like to Argue\u201d: The Styles and Politics of Humility",
         "crn": "12381",
-        "department": "AMST",
+        "department": "ER&M",
         "description": "What can academic writing do besides argue? Why does critical thinking so often compel an idiom of claiming, exploring, discovering, and mastering? What might writers strive for, if not newness, rigor, excellence, or even one\u2019s own voice?\u00a0In this class, we defamiliarize and repair the habits of mind and body that have been normalized by the university. Some of our time goes toward identifying the racial and colonial logics as well as presumptions about gender and ability that inform the conventions, genres, and styles of scholarly prose. For example, we contemplate the power relations and tonal effects embedded in the familiar maneuvers of advancing and defending arguments. Most of the class\u2019s energy, however, is devoted to testing out less combative modes of inhabiting the page. We pursue these experiments not in the name of novelty but with the hope that our compositional practices can move us toward different values and different futures for writing, conversing, and living as subjects of the university. To guide us in this endeavor, we look to scholars who have critiqued the politics of knowledge by mobilizing alternative styles of knowing. Some, for example, have turned footnotes into an occasion for giving thanks instead of exhibiting mastery. Others have repurposed quotations and images in ways that challenge traditional regimes of evidence.\u00a0",
         "distDesg": [
             "YCHU",
@@ -28823,11 +28826,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "HIST114J",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "HIST114J",
             "AMST394"
         ],
         "sectionNumber": "01",
@@ -28866,11 +28868,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Portuguese 140 or equivalent.</p>",
-        "primXLst": null,
+        "primXLst": "PORT154",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "PORT154",
             "FILM154",
             "WGSS154",
             "LAST154"
@@ -29001,7 +29002,7 @@
         "shortTitle": "Asian Americans and STEM",
         "subjectCode": "ER&M",
         "subjectNumber": "ER&M089",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/100677/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -29106,7 +29107,7 @@
             "Th 3.30-5.20"
         ],
         "meetingPatternLocation": [
-            ""
+            "WLH 014"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -29147,7 +29148,7 @@
             "Th 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            ""
+            "HQ 401"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -29354,7 +29355,7 @@
             "W 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "WTS A38"
+            "SA10 212"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: ANTH 376 or EVST 377</p>",
@@ -29553,7 +29554,7 @@
             "TTh 11.35-12.50"
         ],
         "meetingPatternLocation": [
-            "WTS A35"
+            "PM 221"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.</p>",
@@ -29580,7 +29581,7 @@
         "distDesg": [
             "YCSC"
         ],
-        "finalExam": "50",
+        "finalExam": "0",
         "instructorList": [
             "Kealoha Freidenburg"
         ],
@@ -29804,7 +29805,7 @@
         ],
         "meetingPatternLocation": [
             "1 HTBA",
-            "WALL53 208"
+            "OML 227"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Priority to Environmental Studies majors; open to nonmajors as space permits.</p>",
@@ -29872,7 +29873,7 @@
         "courseNumber": "266",
         "courseTitle": "Ecologies of Culture: Latin American Environmental Aesthetics",
         "crn": "12397",
-        "department": "SP&P",
+        "department": "EVST",
         "description": "In the age of rising sea levels, mass extinction, and carbon-driven climate change, can culture and the arts remain unchanged? This course focuses on the intersections between aesthetics and ecological practices in the context of the Anthropocene, a proposed geological epoch wherein humans have become a major geological force shaping the planet. It challenges traditional approaches by examining how culture and the arts can help to understand and respond to environmental crises. Discussions and readings emphasize the role of culture and aesthetics as agents and producers of environmental knowledge, highlighting their potential to challenge socio-ecological relations. Throughout the semester, students explore various themes, including colonialism, anthropocentrism, human-animal relations, fossil capitalism, indigenous ontologies, and the impact of extractive industries on territories and bodies in Latin America, the Caribbean, and the Latinx world. Students engage with works by established and emerging artists, aiming to produce ecocritical knowledge about the current climate and environmental crisis. The course also offers a panoramic view of Latin American culture by examining some key historical events and authors whose works can shed light on cultural and ideological processes at the root of climate change. By the end of the semester, students can formulate research questions that are critical to the field of Latin American environmental humanities, as well as produce papers that are relevant to a broader debate about culture and ecology. Lastly, the course hopes to motivate students\u2014beyond the classroom\u2014to examine their place in an increasingly warming world. Taught in Spanish.",
         "distDesg": [
             "YCHU",
@@ -30263,7 +30264,7 @@
         "distDesg": [
             "YCWR"
         ],
-        "finalExam": "50",
+        "finalExam": "0",
         "instructorList": [
             "Carl Zimmer"
         ],
@@ -30467,16 +30468,17 @@
         ],
         "meetingPatternLocation": [
             "HQ 401",
-            "HQ 109"
+            "WLH 202"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": "CPLT933",
+        "primXLst": null,
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
             "LITR364",
             "THST416",
+            "CPLT933",
             "ENGL928",
             "FILM751",
             "ENGL384"
@@ -30512,10 +30514,12 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "TTh 2.30-3.45"
+            "TTh 2.30-3.45",
+            "W 7.00-10.00p"
         ],
         "meetingPatternLocation": [
-            "HQ 132"
+            "HQ 132",
+            ""
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -30806,12 +30810,12 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "T 3.30-5.20",
-            "M 7.00-10.00p"
+            "M 7.00-10.00p",
+            "T 3.30-5.20"
         ],
         "meetingPatternLocation": [
-            "HQ 109",
-            "LC 101"
+            "LC 101",
+            "HQ 109"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -30832,7 +30836,7 @@
         "termCode": "202403"
     },
     {
-        "cSectionStatus": "A",
+        "cSectionStatus": "C",
         "courseNumber": "424",
         "courseTitle": "What Is or Was an Image?",
         "crn": "11475",
@@ -30845,12 +30849,8 @@
         "instructorList": [],
         "instructorUPI": [],
         "meetingEndTimeList": [],
-        "meetingPattern": [
-            "TTh 1.00-2.15"
-        ],
-        "meetingPatternLocation": [
-            "WLH 203"
-        ],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
         "meetingStartTimeList": [],
         "prerequisites": null,
         "primXLst": null,
@@ -30858,7 +30858,7 @@
         "schoolDescription": "Yale College",
         "scndXLst": [],
         "sectionNumber": "01",
-        "sectionStatus": "A",
+        "sectionStatus": "C",
         "session": null,
         "shortTitle": "What Is or Was an Image?",
         "subjectCode": "FILM",
@@ -30909,7 +30909,7 @@
             "YCHU",
             "YCWR"
         ],
-        "finalExam": "50",
+        "finalExam": "0",
         "instructorList": [
             "Camille Thomasson"
         ],
@@ -31007,7 +31007,7 @@
             "M 7.00-11.00p"
         ],
         "meetingPatternLocation": [
-            "HQ 109",
+            "HQ 401",
             "HQ 113"
         ],
         "meetingStartTimeList": [],
@@ -31290,11 +31290,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "MGRK238",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "MGRK238",
             "WGSS233"
         ],
         "sectionNumber": "01",
@@ -31333,11 +31332,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Portuguese 140 or equivalent.</p>",
-        "primXLst": null,
+        "primXLst": "PORT154",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "PORT154",
             "ER&M154",
             "WGSS154",
             "LAST154"
@@ -31413,7 +31411,7 @@
             "TTh 11.35-12.50"
         ],
         "meetingPatternLocation": [
-            "HQ C05"
+            "HQ 313"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -31431,7 +31429,7 @@
         "termCode": "202403"
     },
     {
-        "cSectionStatus": "A",
+        "cSectionStatus": "C",
         "courseNumber": "426",
         "courseTitle": "Cinema of Crisis",
         "crn": "14841",
@@ -31441,20 +31439,11 @@
             "YCHU"
         ],
         "finalExam": "0",
-        "instructorList": [
-            "Fatima Naqvi"
-        ],
-        "instructorUPI": [
-            "24138533"
-        ],
+        "instructorList": [],
+        "instructorUPI": [],
         "meetingEndTimeList": [],
-        "meetingPattern": [
-            "F 9.25-11.15",
-            "W 7.00-9.00p"
-        ],
-        "meetingPatternLocation": [
-            ""
-        ],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
         "meetingStartTimeList": [],
         "prerequisites": null,
         "primXLst": "FILM764",
@@ -31465,7 +31454,7 @@
             "GMAN426"
         ],
         "sectionNumber": "01",
-        "sectionStatus": "A",
+        "sectionStatus": "C",
         "session": null,
         "shortTitle": "Cinema of Crisis",
         "subjectCode": "FILM",
@@ -31545,6 +31534,41 @@
         "subjectCode": "FILM",
         "subjectNumber": "FILM342",
         "syllabusLink": "https://yale.instructure.com/courses/101097/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "C",
+        "courseNumber": "242",
+        "courseTitle": "Interpreting Film Masterpieces",
+        "crn": "16935",
+        "department": "FILM",
+        "description": "A close examination of key films of the second half of the 20th century in Europe and America, following a generally chronological sequence from The Third Man\u00a0(Graham Greene/Carol Reed) and Orpheus\u00a0(Cocteau) in 1950 to Eyes Wide Shut\u00a0(Arthur Schnitzler/Stanley Kubrick, 1999) in order to speculate on the modernist momentum of certain thematic and stylictic elements. Questions of cinema\u2019s relation to social history and to the other arts will grow out of intense analyses of the films themselves and often of the fiction they derive from. We will monitor critics as they approach standout films, or try to grasp the import of cinema when taken at its highest level. Formerly ENGL 308.",
+        "distDesg": [
+            "YCHU",
+            "YENJ"
+        ],
+        "finalExam": "50",
+        "instructorList": [],
+        "instructorUPI": [],
+        "meetingEndTimeList": [],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
+        "meetingStartTimeList": [],
+        "prerequisites": null,
+        "primXLst": "HUMS454",
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [
+            "ENGL2854",
+            "LITR398"
+        ],
+        "sectionNumber": "01",
+        "sectionStatus": "C",
+        "session": null,
+        "shortTitle": "Interpreting Film Masterpieces",
+        "subjectCode": "FILM",
+        "subjectNumber": "FILM242",
+        "syllabusLink": null,
         "termCode": "202403"
     },
     {
@@ -33459,7 +33483,7 @@
             "Th 3.30-5.20"
         ],
         "meetingPatternLocation": [
-            "WALL82 101"
+            "WLH 113"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -33583,11 +33607,11 @@
         "meetingEndTimeList": [],
         "meetingPattern": [
             "W 3.30-5.20",
-            "1 HTBA BASSLB L73"
+            "1 HTBA RKZ 102"
         ],
         "meetingPatternLocation": [
-            "BASSLB L73",
-            "1 HTBA BASSLB L73"
+            "RKZ 102",
+            "1 HTBA RKZ 102"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -33683,7 +33707,7 @@
         "shortTitle": "How to Run Political Campaign",
         "subjectCode": "GLBL",
         "subjectNumber": "GLBL415",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/102918/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -33704,12 +33728,10 @@
         "meetingPatternLocation": [],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "PLSC145",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "PLSC145"
-        ],
+        "scndXLst": [],
         "sectionNumber": "02",
         "sectionStatus": "C",
         "session": null,
@@ -39075,7 +39097,7 @@
             "MW 1.00-2.15"
         ],
         "meetingPatternLocation": [
-            "YK212 004"
+            "LC 209"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Intended for non\u2013science majors; preference to first-years and sophomores. Prerequisite: high school biology.</p>",
@@ -39121,20 +39143,17 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: BIOL 101\u2013104.</p>",
-        "primXLst": null,
+        "primXLst": "E&EB635",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "E&EB335",
-            "E&EB635"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
         "shortTitle": "Evolution and Medicine",
         "subjectCode": "HLTH",
         "subjectNumber": "HLTH250",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/100200/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -39159,7 +39178,7 @@
             "TTh 2.30-3.45"
         ],
         "meetingPatternLocation": [
-            "WTS A72"
+            "WTS A35"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.&#160;</p>\n<p>Prerequisite: AP Biology or equivalent.&#160;</p>",
@@ -39464,7 +39483,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "34",
         "instructorList": [
             "Jacqueline Jung"
         ],
@@ -39508,7 +39527,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "33",
         "instructorList": [
             "Pamela Lee"
         ],
@@ -39594,7 +39613,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "37",
         "instructorList": [
             "Joanna Fiduccia"
         ],
@@ -39997,7 +40016,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "24",
         "instructorList": [
             "Jennifer Raab"
         ],
@@ -40121,7 +40140,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "37",
         "instructorList": [
             "Allison Caplan"
         ],
@@ -40176,7 +40195,7 @@
             "MW 1.00-2.15"
         ],
         "meetingPatternLocation": [
-            "LORIA B50"
+            "LC 204"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -44095,9 +44114,11 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
+            "W 7.00-10.00p",
             "TTh 2.30-3.45"
         ],
         "meetingPatternLocation": [
+            "",
             "HQ 132"
         ],
         "meetingStartTimeList": [],
@@ -44141,7 +44162,7 @@
             "TTh 2.30-3.20"
         ],
         "meetingPatternLocation": [
-            "WLH 208"
+            "LC 102"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -44210,8 +44231,12 @@
             "YCL1"
         ],
         "finalExam": "61",
-        "instructorList": [],
-        "instructorUPI": [],
+        "instructorList": [
+            "Kathleen Egan"
+        ],
+        "instructorUPI": [
+            "10461278"
+        ],
         "meetingEndTimeList": [],
         "meetingPattern": [
             "M-F 9.25-10.15"
@@ -44747,7 +44772,7 @@
             "YCHU",
             "YCWR"
         ],
-        "finalExam": "50",
+        "finalExam": "0",
         "instructorList": [
             "Simona Lorenzini"
         ],
@@ -44756,9 +44781,11 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
+            "F 1.00-4.00",
             "MW 4.00-5.15"
         ],
         "meetingPatternLocation": [
+            "",
             "HQ C07"
         ],
         "meetingStartTimeList": [],
@@ -44774,6 +44801,45 @@
         "subjectCode": "ITAL",
         "subjectNumber": "ITAL020",
         "syllabusLink": "https://yale.instructure.com/courses/100781/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "130",
+        "courseTitle": "Intermediate Italian I",
+        "crn": "16787",
+        "department": "ITAL",
+        "description": "The first half of a two-term sequence designed to increase students' proficiency in the four language skills and advanced grammar concepts. Authentic readings paired with contemporary films. In-class group and pairs activities, role-playing, and conversation. Admits to ITAL 140. Conducted in Italian.",
+        "distDesg": [
+            "YCL3"
+        ],
+        "finalExam": "50",
+        "instructorList": [
+            "Kathleen Egan"
+        ],
+        "instructorUPI": [
+            "10461278"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "M-F 10.30-11.20"
+        ],
+        "meetingPatternLocation": [
+            "WLH 009"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">ITAL 120 or equivalent.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "06",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Intermediate Italian I",
+        "subjectCode": "ITAL",
+        "subjectNumber": "ITAL130",
+        "syllabusLink": "https://yale.instructure.com/courses/103135/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -55711,12 +55777,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "PLSC121",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "PLSC121"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
@@ -57400,7 +57464,7 @@
         "courseNumber": "444",
         "courseTitle": "Topics in Clinical Neuroscience",
         "crn": "10677",
-        "department": "PSYC",
+        "department": "NSCI",
         "description": "This course is an advanced seminar examining the biological bases of psychopathology. We cover research, theory, and controversies regarding the roles of genetics, neurotransmitter systems, brain development and function, and other biological influences in the major classes of mental disorders, including anxiety disorders, depression, schizophrenia, bipolar disorder, obsessive compulsive disorder, substance use disorders, eating disorders, and autism. Prominent theories emanating from cognitive, behavioral, and interpersonal approaches to psychopathology are examined in the context of multilevel models of behavior, and the interplay of biological and psychological factors are a central theme throughout.",
         "distDesg": [
             "YCSO"
@@ -57693,7 +57757,7 @@
         "distDesg": [
             "YCSC"
         ],
-        "finalExam": null,
+        "finalExam": "23",
         "instructorList": [
             "Gregory McCarthy"
         ],
@@ -59114,7 +59178,7 @@
             "1 HTBA"
         ],
         "meetingPatternLocation": [
-            "",
+            "SCL 145",
             "1 HTBA"
         ],
         "meetingStartTimeList": [],
@@ -59129,7 +59193,7 @@
         "shortTitle": "Living Systems I:Obsrvtn&Anlys",
         "subjectCode": "PHYS",
         "subjectNumber": "PHYS121L",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99146/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -59181,7 +59245,7 @@
         "distDesg": [
             "YCSC"
         ],
-        "finalExam": "26",
+        "finalExam": "0",
         "instructorList": [
             "Meg Urry"
         ],
@@ -59814,11 +59878,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: MATH 115 or equivalent.</p>",
-        "primXLst": null,
+        "primXLst": "ENAS151",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
-            "ENAS151",
             "APHY151"
         ],
         "sectionNumber": "01",
@@ -59932,12 +59995,12 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "1 HTBA",
-            "TTh 11.35-12.50"
+            "TTh 11.35-12.50",
+            "1 HTBA"
         ],
         "meetingPatternLocation": [
-            "1 HTBA",
-            "BCT 508A"
+            "BCT 508a",
+            "1 HTBA"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisite: PHYS 430.</p>",
@@ -59968,7 +60031,7 @@
             "YCQR",
             "YCSC"
         ],
-        "finalExam": "50",
+        "finalExam": "0",
         "instructorList": [
             "John Sous"
         ],
@@ -60054,7 +60117,7 @@
             "YCQR",
             "YCSC"
         ],
-        "finalExam": "50",
+        "finalExam": "26",
         "instructorList": [
             "Vidvuds Ozolins"
         ],
@@ -60063,12 +60126,12 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "1 HTBA",
-            "TTh 1.00-2.15"
+            "TTh 1.00-2.15",
+            "1 HTBA"
         ],
         "meetingPatternLocation": [
-            "1 HTBA",
-            "BCT 408A"
+            "HLH17 101",
+            "1 HTBA"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Prerequisites: APHY 322, 439, PHYS 420.</p>",
@@ -60130,7 +60193,7 @@
         "shortTitle": "Asian Americans and STEM",
         "subjectCode": "PHYS",
         "subjectNumber": "PHYS047",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/100677/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -60478,7 +60541,7 @@
         "distDesg": [
             "YCSO"
         ],
-        "finalExam": "0",
+        "finalExam": "26",
         "instructorList": [
             "Eleanor Schiff"
         ],
@@ -60526,12 +60589,12 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "1 HTBA",
-            "W 3.30-5.20"
+            "W 3.30-5.20",
+            "1 HTBA"
         ],
         "meetingPatternLocation": [
-            "1 HTBA",
-            "PR77 A001"
+            "PR77 A001",
+            "1 HTBA"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -61121,12 +61184,12 @@
         ],
         "meetingEndTimeList": [],
         "meetingPattern": [
-            "1 HTBA",
-            "M 1.30-3.20"
+            "M 1.30-3.20",
+            "1 HTBA"
         ],
         "meetingPatternLocation": [
-            "1 HTBA",
-            "PR77 A001"
+            "PR77 A001",
+            "1 HTBA"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -61418,11 +61481,11 @@
         "meetingEndTimeList": [],
         "meetingPattern": [
             "Th 3.30-5.20",
-            "1 HTBA RKZ 08"
+            "1 HTBA RKZ 241"
         ],
         "meetingPatternLocation": [
-            "RKZ 08",
-            "1 HTBA RKZ 08"
+            "RKZ 241",
+            "1 HTBA RKZ 241"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -61735,7 +61798,7 @@
         "shortTitle": "Lincoln's Statecraft &Rhetoric",
         "subjectCode": "PLSC",
         "subjectNumber": "PLSC318",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99680/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -62127,7 +62190,7 @@
         "distDesg": [
             "YCSO"
         ],
-        "finalExam": "50",
+        "finalExam": "22",
         "instructorList": [
             "Noam Reich"
         ],
@@ -62139,7 +62202,7 @@
             "TTh 9.00-10.15"
         ],
         "meetingPatternLocation": [
-            "RKZ 102"
+            "WLH 117"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -62178,7 +62241,7 @@
             "W 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "RKZ 02"
+            "HQ 207"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">No prior background in political theory or familiarity with emerging AI is required.\u200b</p>",
@@ -62236,7 +62299,7 @@
         "shortTitle": "What is the University?",
         "subjectCode": "PLSC",
         "subjectNumber": "PLSC281",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/100562/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -62350,7 +62413,9 @@
         "schoolDescription": "Yale College",
         "scndXLst": [
             "EP&E375",
-            "HUMS158"
+            "HIST422",
+            "HUMS158",
+            "PHIL349"
         ],
         "sectionNumber": "01",
         "sectionStatus": "A",
@@ -62358,7 +62423,7 @@
         "shortTitle": "Liberalism",
         "subjectCode": "PLSC",
         "subjectNumber": "PLSC340",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/101427/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -64120,7 +64185,7 @@
             "TTh 2.30-3.20"
         ],
         "meetingPatternLocation": [
-            "WLH 208"
+            "LC 102"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -64149,7 +64214,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "34",
         "instructorList": [
             "Jacqueline Jung"
         ],
@@ -64192,7 +64257,7 @@
         "distDesg": [
             "YCHU"
         ],
-        "finalExam": "50",
+        "finalExam": "36",
         "instructorList": [
             "John Pittard"
         ],
@@ -64501,15 +64566,14 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "RLST649",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
         "scndXLst": [
             "HUMS129",
             "CLCV129",
             "NELC158",
-            "HIST159",
-            "RLST649"
+            "HIST159"
         ],
         "sectionNumber": "01",
         "sectionStatus": "A",
@@ -64528,7 +64592,8 @@
         "department": "RLST",
         "description": "Issues of faith examined through poetry, with a focus on modern poems from 1850 to the present. Poems from various faith traditions studied, as well as to secular and antireligious poetry.",
         "distDesg": [
-            "YCHU"
+            "YCHU",
+            "YENJ"
         ],
         "finalExam": "0",
         "instructorList": [
@@ -64542,7 +64607,7 @@
             "Th 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "LC 103"
+            "LC 317"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -64566,7 +64631,7 @@
         "courseNumber": "229",
         "courseTitle": "Buddhist Ethics",
         "crn": "12436",
-        "department": "EAST",
+        "department": "RLST",
         "description": "This course explores ethical action in a range of Buddhist traditions, with an emphasis on Mahayana Buddhism in India and Tibet. Rather than starting with the categories of Western philosophy, we seek to develop an account that emerges from Buddhist sources. We begin by establishing a working model of karmic acts\u2014describing the status of agents and patients, the mechanics of karma, and the cosmological and soteriological contexts for action. We then examine the paradigmatic ethical act of giving as embodied by two great virtuous exemplars: the Buddha (archetypal renunciate) and Vessantara (archetypal layman). From there, we turn to case studies of ethical cultivation and negotiation in three realms of Buddhist practice: the Vinaya precepts governing monastic life, the altruism and skillful means of bodhisattvas, and the antinomian ethics of Buddhist tantra. The course concludes with a reflection on the intersection of aesthetics and morality in Buddhist thought.",
         "distDesg": [
             "YCHU"
@@ -64589,12 +64654,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "EAST420",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "EAST420"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,
@@ -64904,7 +64967,7 @@
             "F 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "HQ C05"
+            "HQ 401"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -64970,7 +65033,7 @@
         "termCode": "202403"
     },
     {
-        "cSectionStatus": "A",
+        "cSectionStatus": "C",
         "courseNumber": "293",
         "courseTitle": "Reform and Continuity in Islamic law",
         "crn": "16313",
@@ -64980,19 +65043,11 @@
             "YCHU"
         ],
         "finalExam": "50",
-        "instructorList": [
-            "Matthew Steele"
-        ],
-        "instructorUPI": [
-            "25232143"
-        ],
+        "instructorList": [],
+        "instructorUPI": [],
         "meetingEndTimeList": [],
-        "meetingPattern": [
-            "W 3.30-5.20"
-        ],
-        "meetingPatternLocation": [
-            "WLH 203"
-        ],
+        "meetingPattern": [],
+        "meetingPatternLocation": [],
         "meetingStartTimeList": [],
         "prerequisites": null,
         "primXLst": null,
@@ -65000,7 +65055,7 @@
         "schoolDescription": "Yale College",
         "scndXLst": [],
         "sectionNumber": "01",
-        "sectionStatus": "A",
+        "sectionStatus": "C",
         "session": null,
         "shortTitle": "Islamic law",
         "subjectCode": "RLST",
@@ -66156,7 +66211,7 @@
         "termCode": "202403"
     },
     {
-        "cSectionStatus": "A",
+        "cSectionStatus": "C",
         "courseNumber": "150",
         "courseTitle": "Data Science Ethics",
         "crn": "10804",
@@ -66178,7 +66233,7 @@
         "schoolDescription": "Yale College",
         "scndXLst": [],
         "sectionNumber": "01",
-        "sectionStatus": "A",
+        "sectionStatus": "C",
         "session": null,
         "shortTitle": "Data Science Ethics",
         "subjectCode": "S&DS",
@@ -66415,7 +66470,7 @@
             "MW 11.35-12.50"
         ],
         "meetingPatternLocation": [
-            "DL 220"
+            "WLH 201"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">After S&amp;DS 242 and MATH 222 or 225.</p>",
@@ -66633,6 +66688,45 @@
         "subjectCode": "S&DS",
         "subjectNumber": "S&DS425",
         "syllabusLink": "https://yale.instructure.com/courses/99676/assignments/syllabus",
+        "termCode": "202403"
+    },
+    {
+        "cSectionStatus": "A",
+        "courseNumber": "224",
+        "courseTitle": "Dice, Data, and Decisions - The Statistics of Board Game Strategy",
+        "crn": "14156",
+        "department": "S&DS",
+        "description": "This course provides a hands-on application of data analysis, simulation, and probability theory to the world of board games and traditional games of chance.\u00a0Class lessons will be a combination of lecture, computing labs, and actually learning and playing games! Topics include analyzing board game strategy using probability theory,\u00a0probabilistic modeling using simulation in R, and\u00a0exploration and analysis of both simulated and real game board game data.",
+        "distDesg": [
+            "YCQR"
+        ],
+        "finalExam": "27",
+        "instructorList": [
+            "Robert Wooster"
+        ],
+        "instructorUPI": [
+            "24909415"
+        ],
+        "meetingEndTimeList": [],
+        "meetingPattern": [
+            "TTh 2.30-3.45"
+        ],
+        "meetingPatternLocation": [
+            "WTS B60"
+        ],
+        "meetingStartTimeList": [],
+        "prerequisites": "<p class=\"prerequisites\">One of S&amp;DS 100, 123, 220, or 230, and experience in the R statistical programming language.</p>",
+        "primXLst": null,
+        "schoolCode": "YC",
+        "schoolDescription": "Yale College",
+        "scndXLst": [],
+        "sectionNumber": "01",
+        "sectionStatus": "A",
+        "session": null,
+        "shortTitle": "Board Game Strategy",
+        "subjectCode": "S&DS",
+        "subjectNumber": "S&DS224",
+        "syllabusLink": "https://yale.instructure.com/courses/100526/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -66974,7 +67068,7 @@
             "F 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "LC 318"
+            "WLH 204"
         ],
         "meetingStartTimeList": [],
         "prerequisites": "<p class=\"prerequisites\">Enrollment limited to first-year students.&#160;</p>\n<p>Prerequisite: Score of 5 on AP biology test or equivalent on IB biology exam. Students MUST take MCDB 201L, Molecular Biology Laboratory, in Spring 2025 concurrent with SCIE 011.&#160;</p>",
@@ -70846,7 +70940,7 @@
         ],
         "meetingPatternLocation": [
             "HQ 401",
-            "HQ 109"
+            "WLH 202"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -70855,6 +70949,7 @@
         "schoolDescription": "Yale College",
         "scndXLst": [
             "LITR364",
+            "CPLT933",
             "ENGL928",
             "FILM751",
             "ENGL384"
@@ -71135,7 +71230,7 @@
         "courseNumber": "293",
         "courseTitle": "Politics of Performance",
         "crn": "11643",
-        "department": "GMAN",
+        "department": "THST",
         "description": "The stage is, and always has been, a political space. Ever since its beginnings, theatre has offered ways to rethink and criticize political systems, with the stage serving as a \u201cmoral institution\u201d (Schiller) but also as a laboratory for models of representation. The stage also delineates the limits of representation for democratic societies (Rousseau), as it offers the space for experimentation and new modes of being together, being ensemble. The stage also raises the question of its own condition of possibility and the networks it depends on (Jackson).\u00a0This course revisits the history of German and German speaking theatre since the Enlightenment, and discusses the stage in its relationship to war, the nation state, the social question, femicide and gender politics, the Holocaust, globalization, and 21st century migration. Readings include works by G.E. Lessing, Friedrich Schiller, Hugo v. Hofmannstahl, Georg B\u00fcchner, Peter Weiss, Ida Fink, Dea Lohar, Elfriede Jelinek, Christoph Schlingensief, Heiner M\u00fcller, and Elsa Bernstein.",
         "distDesg": [
             "YCHU"
@@ -71152,7 +71247,7 @@
             "M 1.30-3.20"
         ],
         "meetingPatternLocation": [
-            "WLH 001"
+            "HQ 207"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -71804,7 +71899,7 @@
         "shortTitle": "The Director and the Text I",
         "subjectCode": "THST",
         "subjectNumber": "THST300",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/100442/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -71953,7 +72048,7 @@
             "T 3.30-5.20"
         ],
         "meetingPatternLocation": [
-            "HQ C65"
+            "WLH 205"
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
@@ -71967,7 +72062,7 @@
         "shortTitle": "Performing Publics",
         "subjectCode": "THST",
         "subjectNumber": "THST430",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/102742/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -72155,7 +72250,7 @@
             "DOW 420"
         ],
         "meetingStartTimeList": [],
-        "prerequisites": "<p class=\"prerequisites\"><p>Prerequisite: UKRN 120 or equivalent. Course taught through distance learning using videoconferencing technology from Columbia University. Enrollment limited; interested students should e-mail minjin.hashbat@yale.edu for more information.</p></p>",
+        "prerequisites": "<p class=\"prerequisites\">Prerequisite: UKRN 120 or equivalent. Course taught through distance learning using videoconferencing technology from Columbia University. Enrollment limited; interested students should e-mail david.ortega@yale.edu for more information.</p>",
         "primXLst": null,
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
@@ -73650,7 +73745,7 @@
         "shortTitle": "Intermediate Yiddish I",
         "subjectCode": "YDSH",
         "subjectNumber": "YDSH130",
-        "syllabusLink": null,
+        "syllabusLink": "https://yale.instructure.com/courses/99366/assignments/syllabus",
         "termCode": "202403"
     },
     {
@@ -73885,12 +73980,10 @@
         ],
         "meetingStartTimeList": [],
         "prerequisites": null,
-        "primXLst": null,
+        "primXLst": "ZULU610",
         "schoolCode": "YC",
         "schoolDescription": "Yale College",
-        "scndXLst": [
-            "ZULU610"
-        ],
+        "scndXLst": [],
         "sectionNumber": "01",
         "sectionStatus": "A",
         "session": null,

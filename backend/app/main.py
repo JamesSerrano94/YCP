@@ -14,11 +14,16 @@ load_dotenv()
 
 app = FastAPI()
 
-# Set CORS origins dynamically
+# Set CORS origins dynamically 
 origins = [
     "http://localhost:3000",  # for local development
     "http://18.116.115.43"  # for production, should be set in your .env file
 ]
+
+# Load the correct .env file based on the environment
+environment = os.getenv("ENVIRONMENT")
+env_file = f".env.{environment}"
+frontend_url = os.getenv("FRONTEND_URL")
 
 @app.get("/")
 async def root():

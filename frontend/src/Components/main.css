@@ -207,6 +207,11 @@ body, html {
     top: 20px;
     right: 20px;
   }
+
+  .button-container {
+    display: flex;
+    align-items: center; /* Center aligns the items vertically */
+}
   
   .meet-team-button {
     background-color: #0D47A1; /* Dark Blue */
@@ -223,6 +228,18 @@ body, html {
   .meet-team-button:hover {
     background-color: #0A3A89; /* Slightly darker on hover */
   }
+
+  .logout-icon {
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    margin-left: 10px; /* Space between the button and icon */
+    cursor: pointer;
+    /* transition: transform 0.3s ease-in-out; */
+}
+
+.logout-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
 
   .loading-overlay {
     position: fixed;

@@ -114,12 +114,13 @@
     grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: 50px; /* Match the row height with the time column */
     background-image: linear-gradient(to bottom, #ddd 1px, transparent 1px),
-                      linear-gradient(to right, #ddd 1px, transparent 1px); /* Add vertical and horizontal grid lines */
-    background-size: 100% 50px, calc(100% / 5) 100%; /* Horizontal lines every 50px, vertical lines every day column */
-
+                      linear-gradient(to right, #ddd 1px, transparent 1px); 
+    background-size: 100% 50px, calc(100% / 5) 100%; 
 }
 .calendar-event {
     position: absolute;
+    width: 100%;
+    max-width: 200px;
     padding: 10px;
     border-radius: 5px;
     color: #333;
@@ -129,9 +130,9 @@
     background-color: #eee;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, background-color 0.2s ease;
-    z-index: 1; /* Ensure the event card is above other elements */
+    z-index: 1;
 }
-
+  
 .calendar-event:hover {
     transform: scale(1.05);
     background-color: #ddd;
@@ -246,15 +247,13 @@
 }
 
 .feedback {
-    position: fixed;
-    top: 12px;
-    left: 100px;
     background-color: #0073e6; /* Nice blue background */
     color: #ffffff; /* White text color */
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 14px;
     font-weight: bold;
+    text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
     z-index: 1000; /* Keep it on top */
