@@ -23,7 +23,9 @@ origins = [
 # Load the correct .env file based on the environment
 environment = os.getenv("ENVIRONMENT")
 env_file = f".env.{environment}"
+load_dotenv(env_file)
 frontend_url = os.getenv("FRONTEND_URL")
+print(frontend_url)
 
 @app.get("/")
 async def root():
