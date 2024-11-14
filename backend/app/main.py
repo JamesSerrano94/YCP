@@ -17,7 +17,7 @@ app = FastAPI()
 # Set CORS origins dynamically 
 origins = [
     "http://localhost:3000",  # for local development
-    "http://18.116.115.43"  # for production, should be set in your .env file
+    "https://yalecoursemap.com/" 
 ]
 
 # Load the correct .env file based on the environment
