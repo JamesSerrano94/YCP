@@ -108,7 +108,9 @@ async def cas_auth(
         key="session_id",
         value=session_id,
         httponly=True,
-        samesite="lax",
+        secure=True,
+        samesite="None", 
+        # samesite="lax",
         path="/"
     )
     # Return the RedirectResponse
