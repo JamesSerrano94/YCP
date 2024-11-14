@@ -108,10 +108,7 @@ async def cas_auth(
         key="session_id",
         value=session_id,
         httponly=True,
-        secure=True,
-        samesite="None", 
-        domain=".yalecoursemap.com",
-        # samesite="lax",
+        samesite="lax",
         path="/"
     )
     # Return the RedirectResponse

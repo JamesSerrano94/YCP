@@ -16,7 +16,6 @@ const ScheduleDisplay = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [calendarCourses, setCalendarCourses] = useState(location.state?.courses?.[1] || []);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [recommendationCourses, setRecommendationCourses] = useState(() => {
     const courses = location.state?.courses || [];
     const firstList = Array.isArray(courses[0]) ? courses[0] : [];
@@ -51,25 +50,6 @@ const ScheduleDisplay = () => {
     return colors[index];
   };
 
-  // Check authentication on mount
-  useEffect(() => {
-    fetch(`${apiUrl}/test_require_auth`, {
-      credentials: 'include',
-    })
-      .then((response) => {
-        if (response.ok) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
-          navigate('/'); // Redirect to login if not authenticated
-        }
-      })
-      .catch((error) => {
-        console.error('Error checking authentication:', error);
-        setIsAuthenticated(false);
-        navigate('/'); // Redirect to login if there's an error
-      });
-  }, [navigate, apiUrl]);
 
   useEffect(() => {
     // Load stored data from local storage when the component mounts

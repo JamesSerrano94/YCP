@@ -13,7 +13,6 @@ export default function MainPage() {
   const courseMapRef = useRef(null);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -46,45 +45,8 @@ export default function MainPage() {
     }
   };
 
-  useEffect(() => {
-    // Check authentication status
-    fetch(`${apiUrl}/test_require_auth`, {
-      credentials: 'include'
-    })
-      .then(response => {
-        if (response.ok) {
-          setIsAuthenticated(true);
-        }
-      })
-      .catch(error => {
-        console.log('User is not authenticated:', error);
-        setIsAuthenticated(false);
-      });
-  }, [apiUrl]);
-
-  const handleLogout = () => {
-    // Logout and refresh the page
-    fetch(`${apiUrl}/logout`, {
-      method: 'GET',
-      credentials: 'include',
-    })
-      .then(response => {
-        if (response.ok) {
-          window.location.reload();
-        } else {
-          console.error('Logout failed');
-        }
-      })
-      .catch(error => console.error('Error:', error));
-  };
-
   const handleStartPlanningClick = () => {
-    if (!isAuthenticated) {
-      // Redirect to CAS login
-      window.location.href = `${apiUrl}/auth`;
-    } else {
       scrollToCourseMap();
-    }
   };
 
   const handlePlanClick = () => {
@@ -156,13 +118,12 @@ export default function MainPage() {
       {isLoading && <Loading />}
       <div className={isLoading ? 'blur-content' : ''}></div>
 
-      <Header isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+      <Header/>
       <ContentSection
-        isAuthenticated={isAuthenticated}
-        handleButtonClick={isAuthenticated ? scrollToCourseMap : handleStartPlanningClick}
+        handleButtonClick={ scrollToCourseMap}
       />
       <QuotesSection />
-      {isAuthenticated && (
+      {(
         <CourseMap
           courseMapRef={courseMapRef}
           major={major}

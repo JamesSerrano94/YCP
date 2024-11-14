@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header({ isAuthenticated, handleLogout }) {
+function Header() {
   return (
     <div className='top'>
       <div className='left-header'>
@@ -13,15 +13,6 @@ function Header({ isAuthenticated, handleLogout }) {
         <Link to='/about-us'>
           <button className='meet-team-button'>Meet the team</button>
         </Link>
-        {isAuthenticated && (
-          <img
-            src="/logout.svg"
-            alt="Logout"
-            className="logout-icon"
-            onClick={handleLogout}
-            title="Logout"
-          />
-        )}
       </div>
     </div>
   );
