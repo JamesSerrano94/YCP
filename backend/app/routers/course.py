@@ -29,6 +29,7 @@ router = APIRouter(
 async def recommend(request: CourseRecommendationRequest):
                     #current_user: User = Depends(require_auth)):
     #print("Current user is: ", current_user.net_id)
+    # To test, use the following curl command:
     """
     curl -X POST "http://localhost:8000/course/recommend" \
     -H "Content-Type: application/json" \
