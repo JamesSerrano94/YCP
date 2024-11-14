@@ -108,9 +108,7 @@ async def cas_auth(
         key="session_id",
         value=session_id,
         httponly=True,
-        samesite="None",  # Allow cross-site requests
-        secure=True,      # Ensure cookies are only sent over HTTPS
-        # samesite="lax",
+        samesite="lax",
         path="/"
     )
     # Return the RedirectResponse
