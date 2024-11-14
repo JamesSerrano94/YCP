@@ -110,6 +110,7 @@ async def cas_auth(
         httponly=True,
         secure=True,
         samesite="None", 
+        domain=".yalecoursemap.com",
         # samesite="lax",
         path="/"
     )
