@@ -42,7 +42,7 @@ npm test
 
 ## Backend Test
 - Run the backend test with ``pytest``
-- We have implemented unit tests for all backend functionalities and passes all tests
+- We have implemented unit tests for all backend functionalities, passed all tests, and achieved 85% coverage.
 ![backend_img](backend/tests/backend_test.png)
 
 ## Current Pipeline

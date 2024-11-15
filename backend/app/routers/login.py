@@ -14,6 +14,8 @@ load_dotenv()
 
 from ..models.login import User, CASConfig
 
+
+
 # Set up logging
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)

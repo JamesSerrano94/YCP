@@ -19,14 +19,42 @@ from backend.app.services.llm_recommender import LLMRecommender
 from backend.app.routers.login import require_auth
 from backend.app.models.login import User
 from dotenv import load_dotenv
+from datetime import datetime
+
+import logging
+from logging.handlers import RotatingFileHandler
 
 router = APIRouter(
     prefix="/course",
     tags=["course"]
 )
 
+log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'recommendation_logs.jsonl')
+logger = logging.getLogger("recommendation_logger")
+logger.setLevel(logging.INFO)
+
+handler = RotatingFileHandler(log_file_path, maxBytes=5*1024*1024, backupCount=2)
+logger.addHandler(handler)
+
+def get_data_loader():
+    return load_cached_courses
+
+def get_llm_recommender_factory():
+    return LLMRecommender
+
+def get_cos_sim_filter_factory():
+    return CosSimFilter
+
+def get_openai_api_key():
+    return os.getenv('OPENAI_API_KEY')
+
 @router.post("/recommend")
-async def recommend(request: CourseRecommendationRequest):
+async def recommend(request: CourseRecommendationRequest,
+                    data_loader=Depends(get_data_loader),
+                    llm_recommender_factory=Depends(get_llm_recommender_factory),
+                    cos_sim_filter_factory=Depends(get_cos_sim_filter_factory),
+                    openai_api_key: str = Depends(get_openai_api_key),
+                    ):
                     #current_user: User = Depends(require_auth)):
     #print("Current user is: ", current_user.net_id)
     # To test, use the following curl command:
@@ -59,10 +87,18 @@ async def recommend(request: CourseRecommendationRequest):
     load_dotenv()
     yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
     openai_api_key = os.getenv('OPENAI_API_KEY')
+    if openai_api_key is None:
+        openai_api_key = "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"
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
-    number_of_courses_to_recommend = int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND'))
+    number_of_courses_to_recommend = os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND')
+    if number_of_courses_to_recommend is None:
+        number_of_courses_to_recommend = 20
+    number_of_courses_to_recommend = int(number_of_courses_to_recommend)
 
     use_precomputed_embeddings = os.getenv('USE_PRECOMPUTED_EMBEDDINGS')
+
+    if use_cos_sim_filtering is None:
+        use_precomputed_embeddings = True
 
     print("The received request is: ", request)
     print("yale_course_search_api_key: ", yale_course_search_api_key)
@@ -107,7 +143,7 @@ async def recommend(request: CourseRecommendationRequest):
 
     #Step 2: Filter to reduce context length based to relevance of the careerGoals
 
-    loaded_cached_courses = load_cached_courses(request.semester)
+    loaded_cached_courses = data_loader(request.semester)
     loaded_cached_courses = search_and_filter.filter_course_by_time(loaded_cached_courses, start_time, end_time, taken_courses)
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
@@ -120,7 +156,7 @@ async def recommend(request: CourseRecommendationRequest):
     print("JSON after step 2.1 has department key: ", check_if_element_in_json_has_department_key(loaded_cached_courses))
     # Step 2.2: Use cosine similarity on text embeddings (Xiatao)
     cos_sim_start_time = time.time()
-    cos_sim_filter = CosSimFilter(openai_api_key=openai_api_key, use_precomputed_embeddings=use_precomputed_embeddings)
+    cos_sim_filter = cos_sim_filter_factory(openai_api_key=openai_api_key, use_precomputed_embeddings=use_precomputed_embeddings)
 
     cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        loaded_cached_courses,
@@ -144,8 +180,10 @@ async def recommend(request: CourseRecommendationRequest):
     # Transform cos_sim_filtered_courses into a JSON string
 
     # Initialize the LLM for final output
-    llm = LLMRecommender(openai_api_key=openai_api_key, course_list=cos_sim_filtered_courses)
-    distributional_llm = LLMRecommender(openai_api_key=openai_api_key, course_list=distributional_cos_sim_filtered_courses, if_distributional=True)
+    llm = llm_recommender_factory(openai_api_key=openai_api_key, course_list=cos_sim_filtered_courses)
+    distributional_llm = llm_recommender_factory(openai_api_key=openai_api_key,
+                                                 course_list=distributional_cos_sim_filtered_courses,
+                                                 if_distributional=True)
 
     try:
         # Get LLM recommendations based on the filtered courses and user request
@@ -184,7 +222,23 @@ async def recommend(request: CourseRecommendationRequest):
     # Remove duplicate courses in the recommended courses
     llm_recommended_courses_with_reduced_fields = reduce_duplicate_courses(llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields)
     distributional_llm_recommended_courses_with_reduced_fields = reduce_duplicate_courses(distributional_llm_recommended_courses_with_reduced_fields, llm_recommended_courses_with_reduced_fields)
+
+    response_output = (
+        llm_recommended_courses_with_reduced_fields,
+        llm_recommended_non_conflicting_schedule_with_reduced_fields,
+        distributional_llm_recommended_courses_with_reduced_fields
+    )
+
+    # Log the request and response
+    log_entry = {
+        "timestamp": datetime.utcnow().isoformat(),
+        "user_input": request.dict(),
+        "response_output": response_output,
+    }
+    logger.info(json.dumps(log_entry))
+
     print("Total time taken: ", time.time() - search_start_time)
+
     return llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields, distributional_llm_recommended_courses_with_reduced_fields
 
 def check_if_element_in_json_has_department_key(json):
@@ -222,6 +276,8 @@ def reduce_duplicate_courses(courses_A: List[dict], courses_B: List[dict]):
     courses_A_set = set(course['courseNumber'] for course in courses_A)
     courses_B_set = set(course['courseNumber'] for course in courses_B)
     return [course for course in courses_A if course['courseNumber'] not in courses_B_set]
+
+
 
 # schedule_preferences = SchedulePreferences(
 #     earliestStartTime="08:00 AM",

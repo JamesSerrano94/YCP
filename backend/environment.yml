@@ -2,6 +2,7 @@ name: yccp
 channels:
   - conda-forge
 dependencies:
+  - coverage=7.6.6
   - python=3.12.6
   - authlib=1.3.0
   - email-validator=2.2.0
