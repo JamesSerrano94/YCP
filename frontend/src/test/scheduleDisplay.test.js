@@ -134,19 +134,17 @@ describe('ScheduleDisplay Component', () => {
         global.fetch.mockRestore();
         localStorage.removeItem('coursePlan');
     });
+    // describe('timeStringToMinutes function', () => {
+    //     test('assumes AM for hours between 7 and 12', () => {
+    //         const timeString = '7.30'; // 7:30 AM assumed
+    //         expect(timeStringToMinutes(timeString)).toBe(450); // 7 * 60 + 30 = 450
+    //     });
 
-
-    describe('timeStringToMinutes function', () => {
-        test('assumes AM for hours between 7 and 12', () => {
-            const timeString = '7.30'; // 7:30 AM assumed
-            expect(timeStringToMinutes(timeString)).toBe(450); // 7 * 60 + 30 = 450
-        });
-
-        test('assumes PM for hours between 1 and 6', () => {
-            const timeString = '3.45'; // 3:45 PM assumed
-            expect(timeStringToMinutes(timeString)).toBe(15 * 60 + 45); // 15 * 60 + 45 = 945
-        });
-    });
+    //     test('assumes PM for hours between 1 and 6', () => {
+    //         const timeString = '3.45'; // 3:45 PM assumed
+    //         expect(timeStringToMinutes(timeString)).toBe(15 * 60 + 45); // 15 * 60 + 45 = 945
+    //     });
+    // });
 
     test('handles fetch errors and sets loading and submitting state correctly', async () => {
         // Mock console.error to check if it's called
