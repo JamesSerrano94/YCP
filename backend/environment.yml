@@ -19,3 +19,5 @@ dependencies:
   - uvicorn=0.30.6
   - python-levenshtein
   - pytest
+  - pdf2text
+  - PyPDF2
