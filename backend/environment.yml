@@ -2,6 +2,7 @@ name: yccp
 channels:
   - conda-forge
 dependencies:
+  - pip=21.0.1
   - coverage=7.6.6
   - python=3.12.6
   - authlib=1.3.0
@@ -19,5 +20,7 @@ dependencies:
   - uvicorn=0.30.6
   - python-levenshtein
   - pytest
-  - pdf2text
-  - PyPDF2
+  - pip:
+    - pdf2text
+    - PyPDF2
+
