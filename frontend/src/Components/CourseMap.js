@@ -341,7 +341,7 @@ function CourseMap(props) {
           ></textarea>
 
           {/* Uncomment the following block if you want to include PDF upload functionality */}
-          {/* 
+          
           <div className="upload-container">
             <div className="upload-text">Upload your transcript PDF for automatic input of prior courses</div>
             <label
@@ -357,7 +357,7 @@ function CourseMap(props) {
             </label>
             <input id="file-upload" type="file" onChange={handlePdfUpload} />
           </div>
-          */}
+         
 
           <div className="plan-button-container">
             <button className="plan-button" onClick={handlePlanClick}>

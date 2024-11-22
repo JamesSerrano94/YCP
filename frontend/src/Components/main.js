@@ -35,13 +35,36 @@ export default function MainPage() {
     courseMapRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handlePdfUpload = (e) => {
+  const handlePdfUpload = async (e) => {
     const file = e.target.files[0];
     if (file && file.type === "application/pdf") {
       setPdfFile(file);
+      
+      const formData = new FormData();
+      formData.append('transcript', file);
+  
+      try {
+        const response = await fetch(`${apiUrl}/transcript/upload`, {
+          method: 'POST',
+          credentials: 'include',
+          body: formData
+        });
+        
+        if (!response.ok) {
+          throw new Error('Upload failed');
+        }
+        
+        const data = await response.json();
+        // Update priorCourses with the parsed courses
+        setPriorCourses(data.courses.join(', '));
+      } catch (error) {
+        console.error('Error uploading transcript:', error);
+        alert("Failed to process transcript. Please try entering courses manually.");
+        setPdfFile(null);
+      }
     } else {
       setPdfFile(null);
-      alert("Please upload a valid PDF file");
+      alert("Please upload a valid PDF file:)");
     }
   };
 

@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import uvicorn
 import os
 from backend.app.routers import course, login
+from backend.app.routers import transcript
 from fastapi.middleware.cors import CORSMiddleware
 
 # Load environment variables
@@ -45,7 +46,7 @@ app.add_middleware(
 # Include routers
 app.include_router(course.router)
 app.include_router(login.router)
-
+app.include_router(transcript.router)
 # Define a root endpoint
 @app.get("/")
 async def root():
