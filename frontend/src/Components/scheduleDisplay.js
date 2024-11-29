@@ -77,7 +77,7 @@ const ScheduleDisplay = () => {
         setIsSubmitting(false);
         alert('The request is taking too long. Please try again later.');
         navigate('/'); // Redirect to the main page
-      }, 60000); // 1 minute timeout
+      }, 300000); // 5 minute timeout
 
       fetch(`${apiUrl}/course/recommend`, {
         method: 'POST',

@@ -82,7 +82,7 @@ export default function MainPage() {
       setIsLoading(false);
       alert("The request is taking too long. Please try again later.");
       navigate('/'); // Redirect to the main page
-    }, 120000); // 2 minute timeout
+    }, 300000); // 5 minute timeout
 
     // Send POST request to the API
     fetch(`${apiUrl}/course/recommend`, {
