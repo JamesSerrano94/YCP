@@ -49,7 +49,7 @@ Example Output:
 - Meeting Time: "MWF 10.30-11.20"
 - Explanation: "This is an introductory course in computer science that is directly related to a software engineer's role. It is a course that teaches you the basics of computer science and programming."
 
-Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses.
+The example above only show the format of the output. These two courses might not be available in the given course list. Now, given the JSON dataset and user preferences, recommend the most _number_of_courses_to_recommend_for_llm suitable courses.
 
 You are not allowed to output anything else besides the required format. And your answer should strictly follow the example output format.
 """
