@@ -3,6 +3,8 @@
 
 ![Screenshot 2024-09-21 at 5 24 31 PM](https://github.com/user-attachments/assets/7510d73a-5369-4729-8729-0334b69e289a)
 
+
+
 ## Back End Setup
 - Install Conda or Mamba
 - Create the environment
@@ -55,3 +57,53 @@ Please note that all files (such as App.js) that are directly under src are auto
   2. Filter based on time and taken courses
   3. Perform cosine similarity to find suitable courses
   4. Use LLM to finalize the output
+
+## Code Documentation
+
+### Backend
+- `backend/app/main.py`: Entry point for the FastAPI server
+- `backend/app/routers/`: Contains all the routers for the backend
+- `backend/app/routers/course.py`: Router for course recommendation
+- `backend/app/routers/login.py`: Router for user login
+- `backend/app/routers/transcript.py`: Router for transcript parsing
+- `backend/services/`: Contains all the services for the backend
+- `backend/services/cos_sim_filter.py`: Cosine similarity filtering for retrival augmented generation
+- `backend/services/llm_recommender.py`: LLM recommender using OpenAI API
+- `backend/models/`: Contains all the data models for the backend
+- `backend/models/course.py`: Data model for course recommendation request
+- `backend/models/login.py`: Data model for user login
+- `backend/tests/`: Contains test files for backend functionality
+
+### Frontend
+- `frontend/src/`: Contains React application source code
+- `frontend/src/components/`: React components
+- `frontend/src/tests/`: Test files using Jest and React Testing Library
+
+
+### Tests
+- Backend tests use pytest framework with coverage reporting
+- Frontend tests use Jest and React Testing Library
+- Mock services are implemented for external API dependencies
+- Integration tests ensure end-to-end functionality
+
+
+## Project Structure
+
+```
+yale-course-planner/
+├── backend/                  # Backend FastAPI application
+│   ├── app/                 # Main application code
+│   │   ├── main.py         # FastAPI entry point
+│   │   ├── routers/        # API route handlers
+│   │   └── services/       # Business logic services
+│   ├── models/             # Data models and schemas
+│   ├── tests/              # Backend test files
+│   └── environment.yml     # Conda environment specification
+├── frontend/               # React frontend application
+│   ├── src/               # Source code
+│   │   ├── components/    # React components
+│   │   └── tests/        # Frontend test files
+│   ├── package.json       # Node.js dependencies
+│   └── public/           # Static assets
+├── assets/                # Project assets and images
+└── README.md             # Project documentation
