@@ -8,7 +8,7 @@ dependencies:
   - email-validator=2.2.0
   - fastapi=0.115.0
   - numpy=2.1.1
-  - openai=1.46.1
+  - openai=1.55.3
   - pandas=2.2.2
   - pydantic=2.9.2
   - pylint
@@ -19,8 +19,7 @@ dependencies:
   - uvicorn=0.30.6
   - python-levenshtein
   - pytest
+  - PyPDF2
   - pip
   - pip:
     - pdf2text
-    - PyPDF2
-
