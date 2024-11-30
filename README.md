@@ -134,6 +134,13 @@ Here is the markdown table for the coverage results shown in the image:
   3. Perform cosine similarity to find suitable courses
   4. Use LLM to finalize the output
 
+## Tech Stack Used:
+
+Frontend: React.js, JavaScript, CSS
+Backend: Python with FastAPI
+CI/CD: GitHub Actions
+Deployment: AWS EC2, Nginx
+
 ## Code Documentation
 
 ### Backend
