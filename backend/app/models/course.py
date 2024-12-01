@@ -35,3 +35,9 @@ class CourseRecommendationRequest(BaseModel):
     careerGoals: str
     fulfilledRequirements: FulfilledRequirements
     needDistributionals: NeededDistributionals
+
+class SearchInfo(BaseModel):
+    semester: str
+    department: str
+    courseNumber: str
+    coursetitle: str

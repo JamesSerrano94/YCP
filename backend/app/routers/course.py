@@ -12,6 +12,7 @@ from backend.app.routers.cached_course_loader import load_cached_courses
 from backend.app.services import search_and_filter
 from backend.app.services.cos_sim_filter import CosSimFilter
 from backend.app.models.course import CourseRecommendationRequest
+from backend.app.models.course import SearchInfo
 from backend.app.models.course import FulfilledRequirements
 from backend.app.models.course import SchedulePreferences
 from backend.app.configs.api_keys import APIKeysConfig
@@ -240,6 +241,61 @@ async def recommend(request: CourseRecommendationRequest,
     print("Total time taken: ", time.time() - search_start_time)
 
     return llm_recommended_courses_with_reduced_fields, llm_recommended_non_conflicting_schedule_with_reduced_fields, distributional_llm_recommended_courses_with_reduced_fields
+
+@router.get("/search")
+async def search(request: SearchInfo):
+    """
+    curl -X GET "http://localhost:8000/course/search" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "semester": "Fall 2024",
+      "department": "CPSC",
+      "courseNumber": "439",
+      "coursetitle": ""
+    }'
+    """
+    semester_to_file = {
+        "Fall 2024": "combined_course_data_fall_2024.json",
+        "Spring 2025": "combined_course_data_spring_2025.json"
+    }
+    json_file_name = semester_to_file.get(request.semester)
+    current_dir = os.path.dirname(__file__)
+    file_path = os.path.abspath(os.path.join(current_dir, json_file_name))
+
+    department = request.department
+    courseNumber = request.courseNumber
+    coursetitle = request.coursetitle
+
+    with open(file_path, 'r', encoding='utf-8') as json_file:
+        datas = json.load(json_file)
+
+    result = []
+    for data in datas:
+        if (coursetitle != ""):
+            if (data.get("courseTitle") != coursetitle):
+                continue
+        
+        if (department != ""):
+            if (data.get("subjectCode") != department):
+                continue
+        
+        if (courseNumber != ""):
+            if (data.get("courseNumber") != courseNumber):
+                continue
+        
+        response = {
+            "courseTitle": data.get("courseTitle"),
+            "courseTime": data.get("meetingPattern",[]),
+            "fulfilledDistributional": data.get("distDesg", []),
+            "courseDescription": data.get("description"),
+            "recommendReason": ""
+        }
+
+        result.append(json.dumps(response))
+    
+    return result
+
+
 
 def check_if_element_in_json_has_department_key(json):
     for element in json:
