@@ -272,7 +272,7 @@ async def search(request: SearchInfo):
     result = []
     for data in datas:
         if (coursetitle != ""):
-            if (data.get("courseTitle") != coursetitle):
+            if (coursetitle.lower() not in data.get("courseTitle").lower()):
                 continue
         
         if (department != ""):
