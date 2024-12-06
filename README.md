@@ -65,6 +65,12 @@ Here is the markdown table for the test results and coverage report in the image
 | `backend/tests/unit/test_search_filter.py` | 41    | 0    | 100%     |                              |
 | `backend/tests/unit/test_transcript.py` | 28      | 0    | 100%     |                              |
 
+### Instruction on Adding backend tests
+
+1. Go to the `backend/tests/unit` directory.  
+2. Create a new file named `test_<module>.py`, following the specified format.  
+3. Use the PyTest framework to write your test cases in this file.  
+4. For any sample data required by your tests, add it to the `backend/tests/data` directory.
 
 ## Front End Setup
 - Install Node.js
