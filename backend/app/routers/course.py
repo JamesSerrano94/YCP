@@ -15,7 +15,7 @@ from backend.app.models.course import CourseRecommendationRequest
 from backend.app.models.course import SearchInfo
 from backend.app.models.course import FulfilledRequirements
 from backend.app.models.course import SchedulePreferences
-from backend.app.configs.api_keys import APIKeysConfig
+from backend.app.configs.llm import get_api_key
 from backend.app.services.llm_recommender import LLMRecommender
 from backend.app.routers.login import require_auth
 from backend.app.models.login import User
@@ -23,6 +23,7 @@ from dotenv import load_dotenv
 from datetime import datetime
 
 import logging
+import tempfile
 from logging.handlers import RotatingFileHandler
 
 router = APIRouter(
@@ -30,7 +31,7 @@ router = APIRouter(
     tags=["course"]
 )
 
-log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'recommendation_logs.jsonl')
+log_file_path = os.path.join(tempfile.gettempdir(), 'recommendation_logs.jsonl')
 logger = logging.getLogger("recommendation_logger")
 logger.setLevel(logging.INFO)
 
@@ -47,7 +48,7 @@ def get_cos_sim_filter_factory():
     return CosSimFilter
 
 def get_openai_api_key():
-    return os.getenv('OPENAI_API_KEY')
+    return os.getenv('GEMINI_API_KEY')
 
 @router.post("/recommend")
 async def recommend(request: CourseRecommendationRequest,
@@ -86,10 +87,7 @@ async def recommend(request: CourseRecommendationRequest,
     search_start_time = time.time()
 
     load_dotenv()
-    yale_course_search_api_key = os.getenv('YALE_COURSE_SEARCH_API_KEY')
-    openai_api_key = os.getenv('OPENAI_API_KEY')
-    if openai_api_key is None:
-        openai_api_key = "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"
+    openai_api_key = get_api_key()  # Gemini key, from the environment
     use_cos_sim_filtering = os.getenv('USE_COS_SIM_FILTERING')
     number_of_courses_to_recommend = os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND')
     if number_of_courses_to_recommend is None:
@@ -102,8 +100,6 @@ async def recommend(request: CourseRecommendationRequest,
         use_precomputed_embeddings = True
 
     print("The received request is: ", request)
-    print("yale_course_search_api_key: ", yale_course_search_api_key)
-    print("openai_api_key: ", openai_api_key)
     print("use_cos_sim_filtering: ", use_cos_sim_filtering)
     print("number_of_courses_to_recommend: ", number_of_courses_to_recommend)
 
