@@ -2,7 +2,7 @@ import json
 import os
 import re
 from typing import List
-from openai import OpenAI
+from backend.app.configs.llm import CHAT_MODEL, make_client
 
 from backend.app.utils.exceptions import CourseNumberNotFoundError, LLMRecommenderError
 
@@ -129,19 +129,21 @@ def list_to_json(list_data: List[str], remove_embedding: bool = True, remove_cos
 
 class LLMRecommender:
     def __init__(self, openai_api_key: str, course_list: List[dict], if_distributional: bool = False):
-        self.client = OpenAI(api_key=openai_api_key)
+        self.client = make_client(openai_api_key)
         self.course_list = course_list  # Store the course list
         self.messages = []
 
         # Initialize the conversation
         course_text = list_to_json(course_list)
+        n_courses = str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM', '10')))
         if if_distributional:
-            self.system_prompt = distributional_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))
+            self.system_prompt = distributional_prompt.replace("_number_of_courses_to_recommend_for_llm", n_courses)
         else:
-            self.system_prompt = system_prompt.replace("_number_of_courses_to_recommend_for_llm", str(int(os.getenv('NUMBER_OF_COURSES_TO_RECOMMEND_FOR_LLM'))))
+            self.system_prompt = system_prompt.replace("_number_of_courses_to_recommend_for_llm", n_courses)
+        # Gemini wants the conversation to start with the user, so the course
+        # dataset goes in the system prompt instead of an assistant message.
         self.messages = [
-            {"role": "system", "content": self.system_prompt},
-            {"role": "assistant", "content": f"The JSON dataset of courses is as follows:\n{course_text}"}
+            {"role": "system", "content": f"{self.system_prompt}\n\nThe JSON dataset of courses is as follows:\n{course_text}"},
         ]
 
     def get_course_recommendations(self, major: str, career_goals: List[str], fulfilled_requirements: List[str], distribution_designations: List[str]) -> List[dict]:
@@ -155,12 +157,12 @@ class LLMRecommender:
         self.messages.append({"role": "user", "content": additional_info})
 
         # Multiple retries to get a valid response
-        MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER'))
+        MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER', '3'))
         try:
             for attempt in range(MAX_RETRIES):
                 # Call the OpenAI API to get the response
                 response = self.client.chat.completions.create(
-                    model="gpt-4o", #  We can use gpt-4o-mini if we want to save money.
+                    model=CHAT_MODEL,
                     messages=self.messages,
                     max_tokens=2000,
                     n=1,
@@ -177,6 +179,11 @@ class LLMRecommender:
                 # Parse the course information from the reply
                 try:
                     recommended_course_list = self.parse_course_info(reply)
+                    if not recommended_course_list:
+                        self.messages.append({
+                        "role": "user",
+                        "content": "Please answer again using exactly the required output format."})
+                    continue
                     return recommended_course_list
                 except CourseNumberNotFoundError as e:
                     print("Missing course number: ", e.missing_course_number)
@@ -235,6 +242,8 @@ class LLMRecommender:
 
         
     def parse_course_info(self, text):
+        # Gemini sometimes wraps field names in markdown bold (**...**).
+        text = text.replace('**', '')
         # Adjusted pattern to match each course block
         course_pattern = re.compile(
             r'^\s*\d+\.\s*$'            # Match the course number line
