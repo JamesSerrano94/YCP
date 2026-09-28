@@ -1,0 +1,3 @@
+# Tells Vercel where the FastAPI app lives.
+[tool.vercel]
+entrypoint = "backend.app.main:app"
