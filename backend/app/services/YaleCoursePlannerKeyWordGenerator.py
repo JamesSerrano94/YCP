@@ -1,22 +1,21 @@
-from openai import OpenAI
+
 import os
 from os.path import join, dirname
 from dotenv import load_dotenv
 import json
 import pathlib
+import time
 import tqdm
-
+from openai import RateLimitError
+from backend.app.configs.llm import make_client
 from backend.app.services.cos_sim_filter import CosSimFilter
 #import bigFive
 
 # dotenv_path = join(dirname(__file__), '.env')
 # load_dotenv(dotenv_path)
 #client = OpenAI()
-openai_key = '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'
-client = OpenAI(
-    api_key=openai_key
-)
-
+load_dotenv()  # reads GEMINI_API_KEY from backend/.env
+client = make_client()
 file_pairs = [
     {
         'input': 'combined_course_data_fall_2024.json',
@@ -35,7 +34,7 @@ curr_dir = str(pathlib.Path(__file__).parent.parent.absolute()) + "/routers/"
 
 print("current path: ", curr_dir)
 
-cos_sim_filter = CosSimFilter(openai_api_key=openai_key)
+cos_sim_filter = CosSimFilter()
 
 for file_pair in tqdm.tqdm(file_pairs):
     input_file = curr_dir + file_pair['input']
@@ -122,13 +121,23 @@ for file_pair in tqdm.tqdm(file_pairs):
     #for i in range(0, len(course_texts), embedding_batch_size):
     for i in tqdm.tqdm(range(0, len(course_texts), embedding_batch_size)):
         batch_texts = course_texts[i:i + embedding_batch_size]
-        batch_embeddings = cos_sim_filter.get_embeddings(batch_texts)
+        for attempt in range(6):
+            try:
+                batch_embeddings = cos_sim_filter.get_embeddings(batch_texts)
+                break
+            except RateLimitError:
+                # Free tier limit hit: wait a bit longer each time, then retry.
+                wait = 20 * (attempt + 1)
+               print(f"Rate limited, waiting {wait}s...")
+               time.sleep(wait)
         for course_info, embedding in zip(data[i:i + embedding_batch_size], batch_embeddings):
-            course_info['embedding'] = embedding
+            # Rounding keeps the saved file small without changing the rankings.
+            course_info['embedding'] = [round(x, 6) for x in embedding]
+        time.sleep(1)  # stay under the free tier's requests-per-minute limit
 
     # Save the updated data with keywords and embeddings
     with open(output_file, 'w', encoding='utf-8') as json_output:
-        json.dump(data, json_output, ensure_ascii=False, indent=4)
+        json.dump(data, json_output, ensure_ascii=False)
     
     print(f"Processed {input_file} and saved with keywords to {output_file}")
 
@@ -187,7 +196,7 @@ for file_pair in tqdm.tqdm(file_pairs):
 #if None, use Xiotao's method
 
 
-# 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
+
 
 # cont = True #create infinite loop
 # print("Welcome to Psychoanaylsis chatbot. Type 'Goodbye!' to exit")
