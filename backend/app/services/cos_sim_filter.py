@@ -6,20 +6,8 @@ import sys
 import time
 
 import numpy as np
-from openai import OpenAI, embeddings
+from backend.app.configs.llm import EMBEDDING_DIMENSIONS, EMBEDDING_MODEL, make_client
 
-try:
-    from backend.app.configs.api_keys import APIKeysConfig
-except ImportError:
-    # If the import fails, adjust the sys.path to include the parent directory
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    parent_dir = os.path.dirname(os.path.dirname(current_dir))  # Goes up two levels
-    sys.path.append(parent_dir)
-    try:
-        from backend.app.configs.api_keys import APIKeysConfig
-    except ImportError as exc:
-        # If still failing, report error
-        raise ImportError("Cannot import APIKeysConfig") from exc
 
 
 class CosSimFilter:
@@ -28,26 +16,23 @@ class CosSimFilter:
     def __init__(self, openai_api_key=None, use_precomputed_embeddings=False):
 
         self.use_precomputed_embeddings = use_precomputed_embeddings
-
-        if openai_api_key:
-            self.openai_client = OpenAI(api_key=openai_api_key)
-        else:
-            self.api_keys = APIKeysConfig()
-            self.openai_client = OpenAI(api_key=self.api_keys.openai_api)
+        self.openai_client = make_client(openai_api_key)
 
     def get_embedding(self, text):
-        """Get the embedding of the given text using OpenAI API."""
+        """Get the embedding of the given text using Gemini."""
         response = self.openai_client.embeddings.create(
             input=text,
-            model='text-embedding-ada-002'
+            model=EMBEDDING_MODEL,
+            dimensions=EMBEDDING_DIMENSIONS,
         )
         return response.data[0].embedding
 
     def get_embeddings(self, texts):
-        """Get embeddings for a list of texts using the OpenAI API."""
+        """Get embeddings for a list of texts using Gemini."""
         response = self.openai_client.embeddings.create(
             input=texts,
-            model='text-embedding-ada-002'
+            model=EMBEDDING_MODEL,
+            dimensions=EMBEDDING_DIMENSIONS,
         )
         return [data.embedding for data in response.data]
 
