@@ -1,5 +1,5 @@
 // MainPage.js
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './main.css';
 import './courseMap.css';
@@ -68,9 +68,7 @@ export default function MainPage() {
     }
   };
 
-  const handleStartPlanningClick = () => {
-      scrollToCourseMap();
-  };
+
 
   const handlePlanClick = () => {
     if (careerGoals.trim() === "") {
