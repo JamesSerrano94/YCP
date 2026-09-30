@@ -128,8 +128,8 @@ for file_pair in tqdm.tqdm(file_pairs):
             except RateLimitError:
                 # Free tier limit hit: wait a bit longer each time, then retry.
                 wait = 20 * (attempt + 1)
-               print(f"Rate limited, waiting {wait}s...")
-               time.sleep(wait)
+                print(f"Rate limited, waiting {wait}s...")
+                time.sleep(wait)
         for course_info, embedding in zip(data[i:i + embedding_batch_size], batch_embeddings):
             # Rounding keeps the saved file small without changing the rankings.
             course_info['embedding'] = [round(x, 6) for x in embedding]
