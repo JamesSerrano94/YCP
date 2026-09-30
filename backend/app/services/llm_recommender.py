@@ -209,7 +209,7 @@ class LLMRecommender:
             for attempt in range(MAX_RETRIES):
                 # Get LLM response
                 response = self.client.chat.completions.create(
-                    model="CHAT_MODEL",
+                    model=CHAT_MODEL,
                     messages=self.messages,
                     max_tokens=2000,
                     n=1,
