@@ -204,12 +204,12 @@ class LLMRecommender:
         # Add schedule prompt to conversation
         self.messages.append({"role": "user", "content": schedule_prompt})
 
-        MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER'))
+        MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER', '3'))
         try:
             for attempt in range(MAX_RETRIES):
                 # Get LLM response
                 response = self.client.chat.completions.create(
-                    model="gpt-4o",
+                    model="CHAT_MODEL",
                     messages=self.messages,
                     max_tokens=2000,
                     n=1,
