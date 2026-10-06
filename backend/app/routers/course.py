@@ -130,9 +130,9 @@ async def recommend(request: CourseRecommendationRequest,
     print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
 
     start_time = search_and_filter.convert_time_format(request.schedulePreferences.earliestStartTime)
-    print(start_time)
+    print("start time is ", start_time)
     end_time = search_and_filter.convert_time_format(request.schedulePreferences.latestEndTime)
-    print(end_time)
+    print("end time is ",end_time)
     taken_courses = search_and_filter.get_taken_courses(request.fulfilledRequirements)
 
     ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
