@@ -71,6 +71,7 @@ export default function MainPage() {
 
 
   const handlePlanClick = () => {
+    console.log("Handle plan click worked");
     if (careerGoals.trim() === "") {
       alert("Please fill out your career goals.");
       return;
