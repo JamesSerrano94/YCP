@@ -174,6 +174,7 @@ async def recommend(request: CourseRecommendationRequest,
                                                                                                        distributional_courses, 
                                                                                                        n=number_of_courses_to_recommend)
     # Step 3: Parse into LLM for final output (Yangtian)
+    print("STEP 3)
     # Transform cos_sim_filtered_courses into a JSON string
 
     # Initialize the LLM for final output
