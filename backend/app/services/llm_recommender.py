@@ -159,9 +159,12 @@ class LLMRecommender:
         # Append the user's message to the conversation
         additional_info = f"Major: {major}\nCareer Goals: {career_goals}\nFulfilled Requirements: {fulfilled_requirements}\nDistribution Designations: {distribution_designations}"
         self.messages.append({"role": "user", "content": additional_info})
+        print("WE got HERE")
 
         # Multiple retries to get a valid response
         MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER', '3'))
+        print("No WE got HERE")
+        print("messages", self.messages)
         try:
             for attempt in range(MAX_RETRIES):
                 # Call the OpenAI API to get the response
