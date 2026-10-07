@@ -192,7 +192,7 @@ class LLMRecommender:
                         self.messages.append({
                         "role": "user",
                         "content": "Please answer again using exactly the required output format."})
-                    continue
+                        continue
                     return recommended_course_list
                 except CourseNumberNotFoundError as e:
                     print("Missing course number: ", e.missing_course_number)
