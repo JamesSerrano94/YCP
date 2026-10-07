@@ -179,13 +179,14 @@ class LLMRecommender:
 
                 # Extract the assistant's reply
                 reply = response.choices[0].message.content.strip()
-                print(reply)
+                print("Reply is ",reply)
                 # Append the assistant's message to the conversation
                 self.messages.append({"role": "assistant", "content": reply})
 
                 # Parse the course information from the reply
                 try:
                     recommended_course_list = self.parse_course_info(reply)
+                    print("recommended course list", recommended_course_list)
                     if not recommended_course_list:
                         self.messages.append({
                         "role": "user",
