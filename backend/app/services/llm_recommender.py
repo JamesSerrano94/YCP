@@ -163,7 +163,7 @@ class LLMRecommender:
 
         # Multiple retries to get a valid response
         MAX_RETRIES = int(os.getenv('MAX_RETRIES_FOR_LLM_RECOMMENDER', '3'))
-        print("No WE got HERE")
+        print("No WE got HERE", CHAT_MODEL)
         print("messages", self.messages)
         try:
             for attempt in range(MAX_RETRIES):
