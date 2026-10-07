@@ -147,6 +147,10 @@ class LLMRecommender:
         ]
 
     def get_course_recommendations(self, major: str, career_goals: List[str], fulfilled_requirements: List[str], distribution_designations: List[str]) -> List[dict]:
+        print("GET CORUSE RECOMMENDATIONS major is ", major)
+        print("career goals is ", career_goals)
+        print("fulfilled_requirements ", fulfilled_requirements)
+        print("distribution_designations ", distribution_designations)
         # If the course list is empty, return empty list
         if len(self.course_list) == 0:
             print("The given course list is empty. Returning empty list.")
