@@ -207,7 +207,7 @@ async def recommend(request: CourseRecommendationRequest,
         llm_recommended_non_conflicting_schedule = llm.recommend_non_conflicting_schedule()
         print("check llm_recommended_non_conflicting_schedule")
     except Exception as e:
-        print("an exception has been raised!")
+        print("an exception has been raised!", e)
         raise HTTPException(status_code=500, detail=f"An error occurred: {e}")
     
     
