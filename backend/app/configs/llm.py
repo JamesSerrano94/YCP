@@ -21,7 +21,7 @@ GEMINI_BASE_URL = os.getenv(
 
 # Free-tier text model. Change it with the GEMINI_CHAT_MODEL variable if Google
 # retires this one.
-CHAT_MODEL = os.getenv("GEMINI_CHAT_MODEL", "gemini-3.8-flash")
+CHAT_MODEL = os.getenv("GEMINI_CHAT_MODEL", "gemini-3.5-flash-lite")
 
 # Text embedding model. 768 dimensions keeps the precomputed course file small.
 EMBEDDING_MODEL = os.getenv("GEMINI_EMBEDDING_MODEL", "gemini-embedding-001")
