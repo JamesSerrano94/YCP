@@ -187,12 +187,14 @@ async def recommend(request: CourseRecommendationRequest,
 
     try:
         # Get LLM recommendations based on the filtered courses and user request
+        print("Try 1")
         llm_recommended_courses = llm.get_course_recommendations(
             request.major,
             request.careerGoals,
             request.fulfilledRequirements,
             request.needDistributionals
         )
+        print("Try 2")
         distributional_llm_recommended_courses = distributional_llm.get_course_recommendations(
             request.major,
             request.careerGoals,
