@@ -171,10 +171,11 @@ class LLMRecommender:
                 response = self.client.chat.completions.create(
                     model=CHAT_MODEL,
                     messages=self.messages,
-                    max_tokens=2000,
+                    max_tokens=8000,
                     n=1,
                     #stop=None,
                     temperature=0.5,
+                    extra_body={"reasoning_effort": "low"},
                 )
 
                 # Extract the assistant's reply
@@ -219,10 +220,11 @@ class LLMRecommender:
                 response = self.client.chat.completions.create(
                     model=CHAT_MODEL,
                     messages=self.messages,
-                    max_tokens=2000,
+                    max_tokens=8000,
                     n=1,
                     #stop=None,
                     temperature=0.5,
+                    extra_body={"reasoning_effort": "low"},
                 )
 
                 # Process response
