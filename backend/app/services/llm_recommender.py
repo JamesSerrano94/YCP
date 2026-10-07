@@ -173,7 +173,7 @@ class LLMRecommender:
                     messages=self.messages,
                     max_tokens=2000,
                     n=1,
-                    stop=None,
+                    #stop=None,
                     temperature=0.5,
                 )
 
@@ -220,7 +220,7 @@ class LLMRecommender:
                     messages=self.messages,
                     max_tokens=2000,
                     n=1,
-                    stop=None,
+                    #stop=None,
                     temperature=0.5,
                 )
 
