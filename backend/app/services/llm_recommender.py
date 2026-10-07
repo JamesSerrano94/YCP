@@ -187,7 +187,7 @@ class LLMRecommender:
                 # Parse the course information from the reply
                 try:
                     recommended_course_list = self.parse_course_info(reply)
-                    print("recommended course list", recommended_course_list)
+                    #print("recommended course list", recommended_course_list)
                     if not recommended_course_list:
                         self.messages.append({
                         "role": "user",
