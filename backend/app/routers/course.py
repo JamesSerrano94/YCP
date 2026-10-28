@@ -50,6 +50,34 @@ def get_cos_sim_filter_factory():
 def get_openai_api_key():
     return os.getenv('GEMINI_API_KEY')
 
+def oneOptionFilled(option, taken_courses):
+    for op in range(option):
+        found = True
+        if len(op) == 0:
+            continue
+        for i in range(op):
+            if op[i] not in taken_courses:
+                found = False
+        if found == True:
+            return True
+    return False
+
+def filter_by_prereqs(loaded_cached_courses, taken_courses):
+    if len(taken_courses) == 0:
+        return loaded_cached_courses
+    i = 0
+    while i < len(loaded_cached_courses):
+        removed = False
+        course = loaded_cached_courses[i]
+        if course["realPrerequisites"] and course["realPrerequisites"]["options"]:
+            if not oneOptionFilled(real["options"], taken_courses):
+                removed = True
+                loaded_cached_courses[i].remove(course)
+        if not removed:
+            i = i + 1
+    return loaded_cached_courses
+        
+
 @router.post("/recommend")
 async def recommend(request: CourseRecommendationRequest,
                     data_loader=Depends(get_data_loader),
@@ -111,8 +139,8 @@ async def recommend(request: CourseRecommendationRequest,
     ## following are for all course data for a specific semester
     script_dir = os.path.dirname(os.path.abspath(__file__))
     semester_to_file = {
-        "Fall 2024": "combined_course_data_fall_2024.json",
-        "Spring 2025": "combined_course_data_spring_2025.json"
+        "Fall 2024": "prereqs_fall_2024.json",
+        "Spring 2025": "prereqs_spring_2025.json"
     }
     semester = request.semester if request.semester else None
     json_file_name = semester_to_file.get(semester)
@@ -142,6 +170,7 @@ async def recommend(request: CourseRecommendationRequest,
 
     loaded_cached_courses = data_loader(request.semester)
     loaded_cached_courses = search_and_filter.filter_course_by_time(loaded_cached_courses, start_time, end_time, taken_courses)
+    loaded_cached_courses = filter_by_prereqs(loaded_cached_courses, taken_courses)
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
     # Need to replace this with actual search and keyword filtering
@@ -159,6 +188,7 @@ async def recommend(request: CourseRecommendationRequest,
                                                                                                        loaded_cached_courses,
                                                                                                        n=number_of_courses_to_recommend)
 
+
     print("Cosine similarity filtering took: ", time.time() - cos_sim_start_time)
     print("JSON after step 2.2 has department key: ", check_if_element_in_json_has_department_key(cos_sim_filtered_courses))
 
@@ -170,9 +200,15 @@ async def recommend(request: CourseRecommendationRequest,
                                                                               request.needDistributionals.writing,
                                                                               request.needDistributionals.language)
     distributional_courses = search_and_filter.filter_course_by_time(distributional_courses, start_time, end_time, taken_courses)
+    distributional_courses = filter_by_prereqs(distributional_courses, taken_courses)
     distributional_cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        distributional_courses, 
                                                                                                        n=number_of_courses_to_recommend)
+    #STEP 2.3 TODO filter out courses that don't have prereq. Take courses, if prereq isnt listed in prereq, remove it
+    #cos_sim_filtered_courses = remove_prereq(cos_sim_filtered_courses)
+    #distributional_cos_sim_filtered_courses = remove_prereq(distributional_cos_sim_filtered_courses)
+
+                        
     # Step 3: Parse into LLM for final output (Yangtian)
     print("STEP 3")
     # Transform cos_sim_filtered_courses into a JSON string
