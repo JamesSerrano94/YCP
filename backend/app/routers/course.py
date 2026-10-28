@@ -170,6 +170,7 @@ async def recommend(request: CourseRecommendationRequest,
 
     loaded_cached_courses = data_loader(request.semester)
     loaded_cached_courses = search_and_filter.filter_course_by_time(loaded_cached_courses, start_time, end_time, taken_courses)
+    print("taken courses is", taken_courses)
     loaded_cached_courses = filter_by_prereqs(loaded_cached_courses, taken_courses)
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
