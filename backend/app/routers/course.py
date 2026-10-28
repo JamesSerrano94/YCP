@@ -69,9 +69,9 @@ def filter_by_prereqs(loaded_cached_courses, taken_courses):
     while i < len(loaded_cached_courses):
         removed = False
         course = loaded_cached_courses[i]
-        print("course is", course)
+        
         if course["realPrerequisites"] and course["realPrerequisites"]["options"]:
-            if not oneOptionFilled(real["options"], taken_courses):
+            if not oneOptionFilled(course["realPrerequisites"]["options"], taken_courses):
                 removed = True
                 loaded_cached_courses[i].remove(course)
         if not removed:
@@ -163,6 +163,7 @@ async def recommend(request: CourseRecommendationRequest,
     end_time = search_and_filter.convert_time_format(request.schedulePreferences.latestEndTime)
     print("end time is ",end_time)
     taken_courses = search_and_filter.get_taken_courses(request.fulfilledRequirements)
+    
 
     ###### Step 1 complete, df will be the filtered courses based on major, time, and taken courses ######
     #print("JSON after step 1 has department key: ", check_if_element_in_json_has_department_key(json.loads(output_json)))
