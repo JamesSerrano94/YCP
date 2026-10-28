@@ -70,11 +70,12 @@ def filter_by_prereqs(loaded_cached_courses, taken_courses):
         removed = False
         course = loaded_cached_courses[i]
         print("A")
-        if course["realPrerequisites"] and course["realPrerequisites"]["options"]:
-            print("B")
-            if not oneOptionFilled(course["realPrerequisites"]["options"], taken_courses):
-                removed = True
-                loaded_cached_courses[i].remove(course)
+        if course["realPrerequisites"]:
+            if course["realPrerequisites"]["options"]:
+                print("B")
+                if not oneOptionFilled(course["realPrerequisites"]["options"], taken_courses):
+                    removed = True
+                    loaded_cached_courses[i].remove(course)
         if not removed:
             i = i + 1
     return loaded_cached_courses
