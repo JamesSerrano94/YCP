@@ -70,9 +70,10 @@ def filter_by_prereqs(loaded_cached_courses, taken_courses):
         removed = False
         course = loaded_cached_courses[i]
         print("A")
-        if course["realPrerequisites"]:
+        real = course.get("realPrerequisites")
+        if real:
             print("B", course["realPrerequisites"])
-            if course["realPrerequisites"]["options"]:
+            if real.get("options"):
                 print("C")
                 if not oneOptionFilled(course["realPrerequisites"]["options"], taken_courses):
                     removed = True
@@ -154,6 +155,9 @@ async def recommend(request: CourseRecommendationRequest,
 
     # Construct the path to your JSON file
     json_file_path = os.path.join(script_dir, json_file_name)
+    # print("prereqs")
+    # prereqs = {c["subjectNumber"]: c["realPrerequisites"] for c in data}
+    # print("prereqs success")
     print(json_file_path)
 
     # Open and load the JSON file using the relative path
@@ -177,7 +181,7 @@ async def recommend(request: CourseRecommendationRequest,
     loaded_cached_courses = search_and_filter.filter_course_by_time(loaded_cached_courses, start_time, end_time, taken_courses)
     print("taken courses is", taken_courses, len(loaded_cached_courses))
     loaded_cached_courses = filter_by_prereqs(loaded_cached_courses, taken_courses)
-    print("loaded_cached_courses", loaded_cached_courses, taken_courses)
+    #print("loaded_cached_courses", loaded_cached_courses, taken_courses)
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
     # Need to replace this with actual search and keyword filtering
