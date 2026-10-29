@@ -50,34 +50,34 @@ def get_cos_sim_filter_factory():
 def get_openai_api_key():
     return os.getenv('GEMINI_API_KEY')
 
-def oneOptionFilled(option, taken_courses):
-    for op in range(option):
-        found = True
+def oneOptionFilled(options, taken_courses):
+    for op in options:                      # each way to qualify, e.g. ["CPSC 202", "CPSC 323"]
         if len(op) == 0:
             continue
-        for i in range(op):
-            if op[i] not in taken_courses:
+        found = True
+        for code in op:                     # each course needed for that way
+            if code.replace(" ", "").upper() not in taken_courses:
                 found = False
         if found == True:
             return True
     return False
 
-def filter_by_prereqs(loaded_cached_courses, taken_courses):
+def filter_by_prereqs(loaded_cached_courses, taken_courses, prereqs):
     if len(taken_courses) == 0:
         return loaded_cached_courses
+    taken_courses = [t.replace(" ", "").upper() for t in taken_courses]   # "math 225" -> "MATH225"
     i = 0
     while i < len(loaded_cached_courses):
         removed = False
         course = loaded_cached_courses[i]
-        print("A")
-        real = course.get("realPrerequisites")
-        if real:
-            print("B", course["realPrerequisites"])
+        real = prereqs.get(course["subjectNumber"])
+        # Recommended-only courses don't block. Delete "and not real.get(...)" if you want them to.
+        if real and not real.get("recommended_only"):
             if real.get("options"):
-                print("C")
-                if not oneOptionFilled(course["realPrerequisites"]["options"], taken_courses):
+                if not oneOptionFilled(real["options"], taken_courses):
+                    print("Removing", course["subjectNumber"], "needs one of", real["options"])
                     removed = True
-                    loaded_cached_courses.remove(course)
+                    loaded_cached_courses.pop(i)
         if not removed:
             i = i + 1
     return loaded_cached_courses
@@ -163,6 +163,7 @@ async def recommend(request: CourseRecommendationRequest,
     # Open and load the JSON file using the relative path
     with open(json_file_path, 'r', encoding='utf-8') as json_file:
         data = json.load(json_file)
+        prereqs = {c["subjectNumber"]: c["realPrerequisites"] for c in data}
     print("Search result from Yale Course Search API has department key: ", check_if_element_in_json_has_department_key(data))
 
     start_time = search_and_filter.convert_time_format(request.schedulePreferences.earliestStartTime)
@@ -180,7 +181,7 @@ async def recommend(request: CourseRecommendationRequest,
     loaded_cached_courses = data_loader(request.semester)
     loaded_cached_courses = search_and_filter.filter_course_by_time(loaded_cached_courses, start_time, end_time, taken_courses)
     print("taken courses is", taken_courses, len(loaded_cached_courses))
-    loaded_cached_courses = filter_by_prereqs(loaded_cached_courses, taken_courses)
+    loaded_cached_courses = filter_by_prereqs(loaded_cached_courses, taken_courses, prereqs)
     #print("loaded_cached_courses", loaded_cached_courses, taken_courses)
 
     # This is a placeholder JSON when the search and keyworld filtering is not implemented
@@ -211,7 +212,7 @@ async def recommend(request: CourseRecommendationRequest,
                                                                               request.needDistributionals.writing,
                                                                               request.needDistributionals.language)
     distributional_courses = search_and_filter.filter_course_by_time(distributional_courses, start_time, end_time, taken_courses)
-    distributional_courses = filter_by_prereqs(distributional_courses, taken_courses)
+    distributional_courses = filter_by_prereqs(distributional_courses, taken_courses, prereqs)
     distributional_cos_sim_filtered_courses = cos_sim_filter.get_top_n_cos_sim_courses_given_user_input_and_json_data(request.careerGoals, 
                                                                                                        distributional_courses, 
                                                                                                        n=number_of_courses_to_recommend)
